@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שִׁיעוּר 53 — תָּכְנִיּוֹת לַקַּיִץ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ebf1fa;
+      color: #105f93;
+      direction: rtl;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #ece8fd 0%, #ebe8fc 100%);
+      border-bottom: 4px solid #a78bfa;
+      padding: 28px 20px 20px;
+      text-align: center;
+    }
+    header .lesson-num { font-size: 0.9rem; color: #311093; letter-spacing: 3px; margin-bottom: 6px; }
+    header h1 { font-size: 2.1rem; color: #1e293b; margin-bottom: 4px; }
+    header .subtitle { font-size: 1.05rem; color: #271093; margin-bottom: 10px; }
+    header .topic-badge {
+      display: inline-block;
+      background: #a78bfa;
+      color: #1a0a5c;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 4px 18px;
+      border-radius: 20px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 24px 16px 70px; }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #311093;
+      border-right: 5px solid #a78bfa;
+      padding-right: 12px;
+      margin: 32px 0 16px;
+    }
+
+    /* ===== STORY ===== */
+    .story-box {
+      background: #edeafa;
+      border: 1px solid #c0b7eb;
+      border-radius: 14px;
+      padding: 26px 28px;
+      font-size: 1.18rem;
+      line-height: 2.1;
+    }
+    .story-box p { margin-bottom: 0.6em; }
+    .story-box .highlight {
+      background: rgba(167,139,250,0.2);
+      color: #311093;
+      border-radius: 4px;
+      padding: 0 3px;
+      font-weight: bold;
+    }
+
+    /* ===== VOCABULARY ===== */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .vocab-card {
+      background: #edeafa;
+      border: 2px solid #c0b7eb;
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .vocab-card:hover { border-color: #a78bfa; }
+    .vocab-card .heb { font-size: 1.15rem; color: #311093; font-weight: bold; }
+    .vocab-card .eng { font-size: 0.85rem; color: #2c1093; margin-top: 4px; }
+
+    /* ===== GRAMMAR BOX ===== */
+    .grammar-box {
+      background: #edf8ed;
+      border: 2px solid #a78bfa;
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+    }
+    .grammar-box h3 { color: #311093; font-size: 1.2rem; margin-bottom: 12px; }
+    .grammar-box p { line-height: 1.9; color: #4e1093; font-size: 1.05rem; }
+    .grammar-table {
+      width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 1.05rem;
+    }
+    .grammar-table th {
+      background: rgba(167,139,250,0.2);
+      color: #311093;
+      padding: 10px 14px;
+      border: 1px solid #a78bfa;
+      text-align: center;
+    }
+    .grammar-table td {
+      padding: 10px 14px;
+      border: 1px solid #c0b7eb;
+      text-align: center;
+      color: #4e1093;
+    }
+    .grammar-table tr: nth-child(even) td { background: rgba(167,139,250,0.05); }
+    .grammar-box .example-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .grammar-box .ex-chip {
+      background: rgba(167,139,250,0.15);
+      border: 1px solid #a78bfa;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 1.05rem;
+      color: #311093;
+      white-space: nowrap;
+    }
+
+    /* ===== GAME SHARED ===== */
+    .game-box {
+      background: #edeafa;
+      border: 2px solid #c0b7eb;
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+    .game-title { font-size: 1.2rem; font-weight: bold; color: #1e293b; text-align: center; margin-bottom: 4px; }
+    .game-subtitle { font-size: 0.9rem; color: #271093; text-align: center; margin-bottom: 18px; }
+    .result-banner {
+      display: none;
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      color: #3b0764;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+    .progress-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 14px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #ece8fd; border: 2px solid #c0b7eb; transition: background 0.3s; }
+    .dot.done { background: #a78bfa; border-color: #a78bfa; }
+
+    /* ===== SHOOTING STARS GAME ===== */
+    #sky-area {
+      background: radial-gradient(ellipse at 60% 30%, #ece9fc 0%, #ebe8fd 100%);
+      border-radius: 14px;
+      padding: 10px;
+      position: relative;
+      min-height: 340px;
+      overflow: hidden;
+    }
+    /* background twinkles */
+    #sky-area: :before {
+      content: '✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦';
+      position: absolute;
+      top: 8px; left: 10px; right: 10px;
+      font-size: 0.65rem;
+      color: #1e293b;
+      letter-spacing: 14px;
+      line-height: 2.2;
+      pointer-events: none;
+      white-space: normal;
+      word-break: break-all;
+    }
+
+    .star-btn {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 220, 50, 0.8);
+      background: radial-gradient(circle at 40% 35%, #fff8c0, #f0c000 55%, #c07000 100%);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #3a1800;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 18px rgba(255,210,0,0.55);
+      animation: starPulse 2.5s ease-in-out infinite;
+      font-family: inherit;
+    }
+    .star-btn: nth-child(2) { animation-delay: 0.4s; }
+    .star-btn: nth-child(3) { animation-delay: 0.8s; }
+    .star-btn: nth-child(4) { animation-delay: 1.2s; }
+    .star-btn: nth-child(5) { animation-delay: 1.6s; }
+    .star-btn: nth-child(6) { animation-delay: 2.0s; }
+
+    @keyframes starPulse {
+      0%, 100% { box-shadow: 0 0 14px rgba(255,210,0,0.5); transform: scale(1); }
+      50% { box-shadow: 0 0 30px rgba(255,230,80,0.9), 0 0 50px rgba(255,200,0,0.4); transform: scale(1.08); }
+    }
+    .star-btn.active {
+      border-color: #fff;
+      box-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 60px rgba(167,139,250,0.6);
+      animation: none;
+      transform: scale(1.15);
+    }
+    .star-btn.answered {
+      animation: none;
+      opacity: 0.7;
+      cursor: default;
+    }
+    .star-btn.answered:hover { transform: none; }
+    .star-btn .star-num { font-size: 1.1rem; font-weight: bold; }
+    .star-btn .star-badge {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    #sky-question-panel {
+      background: rgba(10, 3, 30, 0.95);
+      border: 2px solid #a78bfa;
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-top: 16px;
+      display: none;
+    }
+    #sky-question-text {
+      font-size: 1.15rem;
+      font-weight: bold;
+      line-height: 1.9;
+      color: #105f93;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .sky-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .sky-opt-btn {
+      background: #ece8fd;
+      border: 2px solid #c0b7eb;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      color: #105f93;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      font-family: inherit;
+    }
+    .sky-opt-btn:hover:not(:disabled) { border-color: #a78bfa; background: #eee9fb; }
+    .sky-opt-btn.selected { border-color: #a78bfa; background: rgba(167,139,250,0.15); }
+    .sky-opt-btn.correct-ans { border-color: #4ade80; background: rgba(74,222,128,0.15); color: #4ade80; }
+    .sky-opt-btn.wrong-ans { border-color: #f87171; background: rgba(248,113,113,0.15); color: #931010; }
+
+    #sky-submit-btn, #sky-next-btn {
+      display: block; margin: 14px auto 0;
+      background: #a78bfa; color: #1a0a5c;
+      border: none; border-radius: 10px;
+      padding: 10px 28px; font-size: 1rem;
+      font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+    #sky-submit-btn:disabled { opacity: 0.4; cursor: default; }
+    #sky-next-btn { display: none; background: #7c3aed; color: #fff; }
+    #sky-explanation {
+      background: rgba(167,139,250,0.12);
+      border: 1px solid #a78bfa;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: #271093;
+      margin-top: 12px;
+      display: none;
+      line-height: 1.7;
+      text-align: center;
+    }
+    #sky-status { text-align: center; color: #2c1093; font-size: 0.92rem; margin-top: 10px; }
+
+    /* ===== FUTURE TENSE GRAMMAR GAME ===== */
+    #rocket-scene {
+      background: linear-gradient(180deg, #eae7fd 0%, #ece9fc 60%, #ece8fd 100%);
+      border-radius: 14px;
+      padding: 20px;
+      min-height: 280px;
+      position: relative;
+    }
+    /* rocket decoration */
+    #rocket-deco {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      font-size: 2.4rem;
+      transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    #rocket-deco.launched {
+      transform: translateY(-180px) rotate(-15deg);
+      opacity: 0;
+    }
+
+    #rocket-round-label { text-align: center; color: #2c1093; font-size: 0.9rem; margin-bottom: 14px; }
+    #rocket-sentence-display {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #105f93;
+      background: rgba(0,0,0,0.00);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      line-height: 2;
+    }
+    #rocket-sentence-display .blank {
+      display: inline-block;
+      min-width: 100px;
+      border-bottom: 3px solid #a78bfa;
+      color: #311093;
+      font-size: 1.4rem;
+      vertical-align: bottom;
+      text-align: center;
+      padding: 0 6px;
+    }
+    #rocket-prompt { text-align: center; color: #4e1093; font-size: 1rem; margin-bottom: 16px; }
+    .rocket-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .rocket-opt-btn {
+      background: rgba(0,0,0,0.00);
+      border: 2px solid #c0b7eb;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 1.1rem;
+      color: #105f93;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      font-family: inherit;
+    }
+    .rocket-opt-btn:hover:not(:disabled) { border-color: #a78bfa; background: rgba(167,139,250,0.1); }
+    .rocket-opt-btn.selected { border-color: #f59e0b; background: rgba(245,158,11,0.15); color: #937910; }
+    .rocket-opt-btn.correct-ans { border-color: #4ade80; background: rgba(74,222,128,0.15); color: #4ade80; }
+    .rocket-opt-btn.wrong-ans { border-color: #f87171; background: rgba(248,113,113,0.15); color: #931010; }
+
+    #rocket-submit-btn, #rocket-next-btn {
+      display: block; margin: 16px auto 0;
+      background: #a78bfa; color: #1a0a5c;
+      border: none; border-radius: 10px;
+      padding: 11px 30px; font-size: 1rem;
+      font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+    #rocket-submit-btn:disabled { opacity: 0.4; cursor: default; }
+    #rocket-next-btn { display: none; background: #7c3aed; color: #fff; }
+    #rocket-explanation {
+      background: rgba(167,139,250,0.13);
+      border: 1px solid #a78bfa;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: #271093;
+      margin-top: 12px;
+      display: none;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Fuel bar */
+    #fuel-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      direction: ltr;
+    }
+    #fuel-label { font-size: 0.85rem; color: #2c1093; white-space: nowrap; direction: rtl; }
+    #fuel-track {
+      flex: 1;
+      height: 14px;
+      background: #ece8fd;
+      border-radius: 8px;
+      border: 1px solid #c0b7eb;
+      overflow: hidden;
+    }
+    #fuel-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #7c3aed, #a78bfa, #c4b5fd);
+      border-radius: 8px;
+      transition: width 0.5s ease;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+    .shake-anim { animation: shake 0.4s; }
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      70% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+      100% { opacity: 0; transform: scale(0.7) rotate(360deg); }
+    }
+  
+  /* ── writing assignment ── */
+  .writing-line{display: flex;align-items: center;gap: 10px;background: #f8fafc;border: 2px solid #e2e8f0;border-radius: 14px;padding: 12px 16px}
+  .writing-num{width: 28px;height: 28px;border-radius: 50%;background: #475569;color: #fff;font-weight: 900;font-size: .85rem;display: flex;align-items: center;justify-content: center;flex-shrink: 0}
+  .writing-input{flex: 1;border: none;background: transparent;font-family: inherit;font-size: 1.1rem;direction: rtl;outline: none;min-width: 0}
+  .writing-input: :placeholder{color: #1e293b;font-size: .95rem}
+  .writing-line.filled{border-color: #22c55e;background: #f0fdf4}
+  .writing-submit-btn{background: #4c1d95;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+  .writing-reset-btn{background: #6b7280;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+
+</style>
+<style>
+:root{--p1:#6d28d9;--p1dk: #4c1d95;--p1md: #c4b5fd;--p1lt: #ede9fe;--page: #faf5ff;--p2:#d97706;--p2lt: #fef3c7}
+/* ══ עיצוב אחיד בסגנון שיעור 35 ══ */
+body{font-family: 'Heebo',sans-serif !important;background: var(--page) !important;color: #1e293b !important;font-size: 17px}
+.container{background: transparent}
+.header35{background: linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position: relative;overflow: hidden;padding-bottom: 26px}
+.header35 .header-wave{position: absolute;bottom: 0;left: 0;right: 0;height: 22px;background: rgba(0,0,0,0.01);clip-path: ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position: absolute;opacity: .22;font-size: 2rem;animation: floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform: translateY(6px) rotate(-5deg)}100%{transform: translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position: relative;z-index: 2;padding: 36px 20px 12px;text-align: center}
+.header35 .header-eyebrow{font-size: .88rem;font-weight: 700;color: var(--p1lt);letter-spacing: 1px;margin-bottom: 10px}
+.header35 h1{font-family: 'Frank Ruhl Libre',serif;font-size: clamp(2rem,6vw,3.2rem);font-weight: 700;color: #1e293b;text-shadow: 0 3px 12px rgba(0,0,0,.35);line-height: 1.2;margin-bottom: 8px}
+.header35 .header-sub{color: var(--p1lt);font-size: .97rem;font-weight: 600;margin-bottom: 14px}
+.header35 .header-badge{display: inline-flex;align-items: center;gap: 6px;background: #fff;color: var(--p1dk);font-weight: 800;font-size: .88rem;padding: 5px 18px;border-radius: 30px;box-shadow: 0 0 14px rgba(0,0,0,.18)}
+.header35 .header-art{margin-top: 12px;line-height: 0;opacity: .95}
+.header-flag-strip35{background: var(--p2);height: 6px}
+.lesson-nav35{background: var(--p1dk);padding: 8px 20px;display: flex;align-items: center;justify-content: flex-start;gap: 6px;flex-wrap: wrap}
+.lesson-nav35 .nav-btn{color: var(--p1lt);font-size: .78rem;font-weight: 700;text-decoration: none;padding: 4px 12px;border: 1.5px solid var(--p1md);border-radius: 20px;transition: background .15s}
+.lesson-nav35 .nav-btn:hover{background: var(--p1);color: #1e293b}
+.lesson-nav35 .nav-current{color: #1e293b;font-size: .78rem;font-weight: 800;margin-right: auto;opacity: .9}
+.section-title{font-size: 1.42rem !important;font-weight: 900 !important;color: #1e293b !important;border-right: none !important;border-bottom: none !important;padding: 0 0 0 0 !important;margin: 34px 0 14px !important;display: flex;align-items: center;gap: 10px}
+.section-title: :after{content: "";flex: 1;height: 3px;border-radius: 3px;background: linear-gradient(90deg,var(--p1md),transparent)}
+.section,.story-box,.grammar-box,.game-box{background: #fff !important;border: none !important;border-radius: 22px !important;box-shadow: 0 4px 22px rgba(0,0,0,.08) !important;position: relative;overflow: hidden}
+.story-box{padding: 26px 30px !important}
+.story-box: :before,.grammar-box::before,.game-box::before,.section::before{content: "";position: absolute;right: 0;top: 0;bottom: 0;width: 6px;border-radius: 0 22px 22px 0;background: linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box: :before{background: linear-gradient(180deg,var(--p2lt),var(--p2))}
+.story-box,.story-box p{font-family: 'Frank Ruhl Libre',serif !important;font-size: 1.28rem !important;line-height: 2.5 !important;color: #1e2d3d !important}
+.story-box .highlight{background: var(--p1lt) !important;color: var(--p1dk) !important;border-radius: 4px;padding: 1px 5px;font-weight: 900;border-bottom: 2px dotted var(--p1)}
+.vocab-card{background: var(--p1lt) !important;border: 2px solid var(--p1md) !important;border-radius: 16px !important;transition: transform .15s,box-shadow .15s}
+.vocab-card:hover{transform: translateY(-3px);box-shadow: 0 6px 18px rgba(0,0,0,.09) !important;border-color: var(--p1) !important}
+.vocab-card .heb{font-family: 'Frank Ruhl Libre',serif !important;color: var(--p1dk) !important;font-size: 1.2rem !important}
+.vocab-card .eng{color: #64748b !important}
+.grammar-box{padding: 24px 28px !important}
+.grammar-box h3{color: var(--p1) !important;font-weight: 900}
+.grammar-box p{color: #1e293b !important;font-size: 1.02rem !important}
+.grammar-box .ex-chip{background: var(--p1lt) !important;border: 1.5px solid var(--p1md) !important;color: var(--p1dk) !important;border-radius: 10px !important;font-weight: 700}
+.game-box{padding: 24px 22px !important}
+.game-title{color: var(--p1dk) !important;font-size: 1.25rem !important;font-weight: 900 !important}
+.game-subtitle{color: #64748b !important}
+button{font-family: 'Heebo',sans-serif !important}
+.topic-badge{display: none}
+header.old-header{display: none}
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🚀</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">⭐</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🌙</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">🔭</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">✨</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 53</div>
+    <h1>תָּכְנִיּוֹת לַקַּיִץ</h1>
+    <div class="header-sub">מָה נַעֲשֶׂה בַּחֻפְשָׁה? — פְּעָלִים בִּזְמַן עָתִיד</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: זְמַן עָתִיד</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson49_simanei_hapissuk.html">→ 49</a>
+  <a class="nav-btn" href="lesson50_hatiyul_hagadol_shel_ori.html">→ 50</a>
+  <a class="nav-btn" href="lesson51_mah_osim_bair.html">→ 51</a>
+  <a class="nav-btn" href="lesson52_yom_bachof.html">→ 52</a>
+  <span class="nav-current">שִׁיעוּר 53 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- STORY -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>בְּסוֹף שְׁנַת הַלִּמּוּדִים, רוֹן וְאָחוֹתוֹ לֵאָה יָשְׁבוּ עִם אִמָּא וְדִבְּרוּ עַל הַקַּיִץ.</p>
+    <p>"מָה <span class="highlight">נַעֲשֶׂה</span> בַּקַּיִץ?" שָׁאַל רוֹן.</p>
+    <p>"אֲנִי <span class="highlight">אֶסַּע</span> לְסַבְתָּא!" אָמְרָה לֵאָה בְּשִׂמְחָה.</p>
+    <p>"גַּם אֲנִי <span class="highlight">אֶסַּע</span> אִתָּךְ," אָמַר רוֹן. "וְ<span class="highlight">נִשְׂחֶה</span> בַּבְּרֵכָה שֶׁלָּהּ!"</p>
+    <p>"הַקַּיִץ <span class="highlight">יִהְיֶה</span> אָרֹךְ," אָמְרָה אִמָּא. "גַּם <span class="highlight">נֵלֵךְ</span> לַחוֹף פַּעֲמַיִם."</p>
+    <p>"וְאַבָּא <span class="highlight">יִקְנֶה</span> גְּלִידָה?" שָׁאַל רוֹן.</p>
+    <p>אִמָּא צָחֲקָה. "בֶּטַח! הוּא <span class="highlight">יִקְנֶה</span> גְּלִידָה לְכֻלָּם."</p>
+    <p>לֵאָה פָּתְחָה מַחְבֶּרֶת וְ<span class="highlight">כָּתְבָה</span>: "תָּכְנִיּוֹת לַקַּיִץ."</p>
+    <p>הִיא <span class="highlight">כָּתְבָה</span>: "<span class="highlight">נֵלֵךְ</span> לְסַבְתָּא, <span class="highlight">נִשְׂחֶה</span>, <span class="highlight">נֵלֵךְ</span> לַחוֹף, <span class="highlight">נֹאכַל</span> גְּלִידָה."</p>
+    <p>"כָּל כָּךְ הַרְבֵּה דְּבָרִים <span class="highlight">נַעֲשֶׂה</span>!" אָמַר רוֹן בְּהִתְרַגְּשׁוּת.</p>
+    <p>"כֵּן," עָנְתָה אִמָּא. "הַקַּיִץ <span class="highlight">יִהְיֶה</span> כֵּיף גָּדוֹל לְכֻלָּנוּ!"</p>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="heb">יֵלֵךְ / תֵּלֵךְ</div>
+      <div class="eng">will go (he / she)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">יִקְנֶה / תִּקְנֶה</div>
+      <div class="eng">will buy (he / she)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">יִהְיֶה / תִּהְיֶה</div>
+      <div class="eng">will be (he / she)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">יִסַּע / תִּסַּע</div>
+      <div class="eng">will travel (he / she)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">נֵלֵךְ / נִסַּע</div>
+      <div class="eng">we will go / travel</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">תָּכְנִיּוֹת</div>
+      <div class="eng">preparations</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">חֻפְשָׁה</div>
+      <div class="eng">vacation / holiday</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">הִתְרַגְּשׁוּת</div>
+      <div class="eng">excitement</div>
+    </div>
+  </div>
+
+  <!-- COMPREHENSION GAME: Shooting Stars -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — כּוֹכָבִים יוֹרְדִים</div>
+  <div class="game-box">
+    <div class="game-title">⭐ כּוֹכָבִים יוֹרְדִים</div>
+    <div class="game-subtitle">לְחַץ עַל כּוֹכָב כְּדֵי לִגְלוֹת שְׁאֵלָה — Click a star to reveal a question!</div>
+
+    <div id="sky-area">
+      <!-- Stars injected by JS -->
+    </div>
+    <div id="sky-question-panel">
+      <div id="sky-question-text"></div>
+      <div class="sky-options" id="sky-options"></div>
+      <div id="sky-explanation"></div>
+      <button id="sky-submit-btn" disabled onclick="skySubmit()">שְׁלַח תְּשׁוּבָה ✓</button>
+      <button id="sky-next-btn" onclick="skyNext()">כּוֹכָב הַבָּא ←</button>
+      <div id="sky-status"></div>
+    </div>
+    <div class="result-banner" id="sky-result"></div>
+  </div>
+
+  <!-- GRAMMAR EXPLANATION -->
+  <div class="section-title">📚 דִּקְדּוּק — זְמַן עָתִיד</div>
+  <div class="grammar-box">
+    <h3>הוּא / הִיא / הֵם בִּזְמַן עָתִיד!</h3>
+    <p>בָּעִבְרִית, כְּשֶׁאָנוּ מְדַבְּרִים עַל מַשֶּׁהוּ שֶׁ<strong>יִּקְרֶה בֶּעָתִיד</strong>, הַפֹּעַל מִשְׁתַּנֶּה:</p>
+
+    <table class="grammar-table">
+      <tr>
+        <th>גּוּף (Person)</th>
+        <th>הָלַךְ (went)</th>
+        <th>כָּתַב (wrote)</th>
+        <th>אָכַל (ate)</th>
+      </tr>
+      <tr>
+        <td>הוּא (he)</td>
+        <td>יֵלֵךְ</td>
+        <td>יִכְתֹּב</td>
+        <td>יֹאכַל</td>
+      </tr>
+      <tr>
+        <td>הִיא (she)</td>
+        <td>תֵּלֵךְ</td>
+        <td>תִּכְתֹּב</td>
+        <td>תֹּאכַל</td>
+      </tr>
+      <tr>
+        <td>הֵם / הֵן (they)</td>
+        <td>יֵלְכוּ</td>
+        <td>יִכְתְּבוּ</td>
+        <td>יֹאכְלוּ</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:14px;">
+      <strong>הַכְּלָל:</strong><br>
+      • <strong>הוּא</strong> — הַפֹּעַל מַתְחִיל בְּ<strong>יִ / יֵ / יֹ</strong><br>
+      • <strong>הִיא</strong> — הַפֹּעַל מַתְחִיל בְּ<strong>תִּ / תֵּ / תֹּ</strong> (אוֹתוֹ שֹׁרֶשׁ, רַק אוֹת שׁוֹנָה!)<br>
+      • <strong>הֵם</strong> — כְּמוֹ הוּא, אֲבָל מוֹסִיפִים <strong>וּ-</strong> בַּסּוֹף
+    </p>
+    <div class="example-row">
+      <span class="ex-chip">הוּא יֵלֵךְ 🚶</span>
+      <span class="ex-chip">הִיא תֵּלֵךְ 🚶‍♀️</span>
+      <span class="ex-chip">הֵם יֵלְכוּ 🚶‍♂️🚶‍♀️</span>
+      <span class="ex-chip">הוּא יִכְתֹּב ✏️</span>
+      <span class="ex-chip">הִיא תִּכְתֹּב ✏️</span>
+      <span class="ex-chip">הֵם יִכְתְּבוּ ✏️</span>
+    </div>
+  </div>
+
+  <!-- GRAMMAR GAME: Rocket Launch -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — שִׁגּוּר רָקֶטָה</div>
+  <div class="game-box">
+    <div class="game-title">🚀 שִׁגּוּר רָקֶטָה</div>
+    <div class="game-subtitle">עֲנֵה נָכוֹן כְּדֵי לִמְלֹא אֶת מְכַל הַדֶּלֶק — Answer correctly to fuel the rocket!</div>
+
+    <div id="fuel-bar-wrap">
+      <span id="fuel-label">⛽ דֶּלֶק:</span>
+      <div id="fuel-track"><div id="fuel-fill"></div></div>
+    </div>
+
+    <div class="progress-dots" id="rocket-dots"></div>
+
+    <div id="rocket-scene">
+      <div id="rocket-deco">🚀</div>
+      <div id="rocket-round-label">שְׁאֵלָה 1 מִתּוֹךְ 6</div>
+      <div id="rocket-sentence-display"></div>
+      <div id="rocket-prompt"></div>
+      <div class="rocket-options" id="rocket-options"></div>
+      <div id="rocket-explanation"></div>
+      <button id="rocket-submit-btn" disabled onclick="rocketSubmit()">שְׁלַח ✓</button>
+      <button id="rocket-next-btn" onclick="rocketNext()">הַבָּא ←</button>
+    </div>
+    <div class="result-banner" id="rocket-result"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// =============================================
+// SHOOTING STARS COMPREHENSION GAME
+// =============================================
+const skyQuestions = [
+  {
+    question: "לְאָן רָצְתָה לֵאָה לִנְסֹעַ בַּקַּיִץ?",
+    options: ["לַחוֹף הַיָּם", "לְסַבְתָּא", "לְסַבָּא", "לְגַן הַחַיּוֹת"],
+    correct: 1,
+    explanation: "לֵאָה אָמְרָה: 'אֲנִי אֶסַּע לְסַבְתָּא!'"
+  },
+  {
+    question: "מָה רָצָה רוֹן לַעֲשׂוֹת אֵצֶל סַבְתָּא?",
+    options: ["לִישֹׁן הַרְבֵּה", "לְשַׂחֵק בְּמִשְׂחָקִים", "לִשְׂחוֹת בַּבְּרֵכָה", "לִקְרֹא סְפָרִים"],
+    correct: 2,
+    explanation: "רוֹן אָמַר: 'וְנִשְׂחֶה בַּבְּרֵכָה שֶׁלָּהּ!'"
+  },
+  {
+    question: "כַּמָּה פְּעָמִים תֵּלֵךְ הַמִּשְׁפָּחָה לַחוֹף?",
+    options: ["פַּעַם אַחַת", "שָׁלֹשׁ פְּעָמִים", "פַּעֲמַיִם", "אַרְבַּע פְּעָמִים"],
+    correct: 2,
+    explanation: "אִמָּא אָמְרָה: 'גַּם נֵלֵךְ לַחוֹף פַּעֲמַיִם.'"
+  },
+  {
+    question: "מִי יִקְנֶה גְּלִידָה לְכֻלָּם?",
+    options: ["אִמָּא", "סַבְתָּא", "לֵאָה", "אַבָּא"],
+    correct: 3,
+    explanation: "אִמָּא אָמְרָה: 'הוּא יִקְנֶה גְּלִידָה לְכֻלָּם' — הַכַּוָּנָה לְאַבָּא."
+  },
+  {
+    question: "מָה כָּתְבָה לֵאָה בְּמַחְבֶּרֶת שֶׁלָּהּ?",
+    options: ["שִׁיר עַל הַקַּיִץ", "'תָּכְנִיּוֹת לַקַּיִץ'", "שֵׁמוֹת חֲבֵרֶיהָ", "מִלּוֹן מִלִּים חֲדָשׁוֹת"],
+    correct: 1,
+    explanation: "לֵאָה פָּתְחָה מַחְבֶּרֶת וְכָתְבָה: 'תָּכְנִיּוֹת לַקַּיִץ.'"
+  },
+  {
+    question: "אֵיזֶה רֶגֶשׁ הִרְגִּישׁ רוֹן כְּשֶׁשָּׁמַע כַּמָּה דְּבָרִים יַעֲשׂוּ?",
+    options: ["כַּעַס", "פַּחַד", "הִתְרַגְּשׁוּת", "עֶצֶב"],
+    correct: 2,
+    explanation: "רוֹן אָמַר 'כָּל כָּךְ הַרְבֵּה דְּבָרִים נַעֲשֶׂה!' בְּהִתְרַגְּשׁוּת."
+  }
+];
+
+// Star positions [top%, left%] within the sky area
+const starPositions = [
+  [12, 14],
+  [8,  52],
+  [18, 82],
+  [55, 22],
+  [58, 68],
+  [42, 46]
+];
+
+let skyCurrent = -1;
+let skyAnswered = [];
+let skySelected = null;
+let skyScore = 0;
+
+function buildSkyStars() {
+  const sky = document.getElementById('sky-area');
+  // Remove old stars
+  sky.querySelectorAll('.star-btn').forEach(s => s.remove());
+  skyQuestions.forEach((q, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'star-btn';
+    btn.id = `star-${i}`;
+    btn.style.top = starPositions[i][0] + '%';
+    btn.style.right = starPositions[i][1] + '%';  /* RTL: use right */
+    btn.innerHTML = `<span class="star-num">${i + 1}</span><span class="star-badge" id="star-badge-${i}">⭐</span>`;
+    btn.onclick = () => starSelect(i);
+    sky.appendChild(btn);
+  });
+}
+
+function starSelect(idx) {
+  if (skyAnswered.includes(idx)) return;
+
+  // Deactivate previously active star
+  if (skyCurrent !== -1 && !skyAnswered.includes(skyCurrent)) {
+    document.getElementById(`star-${skyCurrent}`).classList.remove('active');
+  }
+
+  skyCurrent = idx;
+  document.getElementById(`star-${idx}`).classList.add('active');
+  showSkyQuestion(idx);
+}
+
+function showSkyQuestion(idx) {
+  const q = skyQuestions[idx];
+  skySelected = null;
+
+  const panel = document.getElementById('sky-question-panel');
+  panel.style.display = 'block';
+  document.getElementById('sky-question-text').textContent = q.question;
+  document.getElementById('sky-explanation').style.display = 'none';
+  document.getElementById('sky-next-btn').style.display = 'none';
+
+  const submitBtn = document.getElementById('sky-submit-btn');
+  submitBtn.style.display = 'block';
+  submitBtn.disabled = true;
+
+  const opts = document.getElementById('sky-options');
+  opts.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const btn = document.createElement('button');
+    btn.className = 'sky-opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => skyChoose(oi);
+    opts.appendChild(btn);
+  });
+  document.getElementById('sky-status').textContent = '';
+}
+
+function skyChoose(oi) {
+  if (skyAnswered.includes(skyCurrent)) return;
+  skySelected = oi;
+  document.querySelectorAll('.sky-opt-btn').forEach((b, i) => {
+    b.classList.toggle('selected', i === oi);
+  });
+  document.getElementById('sky-submit-btn').disabled = false;
+}
+
+function skySubmit() {
+  if (skySelected === null) return;
+  const idx = skyCurrent;
+  const q = skyQuestions[idx];
+  const isCorrect = skySelected === q.correct;
+
+  document.querySelectorAll('.sky-opt-btn').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct-ans');
+    else if (i === skySelected) b.classList.add('wrong-ans');
+  });
+
+  const starEl = document.getElementById(`star-${idx}`);
+  const badge = document.getElementById(`star-badge-${idx}`);
+  badge.textContent = isCorrect ? '✅' : '❌';
+  starEl.classList.remove('active');
+  starEl.classList.add('answered');
+
+  if (isCorrect) skyScore++;
+  skyAnswered.push(idx);
+
+  const exp = document.getElementById('sky-explanation');
+  exp.textContent = q.explanation;
+  exp.style.display = 'block';
+  document.getElementById('sky-submit-btn').style.display = 'none';
+
+  if (skyAnswered.length < skyQuestions.length) {
+    document.getElementById('sky-next-btn').style.display = 'block';
+    document.getElementById('sky-status').textContent =
+      `✅ עָנִיתָ עַל ${skyAnswered.length} מִתּוֹךְ 6 כּוֹכָבִים`;
+  } else {
+    document.getElementById('sky-next-btn').style.display = 'none';
+    setTimeout(showSkyResult, 600);
+  }
+}
+
+function skyNext() {
+  for (let i = 0; i < skyQuestions.length; i++) {
+    if (!skyAnswered.includes(i)) { starSelect(i); return; }
+  }
+}
+
+function showSkyResult() {
+  const banner = document.getElementById('sky-result');
+  banner.style.display = 'block';
+  const emoji = skyScore >= 6 ? '⭐🌟⭐' : skyScore >= 4 ? '⭐⭐' : '⭐';
+  banner.innerHTML = `${emoji}<br>גִּלִּיתָ אֶת הַשָּׁמַיִם! קִבַּלְתָּ ${skyScore} מִתּוֹךְ 6 ${emoji}`;
+  banner.style.animation = 'popIn 0.5s';
+}
+
+buildSkyStars();
+
+
+// =============================================
+// ROCKET LAUNCH GRAMMAR GAME
+// =============================================
+const rocketQuestions = [
+  {
+    before: "הוּא",
+    after: "לַחֻפְשָׁה מָחָר.",
+    prompt: "הוּא — זָכָר אֶחָד בִּזְמַן עָתִיד. אֵיזֶה פֹּעַל?",
+    options: ["נָסַע", "נוֹסֵעַ", "יִסַּע", "תִּסַּע"],
+    correct: 2,
+    explanation: "הוּא (זָכָר אֶחָד, עָתִיד) ← יִסַּע ✅"
+  },
+  {
+    before: "הִיא",
+    after: "לַחֲנוּת וְתִקְנֶה מַתָּנָה.",
+    prompt: "הִיא — נְקֵבָה אַחַת בִּזְמַן עָתִיד. אֵיזֶה פֹּעַל?",
+    options: ["הָלַךְ", "יֵלֵךְ", "תֵּלֵךְ", "הוֹלֶכֶת"],
+    correct: 2,
+    explanation: "הִיא (נְקֵבָה אַחַת, עָתִיד) ← תֵּלֵךְ ✅"
+  },
+  {
+    before: "הֵם",
+    after: "אֶת הַסֵּפֶר הֶחָדָשׁ בַּלַּיְלָה.",
+    prompt: "הֵם — רַבִּים בִּזְמַן עָתִיד. אֵיזֶה פֹּעַל?",
+    options: ["יִקְרְאוּ", "קָרְאוּ", "יִקְרָא", "תִּקְרָא"],
+    correct: 0,
+    explanation: "הֵם (רַבִּים, עָתִיד) ← יִקְרְאוּ ✅"
+  },
+  {
+    before: "הַקַּיִץ",
+    after: "חַם וְכֵיף.",
+    prompt: "הַקַּיִץ — זָכָר אֶחָד (כְּמוֹ הוּא) בִּזְמַן עָתִיד. אֵיזֶה פֹּעַל?",
+    options: ["הָיָה", "תִּהְיֶה", "יִהְיֶה", "הָיוּ"],
+    correct: 2,
+    explanation: "הַקַּיִץ = הוּא (זָכָר אֶחָד, עָתִיד) ← יִהְיֶה ✅"
+  },
+  {
+    before: "לֵאָה",
+    after: "בַּבְּרֵכָה שֶׁל סַבְתָּא.",
+    prompt: "לֵאָה — נְקֵבָה אַחַת בִּזְמַן עָתִיד. אֵיזֶה פֹּעַל?",
+    options: ["שָׂחָה", "יִשְׂחֶה", "תִּשְׂחֶה", "שׂוֹחָה"],
+    correct: 2,
+    explanation: "לֵאָה = הִיא (נְקֵבָה אַחַת, עָתִיד) ← תִּשְׂחֶה ✅"
+  },
+  {
+    before: "הַיְּלָדִים",
+    after: "גְּלִידָה בַּחוֹף.",
+    prompt: "הַיְּלָדִים — רַבִּים בִּזְמַן עָתִיד. אֵיזֶה פֹּעַל?",
+    options: ["אוֹכְלִים", "אָכְלוּ", "יֹאכְלוּ", "תֹּאכַל"],
+    correct: 2,
+    explanation: "הַיְּלָדִים = הֵם (רַבִּים, עָתִיד) ← יֹאכְלוּ ✅"
+  }
+];
+
+let rocketRound = 0;
+let rocketSelected = null;
+let rocketAnswered = false;
+let rocketScore = 0;
+
+function updateFuelBar() {
+  const pct = (rocketScore / rocketQuestions.length) * 100;
+  document.getElementById('fuel-fill').style.width = pct + '%';
+}
+
+function buildRocketDots() {
+  const dots = document.getElementById('rocket-dots');
+  dots.innerHTML = '';
+  rocketQuestions.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.id = `rdot-${i}`;
+    dots.appendChild(d);
+  });
+}
+
+function loadRocketRound() {
+  const q = rocketQuestions[rocketRound];
+  rocketSelected = null;
+  rocketAnswered = false;
+
+  document.getElementById('rocket-round-label').textContent =
+    `שְׁאֵלָה ${rocketRound + 1} מִתּוֹךְ ${rocketQuestions.length}`;
+  document.getElementById('rocket-sentence-display').innerHTML =
+    `${q.before} <span class="blank" id="rocket-blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> ${q.after}`;
+  document.getElementById('rocket-prompt').textContent = q.prompt;
+  document.getElementById('rocket-explanation').style.display = 'none';
+  document.getElementById('rocket-next-btn').style.display = 'none';
+
+  const submitBtn = document.getElementById('rocket-submit-btn');
+  submitBtn.style.display = 'block';
+  submitBtn.disabled = true;
+
+  const opts = document.getElementById('rocket-options');
+  opts.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const btn = document.createElement('button');
+    btn.className = 'rocket-opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => rocketChoose(oi);
+    opts.appendChild(btn);
+  });
+
+  // Reset rocket deco
+  const deco = document.getElementById('rocket-deco');
+  deco.classList.remove('launched');
+  deco.style.transform = '';
+  deco.style.opacity = '';
+}
+
+function rocketChoose(oi) {
+  if (rocketAnswered) return;
+  rocketSelected = oi;
+  document.querySelectorAll('.rocket-opt-btn').forEach((b, i) => {
+    b.classList.toggle('selected', i === oi);
+  });
+  document.getElementById('rocket-blank').textContent = rocketQuestions[rocketRound].options[oi];
+  document.getElementById('rocket-submit-btn').disabled = false;
+}
+
+function rocketSubmit() {
+  if (rocketSelected === null) return;
+  const q = rocketQuestions[rocketRound];
+  const isCorrect = rocketSelected === q.correct;
+  rocketAnswered = true;
+
+  document.querySelectorAll('.rocket-opt-btn').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct-ans');
+    else if (i === rocketSelected) b.classList.add('wrong-ans');
+  });
+
+  const blank = document.getElementById('rocket-blank');
+  blank.textContent = q.options[q.correct];
+
+  if (isCorrect) {
+    rocketScore++;
+    document.getElementById(`rdot-${rocketRound}`).classList.add('done');
+    blank.style.color = '#4ade80';
+    blank.style.borderBottomColor = '#4ade80';
+    updateFuelBar();
+    // Launch rocket animation
+    setTimeout(() => {
+      document.getElementById('rocket-deco').classList.add('launched');
+    }, 300);
+  } else {
+    blank.style.color = '#f87171';
+    blank.style.borderBottomColor = '#f87171';
+    const scene = document.getElementById('rocket-scene');
+    scene.classList.add('shake-anim');
+    setTimeout(() => scene.classList.remove('shake-anim'), 500);
+  }
+
+  const exp = document.getElementById('rocket-explanation');
+  exp.textContent = q.explanation;
+  exp.style.display = 'block';
+  document.getElementById('rocket-submit-btn').style.display = 'none';
+
+  if (rocketRound < rocketQuestions.length - 1) {
+    document.getElementById('rocket-next-btn').style.display = 'block';
+  } else {
+    setTimeout(showRocketResult, 900);
+  }
+}
+
+function rocketNext() {
+  rocketRound++;
+  loadRocketRound();
+}
+
+function showRocketResult() {
+  const banner = document.getElementById('rocket-result');
+  banner.style.display = 'block';
+  const emoji = rocketScore >= 6 ? '🚀🌟🚀' : rocketScore >= 4 ? '🚀🚀' : '🚀';
+  banner.innerHTML = `${emoji}<br>הָרָקֶטָה שֻׁגְּרָה! הִשְׁלַמְתָּ ${rocketScore} מִתּוֹךְ 6 נָכוֹן! ${emoji}`;
+  banner.style.animation = 'popIn 0.5s';
+}
+
+buildRocketDots();
+loadRocketRound();
+</script>
+
+
+<!-- ══ WRITING ASSIGNMENT ══ -->
+<script>
+const wP=['כְּתוֹב מִשְׁפָּט עִם "הוּא + עָתִיד"...', 'כְּתוֹב מִשְׁפָּט עִם "הִיא + עָתִיד"...', 'כְּתוֹב מִשְׁפָּט עִם "הֵם + עָתִיד"...', 'כְּתוֹב מִשְׁפָּט עִם "יִקְנֶה / תִּקְנֶה / יִסַּע"...', 'כְּתוֹב מִשְׁפָּט חוֹפְשִׁי בִּזְמַן עָתִיד...'];
+function initW(){const c=document.getElementById('writing-lines');if(!c)return;c.innerHTML='';wP.forEach((ph,i)=>{const d=document.createElement('div');d.className='writing-line';d.id='wline-'+i;d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';c.appendChild(d);});const r=document.getElementById('writing-result');if(r)r.style.display='none';const f=document.getElementById('writing-fb');if(f)f.textContent='';}
+window.submitWriting=function(){let n=0;for(let i=0;i<5;i++){const v=document.getElementById('winput-'+i).value.trim();const l=document.getElementById('wline-'+i);if(v.length>1){n++;l.className='writing-line filled';}else l.className='writing-line';}const fb=document.getElementById('writing-fb');const res=document.getElementById('writing-result');if(n<5){if(fb){fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.';fb.style.color='#dc2626';}if(res)res.style.display='none';return;}if(fb)fb.textContent='';if(res){res.style.display='block';res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';}}; 
+window.resetWriting=function(){initW();};
+window.addEventListener('DOMContentLoaded',initW);
+</script>
+<div style="background:#fff;border-radius:16px;padding:24px 20px;margin:18px 0;box-shadow:0 2px 12px rgba(0,0,0,.08)">
+  <div style="font-size:1.25rem;font-weight:900;color:#4c1d95;margin-bottom:14px;direction:rtl">✍️ מַטְלַת כְּתִיבָה</div>
+  <p style="margin-bottom:16px;font-size:1rem;direction:rtl">כְּתֹב 5 מִשְׁפָּטִים בִּזְמַן עָתִיד. הִשְׁתַּמֵּשׁ בְּ<strong>הוּא / הִיא / הֵם</strong>. לְדֻגְמָה: הוּא יֵלֵךְ לַחוֹף עִם כָּל הַמִּשְׁפָּחָה.</p>
+  <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+    <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+    <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+    <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+  </div>
+  <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+</div>
+
+</body>
+</html>

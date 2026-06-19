@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שִׁיעוּר 60 — הַבַּלָּשׁ שֶׁל כִּיתָה ד׳</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --p1:#4f46e5; --p1dk:#312e81; --p1md:#a5b4fc; --p1lt:#e0e7ff; --page:#eef2ff;
+    --p2:#d97706; --p2lt:#fef3c7;
+  }
+  body{
+    font-family:'Heebo',sans-serif; background:var(--page); color:#1e293b;
+    direction:rtl; min-height:100vh; font-size:17px;
+  }
+  .container{ max-width:860px; margin:0 auto; padding:24px 16px 70px; }
+
+  /* ===== HEADER ===== */
+  .header35{ background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%); position:relative; overflow:hidden; padding-bottom:26px; }
+  .header35 .header-wave{ position:absolute; bottom:0; left:0; right:0; height:22px; background:rgba(0,0,0,0.01); clip-path:ellipse(55% 100% at 50% 100%); }
+  .header35 .float-icon{ position:absolute; opacity:.22; font-size:2rem; animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out; }
+  @keyframes floatUp35{ 0%{transform:translateY(6px) rotate(-5deg)} 100%{transform:translateY(-10px) rotate(5deg)} }
+  .header35 .header-inner{ position:relative; z-index:2; padding:36px 20px 12px; text-align:center; }
+  .header35 .header-eyebrow{ font-size:.88rem; font-weight:700; color:var(--p1lt); letter-spacing:1px; margin-bottom:10px; }
+  .header35 h1{ font-family:'Frank Ruhl Libre',serif; font-size:clamp(2rem,6vw,3.2rem); font-weight:700; color:#fff; text-shadow:0 3px 12px rgba(0,0,0,.35); line-height:1.2; margin-bottom:8px; }
+  .header35 .header-sub{ color:var(--p1lt); font-size:.97rem; font-weight:600; margin-bottom:14px; }
+  .header35 .header-badge{ display:inline-flex; align-items:center; gap:6px; background:#fff; color:var(--p1dk); font-weight:800; font-size:.88rem; padding:5px 18px; border-radius:30px; box-shadow:0 0 14px rgba(0,0,0,.18); }
+  .header-flag-strip35{ background:var(--p2); height:6px; }
+  .lesson-nav35{ background:var(--p1dk); padding:8px 20px; display:flex; align-items:center; justify-content:flex-start; gap:6px; flex-wrap:wrap; }
+  .lesson-nav35 .nav-btn{ color:var(--p1lt); font-size:.78rem; font-weight:700; text-decoration:none; padding:4px 12px; border:1.5px solid var(--p1md); border-radius:20px; transition:background .15s; }
+  .lesson-nav35 .nav-btn:hover{ background:var(--p1); color:#fff; }
+  .lesson-nav35 .nav-current{ color:#fff; font-size:.78rem; font-weight:800; margin-right:auto; opacity:.9; }
+
+  /* ===== SECTION TITLES ===== */
+  .section-title{ font-size:1.42rem; font-weight:900; color:#1e293b; margin:34px 0 14px; display:flex; align-items:center; gap:10px; }
+  .section-title::after{ content:""; flex:1; height:3px; border-radius:3px; background:linear-gradient(90deg,var(--p1md),transparent); }
+
+  /* ===== BOXES ===== */
+  .story-box,.grammar-box,.game-box{ background:#fff; border-radius:22px; box-shadow:0 4px 22px rgba(0,0,0,.08); position:relative; overflow:hidden; }
+  .story-box::before,.grammar-box::before{ content:""; position:absolute; right:0; top:0; bottom:0; width:6px; border-radius:0 22px 22px 0; background:linear-gradient(180deg,var(--p1md),var(--p1)); }
+  .game-box::before{ content:""; position:absolute; right:0; top:0; bottom:0; width:6px; border-radius:0 22px 22px 0; background:linear-gradient(180deg,var(--p2lt),var(--p2)); }
+
+  /* ===== STORY ===== */
+  .story-box{ padding:26px 30px; }
+  .story-box p{ font-family:'Frank Ruhl Libre',serif; font-size:1.28rem; line-height:2.5; color:#1e2d3d; margin-bottom:.6em; }
+  .story-box .qword{ background:var(--p1lt); color:var(--p1dk); border-radius:4px; padding:1px 6px; font-weight:900; border-bottom:2px dotted var(--p1); }
+  .legend{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:14px; font-size:.95rem; }
+  .legend span{ padding:3px 14px; border-radius:14px; font-weight:bold; background:var(--p1lt); color:var(--p1dk); }
+
+  /* ===== VOCABULARY ===== */
+  .vocab-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:12px; }
+  .vocab-card{ background:var(--p1lt); border:2px solid var(--p1md); border-radius:16px; padding:14px 12px; text-align:center; transition:transform .15s, box-shadow .15s; }
+  .vocab-card:hover{ transform:translateY(-3px); box-shadow:0 6px 18px rgba(0,0,0,.09); border-color:var(--p1); }
+  .vocab-card .heb{ font-family:'Frank Ruhl Libre',serif; color:var(--p1dk); font-size:1.2rem; font-weight:bold; }
+  .vocab-card .eng{ color:#64748b; font-size:.85rem; margin-top:4px; }
+
+  /* ===== GRAMMAR ===== */
+  .grammar-box{ padding:24px 28px; margin-bottom:18px; }
+  .grammar-box h3{ color:var(--p1); font-size:1.2rem; font-weight:900; margin-bottom:12px; }
+  .grammar-box p{ line-height:1.9; color:#1e293b; font-size:1.02rem; }
+  .grammar-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:1.05rem; }
+  .grammar-table th{ background:var(--p1lt); color:var(--p1dk); padding:10px 14px; border:1px solid var(--p1md); text-align:center; }
+  .grammar-table td{ padding:10px 14px; border:1px solid #c7d2fe; text-align:center; color:#1e293b; }
+  .grammar-table tr:nth-child(even) td{ background:#f5f7ff; }
+  .grammar-table td.qw{ font-weight:900; color:var(--p1dk); }
+  .example-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .ex-chip{ background:var(--p1lt); border:1.5px solid var(--p1md); color:var(--p1dk); border-radius:10px; padding:6px 14px; font-size:1.05rem; font-weight:700; white-space:nowrap; }
+
+  /* ===== GAME SHARED ===== */
+  .game-box{ padding:24px 22px; }
+  .game-title{ font-size:1.25rem; font-weight:900; color:var(--p1dk); text-align:center; margin-bottom:4px; }
+  .game-subtitle{ font-size:.9rem; color:#64748b; text-align:center; margin-bottom:18px; }
+  .result-banner{ display:none; background:linear-gradient(135deg,#fbbf24,#d97706); color:#082f49; border-radius:12px; padding:20px; text-align:center; font-size:1.3rem; font-weight:bold; margin-top:16px; }
+  button{ font-family:'Heebo',sans-serif; }
+
+  /* ===== DETECTIVE CASE FILE — COMPREHENSION GAME ===== */
+  #case-board{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); gap:12px;
+    background:linear-gradient(180deg,#fffbeb 0%,#fef3c7 100%);
+    border:2px dashed var(--p2); border-radius:14px; padding:16px 14px;
+  }
+  .clue-card{
+    background:#fff; border:2px solid #e5e7eb; border-radius:12px;
+    min-height:92px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+    font-size:2rem; filter:grayscale(1) opacity(.45); transform:scale(.92);
+    transition:filter .5s ease, transform .5s cubic-bezier(.22,1.6,.36,1), border-color .5s;
+  }
+  .clue-card .clue-label{ font-size:.72rem; font-weight:700; color:#92400e; }
+  .clue-card .clue-icon::before{ content:"❓"; }
+  .clue-card.found{ filter:grayscale(0) opacity(1); transform:scale(1.05); border-color:var(--p2); }
+  .clue-card.found .clue-icon::before{ content:attr(data-icon); }
+  #case-counter{ text-align:center; color:#92400e; font-size:.92rem; font-weight:700; margin:12px 0 14px; }
+
+  .quiz-panel{ background:#f8fafc; border:2px solid var(--p1md); border-radius:12px; padding:16px 18px; }
+  .quiz-q{ font-size:1.15rem; font-weight:bold; line-height:1.9; color:var(--p1dk); margin-bottom:14px; text-align:center; }
+  .quiz-options{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .quiz-opt{
+    background:#fff; border:2px solid #c7d2fe; border-radius:10px; padding:10px 14px;
+    font-size:1rem; color:#1e293b; cursor:pointer; text-align:center;
+    transition:border-color .2s, background .2s;
+  }
+  .quiz-opt:hover:not(:disabled){ border-color:var(--p1); background:var(--p1lt); }
+  .quiz-opt.selected{ border-color:var(--p1); background:var(--p1lt); font-weight:700; }
+  .quiz-opt.correct-ans{ border-color:#22c55e; background:#dcfce7; color:#15803d; font-weight:700; }
+  .quiz-opt.wrong-ans{ border-color:#ef4444; background:#fee2e2; color:#b91c1c; }
+  .quiz-btn{
+    display:block; margin:14px auto 0; background:var(--p1); color:#fff; border:none;
+    border-radius:10px; padding:10px 28px; font-size:1rem; font-weight:bold; cursor:pointer;
+  }
+  .quiz-btn:disabled{ opacity:.4; cursor:default; }
+  .quiz-next{ display:none; background:var(--p2); }
+  .quiz-exp{
+    background:#fffbeb; border:1px solid var(--p2); border-radius:8px; padding:10px 14px;
+    font-size:.95rem; color:#92400e; margin-top:12px; display:none; line-height:1.7; text-align:center;
+  }
+
+  /* ===== QUESTION-WORD GRAMMAR GAME ===== */
+  #qw-scene{ background:linear-gradient(180deg,#f5f7ff 0%,#eef2ff 100%); border-radius:14px; padding:20px; min-height:240px; }
+  #qw-round-label{ text-align:center; color:#64748b; font-size:.9rem; margin-bottom:12px; }
+  #qw-sentence{
+    text-align:center; font-family:'Frank Ruhl Libre',serif; font-size:1.45rem; font-weight:700;
+    color:var(--p1dk); padding:18px 20px; margin-bottom:16px; line-height:2;
+  }
+  #qw-sentence .blank{
+    display:inline-block; min-width:84px; border-bottom:3px solid var(--p2);
+    color:var(--p2); font-weight:900; text-align:center;
+  }
+  #qw-prompt{ text-align:center; color:#334155; font-size:1rem; margin-bottom:16px; }
+  .qw-options{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; max-width:460px; margin:0 auto; }
+  .qw-opt{
+    border:2px solid #c7d2fe; border-radius:10px; padding:14px 16px; font-size:1.2rem;
+    cursor:pointer; color:#1e293b; text-align:center; background:#fff; font-weight:700;
+    transition:border-color .2s, background .2s;
+  }
+  .qw-opt:hover:not(:disabled){ border-color:var(--p1); background:var(--p1lt); }
+  .qw-opt.selected{ border-color:var(--p2); background:var(--p2lt); }
+  .qw-opt.correct-ans{ border-color:#22c55e; background:#dcfce7; color:#15803d; }
+  .qw-opt.wrong-ans{ border-color:#ef4444; background:#fee2e2; color:#b91c1c; }
+  .qw-btn{
+    display:block; margin:16px auto 0; background:var(--p1); color:#fff; border:none;
+    border-radius:10px; padding:11px 30px; font-size:1rem; font-weight:bold; cursor:pointer;
+  }
+  .qw-btn:disabled{ opacity:.4; cursor:default; }
+  .qw-next{ display:none; background:var(--p2); }
+  #qw-exp{
+    background:#fffbeb; border:1px solid var(--p2); border-radius:8px; padding:10px 14px;
+    font-size:.95rem; color:#92400e; margin-top:12px; display:none; line-height:1.7; text-align:center;
+  }
+  .progress-dots{ display:flex; justify-content:center; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+  .dot{ width:12px; height:12px; border-radius:50%; background:#fff; border:2px solid var(--p1md); transition:background .3s; }
+  .dot.done{ background:var(--p2); border-color:var(--p2); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes shake{ 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)} }
+  .shake-anim{ animation:shake .4s; }
+
+  /* ===== WRITING ===== */
+  .writing-line{ display:flex; align-items:center; gap:10px; background:#f8fafc; border:2px solid #e2e8f0; border-radius:14px; padding:12px 16px; }
+  .writing-num{ width:28px; height:28px; border-radius:50%; background:var(--p1); color:#fff; font-weight:900; font-size:.85rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .writing-input{ flex:1; border:none; background:transparent; font-family:inherit; font-size:1.1rem; direction:rtl; outline:none; min-width:0; color:#1e293b; }
+  .writing-line.filled{ border-color:#22c55e; background:#f0fdf4; }
+  .writing-submit-btn{ background:var(--p1); color:#fff; border:none; border-radius:12px; padding:10px 22px; font-size:1rem; font-weight:700; cursor:pointer; }
+  .writing-reset-btn{ background:#6b7280; color:#fff; border:none; border-radius:12px; padding:10px 22px; font-size:1rem; font-weight:700; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🔍</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🕵️</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">❓</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">🦜</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">📝</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 60</div>
+    <h1>הַבַּלָּשׁ שֶׁל כִּיתָה ד׳</h1>
+    <div class="header-sub">סִיפּוּר עַל תַּעֲלוּמָה בְּבֵית הַסֵּפֶר — מִלּוֹת שְׁאֵלָה</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; לָשׁוֹן: מִלּוֹת שְׁאֵלָה</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson56_hagina_shel_savta_roza.html">→ 56</a>
+  <a class="nav-btn" href="lesson57_gan_hahayot.html">→ 57</a>
+  <a class="nav-btn" href="lesson58_hamilim_hamaftioot.html">→ 58</a>
+  <a class="nav-btn" href="lesson59_hamila_hamithalefet.html">→ 59</a>
+  <span class="nav-current">שִׁיעוּר 60 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- STORY -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>בְּיוֹם רִאשׁוֹן בַּבֹּקֶר נִכְנְסָה הַמּוֹרָה דָּנָה לַכִּתָּה, וּפָנֶיהָ הָיוּ מֻדְאָגוֹת מְאוֹד.</p>
+    <p>"יְלָדִים," אָמְרָה הַמּוֹרָה, "הַתֻּכִּי יוֹסִי נֶעֱלַם הַבֹּקֶר מִפִּנַּת הַחַי שֶׁל בֵּית הַסֵּפֶר!"</p>
+    <p>יוֹאָב, שֶׁאוֹהֵב סִפּוּרֵי בַּלָּשִׁים, קָם מִיָּד וְאָמַר: "אַל דְּאָגָה! אֲנִי אֶפְתֹּר אֶת הַתַּעֲלוּמָה."</p>
+    <p>הוּא לָקַח מַחְבֶּרֶת וְעִפָּרוֹן, וְהִתְחִיל לִשְׁאֹל שְׁאֵלוֹת כְּמוֹ בַּלָּשׁ אֲמִתִּי.</p>
+    <p>"<span class="qword">מִי</span> רָאָה אֶת יוֹסִי בַּפַּעַם הָאַחֲרוֹנָה?" שָׁאַל יוֹאָב. "אֲנִי!" עָנְתָה נוֹעָה. "רָאִיתִי אוֹתוֹ אֶתְמוֹל אַחֲרֵי הַצָּהֳרַיִם."</p>
+    <p>"<span class="qword">אֵיפֹה</span> מְצָאתֶם רְמָזִים?" הִמְשִׁיךְ יוֹאָב. "לְיַד הַחַלּוֹן הַפָּתוּחַ," עָנָה הַשּׁוֹמֵר, "הָיוּ שָׁם שָׁלוֹשׁ נוֹצוֹת יְרֻקּוֹת."</p>
+    <p>"<span class="qword">מָתַי</span> שְׁמַעְתֶּם אוֹתוֹ שָׁר?" שָׁאַל יוֹאָב. "הַבֹּקֶר," אָמְרָה הַגַּנֶּנֶת, "שָׁמַעְתִּי שִׁירָה עֲלִיזָה מִכִּוּוּן הֶחָצֵר."</p>
+    <p>יוֹאָב חָשַׁב רֶגַע וְשָׁאַל: "<span class="qword">לָמָּה</span> תֻּכִּי בּוֹרֵחַ מֵהַכְּלוּב? אוּלַי כִּי הַחַלּוֹן הָיָה פָּתוּחַ, וְהוּא רָצָה לָשִׁיר בַּשֶּׁמֶשׁ!"</p>
+    <p>כָּל הַיְּלָדִים יָצְאוּ לֶחָצֵר, וְשָׁם, עַל עֵץ הָאֹרֶן הַגָּבוֹהַּ, יָשַׁב יוֹסִי וְשָׁר בְּקוֹל צָלוּל.</p>
+    <p>"<span class="qword">אֵיךְ</span> נַחְזִיר אוֹתוֹ?" שָׁאֲלָה נוֹעָה. יוֹאָב חִיֵּךְ וְעָנָה: "עִם גַּרְעִינִים — הַמַּאֲכָל הָאָהוּב עָלָיו!"</p>
+    <p>יוֹסִי יָרַד אֶל צַלַּחַת הַגַּרְעִינִים, וְכָל הַכִּתָּה מָחֲאָה כַּפַּיִם לַבַּלָּשׁ הַצָּעִיר שֶׁל כִּיתָה ד׳.</p>
+  </div>
+  <div class="legend">
+    <span>הַמִּלִּים הַמֻּדְגָּשׁוֹת = מִלּוֹת שְׁאֵלָה</span>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">בַּלָּשׁ</div><div class="eng">detective</div></div>
+    <div class="vocab-card"><div class="heb">תַּעֲלוּמָה</div><div class="eng">mystery</div></div>
+    <div class="vocab-card"><div class="heb">רֶמֶז</div><div class="eng">clue</div></div>
+    <div class="vocab-card"><div class="heb">תֻּכִּי</div><div class="eng">parrot</div></div>
+    <div class="vocab-card"><div class="heb">כְּלוּב</div><div class="eng">cage</div></div>
+    <div class="vocab-card"><div class="heb">פִּנַּת חַי</div><div class="eng">petting corner</div></div>
+    <div class="vocab-card"><div class="heb">נוֹצָה</div><div class="eng">feather</div></div>
+    <div class="vocab-card"><div class="heb">חָצֵר</div><div class="eng">yard</div></div>
+    <div class="vocab-card"><div class="heb">גַּרְעִינִים</div><div class="eng">seeds</div></div>
+    <div class="vocab-card"><div class="heb">שְׁאֵלָה</div><div class="eng">question</div></div>
+    <div class="vocab-card"><div class="heb">תְּשׁוּבָה</div><div class="eng">answer</div></div>
+    <div class="vocab-card"><div class="heb">מָחֲאוּ כַּפַּיִם</div><div class="eng">clapped hands</div></div>
+  </div>
+
+  <!-- COMPREHENSION GAME: Detective Case File -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — תִּיק הַחֲקִירָה</div>
+  <div class="game-box">
+    <div class="game-title">🕵️ תִּיק הַחֲקִירָה שֶׁל יוֹאָב</div>
+    <div class="game-subtitle">כָּל תְּשׁוּבָה נְכוֹנָה חוֹשֶׂפֶת רֶמֶז בְּתִיק הַחֲקִירָה! — Each correct answer reveals a clue in the case file!</div>
+
+    <div id="case-board">
+      <div class="clue-card" id="clue-0" data-icon="🪶"><span class="clue-icon" data-icon="🪶"></span><span class="clue-label">רֶמֶז 1</span></div>
+      <div class="clue-card" id="clue-1" data-icon="🪟"><span class="clue-icon" data-icon="🪟"></span><span class="clue-label">רֶמֶז 2</span></div>
+      <div class="clue-card" id="clue-2" data-icon="🎵"><span class="clue-icon" data-icon="🎵"></span><span class="clue-label">רֶמֶז 3</span></div>
+      <div class="clue-card" id="clue-3" data-icon="🌳"><span class="clue-icon" data-icon="🌳"></span><span class="clue-label">רֶמֶז 4</span></div>
+      <div class="clue-card" id="clue-4" data-icon="🌻"><span class="clue-icon" data-icon="🌻"></span><span class="clue-label">רֶמֶז 5</span></div>
+      <div class="clue-card" id="clue-5" data-icon="🦜"><span class="clue-icon" data-icon="🦜"></span><span class="clue-label">רֶמֶז 6</span></div>
+    </div>
+    <div id="case-counter">רְמָזִים שֶׁנֶּחְשְׂפוּ: 0 מִתּוֹךְ 6</div>
+
+    <div class="quiz-panel">
+      <div class="quiz-q" id="case-q"></div>
+      <div class="quiz-options" id="case-options"></div>
+      <div class="quiz-exp" id="case-exp"></div>
+      <button class="quiz-btn" id="case-submit" disabled onclick="caseSubmit()">שְׁלַח תְּשׁוּבָה ✓</button>
+      <button class="quiz-btn quiz-next" id="case-next" onclick="caseNext()">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    </div>
+    <div class="result-banner" id="case-result"></div>
+  </div>
+
+  <!-- GRAMMAR EXPLANATION -->
+  <div class="section-title">📚 לָשׁוֹן — מִלּוֹת שְׁאֵלָה</div>
+  <div class="grammar-box">
+    <h3>אֵיךְ שׁוֹאֲלִים שְׁאֵלָה?</h3>
+    <p>כְּשֶׁאֲנַחְנוּ רוֹצִים לָדַעַת מַשֶּׁהוּ, אֲנַחְנוּ פּוֹתְחִים אֶת הַמִּשְׁפָּט בְּ<strong>מִלַּת שְׁאֵלָה</strong>. לְכָל מִלַּת שְׁאֵלָה יֵשׁ תַּפְקִיד מְיֻחָד:</p>
+
+    <table class="grammar-table">
+      <tr>
+        <th>מִלַּת הַשְּׁאֵלָה</th>
+        <th>עַל מָה שׁוֹאֲלִים?</th>
+        <th>דֻּגְמָה</th>
+      </tr>
+      <tr><td class="qw">מִי?</td><td>עַל אָדָם</td><td>מִי רָאָה אֶת יוֹסִי?</td></tr>
+      <tr><td class="qw">מָה?</td><td>עַל דָּבָר</td><td>מָה אָכַל הַתֻּכִּי?</td></tr>
+      <tr><td class="qw">אֵיפֹה?</td><td>עַל מָקוֹם</td><td>אֵיפֹה הָיוּ הַנּוֹצוֹת?</td></tr>
+      <tr><td class="qw">מָתַי?</td><td>עַל זְמַן</td><td>מָתַי נֶעֱלַם יוֹסִי?</td></tr>
+      <tr><td class="qw">לָמָּה? / מַדּוּעַ?</td><td>עַל סִבָּה</td><td>לָמָּה בָּרַח הַתֻּכִּי?</td></tr>
+      <tr><td class="qw">אֵיךְ? / כֵּיצַד?</td><td>עַל אֹפֶן</td><td>אֵיךְ נַחְזִיר אוֹתוֹ?</td></tr>
+      <tr><td class="qw">כַּמָּה?</td><td>עַל כַּמּוּת</td><td>כַּמָּה נוֹצוֹת מָצְאוּ?</td></tr>
+      <tr><td class="qw">לְאָן?</td><td>עַל מָקוֹם שֶׁהוֹלְכִים אֵלָיו</td><td>לְאָן בָּרַח הַתֻּכִּי?</td></tr>
+    </table>
+
+    <p style="margin-top:14px;">
+      <strong>שִׂימוּ לֵב!</strong> בְּסוֹף כָּל שְׁאֵלָה כּוֹתְבִים <strong>סִימַן שְׁאֵלָה (?)</strong> —
+      בְּדִיּוּק כְּמוֹ שֶׁלָּמַדְנוּ בְּשִׁיעוּר סִימָנֵי הַפִּיסּוּק.
+    </p>
+    <div class="example-row">
+      <span class="ex-chip">מִי?</span>
+      <span class="ex-chip">מָה?</span>
+      <span class="ex-chip">אֵיפֹה?</span>
+      <span class="ex-chip">מָתַי?</span>
+      <span class="ex-chip">לָמָּה?</span>
+      <span class="ex-chip">אֵיךְ?</span>
+      <span class="ex-chip">כַּמָּה?</span>
+      <span class="ex-chip">לְאָן?</span>
+    </div>
+  </div>
+
+  <!-- GRAMMAR GAME: Complete the question -->
+  <div class="section-title">✏️ מִשְׂחַק לָשׁוֹן — הַשְׁלֵם אֶת הַשְּׁאֵלָה</div>
+  <div class="game-box">
+    <div class="game-title">❓ הַשְׁלֵם אֶת הַשְּׁאֵלָה</div>
+    <div class="game-subtitle">בַּחֲרוּ אֶת מִלַּת הַשְּׁאֵלָה הַמַּתְאִימָה לְכָל מִשְׁפָּט! — Choose the right question word!</div>
+
+    <div class="progress-dots" id="qw-dots"></div>
+
+    <div id="qw-scene">
+      <div id="qw-round-label">שְׁאֵלָה 1 מִתּוֹךְ 8</div>
+      <div id="qw-sentence"></div>
+      <div id="qw-prompt">אֵיזוֹ מִלַּת שְׁאֵלָה מַתְאִימָה?</div>
+      <div class="qw-options" id="qw-options"></div>
+      <div id="qw-exp"></div>
+      <button class="qw-btn" id="qw-submit" disabled onclick="qwSubmit()">שְׁלַח ✓</button>
+      <button class="qw-btn qw-next" id="qw-next" onclick="qwNext()">הַבָּא ←</button>
+    </div>
+    <div class="result-banner" id="qw-result"></div>
+  </div>
+
+  <!-- WRITING ASSIGNMENT -->
+  <div class="section-title">✍️ מַטְלַת כְּתִיבָה</div>
+  <div class="game-box" style="padding:24px 22px;">
+    <p style="margin-bottom:16px;font-size:1.05rem;color:#1e293b;line-height:1.9;">
+      עַכְשָׁו אַתֶּם הַבַּלָּשִׁים! כִּתְבוּ <strong>5 שְׁאֵלוֹת</strong> עַל הַסִּפּוּר —
+      כָּל שְׁאֵלָה מַתְחִילָה בְּמִלַּת שְׁאֵלָה אַחֶרֶת. אַל תִּשְׁכְּחוּ סִימַן שְׁאֵלָה בַּסּוֹף!
+    </p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+      <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// =============================================
+// DETECTIVE CASE FILE — READING COMPREHENSION
+// =============================================
+const caseQuestions = [
+  {
+    question: "מָה נֶעֱלַם מִפִּנַּת הַחַי שֶׁל בֵּית הַסֵּפֶר?",
+    options: ["הַכֶּלֶב שֶׁל הַשּׁוֹמֵר", "הַתֻּכִּי יוֹסִי", "הָאַרְנָב הַלָּבָן", "צַלַּחַת הַגַּרְעִינִים"],
+    correct: 1,
+    explanation: "בַּסִּפּוּר כָּתוּב: 'הַתֻּכִּי יוֹסִי נֶעֱלַם הַבֹּקֶר מִפִּנַּת הַחַי שֶׁל בֵּית הַסֵּפֶר!'"
+  },
+  {
+    question: "מִי הֶחְלִיט לִפְתֹּר אֶת הַתַּעֲלוּמָה?",
+    options: ["נוֹעָה", "הַמּוֹרָה דָּנָה", "יוֹאָב", "הַשּׁוֹמֵר"],
+    correct: 2,
+    explanation: "בַּסִּפּוּר כָּתוּב: 'יוֹאָב, שֶׁאוֹהֵב סִפּוּרֵי בַּלָּשִׁים, קָם מִיָּד וְאָמַר: אֲנִי אֶפְתֹּר אֶת הַתַּעֲלוּמָה.'"
+  },
+  {
+    question: "אֵיפֹה מָצָא הַשּׁוֹמֵר אֶת הַנּוֹצוֹת הַיְּרֻקּוֹת?",
+    options: ["לְיַד הַחַלּוֹן הַפָּתוּחַ", "בְּתוֹךְ הַכְּלוּב", "עַל שֻׁלְחַן הַמּוֹרָה", "בַּמִּסְדְּרוֹן"],
+    correct: 0,
+    explanation: "בַּסִּפּוּר כָּתוּב: 'לְיַד הַחַלּוֹן הַפָּתוּחַ... הָיוּ שָׁם שָׁלוֹשׁ נוֹצוֹת יְרֻקּוֹת.'"
+  },
+  {
+    question: "מָתַי שָׁמְעָה הַגַּנֶּנֶת שִׁירָה מִכִּוּוּן הֶחָצֵר?",
+    options: ["אֶתְמוֹל בָּעֶרֶב", "בַּצָּהֳרַיִם", "בַּלַּיְלָה", "הַבֹּקֶר"],
+    correct: 3,
+    explanation: "בַּסִּפּוּר כָּתוּב: 'הַבֹּקֶר, אָמְרָה הַגַּנֶּנֶת, שָׁמַעְתִּי שִׁירָה עֲלִיזָה מִכִּוּוּן הֶחָצֵר.'"
+  },
+  {
+    question: "אֵיפֹה יָשַׁב יוֹסִי כְּשֶׁמָּצְאוּ אוֹתוֹ?",
+    options: ["עַל גַּג בֵּית הַסֵּפֶר", "עַל עֵץ הָאֹרֶן הַגָּבוֹהַּ", "עַל הַגָּדֵר", "בְּתוֹךְ הַכִּתָּה"],
+    correct: 1,
+    explanation: "בַּסִּפּוּר כָּתוּב: 'וְשָׁם, עַל עֵץ הָאֹרֶן הַגָּבוֹהַּ, יָשַׁב יוֹסִי וְשָׁר בְּקוֹל צָלוּל.'"
+  },
+  {
+    question: "אֵיךְ הֶחְזִירוּ אֶת יוֹסִי?",
+    options: ["עִם סֻלָּם גָּבוֹהַּ", "עִם רֶשֶׁת גְּדוֹלָה", "עִם גַּרְעִינִים", "עִם שִׁיר מְיֻחָד"],
+    correct: 2,
+    explanation: "בַּסִּפּוּר כָּתוּב: 'עִם גַּרְעִינִים — הַמַּאֲכָל הָאָהוּב עָלָיו!'"
+  }
+];
+
+let caseCurrent = 0;
+let caseSelected = null;
+let caseAnswered = false;
+let caseScore = 0;
+
+function loadCase() {
+  caseSelected = null;
+  caseAnswered = false;
+  const q = caseQuestions[caseCurrent];
+  document.getElementById('case-q').textContent =
+    `שְׁאֵלָה ${caseCurrent + 1}: ${q.question}`;
+  document.getElementById('case-exp').style.display = 'none';
+  document.getElementById('case-next').style.display = 'none';
+  const sub = document.getElementById('case-submit');
+  sub.style.display = 'block';
+  sub.disabled = true;
+
+  const opts = document.getElementById('case-options');
+  opts.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = opt;
+    btn.onclick = () => caseChoose(oi);
+    opts.appendChild(btn);
+  });
+}
+
+function caseChoose(oi) {
+  if (caseAnswered) return;
+  caseSelected = oi;
+  document.querySelectorAll('#case-options .quiz-opt').forEach((b, i) => {
+    b.classList.toggle('selected', i === oi);
+  });
+  document.getElementById('case-submit').disabled = false;
+}
+
+function caseSubmit() {
+  if (caseSelected === null) return;
+  const q = caseQuestions[caseCurrent];
+  const isCorrect = caseSelected === q.correct;
+  caseAnswered = true;
+
+  document.querySelectorAll('#case-options .quiz-opt').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct-ans');
+    else if (i === caseSelected) b.classList.add('wrong-ans');
+  });
+
+  if (isCorrect) {
+    document.getElementById('clue-' + caseScore).classList.add('found');
+    caseScore++;
+    document.getElementById('case-counter').textContent =
+      `רְמָזִים שֶׁנֶּחְשְׂפוּ: ${caseScore} מִתּוֹךְ 6`;
+  } else {
+    const board = document.getElementById('case-board');
+    board.classList.add('shake-anim');
+    setTimeout(() => board.classList.remove('shake-anim'), 500);
+  }
+
+  const exp = document.getElementById('case-exp');
+  exp.textContent = (isCorrect ? '✔️ נָכוֹן! ' : '✖️ לֹא מְדֻיָּק. ') + q.explanation;
+  exp.style.display = 'block';
+
+  document.getElementById('case-submit').style.display = 'none';
+  if (caseCurrent < caseQuestions.length - 1) {
+    document.getElementById('case-next').style.display = 'block';
+  } else {
+    setTimeout(showCaseResult, 900);
+  }
+}
+
+function caseNext() {
+  caseCurrent++;
+  loadCase();
+}
+
+function showCaseResult() {
+  const r = document.getElementById('case-result');
+  r.style.display = 'block';
+  if (caseScore === 6) {
+    r.innerHTML = '🏆 הַתַּעֲלוּמָה נִפְתְּרָה! חָשַׂפְתָּ אֶת כָּל 6 הָרְמָזִים — בַּלָּשׁ אַלּוּף!';
+  } else if (caseScore >= 4) {
+    r.innerHTML = `🕵️ כָּל הַכָּבוֹד! חָשַׂפְתָּ ${caseScore} רְמָזִים מִתּוֹךְ 6 — בַּלָּשׁ מְצֻיָּן!`;
+  } else {
+    r.innerHTML = `🔍 חָשַׂפְתָּ ${caseScore} רְמָזִים מִתּוֹךְ 6. קִרְאוּ שׁוּב אֶת הַסִּפּוּר וְנַסּוּ שׁוּב!`;
+  }
+}
+
+loadCase();
+
+// =============================================
+// COMPLETE THE QUESTION — GRAMMAR GAME
+// =============================================
+const qwRounds = [
+  {
+    sentence: '___ אַתָּה גָּר? — אֲנִי גָּר בְּחֵיפָה.',
+    options: ['אֵיפֹה', 'מָתַי', 'מִי', 'כַּמָּה'],
+    correct: 0,
+    explanation: 'הַתְּשׁוּבָה הִיא מָקוֹם (בְּחֵיפָה), לָכֵן שׁוֹאֲלִים "אֵיפֹה?".'
+  },
+  {
+    sentence: '___ אָכַלְתָּ בַּאֲרוּחַת הַבֹּקֶר? — אָכַלְתִּי כָּרִיךְ.',
+    options: ['מִי', 'מָה', 'אֵיךְ', 'אֵיפֹה'],
+    correct: 1,
+    explanation: 'הַתְּשׁוּבָה הִיא דָּבָר (כָּרִיךְ), לָכֵן שׁוֹאֲלִים "מָה?".'
+  },
+  {
+    sentence: '___ מַתְחִיל הַשִּׁיעוּר? — בְּשָׁעָה שְׁמוֹנֶה.',
+    options: ['לָמָּה', 'אֵיפֹה', 'מָתַי', 'מִי'],
+    correct: 2,
+    explanation: 'הַתְּשׁוּבָה הִיא זְמַן (בְּשָׁעָה שְׁמוֹנֶה), לָכֵן שׁוֹאֲלִים "מָתַי?".'
+  },
+  {
+    sentence: '___ כָּתַב אֶת הַסִּפּוּר עַל הַלּוּחַ? — הַמּוֹרָה דָּנָה.',
+    options: ['מִי', 'מָה', 'כַּמָּה', 'אֵיךְ'],
+    correct: 0,
+    explanation: 'הַתְּשׁוּבָה הִיא אָדָם (הַמּוֹרָה דָּנָה), לָכֵן שׁוֹאֲלִים "מִי?".'
+  },
+  {
+    sentence: '___ אִחַרְתָּ לַכִּתָּה? — כִּי הָאוֹטוֹבּוּס לֹא הִגִּיעַ.',
+    options: ['אֵיפֹה', 'מָתַי', 'מִי', 'לָמָּה'],
+    correct: 3,
+    explanation: 'הַתְּשׁוּבָה הִיא סִבָּה (כִּי...), לָכֵן שׁוֹאֲלִים "לָמָּה?" אוֹ "מַדּוּעַ?".'
+  },
+  {
+    sentence: '___ תַּלְמִידִים יֵשׁ בַּכִּתָּה? — שְׁלוֹשִׁים תַּלְמִידִים.',
+    options: ['כַּמָּה', 'מָה', 'אֵיךְ', 'מָתַי'],
+    correct: 0,
+    explanation: 'הַתְּשׁוּבָה הִיא כַּמּוּת (שְׁלוֹשִׁים), לָכֵן שׁוֹאֲלִים "כַּמָּה?".'
+  },
+  {
+    sentence: '___ מְכִינִים עוּגַת שׁוֹקוֹלָד? — מְעַרְבְּבִים קֶמַח, בֵּיצִים וְשׁוֹקוֹלָד.',
+    options: ['מִי', 'אֵיךְ', 'מָתַי', 'אֵיפֹה'],
+    correct: 1,
+    explanation: 'הַתְּשׁוּבָה מַסְבִּירָה אֹפֶן — אֵיךְ עוֹשִׂים — לָכֵן שׁוֹאֲלִים "אֵיךְ?" אוֹ "כֵּיצַד?".'
+  },
+  {
+    sentence: '___ נְסַעְתֶּם בַּחֻפְשָׁה? — נָסַעְנוּ לְאֵילַת.',
+    options: ['כַּמָּה', 'מִי', 'לְאָן', 'לָמָּה'],
+    correct: 2,
+    explanation: 'הַתְּשׁוּבָה הִיא מָקוֹם שֶׁנּוֹסְעִים אֵלָיו (לְאֵילַת), לָכֵן שׁוֹאֲלִים "לְאָן?".'
+  }
+];
+
+let qwRound = 0;
+let qwSelected = null;
+let qwAnswered = false;
+let qwScore = 0;
+
+function initQwDots() {
+  const dots = document.getElementById('qw-dots');
+  dots.innerHTML = '';
+  qwRounds.forEach(() => {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    dots.appendChild(d);
+  });
+}
+
+function loadQw() {
+  qwSelected = null;
+  qwAnswered = false;
+  const r = qwRounds[qwRound];
+  document.getElementById('qw-round-label').textContent =
+    `שְׁאֵלָה ${qwRound + 1} מִתּוֹךְ ${qwRounds.length}`;
+  document.getElementById('qw-sentence').innerHTML =
+    r.sentence.replace('___', '<span class="blank">___</span>');
+  document.getElementById('qw-exp').style.display = 'none';
+  document.getElementById('qw-next').style.display = 'none';
+  const sub = document.getElementById('qw-submit');
+  sub.style.display = 'block';
+  sub.disabled = true;
+
+  const opts = document.getElementById('qw-options');
+  opts.innerHTML = '';
+  r.options.forEach((opt, oi) => {
+    const btn = document.createElement('button');
+    btn.className = 'qw-opt';
+    btn.textContent = opt + '?';
+    btn.onclick = () => qwChoose(oi);
+    opts.appendChild(btn);
+  });
+}
+
+function qwChoose(oi) {
+  if (qwAnswered) return;
+  qwSelected = oi;
+  document.querySelectorAll('#qw-options .qw-opt').forEach((b, i) => {
+    b.classList.toggle('selected', i === oi);
+  });
+  document.getElementById('qw-submit').disabled = false;
+}
+
+function qwSubmit() {
+  if (qwSelected === null) return;
+  const r = qwRounds[qwRound];
+  const isCorrect = qwSelected === r.correct;
+  qwAnswered = true;
+
+  document.querySelectorAll('#qw-options .qw-opt').forEach((b, i) => {
+    b.disabled = true;
+    if (i === r.correct) b.classList.add('correct-ans');
+    else if (i === qwSelected) b.classList.add('wrong-ans');
+  });
+
+  if (isCorrect) {
+    document.getElementById('qw-sentence').innerHTML =
+      r.sentence.replace('___', '<span class="blank">' + r.options[r.correct] + '</span>');
+    qwScore++;
+    document.querySelectorAll('#qw-dots .dot')[qwRound].classList.add('done');
+  } else {
+    const scene = document.getElementById('qw-scene');
+    scene.classList.add('shake-anim');
+    setTimeout(() => scene.classList.remove('shake-anim'), 500);
+  }
+
+  const exp = document.getElementById('qw-exp');
+  exp.textContent = (isCorrect ? '✔️ נָכוֹן! ' : '✖️ לֹא מְדֻיָּק. ') + r.explanation;
+  exp.style.display = 'block';
+
+  document.getElementById('qw-submit').style.display = 'none';
+  if (qwRound < qwRounds.length - 1) {
+    document.getElementById('qw-next').style.display = 'block';
+  } else {
+    setTimeout(showQwResult, 900);
+  }
+}
+
+function qwNext() {
+  qwRound++;
+  loadQw();
+}
+
+function showQwResult() {
+  const r = document.getElementById('qw-result');
+  r.style.display = 'block';
+  if (qwScore === qwRounds.length) {
+    r.innerHTML = '🏆 מֻשְׁלָם! עָנִיתָ נָכוֹן עַל כָּל הַשְּׁאֵלוֹת — אַלּוּף מִלּוֹת הַשְּׁאֵלָה!';
+  } else if (qwScore >= 6) {
+    r.innerHTML = `⭐ כָּל הַכָּבוֹד! ${qwScore} מִתּוֹךְ ${qwRounds.length} — מַמָּשׁ מְיֻמָּן!`;
+  } else {
+    r.innerHTML = `💪 ${qwScore} מִתּוֹךְ ${qwRounds.length}. חִזְרוּ עַל הַטַּבְלָה וְנַסּוּ שׁוּב!`;
+  }
+}
+
+initQwDots();
+loadQw();
+
+// =============================================
+// WRITING ASSIGNMENT
+// =============================================
+const wP = [
+  'כִּתְבוּ שְׁאֵלָה עַל הַסִּפּוּר שֶׁמַּתְחִילָה בְּ־מִי (לְדֻגְמָה: מִי פָּתַר אֶת הַתַּעֲלוּמָה?)...',
+  'כִּתְבוּ שְׁאֵלָה שֶׁמַּתְחִילָה בְּ־מָה...',
+  'כִּתְבוּ שְׁאֵלָה שֶׁמַּתְחִילָה בְּ־אֵיפֹה...',
+  'כִּתְבוּ שְׁאֵלָה שֶׁמַּתְחִילָה בְּ־מָתַי...',
+  'כִּתְבוּ שְׁאֵלָה שֶׁמַּתְחִילָה בְּ־לָמָּה...'
+];
+function initW() {
+  const c = document.getElementById('writing-lines');
+  if (!c) return;
+  c.innerHTML = '';
+  wP.forEach((ph, i) => {
+    const d = document.createElement('div');
+    d.className = 'writing-line';
+    d.id = 'wline-' + i;
+    d.innerHTML = '<div class="writing-num">' + (i + 1) + '</div><input class="writing-input" id="winput-' + i + '" type="text" placeholder="' + ph + '" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d);
+  });
+  const r = document.getElementById('writing-result');
+  if (r) r.style.display = 'none';
+  const f = document.getElementById('writing-fb');
+  if (f) f.textContent = '';
+}
+window.submitWriting = function() {
+  let n = 0;
+  for (let i = 0; i < 5; i++) {
+    const v = document.getElementById('winput-' + i).value.trim();
+    const l = document.getElementById('wline-' + i);
+    if (v.length > 1) { n++; l.className = 'writing-line filled'; }
+    else l.className = 'writing-line';
+  }
+  const fb = document.getElementById('writing-fb');
+  const res = document.getElementById('writing-result');
+  if (n < 5) {
+    if (fb) { fb.textContent = '⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.'; fb.style.color = '#dc2626'; }
+    if (res) res.style.display = 'none';
+    return;
+  }
+  if (fb) fb.textContent = '';
+  if (res) {
+    res.style.display = 'block';
+    res.innerHTML = '🌟 <strong>כָּל הַכָּבוֹד!</strong> כְּתַבְתֶּם 5 שְׁאֵלוֹת עִם מִלּוֹת שְׁאֵלָה שׁוֹנוֹת. בִּדְקוּ שֶׁיֵּשׁ סִימַן שְׁאֵלָה בְּסוֹף כָּל שְׁאֵלָה!';
+  }
+};
+window.resetWriting = function() { initW(); };
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַתַּחֲרוּת הַגְּדוֹלָה — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nav:#0369a1; --nav-dk:#075985; --nav-md:#38bdf8; --nav-lt:#e0f2fe; --nav-pal:#f0f9ff; --nav-2:#bae6fd;
+  --gold:#d97706; --gold-dk:#b45309; --gold-md:#fbbf24; --gold-lt:#fef3c7; --gold-pal:#fffbeb; --gold-2:#fde68a;
+  --ok:#16a34a; --ok-lt:#dcfce7; --red-lt:#fee2e2;
+  --ink:#0c1a24; --muted:#6b7280; --white:#fff;
+  --primary:#0369a1; --primary-light:#0284c7; --primary-pale:#f0f9ff;
+  --accent:#d97706; --accent-light:#fbbf24; --accent-pale:#fffbeb;
+  --correct:#16a34a; --wrong:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--nav-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+.header{background:linear-gradient(160deg,#0c4a6e 0%,#0369a1 55%,#38bdf8 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#bae6fd;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(56,189,248,.5),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#bae6fd;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#0c4a6e;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(3,105,161,.35)}
+.header-flag-strip{background:var(--gold);height:6px}
+
+.lesson-nav{background:#0c4a6e;padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#bae6fd;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--nav-md);border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#0369a1;color:#fff}
+.nav-current{color:#7dd3fc;font-size:.78rem;font-weight:800;margin-right:auto}
+
+.progress-strip{background:#0c4a6e;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#bae6fd;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:var(--nav-md);border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#bae6fd,var(--gold));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#fde68a;font-size:1rem;letter-spacing:2px}
+
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;z-index:5}
+.cs-nav{background:linear-gradient(180deg,#bae6fd,#0369a1)}
+.cs-gold{background:linear-gradient(180deg,#fde68a,#d97706)}
+.cs-grn{background:linear-gradient(180deg,#bbf7d0,#16a34a)}
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-nav{background:var(--nav-pal);border:1.5px solid var(--nav-2)}
+.si-gold{background:var(--gold-pal);border:1.5px solid var(--gold-2)}
+.si-grn{background:#f0fdf4;border:1.5px solid #bbf7d0}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+.story-wrap{background:var(--nav-pal);border:2px solid var(--nav-2);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--nav-dk);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.7;color:#1e2d36;margin-bottom:10px}
+
+.vocab-box{background:var(--gold-pal);border:2px solid var(--gold-2);border-radius:14px;padding:14px 16px;margin-top:14px}
+.vocab-box h3{font-size:.95rem;font-weight:700;color:var(--gold-dk);margin-bottom:.7rem}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.5rem}
+.vocab-item{background:#fff;border-radius:8px;padding:.5rem .8rem;font-size:.95rem;border:1px solid var(--gold-2);font-family:'Frank Ruhl Libre',serif}
+.vocab-heb{font-weight:700;color:var(--nav-dk)}
+.vocab-def{color:var(--muted);font-size:.82rem}
+
+.gram-intro{background:var(--nav-pal);border:2px dashed var(--nav-md);border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:.97rem;font-weight:600;color:var(--nav-dk);line-height:1.9}
+.gram-intro strong{color:var(--nav)}
+.grammar-box{background:var(--nav-pal);border:2px solid var(--nav-2);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem}
+.grammar-box h3{color:var(--nav-dk);font-size:1.05rem;margin-bottom:.7rem;text-align:center}
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.8rem}
+.pattern-card{background:#fff;border-radius:10px;padding:1rem;text-align:center;border:2px solid var(--nav-2)}
+.pattern-tag{display:inline-block;background:var(--nav);color:#fff;font-size:1rem;font-weight:800;padding:4px 14px;border-radius:20px;margin-bottom:.4rem;font-family:'Frank Ruhl Libre',serif}
+.pattern-sub{font-size:.78rem;color:var(--gold-dk);margin-bottom:.5rem}
+.example-row{display:flex;align-items:center;justify-content:center;gap:8px;font-size:1rem;margin:4px 0;font-family:'Frank Ruhl Libre',serif}
+.ex-before{color:var(--muted)}.ex-arrow{color:var(--gold);font-weight:800}.ex-after{color:var(--nav-dk);font-weight:700}
+.gender-note{background:var(--gold-pal);border:2px solid var(--gold-2);border-radius:10px;padding:.8rem 1rem;margin-top:.9rem;font-size:.95rem;line-height:1.7;font-family:'Frank Ruhl Libre',serif}
+.gender-note strong{color:var(--gold-dk)}
+
+/* book game */
+.book-bg{background:linear-gradient(160deg,#1c0a00 0%,#3d1a00 100%);border-radius:14px;padding:1.4rem;color:#fff}
+.book-title{text-align:center;font-size:1.2rem;font-weight:700;color:var(--accent-light);margin-bottom:.3rem}
+.book-sub{text-align:center;font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:1.1rem}
+.pips{display:flex;justify-content:center;gap:8px;margin-bottom:1.2rem}
+.pip{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .3s}
+.pip.done{background:var(--accent)}.pip.active{background:#fbbf24}
+.pages-spread{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.page-card{background:#fef9c3;color:#1c1917;border-radius:6px;width:82px;height:82px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;transition:transform .2s;box-shadow:3px 3px 8px rgba(0,0,0,.5);border:2px solid transparent;border-top:6px solid var(--accent)}
+.page-card:hover{transform:translateY(-6px) scale(1.06)}
+.page-card.answered-correct{border-top-color:var(--correct);background:#dcfce7;cursor:default}
+.page-card.answered-wrong{border-top-color:var(--wrong);background:#fee2e2;cursor:default}
+.page-card .page-icon{font-size:1.7rem}
+.page-card .page-label{font-size:.6rem;color:var(--gold-dk);font-weight:600}
+.book-question-area{background:rgba(255,255,255,.07);border:2px solid rgba(217,119,6,.4);border-radius:10px;padding:1rem 1.2rem;margin-bottom:.9rem;min-height:60px;text-align:center;font-size:1.05rem;line-height:1.8;font-family:'Frank Ruhl Libre',serif}
+.book-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem}
+.book-btn{background:rgba(255,255,255,.07);border:2px solid rgba(217,119,6,.3);border-radius:9px;padding:.7rem;color:#fff;font-size:.95rem;cursor:pointer;line-height:1.5;transition:all .18s;font-family:'Frank Ruhl Libre',serif}
+.book-btn:hover{background:rgba(217,119,6,.15);border-color:var(--accent)}
+.book-btn.selected{background:rgba(217,119,6,.25);border-color:var(--accent)}
+.book-btn.correct-reveal{background:rgba(22,163,74,.3);border-color:#22c55e}
+.book-btn.wrong-reveal{background:rgba(220,38,38,.3);border-color:#ef4444}
+.book-submit{display:none;margin:0 auto .7rem;background:var(--accent);color:#fff;border:none;border-radius:9px;padding:.6rem 1.8rem;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.book-explanation{display:none;background:rgba(217,119,6,.12);border:2px solid var(--accent);border-radius:9px;padding:.7rem 1rem;font-size:.9rem;line-height:1.7;text-align:center;margin-bottom:.6rem}
+
+/* trophy game */
+.trophy-bg{background:linear-gradient(160deg,#1a0c00 0%,#2d1500 100%);border-radius:14px;padding:1.4rem;color:#fff}
+.trophy-title{text-align:center;font-size:1.2rem;font-weight:700;color:var(--accent-light);margin-bottom:.3rem}
+.trophy-sub{text-align:center;font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:1rem}
+.trophy-case{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.1rem}
+.pedestal{background:rgba(255,255,255,.06);border:2px solid rgba(217,119,6,.2);border-radius:10px;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:all .4s}
+.pedestal .trophy-emoji{font-size:2.2rem;transform:scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.pedestal.earned .trophy-emoji{transform:scale(1)}
+.pedestal.earned{border-color:var(--accent);background:rgba(217,119,6,.12);box-shadow:0 0 20px rgba(217,119,6,.3)}
+.pedestal .ped-num{font-size:.7rem;color:rgba(255,255,255,.3)}
+.trophy-question{text-align:center;font-size:1.08rem;color:#e2e8f0;margin-bottom:.9rem;line-height:1.8;font-family:'Frank Ruhl Libre',serif}
+.trophy-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:480px;margin:0 auto .7rem}
+.trophy-btn{background:rgba(255,255,255,.07);border:2px solid rgba(217,119,6,.35);border-radius:9px;padding:.75rem;color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:all .18s;direction:rtl;font-family:'Frank Ruhl Libre',serif}
+.trophy-btn:hover{background:rgba(217,119,6,.15);border-color:var(--accent)}
+.trophy-btn.selected{background:rgba(217,119,6,.25);border-color:var(--accent);color:var(--accent-light)}
+.trophy-btn.correct-reveal{background:rgba(22,163,74,.3);border-color:#22c55e}
+.trophy-btn.wrong-reveal{background:rgba(220,38,38,.3);border-color:#ef4444}
+.trophy-submit{display:none;margin:0 auto .7rem;background:var(--accent);color:#fff;border:none;border-radius:9px;padding:.65rem 2rem;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.trophy-explanation{display:none;background:rgba(217,119,6,.1);border:2px solid var(--accent);border-radius:9px;padding:.7rem 1rem;font-size:.9rem;line-height:1.7;text-align:center;margin-bottom:.6rem;max-width:480px;margin-left:auto;margin-right:auto}
+.next-btn{display:none;margin:0 auto;background:var(--accent);color:#fff;border:none;border-radius:9px;padding:.6rem 1.8rem;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.result-banner{display:none;text-align:center;padding:2rem 1rem;animation:pop-in .4s ease}
+@keyframes pop-in{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.res-emoji{font-size:3.2rem;margin-bottom:.6rem}
+.res-title{font-size:1.4rem;font-weight:800;margin-bottom:.4rem}
+.res-sub{font-size:.95rem;opacity:.8}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.shake{animation:shake .4s ease}
+
+/* writing */
+.writing-intro{background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:14px 18px;margin-bottom:16px;font-size:.97rem;font-weight:600;color:#166534;line-height:1.9}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.9rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-submit-btn{background:var(--nav);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-reset-btn{background:#6b7280;color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+
+.score-panel{background:#fff;border:3px solid var(--nav-2);border-radius:22px;padding:24px 28px;text-align:center}
+.score-title{font-size:1.1rem;font-weight:900;color:var(--nav-dk);margin-bottom:10px}
+.score-emojis{font-size:2rem;letter-spacing:6px;margin-bottom:10px}
+.score-bar{background:var(--nav-2);border-radius:100px;height:12px;overflow:hidden;margin-bottom:12px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--nav-md),var(--gold));border-radius:100px;width:0%;transition:width .7s ease}
+.score-msg{font-size:.97rem;font-weight:600;color:var(--ink)}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px 16px 40px}
+@media(max-width:520px){.pattern-grid,.book-options,.trophy-options{grid-template-columns:1fr}.page-card{width:64px;height:72px}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🏆</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">⭐</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:55%">🎉</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:74%">📚</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:40%">🥇</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">🏆 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 48</div>
+    <h1>הַתַּחֲרוּת הַגְּדוֹלָה</h1>
+    <div class="header-sub">דַּרְגַּת הַהַפְלָגָה — Superlative</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: דַּרְגַּת הַהַפְלָגָה</div>
+  </div>
+</div>
+<div class="header-flag-strip"></div>
+
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson46_haglida_shel_shira.html">→ 46</a>
+  <a class="nav-btn" href="lesson47_hachanut_haktantana.html">→ 47</a>
+  <a class="nav-btn" href="lesson49_simanei_hapissuk.html">→ 49</a>
+  <span class="nav-current">שִׁיעוּר 48 ◀</span>
+</nav>
+
+<div class="progress-strip">
+  <span class="prog-label">הַתְקַדְּמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  <span class="prog-stars" id="prog-stars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+  <!-- STORY -->
+  <div class="card">
+    <div class="card-stripe cs-nav"></div>
+    <div class="sec-header"><div class="sec-icon si-nav">📖</div><div><span class="sec-num">חֵלֶק א׳</span><div class="sec-title">קְרִיאָה</div></div></div>
+    <div class="story-wrap">
+      <div class="story-title">הַתַּחֲרוּת הַגְּדוֹלָה</div>
+      <p class="story-p">בְּבֵית הַסֵּפֶר שֶׁל כִּיתָה ד׳ הִכְרִיזָה הַמּוֹרָה שִׁירָה עַל תַּחֲרוּת מְיֻחֶדֶת: "הַיּוֹם כָּל יֶלֶד יָבִיא אֶת הַדָּבָר הַכִּי מְעַנְיֵן שֶׁיֵּשׁ לוֹ!"</p>
+      <p class="story-p">הַכִּיתָה הִתְלַהֲבָה מְאוֹד. דָּן הֵבִיא אֶת הָאֶבֶן הַכִּי גְּדוֹלָה שֶׁמָּצָא אֵי פַּעַם בַּגַּן. מֵיטַל הֵבִיאָה אֶת הַשְּׂמִיכָה הַכִּי רַכָּה שֶׁיֵּשׁ לָהּ. אוֹרִי אָמַר שֶׁהֵבִיא אֶת הַסֵּפֶר הַכִּי מַצְחִיק שֶׁהוּא קָרָא אֵי פַּעַם.</p>
+      <p class="story-p">נוֹעָה חָשְׁבָה הַרְבֵּה. הִיא רָצְתָה לְהָבִיא מַשֶּׁהוּ שֶׁיִּהְיֶה הַכִּי מְיֻחָד מִכֹּל. לְבַסּוֹף הִיא הֵבִיאָה אֶת הַסִּפּוּר שֶׁכָּתְבָה בְּעַצְמָהּ.</p>
+      <p class="story-p">"מָה הַמְּיֻחָד בַּסִּפּוּר שֶׁלָּךְ?" שָׁאַל דָּן.</p>
+      <p class="story-p">"זֶה הַסִּפּוּר הַכִּי אָרֹךְ שֶׁכָּתַבְתִּי אֵי פַּעַם," עָנְתָה נוֹעָה בְּגַאֲוָה, "וְגַם הַכִּי מְרַגֵּשׁ!"</p>
+      <p class="story-p">הַמּוֹרָה שִׁירָה חִיְּכָה וְאָמְרָה: "בַּתַּחֲרוּת הַזֹּאת אֵין מִישֶׁהוּ הַכִּי טוֹב — כָּל אֶחָד הֵבִיא דָּבָר שֶׁהוּא הַכִּי מְיֻחָד בִּשְׁבִילוֹ!"</p>
+    </div>
+    <div class="vocab-box">
+      <h3>🔑 מִילּוֹן הַשִּׁיעוּר:</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-heb">הִכְרִיזָה</span> <span class="vocab-def">— הוֹדִיעָה בְּקוֹל רָם</span></div>
+        <div class="vocab-item"><span class="vocab-heb">תַּחֲרוּת</span> <span class="vocab-def">— מִשְׂחָק שֶׁבּוֹ מְנַסִּים לִהְיוֹת הַכִּי טוֹב</span></div>
+        <div class="vocab-item"><span class="vocab-heb">הִתְלַהֲבָה</span> <span class="vocab-def">— הִתְמַלְּאָה בְּשִׂמְחָה וְחֵשֶׁק</span></div>
+        <div class="vocab-item"><span class="vocab-heb">גַּאֲוָה</span> <span class="vocab-def">— תְּחוּשָׁה טוֹבָה עַל הֶשֵּׂג שֶׁלְּךָ</span></div>
+        <div class="vocab-item"><span class="vocab-heb">מְרַגֵּשׁ</span> <span class="vocab-def">— גּוֹרֵם לִרְגָשׁוֹת חֲזָקִים</span></div>
+        <div class="vocab-item"><span class="vocab-heb">מְיֻחָד</span> <span class="vocab-def">— שׁוֹנֶה מֵאֲחֵרִים, לֹא רָגִיל</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOK GAME -->
+  <div class="card">
+    <div class="card-stripe cs-gold"></div>
+    <div class="sec-header"><div class="sec-icon si-gold">📚</div><div><span class="sec-num">חֵלֶק ב׳ — מִשְׂחָק</span><div class="sec-title">סֵפֶר קוֹפֵץ — הֲבָנַת הַנִּקְרָא</div></div></div>
+    <div class="book-bg" id="bookGame">
+      <div class="book-title">📖 פְּתַח עָמוּד וַעֲנֵה עַל הַשְּׁאֵלָה!</div>
+      <div class="book-sub">לְחַץ עַל אֶחָד מֵחֲמֵשֶׁת הָעֲמוּדִים כְּדֵי לְקַבֵּל שְׁאֵלָה</div>
+      <div class="pips" id="bookPips"></div>
+      <div class="pages-spread" id="pagesSpread"></div>
+      <div class="book-question-area" id="bookQuestion">בְּחַר עָמוּד כְּדֵי לְהַתְחִיל ⬆</div>
+      <div class="book-options" id="bookOptions"></div>
+      <button class="book-submit" id="bookSubmit" onclick="submitBook()">✔ בְּדֹק</button>
+      <div class="book-explanation" id="bookExplanation"></div>
+      <button class="next-btn" id="bookNext" onclick="nextBookPage()">עָמוּד הַבָּא ◀</button>
+      <div class="result-banner" id="bookResult">
+        <div class="res-emoji">📚⭐</div>
+        <div class="res-title" style="color:var(--accent-light)">כָּל הַכָּבוֹד! קָרָאתָ יָפֶה!</div>
+        <div class="res-sub">עָנִיתָ עַל כָּל שְׁאֵלוֹת הַסִּפּוּר!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR -->
+  <div class="card">
+    <div class="card-stripe cs-nav"></div>
+    <div class="sec-header"><div class="sec-icon si-nav">📐</div><div><span class="sec-num">חֵלֶק ג׳</span><div class="sec-title">דִּקְדּוּק — דַּרְגַּת הַהַפְלָגָה</div></div></div>
+    <div class="gram-intro">כְּשֶׁרוֹצִים לוֹמַר שֶׁמַּשֶּׁהוּ הוּא <strong>הַגָּדוֹל מִכֹּל / הַיָּפֶה מִכֹּל / הַטּוֹב מִכֹּל</strong> — זוֹ <strong>דַּרְגַּת הַהַפְלָגָה</strong> (Superlative). בְּעִבְרִית יֵשׁ שְׁתֵּי דְּרָכִים לְהַבִּיעַ זֹאת:</div>
+    <div class="grammar-box">
+      <h3>🔤 שְׁתֵּי הַדְּרָכִים לְדַרְגַּת הַהַפְלָגָה</h3>
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <div class="pattern-tag">הַכִּי + תֹּאַר</div>
+          <div class="pattern-sub">נְפוֹצָה בְּשָׂפָה מְדֻבֶּרֶת</div>
+          <div class="example-row"><span class="ex-before">גָּדוֹל</span><span class="ex-arrow">←</span><span class="ex-after">הַכִּי גָּדוֹל</span></div>
+          <div class="example-row"><span class="ex-before">יָפֶה</span><span class="ex-arrow">←</span><span class="ex-after">הַכִּי יָפֶה</span></div>
+          <div class="example-row"><span class="ex-before">מָהִיר</span><span class="ex-arrow">←</span><span class="ex-after">הַכִּי מָהִיר</span></div>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-tag">הַ + תֹּאַר + בְּיוֹתֵר</div>
+          <div class="pattern-sub">נְפוֹצָה בִּכְתָב רִשְׁמִי</div>
+          <div class="example-row"><span class="ex-before">גָּדוֹל</span><span class="ex-arrow">←</span><span class="ex-after">הַגָּדוֹל בְּיוֹתֵר</span></div>
+          <div class="example-row"><span class="ex-before">יָפֶה</span><span class="ex-arrow">←</span><span class="ex-after">הַיָּפֶה בְּיוֹתֵר</span></div>
+          <div class="example-row"><span class="ex-before">מָהִיר</span><span class="ex-arrow">←</span><span class="ex-after">הַמָּהִיר בְּיוֹתֵר</span></div>
+        </div>
+      </div>
+      <div class="gender-note">
+        <strong>⚠️ זְכֹר! — הַתֹּאַר חַיָּב לְהַסְכִּים עִם הַשֵּׁם בְּמִין:</strong><br>
+        <div style="margin-top:6px">זָכָר: הַסֵּפֶר הַכִּי מַצְחִיק 📗 &nbsp;|&nbsp; נְקֵבָה: הָעוּגָה הַכִּי טְעִימָה 🍰</div>
+        <div style="margin-top:4px">זָכָר: הַיּוֹם הַכִּי שָׂמֵחַ ☀️ &nbsp;|&nbsp; נְקֵבָה: הָאֶבֶן הַכִּי גְּדוֹלָה 🪨</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TROPHY GAME -->
+  <div class="card">
+    <div class="card-stripe cs-gold"></div>
+    <div class="sec-header"><div class="sec-icon si-gold">🏆</div><div><span class="sec-num">חֵלֶק ד׳ — מִשְׂחָק</span><div class="sec-title">אֲרוֹן הַגְּבִיעִים — תִּרְגּוּל</div></div></div>
+    <div class="trophy-bg" id="trophyGame">
+      <div class="trophy-title">🏆 מַלֵּא אֶת אֲרוֹן הַגְּבִיעִים!</div>
+      <div class="trophy-sub">עֲנֵה נָכוֹן — וְתַרְוִיחַ גָּבִיעַ זָהָב!</div>
+      <div class="pips" id="trophyPips"></div>
+      <div class="trophy-case" id="trophyCase"></div>
+      <div id="trophyContent">
+        <div class="trophy-question" id="trophyQuestion"></div>
+        <div class="trophy-options" id="trophyOptions"></div>
+        <button class="trophy-submit" id="trophySubmit" onclick="submitTrophy()">✔ בְּדֹק</button>
+        <div class="trophy-explanation" id="trophyExplanation"></div>
+        <button class="next-btn" id="trophyNext" onclick="nextTrophy()">שְׁאֵלָה הַבָּאָה ◀</button>
+      </div>
+      <div class="result-banner" id="trophyResult">
+        <div class="res-emoji">🏆🎉</div>
+        <div class="res-title" style="color:var(--accent-light)">אֲרוֹן הַגְּבִיעִים מָלֵא!</div>
+        <div class="res-sub">אַתָּה מֵבִין אֶת דַּרְגַּת הַהַפְלָגָה בְּעִבְרִית!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header"><div class="sec-icon si-grn">✍️</div><div><span class="sec-num">חֵלֶק ה׳</span><div class="sec-title">מַטְלַת כְּתִיבָה</div></div></div>
+    <div class="writing-intro">כְּתֹב 5 מִשְׁפָּטִים עִם דַּרְגַּת הַהַפְלָגָה. הִשְׁתַּמֵּשׁ בְּ<strong>הַ...בְּיוֹתֵר</strong> אוֹ <strong>הַכִּי...</strong>. לְדֻגְמָה: הַכֶּלֶב שֶׁלִּי הוּא הַמָּהִיר בְּיוֹתֵר בָּרְחוֹב.</div>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+      <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+  </div>
+
+  <!-- SCORE -->
+  <div class="score-panel" id="score-panel">
+    <div class="score-title">📊 תּוֹצְאוֹת הַשִּׁיעוּר</div>
+    <div class="score-emojis" id="score-emojis">☆☆☆☆☆</div>
+    <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    <div class="score-msg" id="score-msg">שַׂחֵק בִּשְׁנֵי הַמִּשְׂחָקִים כְּדֵי לִרְאוֹת אֶת הַתּוֹצָאָה!</div>
+  </div>
+
+</div>
+
+<footer>שִׁיעוּר 48 מִתּוֹךְ סִדְרַת "סִיפּוּרִים בְּעִבְרִית" · כָּל הַזְּכֻיּוֹת שְׁמוּרוֹת</footer>
+
+<script>
+let correct = 0;
+const TOTAL = 5 + 6;
+function updateProgress() {
+  const pct = Math.round((correct / TOTAL) * 100);
+  const s = Math.round((correct / TOTAL) * 5);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-stars').textContent = '★'.repeat(s) + '☆'.repeat(5 - s);
+  document.getElementById('score-emojis').textContent = '★'.repeat(s) + '☆'.repeat(5 - s);
+  document.getElementById('score-bar-fill').style.width = pct + '%';
+  const msg = document.getElementById('score-msg');
+  if (correct >= TOTAL) msg.textContent = '🏆 מֻשְׁלָם! עָנִיתָ נָכוֹן עַל הַכֹּל!';
+  else msg.textContent = correct + ' מִתּוֹךְ ' + TOTAL + ' נְכוֹנִים — כָּל הַכָּבוֹד!';
+}
+
+// BOOK GAME
+const bookQs = [
+  { icon:"🏫", label:"עָמוּד 1", q:"מָה הִכְרִיזָה הַמּוֹרָה שִׁירָה לַכִּיתָה?", opts:["שֶׁיִּכְתְּבוּ שִׁיר בַּכִּיתָה","שֶׁכָּל יֶלֶד יָבִיא אֶת הַדָּבָר הַכִּי מְעַנְיֵן שֶׁלּוֹ","שֶׁיָּבִיאוּ אֹכֶל מֵהַבַּיִת","שֶׁיְּנַגְּנוּ שִׁיר יָפֶה"], ans:1, exp:"נָכוֹן! הַמּוֹרָה הִכְרִיזָה עַל תַּחֲרוּת שֶׁבָּהּ כָּל יֶלֶד יָבִיא אֶת הַדָּבָר הַכִּי מְעַנְיֵן שֶׁלּוֹ." },
+  { icon:"🪨", label:"עָמוּד 2", q:"מָה הֵבִיא דָּן לַתַּחֲרוּת?", opts:["סֵפֶר מַצְחִיק מְאוֹד","שְׂמִיכָה רַכָּה","אֶבֶן גְּדוֹלָה שֶׁמָּצָא בַּגַּן","צַעֲצוּעַ מְיֻחָד"], ans:2, exp:"יָפֶה! דָּן הֵבִיא אֶת הָאֶבֶן הַכִּי גְּדוֹלָה שֶׁמָּצָא אֵי פַּעַם בַּגַּן." },
+  { icon:"📗", label:"עָמוּד 3", q:"מָה אָמַר אוֹרִי שֶׁהֵבִיא?", opts:["אֶת הַשִּׁיר הַכִּי יָפֶה","אֶת הַסֵּפֶר הַכִּי מַצְחִיק שֶׁקָּרָא","אֶת הָאֶבֶן הַכִּי גְּדוֹלָה","אֶת הַשְּׂמִיכָה הַכִּי רַכָּה"], ans:1, exp:"מְצֻיָּן! אוֹרִי הֵבִיא אֶת הַסֵּפֶר הַכִּי מַצְחִיק שֶׁהוּא קָרָא אֵי פַּעַם." },
+  { icon:"✍️", label:"עָמוּד 4", q:"מָה הֵבִיאָה נוֹעָה לַתַּחֲרוּת?", opts:["שְׂמִיכָה רַכָּה","אֶבֶן גְּדוֹלָה","סִפּוּר שֶׁכָּתְבָה בְּעַצְמָהּ","תְּמוּנָה שֶׁצָּיְרָה"], ans:2, exp:"נָכוֹן! נוֹעָה הֵבִיאָה אֶת הַסִּפּוּר שֶׁכָּתְבָה בְּעַצְמָהּ — הַכִּי אָרֹךְ וְהַכִּי מְרַגֵּשׁ!" },
+  { icon:"💬", label:"עָמוּד 5", q:"מָה אָמְרָה הַמּוֹרָה שִׁירָה בַּסּוֹף?", opts:["שֶׁנּוֹעָה הֵבִיאָה אֶת הַדָּבָר הַכִּי טוֹב","שֶׁאֵין מִישֶׁהוּ הַכִּי טוֹב — כָּל אֶחָד הֵבִיא דָּבָר מְיֻחָד","שֶׁדָּן הֵבִיא אֶת הַדָּבָר הַכִּי מְעַנְיֵן","שֶׁצְּרִיכִים לְנַסּוֹת שֵׁנִית"], ans:1, exp:"מְצֻיָּן! הַמּוֹרָה אָמְרָה שֶׁאֵין מִישֶׁהוּ הַכִּי טוֹב — כָּל אֶחָד הֵבִיא דָּבָר שֶׁהוּא הַכִּי מְיֻחָד בִּשְׁבִילוֹ!" }
+];
+let bookAnswered = [false, false, false, false, false];
+let bookCurrent = -1, bookDoneCount = 0, bookSelected = null, bookSubmitted = false;
+function initBook() {
+  const spread = document.getElementById('pagesSpread'); spread.innerHTML = '';
+  const pips = document.getElementById('bookPips'); pips.innerHTML = '';
+  bookQs.forEach((q, i) => {
+    const card = document.createElement('div'); card.className = 'page-card'; card.id = 'bookCard' + i;
+    card.innerHTML = '<span class="page-icon">' + q.icon + '</span><span class="page-label">' + q.label + '</span>';
+    card.onclick = () => openBookPage(i); spread.appendChild(card);
+    const pip = document.createElement('div'); pip.className = 'pip'; pip.id = 'bookPip' + i; pips.appendChild(pip);
+  });
+}
+function openBookPage(i) {
+  if (bookAnswered[i]) return;
+  bookCurrent = i; bookSelected = null; bookSubmitted = false;
+  document.getElementById('bookQuestion').textContent = bookQs[i].q;
+  const opts = document.getElementById('bookOptions'); opts.innerHTML = '';
+  bookQs[i].opts.forEach((opt, j) => {
+    const btn = document.createElement('button'); btn.className = 'book-btn'; btn.textContent = opt;
+    btn.onclick = () => selectBook(j, btn); opts.appendChild(btn);
+  });
+  document.getElementById('bookSubmit').style.display = 'none';
+  document.getElementById('bookExplanation').style.display = 'none';
+  document.getElementById('bookNext').style.display = 'none';
+}
+function selectBook(j, btn) {
+  if (bookSubmitted) return;
+  bookSelected = j;
+  document.querySelectorAll('#bookOptions .book-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('bookSubmit').style.display = 'block';
+}
+function submitBook() {
+  if (bookSelected === null || bookSubmitted) return;
+  bookSubmitted = true;
+  const q = bookQs[bookCurrent];
+  document.querySelectorAll('#bookOptions .book-btn').forEach((btn, j) => {
+    btn.onclick = null;
+    if (j === q.ans) btn.classList.add('correct-reveal');
+    else if (j === bookSelected && bookSelected !== q.ans) btn.classList.add('wrong-reveal');
+  });
+  const isCorrect = bookSelected === q.ans;
+  if (isCorrect) { correct++; updateProgress(); }
+  bookAnswered[bookCurrent] = true; bookDoneCount++;
+  const card = document.getElementById('bookCard' + bookCurrent);
+  if (isCorrect) { card.classList.add('answered-correct'); card.innerHTML = '<span class="page-icon">⭐</span><span class="page-label">' + q.label + '</span>'; }
+  else { card.classList.add('answered-wrong'); card.innerHTML = '<span class="page-icon">❌</span><span class="page-label">' + q.label + '</span>';
+    const qa = document.getElementById('bookQuestion'); qa.classList.add('shake'); setTimeout(() => qa.classList.remove('shake'), 400); }
+  document.getElementById('bookPip' + bookCurrent).className = 'pip done';
+  const exp = document.getElementById('bookExplanation'); exp.textContent = q.exp; exp.style.display = 'block';
+  document.getElementById('bookSubmit').style.display = 'none';
+  const nb = document.getElementById('bookNext');
+  nb.textContent = bookDoneCount >= bookQs.length ? 'סַיֵּם ✓' : 'עָמוּד הַבָּא ◀';
+  nb.style.display = 'inline-block';
+}
+function nextBookPage() {
+  if (bookDoneCount >= bookQs.length) {
+    document.getElementById('pagesSpread').style.display = 'none';
+    document.getElementById('bookQuestion').style.display = 'none';
+    document.getElementById('bookOptions').style.display = 'none';
+    document.getElementById('bookSubmit').style.display = 'none';
+    document.getElementById('bookExplanation').style.display = 'none';
+    document.getElementById('bookNext').style.display = 'none';
+    document.getElementById('bookResult').style.display = 'block'; return;
+  }
+  let next = (bookCurrent + 1) % bookQs.length;
+  while (bookAnswered[next] && next !== bookCurrent) next = (next + 1) % bookQs.length;
+  if (!bookAnswered[next]) openBookPage(next);
+  document.getElementById('bookExplanation').style.display = 'none';
+  document.getElementById('bookNext').style.display = 'none';
+}
+initBook();
+
+// TROPHY GAME
+const trophyRounds = [
+  { q:"הָאֶבֶן שֶׁל דָּן הִיא ___ בַּגַּן.", opts:["הַכִּי גְּדוֹלָה","הַכִּי גָּדוֹל","מְאוֹד גְּדוֹלָה","גְּדוֹלָה יוֹתֵר"], ans:0, exp:"✅ נָכוֹן! אֶבֶן הִיא שֵׁם נְקֵבָה — לָכֵן הַתֹּאַר בִּנְקֵבָה: הַכִּי גְּדוֹלָה." },
+  { q:"זֶה הַסֵּפֶר ___ שֶׁקָּרָאתִי אֵי פַּעַם.", opts:["הַכִּי מַצְחִיק","הַכִּי מַצְחִיקָה","מַצְחִיק מְאוֹד","הַמַּצְחִיקָה"], ans:0, exp:"✅ נָכוֹן! סֵפֶר הוּא שֵׁם זָכָר — לָכֵן: הַכִּי מַצְחִיק." },
+  { q:"הִיא הַתַּלְמִידָה הַחֲרוּצָה ___ בַּכִּיתָה.", opts:["הַכִּי","בְּיוֹתֵר","מְאוֹד","כָּל כָּךְ"], ans:1, exp:"✅ מְצֻיָּן! כְּשֶׁיֵּשׁ ה׳ הַיְּדִיעָה לִפְנֵי הַתֹּאַר, מוֹסִיפִים בְּיוֹתֵר בַּסּוֹף." },
+  { q:"נוֹעָה כָּתְבָה אֶת הַסִּפּוּר ___ בַּתַּחֲרוּת.", opts:["הַכִּי מְרַגֵּשׁ","הַכִּי מְרַגֶּשֶׁת","מְרַגֵּשׁ בְּיוֹתֵר","יוֹתֵר מְרַגֵּשׁ"], ans:0, exp:"✅ נָכוֹן! סִפּוּר הוּא שֵׁם זָכָר — לָכֵן: הַכִּי מְרַגֵּשׁ." },
+  { q:"הַיּוֹם הוּא הַיּוֹם ___ בַּשָּׁנָה!", opts:["הַכִּי שָׂמֵחַ","הַכִּי שְׂמֵחָה","שָׂמֵחַ בְּיוֹתֵר","הַשָּׂמֵחַ"], ans:0, exp:"✅ נָכוֹן! יוֹם הוּא שֵׁם זָכָר — לָכֵן: הַכִּי שָׂמֵחַ." },
+  { q:"הַשְּׂמִיכָה שֶׁל מֵיטַל הִיא ___ מִכֹּל.", opts:["הַכִּי רַכָּה","הַכִּי רַךְ","רַךְ בְּיוֹתֵר","רַכָּה מְאוֹד"], ans:0, exp:"✅ נָכוֹן! שְׂמִיכָה הִיא שֵׁם נְקֵבָה — לָכֵן: הַכִּי רַכָּה." }
+];
+let trophyIdx = 0, trophySelected = null, trophySubmitted = false;
+function initTrophy() {
+  const cas = document.getElementById('trophyCase'); cas.innerHTML = '';
+  const pips = document.getElementById('trophyPips'); pips.innerHTML = '';
+  for (let i = 0; i < trophyRounds.length; i++) {
+    const ped = document.createElement('div'); ped.className = 'pedestal'; ped.id = 'ped' + i;
+    ped.innerHTML = '<div class="trophy-emoji">🏆</div><div class="ped-num">' + (i + 1) + '</div>';
+    cas.appendChild(ped);
+    const pip = document.createElement('div'); pip.className = 'pip' + (i === 0 ? ' active' : ''); pip.id = 'tPip' + i; pips.appendChild(pip);
+  }
+  loadTrophy();
+}
+function loadTrophy() {
+  const r = trophyRounds[trophyIdx]; trophySelected = null; trophySubmitted = false;
+  document.getElementById('trophyQuestion').textContent = r.q;
+  document.getElementById('trophyExplanation').style.display = 'none';
+  document.getElementById('trophySubmit').style.display = 'none';
+  document.getElementById('trophyNext').style.display = 'none';
+  const opts = document.getElementById('trophyOptions'); opts.innerHTML = '';
+  r.opts.forEach((opt, i) => {
+    const btn = document.createElement('button'); btn.className = 'trophy-btn'; btn.textContent = opt;
+    btn.onclick = () => selectTrophy(i, btn); opts.appendChild(btn);
+  });
+  for (let i = 0; i < trophyRounds.length; i++) {
+    const p = document.getElementById('tPip' + i);
+    if (p) p.className = 'pip' + (i < trophyIdx ? ' done' : i === trophyIdx ? ' active' : '');
+  }
+}
+function selectTrophy(i, btn) {
+  if (trophySubmitted) return;
+  trophySelected = i;
+  document.querySelectorAll('#trophyOptions .trophy-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('trophySubmit').style.display = 'block';
+}
+function submitTrophy() {
+  if (trophySelected === null || trophySubmitted) return;
+  trophySubmitted = true;
+  const r = trophyRounds[trophyIdx];
+  document.querySelectorAll('#trophyOptions .trophy-btn').forEach((btn, i) => {
+    btn.onclick = null;
+    if (i === r.ans) btn.classList.add('correct-reveal');
+    else if (i === trophySelected && trophySelected !== r.ans) btn.classList.add('wrong-reveal');
+  });
+  if (trophySelected === r.ans) {
+    correct++; updateProgress();
+    document.getElementById('ped' + trophyIdx).classList.add('earned');
+  } else {
+    const cas = document.getElementById('trophyCase'); cas.classList.add('shake'); setTimeout(() => cas.classList.remove('shake'), 400);
+  }
+  const exp = document.getElementById('trophyExplanation'); exp.textContent = r.exp; exp.style.display = 'block';
+  document.getElementById('trophySubmit').style.display = 'none';
+  const nb = document.getElementById('trophyNext');
+  nb.textContent = trophyIdx < trophyRounds.length - 1 ? 'שְׁאֵלָה הַבָּאָה ◀' : 'סַיֵּם ✓';
+  nb.style.display = 'block';
+}
+function nextTrophy() {
+  trophyIdx++;
+  if (trophyIdx >= trophyRounds.length) {
+    document.getElementById('trophyContent').style.display = 'none';
+    document.getElementById('trophyResult').style.display = 'block';
+    for (let i = 0; i < trophyRounds.length; i++) { const p = document.getElementById('tPip' + i); if (p) p.className = 'pip done'; }
+    return;
+  }
+  loadTrophy();
+}
+initTrophy();
+
+// WRITING
+const wP = ['הַ...בְּיוֹתֵר ...', 'הַכִּי ...', 'הַ...בְּיוֹתֵר ...', 'הַכִּי ...', 'הַכִּי ...'];
+function initW() {
+  const c = document.getElementById('writing-lines'); if (!c) return;
+  c.innerHTML = '';
+  wP.forEach((ph, i) => {
+    const d = document.createElement('div'); d.className = 'writing-line'; d.id = 'wline-' + i;
+    d.innerHTML = '<div class="writing-num">' + (i + 1) + '</div><input class="writing-input" id="winput-' + i + '" type="text" placeholder="' + ph + '" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d);
+  });
+  const r = document.getElementById('writing-result'); if (r) r.style.display = 'none';
+  const f = document.getElementById('writing-fb'); if (f) f.textContent = '';
+}
+function submitWriting() {
+  let n = 0;
+  for (let i = 0; i < 5; i++) {
+    const v = document.getElementById('winput-' + i).value.trim();
+    const l = document.getElementById('wline-' + i);
+    if (v.length > 1) { n++; l.className = 'writing-line filled'; } else l.className = 'writing-line';
+  }
+  const fb = document.getElementById('writing-fb'), res = document.getElementById('writing-result');
+  if (n < 5) { if (fb) { fb.textContent = '⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.'; fb.style.color = '#dc2626'; } if (res) res.style.display = 'none'; return; }
+  if (fb) fb.textContent = '';
+  if (res) { res.style.display = 'block'; res.innerHTML = '🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!'; }
+}
+function resetWriting() { initW(); }
+initW();
+</script>
+</body>
+</html>

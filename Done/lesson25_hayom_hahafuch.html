@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַיּוֹם הַהֲפוּךְ — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --grn:     #4d7c0f;
+  --grn-dk:  #365314;
+  --grn-md:  #65a30d;
+  --grn-lt:  #bef264;
+  --grn-pal: #f7fee7;
+  --grn-2:   #d9f99d;
+  --acc:     #f97316;
+  --acc-lt:  #fed7aa;
+  --acc-dk:  #c2410c;
+  --ok:      #16a34a;
+  --ok-lt:   #dcfce7;
+  --red-lt:  #fee2e2;
+  --ink:     #1e293b;
+  --muted:   #64748b;
+  --white:   #ffffff;
+  --parch:   #f0fde4;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--grn-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+/* ── HEADER ── */
+.header{background:linear-gradient(160deg,#1a2e05 0%,#365314 45%,#65a30d 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.star-float{position:absolute;opacity:.22;font-size:2rem;animation:floatUp var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp{0%{transform:translateY(6px) rotate(-6deg)}100%{transform:translateY(-10px) rotate(6deg)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#bef264;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(101,163,13,.5),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#bef264;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#365314;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(101,163,13,.5)}
+.header-flag-strip{background:var(--grn-md);height:6px}
+
+/* ── NAV ── */
+.lesson-nav{background:#365314;padding:8px 20px;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#bef264;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid #65a30d;border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#4d7c0f;color:#fff}
+.nav-current{color:#86efac;font-size:.78rem;font-weight:800;margin-right:auto}
+
+/* ── PROGRESS ── */
+.progress-strip{background:#365314;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#bef264;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:#65a30d;border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#bef264,#f97316);border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#bef264;font-size:1rem;letter-spacing:2px}
+
+/* ── PAGE ── */
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-grn {background:linear-gradient(180deg,#bef264,#4d7c0f)}
+.cs-acc {background:linear-gradient(180deg,#fed7aa,#f97316)}
+.cs-teal{background:linear-gradient(180deg,#99f6e4,#0d9488)}
+.cs-ok  {background:linear-gradient(180deg,#86efac,#16a34a)}
+
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-grn {background:var(--grn-pal);border:1.5px solid var(--grn-2)}
+.si-acc {background:#fff7ed;border:1.5px solid var(--acc-lt)}
+.si-teal{background:#f0fdfa;border:1.5px solid #99f6e4}
+.si-ok  {background:var(--ok-lt);border:1.5px solid #86efac}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+/* ── STORY ── */
+.story-wrap{background:var(--parch);border:2px solid var(--grn-2);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--grn);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;line-height:2.9;color:#1e2d3d;margin-bottom:8px}
+.hl{background:#d9f99d;border-radius:4px;padding:1px 5px;font-weight:900;color:var(--grn-dk);border-bottom:2px dotted var(--grn-md);cursor:help;position:relative}
+.hl .tip{display:none;position:absolute;bottom:130%;right:50%;transform:translateX(50%);background:#1e293b;color:#fff;font-size:.75rem;font-family:'Heebo',sans-serif;padding:4px 10px;border-radius:8px;white-space:nowrap;z-index:30;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,.25);pointer-events:none}
+.hl:hover .tip{display:block}
+.story-note{background:#d9f99d;border:1.5px solid var(--grn-md);border-radius:10px;padding:10px 14px;font-size:.85rem;font-weight:700;color:var(--grn-dk);margin-top:14px;text-align:center;line-height:1.8}
+
+/* ── VOCAB ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.vocab-item{display:flex;align-items:flex-start;gap:12px;background:var(--grn-pal);border:2px solid var(--grn-2);border-radius:16px;padding:14px;transition:transform .15s,box-shadow .15s;cursor:default}
+.vocab-item:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09)}
+.vemoji{font-size:2rem;width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.vword{font-family:'Frank Ruhl Libre',serif;font-size:1.25rem;font-weight:700;color:var(--grn);display:block;line-height:1.3}
+.vdesc{font-size:.82rem;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+
+/* ── GRAMMAR ── */
+.gram-intro{background:var(--grn-pal);border:2px dashed var(--grn-md);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--grn-dk);line-height:1.9}
+.gram-intro strong{color:var(--grn)}
+.antonym-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:20px}
+.ap-card{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--parch);border:2px solid var(--grn-2);border-radius:16px;padding:14px 16px}
+.ap-word{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:900;color:var(--grn-dk)}
+.ap-arrow{font-size:1.4rem;color:var(--acc);font-weight:900}
+.gram-rule{background:var(--grn-pal);border:2px solid var(--grn-lt);border-radius:12px;padding:12px 16px;font-size:.93rem;font-weight:600;color:var(--grn-dk);line-height:1.8;margin-bottom:8px}
+.gram-rule strong{color:var(--grn)}
+
+/* ── EXERCISES (MC with fix-before-submit) ── */
+.mc-q{background:var(--grn-pal);border:2px solid var(--grn-2);border-radius:18px;padding:20px 22px;margin-bottom:16px}
+.mc-q-text{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:14px;display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.mc-num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;color:#fff;flex-shrink:0;margin-top:1px;background:var(--grn)}
+.mc-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.mc-opt{background:#fff;border:2px solid var(--grn-2);border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .12s,background .12s}
+.mc-opt.selected{border-color:var(--grn);background:#ecfccb}
+.mc-opt:hover:not([disabled]):not(.correct):not(.wrong){border-color:var(--grn-md);background:#ecfccb}
+.mc-opt.correct{background:var(--ok-lt);border-color:#22c55e;color:#15803d;font-weight:700}
+.mc-opt.wrong  {background:var(--red-lt);border-color:#ef4444;color:#b91c1c}
+.mc-change-hint{font-size:.8rem;color:var(--muted);min-height:1.2em;margin-bottom:6px}
+.mc-check-row{display:flex;align-items:center;gap:12px}
+.check-btn{background:var(--grn);color:#fff;border:none;border-radius:12px;padding:9px 22px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:6px}
+.check-btn:hover:not([disabled]){background:var(--grn-dk);transform:translateY(-1px)}
+.check-btn:disabled{opacity:.45;cursor:default}
+.mc-fb{font-size:.92rem;font-weight:700}
+.fb-ok{color:#16a34a}
+.fb-err{color:#dc2626}
+
+/* ── SEESAW GAME ── */
+.seesaw-intro{background:var(--grn-pal);border:2px solid var(--grn-2);border-radius:14px;padding:14px 18px;margin-bottom:22px;font-size:.97rem;font-weight:600;color:var(--grn-dk);line-height:1.85}
+.seesaw-prog{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px}
+.sp-dot{width:16px;height:16px;border-radius:50%;background:#e2e8f0;border:2px solid #cbd5e1;transition:background .3s,border-color .3s}
+.sp-dot.done{background:#22c55e;border-color:#16a34a}
+.sp-dot.active{background:var(--grn-md);border-color:var(--grn-dk);box-shadow:0 0 0 4px rgba(101,163,13,.2)}
+
+.seesaw-panel{width:100%;background:#fff;border:2.5px solid var(--grn-2);border-radius:20px;padding:24px;position:relative}
+
+/* THE SEESAW VISUAL */
+.seesaw-visual{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:24px;user-select:none}
+.seesaw-bar-wrap{position:relative;width:340px;height:60px;display:flex;align-items:flex-end}
+.seesaw-bar{position:absolute;bottom:0;left:50%;transform-origin:center bottom;transform:translateX(-50%) rotate(14deg);
+  width:300px;height:14px;background:linear-gradient(90deg,#4d7c0f,#84cc16);border-radius:8px;
+  transition:transform 0.65s cubic-bezier(.34,1.36,.64,1)}
+.seesaw-bar.balanced{transform:translateX(-50%) rotate(0deg)}
+.seesaw-bar.shake-wrong{animation:seesawShake .5s ease}
+@keyframes seesawShake{0%,100%{transform:translateX(-50%) rotate(14deg)}20%{transform:translateX(-50%) rotate(20deg)}40%{transform:translateX(-50%) rotate(8deg)}60%{transform:translateX(-50%) rotate(18deg)}80%{transform:translateX(-50%) rotate(10deg)}}
+.seesaw-bar.tip-right{transform:translateX(-50%) rotate(-14deg);transition:transform 0.5s ease}
+
+.seesaw-pad{position:absolute;bottom:12px;width:68px;height:32px;border-radius:10px 10px 4px 4px;display:flex;align-items:center;justify-content:center;font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:900;transition:bottom .65s cubic-bezier(.34,1.36,.64,1)}
+.seesaw-pad.right-pad{right:0px;background:#ecfccb;border:2px solid var(--grn-md);color:var(--grn-dk)}
+.seesaw-pad.left-pad {left:0px;background:#fff7ed;border:2px solid var(--acc-lt);color:var(--acc-dk)}
+.seesaw-pad.answer-revealed{background:var(--ok-lt);border-color:#22c55e;color:#15803d;animation:popIn .4s ease}
+@keyframes popIn{0%{transform:scale(.7)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+
+.seesaw-fulcrum{width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:32px solid #92400e}
+.seesaw-base{width:90px;height:12px;background:#92400e;border-radius:6px;margin-bottom:8px}
+
+.seesaw-word-label{font-size:.78rem;font-weight:700;color:var(--muted);text-align:center;margin-top:6px}
+
+.seesaw-question{text-align:center;margin-bottom:18px}
+.seesaw-q-prompt{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+
+.seesaw-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.ss-opt{background:#fff;border:2.5px solid var(--grn-2);border-radius:14px;padding:12px 16px;font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:900;color:var(--ink);cursor:pointer;text-align:center;transition:all .15s}
+.ss-opt:hover:not([disabled]):not(.ss-correct):not(.ss-wrong){border-color:var(--grn-md);background:#ecfccb;transform:translateY(-2px)}
+.ss-opt.ss-selected{border-color:var(--grn);background:#ecfccb;box-shadow:0 0 0 3px rgba(101,163,13,.2)}
+.ss-opt.ss-correct{background:var(--ok-lt);border-color:#22c55e;color:#15803d}
+.ss-opt.ss-wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c;animation:bumpWrong .4s ease}
+@keyframes bumpWrong{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.ss-opt:disabled{cursor:default}
+
+.ss-change-hint{font-size:.8rem;color:var(--muted);min-height:1.1em;text-align:center;margin-bottom:8px}
+.ss-check-row{display:flex;justify-content:center;align-items:center;gap:14px}
+.ss-check-btn{background:var(--grn);color:#fff;border:none;border-radius:14px;padding:11px 32px;font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background .15s,transform .1s;box-shadow:0 3px 12px rgba(77,124,15,.3)}
+.ss-check-btn:hover:not([disabled]){background:var(--grn-dk);transform:translateY(-2px)}
+.ss-check-btn:disabled{opacity:.45;cursor:default;transform:none}
+.ss-fb{font-size:.95rem;font-weight:700;text-align:center;min-height:1.4em}
+.ss-fb.ok{color:#16a34a}
+.ss-fb.err{color:#dc2626}
+
+.seesaw-result{display:none;text-align:center;padding:30px 20px;background:var(--grn-pal);border:3px solid var(--grn-2);border-radius:18px}
+.sr-emoji{font-size:3.5rem;margin-bottom:10px}
+.sr-title{font-size:1.6rem;font-weight:900;color:var(--grn-dk);margin-bottom:8px}
+.sr-msg{font-size:1rem;color:var(--ink);margin-bottom:20px;font-weight:600;line-height:1.7}
+.sr-replay{background:#fff;color:var(--grn);border:2px solid var(--grn-2);border-radius:12px;padding:10px 32px;font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background .15s}
+.sr-replay:hover{background:var(--grn-pal)}
+
+/* ── SCORE ── */
+.score-panel{background:#fff;border:3px solid var(--grn-2);border-radius:22px;padding:24px 28px;text-align:center}
+.score-title{font-size:1.1rem;font-weight:900;color:var(--grn-dk);margin-bottom:10px}
+.score-emojis{font-size:2rem;letter-spacing:6px;margin-bottom:10px}
+.score-bar{background:var(--grn-2);border-radius:100px;height:12px;overflow:hidden;margin-bottom:12px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--grn-md),var(--acc));border-radius:100px;width:0%;transition:width .7s ease}
+.score-msg{font-size:.97rem;font-weight:600;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <span class="star-float" style="--dur:5s;--del:0s;right:8%">⬆️</span>
+  <span class="star-float" style="--dur:6s;--del:1.5s;right:22%">⭐</span>
+  <span class="star-float" style="--dur:4.5s;--del:0.8s;right:55%">⬇️</span>
+  <span class="star-float" style="--dur:5.5s;--del:2s;right:75%">✨</span>
+  <span class="star-float" style="--dur:4s;--del:3s;right:38%">🌟</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">🌿 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 25</div>
+    <h1>הַיּוֹם הַהֲפוּךְ</h1>
+    <div class="header-sub">הֵפַּכִּים — הַמִּלָּה וְהֵפֶּךְ שֶׁלָּהּ</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: הֵפַּכִּים</div>
+  </div>
+</div>
+<div class="header-flag-strip"></div>
+
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson20_hachalomot_shel_tom.html">→ 20</a>
+  <a class="nav-btn" href="lesson21_hamesiba_shel_linor.html">→ 21</a>
+  <a class="nav-btn" href="lesson22_hasod_shel_hamilim.html">→ 22</a>
+  <a class="nav-btn" href="lesson23_hatabakh_hakatan.html">→ 23</a>
+  <a class="nav-btn" href="lesson24_hasadna_shel_noam.html">→ 24</a>
+  <span class="nav-current">שִׁיעוּר 25 ◀</span>
+</nav>
+
+<div class="progress-strip">
+  <span class="prog-label">הִתְקַדְּמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  <span class="prog-stars" id="prog-stars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+  <!-- ══ PART A: STORY ══ -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-grn">📖</div>
+      <div>
+        <span class="sec-num">חֵלֶק א׳</span>
+        <div class="sec-title">קְרִיאָה</div>
+      </div>
+    </div>
+    <div class="story-wrap">
+      <div class="story-title">הַיּוֹם הַהֲפוּךְ</div>
+
+      <p class="story-p">בֹּקֶר אֶחָד הִתְעוֹרֵר דָּנִי וְהִרְגִּישׁ שֶׁמַּשֶּׁהוּ מוּזָר קָרָה. בַּחוּץ הָיָה <span class="hl">חָשׁוּךְ<span class="tip">כֵּהֶה, ללא אור</span></span> כְּמוֹ לַיְלָה, אֲבָל הַשָּׁעוֹן אָמַר שֶׁזֶּה בֹּקֶר. הַשְּׁמִיכָה שֶׁלּוֹ, שֶׁהָיְתָה תָּמִיד <span class="hl">חַמָּה<span class="tip">הֵפֶּךְ: קָרָה</span></span> וּנְעִימָה, הָיְתָה עַכְשָׁיו <span class="hl">קָרָה<span class="tip">הֵפֶּךְ: חַמָּה</span></span> כְּמוֹ קֶרַח.</p>
+
+      <p class="story-p">"מַה קוֹרֶה?" לָחַשׁ דָּנִי.</p>
+
+      <p class="story-p">יָרַד מֵהַמִּיטָה וְרָץ לַחַלּוֹן. הַבַּיִת הַ<span class="hl">גָּדוֹל<span class="tip">הֵפֶּךְ: קָטָן</span></span> שֶׁלָּהֶם נִרְאָה פִּתְאוֹם <span class="hl">קָטָן<span class="tip">הֵפֶּךְ: גָּדוֹל</span></span>, כְּמוֹ בֵּית בֻּבּוֹת. הַדֶּלֶת הַ<span class="hl">פְּתוּחָה<span class="tip">הֵפֶּךְ: סְגוּרָה</span></span> הָיְתָה עַכְשָׁיו <span class="hl">סְגוּרָה<span class="tip">הֵפֶּךְ: פְּתוּחָה</span></span> בְּמַנְעוּל.</p>
+
+      <p class="story-p">בַּמִּטְבָּח עָמְדָה אִמָּא עִם פָּנִים <span class="hl">עֲצוּבוֹת<span class="tip">הֵפֶּךְ: שְׂמֵחוֹת</span></span>, אֲבָל שָׁרָה שִׁיר <span class="hl">שָׂמֵחַ<span class="tip">הֵפֶּךְ: עָצוּב</span></span>. אַבָּא, שֶׁהָיָה תָּמִיד <span class="hl">מַהֵר<span class="tip">הֵפֶּךְ: אִטִּי / לְאַט</span></span> בַּבֹּקֶר, הָלַךְ הַיּוֹם <span class="hl">לְאַט<span class="tip">הֵפֶּךְ: מַהֵר</span></span> כְּמוֹ צָב.</p>
+
+      <p class="story-p">"אִמָּא, מַה קוֹרֶה הַיּוֹם?" שָׁאַל דָּנִי.</p>
+
+      <p class="story-p">"הַיּוֹם הוּא יוֹם הֵפַּכִּים," אָמְרָה אִמָּא. "כָּל מִלָּה שֶׁהִיא <span class="hl">גְּבוֹהָה<span class="tip">הֵפֶּךְ: נְמוּכָה</span></span> הוֹפֶכֶת לְ<span class="hl">נְמוּכָה<span class="tip">הֵפֶּךְ: גְּבוֹהָה</span></span>. כָּל דָּבָר שֶׁהוּא <span class="hl">יָשָׁן<span class="tip">הֵפֶּךְ: חָדָשׁ</span></span> נִרְאֶה כְּ<span class="hl">חָדָשׁ<span class="tip">הֵפֶּךְ: יָשָׁן</span></span>. וְהַשֶּׁמֶשׁ שֶׁל הַ<span class="hl">לַּיְלָה<span class="tip">הֵפֶּךְ: יוֹם</span></span> זוֹרַחַת בְּ<span class="hl">יוֹם<span class="tip">הֵפֶּךְ: לַיְלָה</span></span>!"</p>
+
+      <p class="story-p">דָּנִי חָשַׁב רֶגַע. לְבַסּוֹף חִיֵּךְ חִיּוּךְ גָּדוֹל וְאָמַר: "אִם כָּךְ — הָ<span class="hl">רַע<span class="tip">הֵפֶּךְ: טוֹב</span></span> הוּא הַיּוֹם <span class="hl">טוֹב<span class="tip">הֵפֶּךְ: רַע</span></span>, וְזֶה אוֹמֵר שֶׁהַיּוֹם הַהֲפוּךְ הוּא יוֹם נִפְלָא!"</p>
+
+      <p class="story-p">כֻּלָּם צָחֲקוּ, וְיוֹם הֵפַּכִּים הָחֵל בְּשִׂמְחָה.</p>
+
+      <div class="story-note">💡 עֲבֵר עִם הָעַכְבָּר עַל הַמִּלִּים הַמְּסֻמָּנוֹת כְּדֵי לִרְאוֹת אֶת הֶסְבֵּרֵיהֶן.</div>
+    </div>
+  </div>
+
+  <!-- ══ PART B: VOCABULARY ══ -->
+  <div class="card">
+    <div class="card-stripe cs-acc"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-acc">📚</div>
+      <div>
+        <span class="sec-num">חֵלֶק ב׳</span>
+        <div class="sec-title">אוֹצַר מִלִּים</div>
+      </div>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vemoji">🌡️</div>
+        <div>
+          <span class="vword">חַם ↔ קַר</span>
+          <span class="vdesc">hot ↔ cold</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">📏</div>
+        <div>
+          <span class="vword">גָּדוֹל ↔ קָטָן</span>
+          <span class="vdesc">big ↔ small</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">😊</div>
+        <div>
+          <span class="vword">שָׂמֵחַ ↔ עָצוּב</span>
+          <span class="vdesc">happy ↔ sad</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🚪</div>
+        <div>
+          <span class="vword">פָּתוּחַ ↔ סָגוּר</span>
+          <span class="vdesc">open ↔ closed</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🐇</div>
+        <div>
+          <span class="vword">מַהֵר ↔ לְאַט</span>
+          <span class="vdesc">fast ↔ slow</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">📐</div>
+        <div>
+          <span class="vword">גָּבוֹהַּ ↔ נָמוּךְ</span>
+          <span class="vdesc">tall ↔ short</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">💡</div>
+        <div>
+          <span class="vword">בָּהִיר ↔ כֵּהֶה</span>
+          <span class="vdesc">light/bright ↔ dark</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🗓️</div>
+        <div>
+          <span class="vword">יָשָׁן ↔ חָדָשׁ</span>
+          <span class="vdesc">old ↔ new</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">☀️</div>
+        <div>
+          <span class="vword">יוֹם ↔ לַיְלָה</span>
+          <span class="vdesc">day ↔ night</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">✅</div>
+        <div>
+          <span class="vword">טוֹב ↔ רַע</span>
+          <span class="vdesc">good ↔ bad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART C: GRAMMAR ══ -->
+  <div class="card">
+    <div class="card-stripe cs-teal"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-teal">📝</div>
+      <div>
+        <span class="sec-num">חֵלֶק ג׳</span>
+        <div class="sec-title">דִּקְדּוּק — הֵפַּכִּים</div>
+      </div>
+    </div>
+
+    <div class="gram-intro">
+      <strong>הֵפֶּךְ (opposites)</strong> — מִלָּה שֶׁמַּשְׁמָעוּתָהּ הַפּוּכָה לְגַמְרֵי מִמִּלָּה אַחֶרֶת. בְּעִבְרִית קוֹרְאִים לָהֶם <strong>הֵפַּכִּים</strong> (רַבִּים) אוֹ <strong>הֵפֶּךְ</strong> (יָחִיד).<br><br>
+      לְדוּגְמָה: הֵפֶּךְ שֶׁל <strong>חַם</strong> הוּא <strong>קַר</strong>. הֵפֶּךְ שֶׁל <strong>גָּדוֹל</strong> הוּא <strong>קָטָן</strong>.
+    </div>
+
+    <div class="antonym-pairs">
+      <div class="ap-card"><span class="ap-word">גָּדוֹל</span><span class="ap-arrow">↔</span><span class="ap-word">קָטָן</span></div>
+      <div class="ap-card"><span class="ap-word">חַם</span><span class="ap-arrow">↔</span><span class="ap-word">קַר</span></div>
+      <div class="ap-card"><span class="ap-word">שָׂמֵחַ</span><span class="ap-arrow">↔</span><span class="ap-word">עָצוּב</span></div>
+      <div class="ap-card"><span class="ap-word">פָּתוּחַ</span><span class="ap-arrow">↔</span><span class="ap-word">סָגוּר</span></div>
+      <div class="ap-card"><span class="ap-word">מַהֵר</span><span class="ap-arrow">↔</span><span class="ap-word">לְאַט</span></div>
+      <div class="ap-card"><span class="ap-word">גָּבוֹהַּ</span><span class="ap-arrow">↔</span><span class="ap-word">נָמוּךְ</span></div>
+      <div class="ap-card"><span class="ap-word">בָּהִיר</span><span class="ap-arrow">↔</span><span class="ap-word">כֵּהֶה</span></div>
+      <div class="ap-card"><span class="ap-word">יָשָׁן</span><span class="ap-arrow">↔</span><span class="ap-word">חָדָשׁ</span></div>
+      <div class="ap-card"><span class="ap-word">יוֹם</span><span class="ap-arrow">↔</span><span class="ap-word">לַיְלָה</span></div>
+      <div class="ap-card"><span class="ap-word">טוֹב</span><span class="ap-arrow">↔</span><span class="ap-word">רַע</span></div>
+    </div>
+
+    <div class="gram-rule">
+      💡 <strong>שִׂימוּ לֵב:</strong> הֵפַּכִּים שֶׁל שֵׁמוֹת תוֹאַר (מִלּוֹת תֵּאוּר) חַיָּבִים לְהַסְכִּים בְּמִין וּבְמִסְפָּר עִם הַשֵּׁם.<br>
+      לְדוּגְמָה: כֶּלֶב <strong>גָּדוֹל</strong> ↔ כֶּלֶב <strong>קָטָן</strong> | בַּת <strong>גְּדוֹלָה</strong> ↔ בַּת <strong>קְטַנָּה</strong>
+    </div>
+  </div>
+
+  <!-- ══ PART D: EXERCISES ══ -->
+  <div class="card">
+    <div class="card-stripe cs-ok"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-ok">✏️</div>
+      <div>
+        <span class="sec-num">חֵלֶק ד׳</span>
+        <div class="sec-title">תַּרְגִּילִים</div>
+      </div>
+    </div>
+    <div id="exercises-container"></div>
+  </div>
+
+  <!-- ══ PART E: SEESAW GAME ══ -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-grn">⚖️</div>
+      <div>
+        <span class="sec-num">חֵלֶק ה׳</span>
+        <div class="sec-title">מִשְׂחָק — מַשְׂקֹלֶת הֵפַּכִּים</div>
+      </div>
+    </div>
+
+    <div class="seesaw-intro">
+      ⚖️ בַּמִּשְׂחָק הַזֶּה תִּרְאוּ <strong>מַשְׂקֹלֶת</strong>. בְּצַד אֶחָד יֵשׁ מִלָּה — בַּצַּד הַשֵּׁנִי אֵין כְּלוּם כִּי הַמַּשְׂקֹלֶת לֹא מְאֻוְזֶּנֶת! בַּחֲרוּ אֶת הַהֵפֶּךְ הַנָּכוֹן כְּדֵי לְאַזֵּן אוֹתָהּ. תּוּכְלוּ לְשַׁנּוֹת אֶת הַתְּשׁוּבָה לִפְנֵי שֶׁתִּשְׁלְחוּ אוֹתָהּ.
+    </div>
+
+    <div class="seesaw-prog" id="ss-prog"></div>
+
+    <div class="seesaw-panel" id="ss-panel">
+      <!-- Seesaw visual -->
+      <div class="seesaw-visual">
+        <div class="seesaw-bar-wrap">
+          <div class="seesaw-bar" id="ss-bar">
+            <div class="seesaw-pad right-pad" id="ss-right-pad">?</div>
+            <div class="seesaw-pad left-pad" id="ss-left-pad">גָּדוֹל</div>
+          </div>
+        </div>
+        <div class="seesaw-fulcrum"></div>
+        <div class="seesaw-base"></div>
+        <div class="seesaw-word-label" id="ss-labels">← הֵפֶּךְ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; מִלָּה →</div>
+      </div>
+
+      <!-- Question prompt -->
+      <div class="seesaw-question">
+        <div class="seesaw-q-prompt">מָה הוּא הַהֵפֶּךְ שֶׁל <strong id="ss-word-display">גָּדוֹל</strong>?</div>
+      </div>
+
+      <!-- Options -->
+      <div class="seesaw-opts" id="ss-opts"></div>
+
+      <!-- Change hint + submit -->
+      <div class="ss-change-hint" id="ss-hint"></div>
+      <div class="ss-check-row">
+        <button class="ss-check-btn" id="ss-check-btn" disabled>בְּדֹק</button>
+        <span class="ss-fb" id="ss-fb"></span>
+      </div>
+    </div>
+
+    <!-- Result screen -->
+    <div class="seesaw-result" id="ss-result">
+      <div class="sr-emoji">🏆</div>
+      <div class="sr-title">כָּל הַכָּבוֹד!</div>
+      <div class="sr-msg" id="sr-msg">סִיַּמְתֶּם אֶת מִשְׂחַק הַמַּשְׂקֹלֶת בְּהַצְלָחָה!<br>אִוְזַנְתֶּם אֶת כָּל הַמַּשְׂקֹלוֹת!</div>
+      <button class="sr-replay" onclick="resetSeesaw()">שַׂחֵק שׁוּב 🔄</button>
+    </div>
+  </div>
+
+  <!-- ══ SCORE PANEL ══ -->
+  <div class="score-panel" id="score-panel">
+    <div class="score-title">⭐ הַתּוֹצָאָה שֶׁלְּךָ</div>
+    <div class="score-emojis" id="score-emojis">☆☆☆☆☆</div>
+    <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    <div class="score-msg" id="score-msg">עֲנֵה עַל הַשְּׁאֵלוֹת כְּדֵי לִרְאוֹת אֶת הַתּוֹצָאָה</div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ══════════════════════════════════════════
+//  SCORE SYSTEM
+// ══════════════════════════════════════════
+let totalPoints = 0;
+const MAX_POINTS = 10; // 4 exercises + 6 seesaw rounds
+
+function updateScore(delta) {
+  totalPoints = Math.max(0, Math.min(MAX_POINTS, totalPoints + delta));
+  const pct = Math.round(totalPoints / MAX_POINTS * 100);
+  document.getElementById('score-bar-fill').style.width = pct + '%';
+  const stars = Math.round(totalPoints / MAX_POINTS * 5);
+  const filled = '⭐'.repeat(stars) + '☆'.repeat(5 - stars);
+  document.getElementById('score-emojis').textContent = filled;
+  document.getElementById('prog-stars').textContent = filled;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  const msgs = ['נַסּוּ שׁוּב — אַתֶּם יְכוֹלִים! 💪','יָפֶה מְאוֹד! מֵבִינִים אֶת הַנּוֹשֵׂא! 😊','כָּל הַכָּבוֹד! הֵפַּכִּים אֵין בְּעָיָה לָכֶם! 🌟','מְצֻיָּן בִּמְיֻחָד! 🏆','שַׁחְקָן הֵפַּכִּים! 🥇'];
+  document.getElementById('score-msg').textContent = msgs[Math.min(4, stars)];
+}
+
+// ══════════════════════════════════════════
+//  EXERCISES
+// ══════════════════════════════════════════
+const exercises = [
+  { q: 'מָה הוּא הַהֵפֶּךְ שֶׁל "גָּדוֹל"?', opts: ['חַם','קָטָן','שָׂמֵחַ','נָמוּךְ'], ans: 1 },
+  { q: 'מָה הוּא הַהֵפֶּךְ שֶׁל "חַם"?',    opts: ['קַר','עָצוּב','יָשָׁן','לְאַט'],  ans: 0 },
+  { q: 'מָה הוּא הַהֵפֶּךְ שֶׁל "עָצוּב"?', opts: ['כֵּהֶה','רַע','שָׂמֵחַ','סָגוּר'], ans: 2 },
+  { q: 'מָה הוּא הַהֵפֶּךְ שֶׁל "פָּתוּחַ"?', opts: ['גָּבוֹהַּ','סָגוּר','יוֹם','חָדָשׁ'], ans: 1 },
+];
+
+function buildExercises() {
+  const container = document.getElementById('exercises-container');
+  exercises.forEach((ex, idx) => {
+    const div = document.createElement('div');
+    div.className = 'mc-q';
+    div.id = `ex-${idx}`;
+    div.innerHTML = `
+      <div class="mc-q-text">
+        <span class="mc-num">${idx + 1}</span>
+        <span>${ex.q}</span>
+      </div>
+      <div class="mc-opts" id="opts-${idx}">
+        ${ex.opts.map((o, i) => `<button class="mc-opt" data-idx="${i}" onclick="selectOpt(${idx}, ${i})">${o}</button>`).join('')}
+      </div>
+      <div class="mc-change-hint" id="hint-${idx}"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="check-${idx}" disabled onclick="checkExercise(${idx})">בְּדֹק</button>
+        <span class="mc-fb" id="fb-${idx}"></span>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+
+const exState = {}; // { selected, submitted }
+
+function selectOpt(exIdx, optIdx) {
+  const state = exState[exIdx] || {};
+  if (state.submitted) return;
+  exState[exIdx] = { selected: optIdx, submitted: false };
+  const opts = document.querySelectorAll(`#opts-${exIdx} .mc-opt`);
+  opts.forEach((o, i) => o.classList.toggle('selected', i === optIdx));
+  document.getElementById(`hint-${exIdx}`).textContent = 'אֶפְשָׁר לְשַׁנּוֹת תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה';
+  document.getElementById(`check-${exIdx}`).disabled = false;
+}
+
+function checkExercise(exIdx) {
+  const state = exState[exIdx];
+  if (!state || state.submitted) return;
+  const ex = exercises[exIdx];
+  const opts = document.querySelectorAll(`#opts-${exIdx} .mc-opt`);
+  const correct = state.selected === ex.ans;
+  state.submitted = true;
+  opts.forEach((o, i) => {
+    o.disabled = true;
+    if (i === ex.ans) o.classList.add('correct');
+    else if (i === state.selected && !correct) o.classList.add('wrong');
+  });
+  const fb = document.getElementById(`fb-${exIdx}`);
+  fb.textContent = correct ? '✅ נָכוֹן!' : `❌ הַהֵפֶּךְ הוּא: ${ex.opts[ex.ans]}`;
+  fb.className = 'mc-fb ' + (correct ? 'fb-ok' : 'fb-err');
+  document.getElementById(`hint-${exIdx}`).textContent = '';
+  document.getElementById(`check-${exIdx}`).disabled = true;
+  if (correct) updateScore(1);
+}
+
+// ══════════════════════════════════════════
+//  SEESAW GAME
+// ══════════════════════════════════════════
+const seesawRounds = [
+  { word: 'גָּדוֹל', answer: 'קָטָן',  opts: ['חַם',    'קָטָן',  'שָׂמֵחַ', 'מַהֵר'  ] },
+  { word: 'בָּהִיר', answer: 'כֵּהֶה',  opts: ['כֵּהֶה', 'שָׂמֵחַ','גָּבוֹהַּ','לְאַט'  ] },
+  { word: 'מַהֵר',  answer: 'לְאַט',   opts: ['גָּבוֹהַּ','פָּתוּחַ','לְאַט', 'חַם'    ] },
+  { word: 'יָשָׁן', answer: 'חָדָשׁ',  opts: ['קָטָן',  'עָצוּב', 'טוֹב',   'חָדָשׁ' ] },
+  { word: 'טוֹב',   answer: 'רַע',     opts: ['פָּתוּחַ','יָשָׁן', 'רַע',    'לְאַט'  ] },
+  { word: 'לַיְלָה',answer: 'יוֹם',    opts: ['קָטָן',  'יוֹם',   'שָׂמֵחַ', 'חַם'    ] },
+];
+
+let ssRound = 0;
+let ssSelected = null;
+let ssSubmitted = false;
+let ssScore = 0;
+
+function buildSSProgress() {
+  const prog = document.getElementById('ss-prog');
+  prog.innerHTML = seesawRounds.map((_, i) =>
+    `<div class="sp-dot" id="sp-dot-${i}"></div>`
+  ).join('');
+}
+
+function loadSSRound() {
+  ssSelected = null;
+  ssSubmitted = false;
+  const r = seesawRounds[ssRound];
+  // Update progress dots
+  seesawRounds.forEach((_, i) => {
+    const d = document.getElementById(`sp-dot-${i}`);
+    d.className = 'sp-dot' + (i < ssRound ? ' done' : i === ssRound ? ' active' : '');
+  });
+  // Update bar — tilt left (word side heavy)
+  const bar = document.getElementById('ss-bar');
+  bar.className = 'seesaw-bar';
+  setTimeout(() => bar.classList.remove('balanced', 'tip-right'), 10);
+  // Update pads
+  document.getElementById('ss-left-pad').textContent = r.word;
+  document.getElementById('ss-right-pad').textContent = '?';
+  document.getElementById('ss-right-pad').classList.remove('answer-revealed');
+  // Update display word
+  document.getElementById('ss-word-display').textContent = r.word;
+  // Build options (shuffled)
+  const optsEl = document.getElementById('ss-opts');
+  optsEl.innerHTML = r.opts.map((o, i) =>
+    `<button class="ss-opt" onclick="selectSSopt(${i})">${o}</button>`
+  ).join('');
+  document.getElementById('ss-hint').textContent = '';
+  document.getElementById('ss-fb').textContent = '';
+  document.getElementById('ss-fb').className = 'ss-fb';
+  document.getElementById('ss-check-btn').disabled = true;
+}
+
+function selectSSopt(idx) {
+  if (ssSubmitted) return;
+  ssSelected = idx;
+  const opts = document.querySelectorAll('#ss-opts .ss-opt');
+  opts.forEach((o, i) => o.classList.toggle('ss-selected', i === idx));
+  document.getElementById('ss-hint').textContent = 'אֶפְשָׁר לְשַׁנּוֹת תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה';
+  document.getElementById('ss-check-btn').disabled = false;
+}
+
+function checkSS() {
+  if (ssSubmitted || ssSelected === null) return;
+  ssSubmitted = true;
+  const r = seesawRounds[ssRound];
+  const opts = document.querySelectorAll('#ss-opts .ss-opt');
+  const chosen = opts[ssSelected].textContent.trim();
+  const correct = chosen === r.answer;
+  opts.forEach(o => o.disabled = true);
+  document.getElementById('ss-hint').textContent = '';
+  document.getElementById('ss-check-btn').disabled = true;
+  const bar = document.getElementById('ss-bar');
+  const fb = document.getElementById('ss-fb');
+
+  if (correct) {
+    opts[ssSelected].classList.add('ss-correct');
+    // Balance the seesaw
+    bar.classList.add('balanced');
+    // Reveal answer on right pad
+    setTimeout(() => {
+      const rpad = document.getElementById('ss-right-pad');
+      rpad.textContent = r.answer;
+      rpad.classList.add('answer-revealed');
+    }, 400);
+    fb.textContent = '✅ נָכוֹן! הַמַּשְׂקֹלֶת מְאֻוְזֶּנֶת!';
+    fb.className = 'ss-fb ok';
+    ssScore++;
+    updateScore(1);
+    document.getElementById(`sp-dot-${ssRound}`).classList.remove('active');
+    document.getElementById(`sp-dot-${ssRound}`).classList.add('done');
+    ssRound++;
+    if (ssRound < seesawRounds.length) {
+      setTimeout(loadSSRound, 1800);
+    } else {
+      setTimeout(showSSResult, 1800);
+    }
+  } else {
+    opts[ssSelected].classList.add('ss-wrong');
+    bar.classList.add('shake-wrong');
+    setTimeout(() => bar.classList.remove('shake-wrong'), 500);
+    fb.textContent = `❌ נַסּוּ שׁוּב! הַמַּשְׂקֹלֶת עֲדַיִן לֹא מְאֻוְזֶּנֶת.`;
+    fb.className = 'ss-fb err';
+    // Allow retry
+    setTimeout(() => {
+      ssSubmitted = false;
+      opts.forEach(o => { o.disabled = false; o.classList.remove('ss-wrong', 'ss-selected'); });
+      ssSelected = null;
+      document.getElementById('ss-hint').textContent = '';
+      document.getElementById('ss-fb').textContent = '';
+      document.getElementById('ss-fb').className = 'ss-fb';
+    }, 1000);
+  }
+}
+
+function showSSResult() {
+  document.getElementById('ss-panel').style.display = 'none';
+  const result = document.getElementById('ss-result');
+  result.style.display = 'block';
+  const pct = Math.round(ssScore / seesawRounds.length * 100);
+  document.getElementById('sr-msg').innerHTML =
+    `אִוְזַנְתֶּם <strong>${ssScore}</strong> מִתּוֹךְ <strong>${seesawRounds.length}</strong> מַשְׂקֹלוֹת — ${pct}%!<br>` +
+    (pct === 100 ? '🏆 שַׁחְקָן הֵפַּכִּים מְדַרְגָּה רִאשׁוֹנָה!' : '💪 יָפֶה מְאוֹד! כָּל הַכָּבוֹד!');
+}
+
+function resetSeesaw() {
+  ssRound = 0; ssScore = 0; ssSelected = null; ssSubmitted = false;
+  document.getElementById('ss-result').style.display = 'none';
+  document.getElementById('ss-panel').style.display = 'block';
+  buildSSProgress();
+  loadSSRound();
+}
+
+// ══════════════════════════════════════════
+//  CHECK BUTTON WIRING
+// ══════════════════════════════════════════
+document.getElementById('ss-check-btn').addEventListener('click', checkSS);
+
+// ══════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════
+buildExercises();
+buildSSProgress();
+loadSSRound();
+updateScore(0);
+</script>
+</body>
+</html>

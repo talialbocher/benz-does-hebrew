@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:     #2d6a4f;
+  --green-dk:  #1b4332;
+  --green-md:  #52b788;
+  --green-lt:  #b7e4c7;
+  --green-pal: #d8f3dc;
+  --amber:     #f4a261;
+  --amber-lt:  #fef3e2;
+  --sky:       #90e0ef;
+  --sky-lt:    #caf0f8;
+  --purple:    #9b72cf;
+  --purple-lt: #ede9fe;
+  --ink:       #1e293b;
+  --muted:     #64748b;
+  --white:     #ffffff;
+  --parch:     #f0fff4;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:#edfaf1;color:var(--ink);direction:rtl;min-height:100vh}
+
+/* ── HEADER ──────────────────────────────────────────── */
+.header{background:linear-gradient(160deg,#1b4332 0%,#2d6a4f 55%,#52b788 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:20px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.leaf{position:absolute;opacity:.18;font-size:2.4rem;animation:sway var(--dur,5s) var(--del,0s) infinite ease-in-out alternate}
+@keyframes sway{0%{transform:rotate(-10deg) translateY(0)}100%{transform:rotate(10deg) translateY(-12px)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:var(--green-lt);letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(183,228,199,.4),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:var(--green-lt);font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#1b4332;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(82,183,136,.5)}
+
+/* ── NAV ─────────────────────────────────────────────── */
+.lesson-nav{background:#1b4332;padding:8px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.nav-btn{color:var(--green-lt);font-size:.82rem;font-weight:700;text-decoration:none;padding:5px 14px;border:1.5px solid var(--green-md);border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:var(--green-md);color:#fff}
+.nav-current{color:var(--green-lt);font-size:.82rem;font-weight:800}
+
+/* ── PROGRESS ────────────────────────────────────────── */
+.progress-strip{background:#1b4332;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:var(--green-lt);font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:#2d6a4f;border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--green-md),var(--amber));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:var(--amber);font-size:1rem;letter-spacing:2px}
+
+/* ── PAGE ────────────────────────────────────────────── */
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+
+/* ── CARD ────────────────────────────────────────────── */
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-green  {background:linear-gradient(180deg,#52b788,#1b4332)}
+.cs-amber  {background:linear-gradient(180deg,#f4a261,#e76f51)}
+.cs-purple {background:linear-gradient(180deg,#9b72cf,#6d28d9)}
+.cs-sky    {background:linear-gradient(180deg,#90e0ef,#0096c7)}
+
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-green  {background:var(--green-pal);border:1.5px solid var(--green-lt)}
+.si-amber  {background:var(--amber-lt);border:1.5px solid #f4d5b3}
+.si-purple {background:#ede9fe}
+.si-sky    {background:var(--sky-lt)}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+/* ── STORY ───────────────────────────────────────────── */
+.story-wrap{background:var(--parch);border:2px solid var(--green-lt);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--green-dk);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;line-height:2.8;color:#1e2d3d;margin-bottom:8px}
+.story-author{font-family:'Heebo',sans-serif;text-align:left;font-size:.8rem;color:var(--muted);font-style:italic;margin-top:12px}
+
+/* ── VOCAB ───────────────────────────────────────────── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.vocab-item{display:flex;align-items:flex-start;gap:12px;background:var(--green-pal);border:2px solid var(--green-lt);border-radius:16px;padding:14px;transition:transform .15s,box-shadow .15s;cursor:default}
+.vocab-item:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09)}
+.vemoji{font-size:2rem;width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.vword{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:700;color:var(--green-dk);display:block;line-height:1.3}
+.vdesc{font-size:.82rem;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+.vex{font-size:.79rem;color:#aaa;font-style:italic;display:block;margin-top:2px}
+
+/* ── GRAMMAR ─────────────────────────────────────────── */
+.gram-intro{background:var(--green-pal);border:2px dashed var(--green-md);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--green-dk);line-height:1.85}
+.gram-intro strong{color:var(--green)}
+.gram-table{width:100%;border-collapse:collapse;border-radius:14px;overflow:hidden;font-size:1rem;margin-bottom:24px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.gram-table th{background:var(--green-dk);color:#fff;padding:10px 16px;font-weight:800;font-size:.92rem}
+.gram-table td{padding:10px 16px;border-bottom:1px solid var(--green-lt);font-size:1rem;font-weight:600}
+.gram-table td.guf-cell{color:var(--muted);font-weight:700}
+.gram-table td.verb-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;color:var(--green-dk);font-weight:700}
+.gram-table td.ex-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;color:#334155}
+.gram-table tr:nth-child(even) td{background:var(--green-pal)}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-q-label{font-weight:800;font-size:1rem;margin-bottom:14px;color:var(--ink)}
+.gram-qs{display:flex;flex-direction:column;gap:16px}
+
+/* ── MULTIPLE CHOICE ─────────────────────────────────── */
+.mc-q{background:#f8fafc;border:2px solid #e2e8f0;border-radius:18px;padding:18px 20px}
+.mc-q-text{font-size:1.05rem;font-weight:700;margin-bottom:12px;color:var(--ink);display:flex;align-items:flex-start;gap:10px}
+.mc-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0;margin-top:1px}
+.num-green {background:var(--green)}
+.num-purple{background:#7c3aed}
+.num-amber {background:#d97706}
+.mc-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.18rem}
+.mc-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.mc-opt{background:var(--white);border:2px solid #e2e8f0;border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.08rem;font-weight:500;cursor:pointer;transition:all .15s;text-align:right;color:var(--ink);line-height:1.5}
+.mc-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--green-md);background:var(--green-pal)}
+.mc-opt.selected{border-color:var(--green);background:var(--green-pal);font-weight:700}
+.mc-opt.correct{background:#d8f3dc;border-color:#22c55e;color:#1a7a3f;font-weight:700}
+.mc-opt.wrong  {background:#fee2e2;border-color:#ef4444;color:#b91c1c}
+.mc-opt:disabled{cursor:default}
+.mc-change-hint{font-size:.78rem;color:var(--muted);margin-bottom:10px;min-height:16px}
+.mc-check-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn{background:var(--green-dk);color:#fff;border:none;border-radius:12px;padding:9px 22px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:6px}
+.check-btn:hover:not(:disabled){background:#0f2b1e;transform:translateY(-1px)}
+.check-btn:disabled{opacity:.45;cursor:default}
+.mc-fb{font-size:.88rem;font-weight:700;min-height:22px}
+.fb-ok {color:#1a7a3f}
+.fb-err{color:#b91c1c}
+
+/* ── TRUE / FALSE LIGHTNING GAME ─────────────────────── */
+.tf-intro{background:var(--sky-lt);border:2px solid var(--sky);border-radius:14px;padding:14px 18px;margin-bottom:16px;font-size:.97rem;font-weight:600;color:#004f70;line-height:1.85;text-align:center}
+.tf-start-btn{display:block;margin:0 auto 16px;background:linear-gradient(135deg,#2d6a4f,#1b4332);color:#fff;border:none;border-radius:14px;padding:14px 40px;font-family:'Heebo',sans-serif;font-weight:900;font-size:1.15rem;cursor:pointer;box-shadow:0 4px 16px rgba(27,67,50,.35);transition:transform .1s,opacity .15s}
+.tf-start-btn:hover{transform:translateY(-2px);opacity:.95}
+.tf-area{display:none}
+.tf-container{border:3px solid var(--green-lt);border-radius:20px;overflow:hidden;background:#f0fff4}
+.tf-status-bar{background:var(--green-dk);color:#fff;padding:8px 18px;display:flex;align-items:center;justify-content:space-between;font-size:.9rem;font-weight:800}
+.tf-timer-bar{height:7px;background:#e2e8f0}
+.tf-timer-fill{height:100%;background:linear-gradient(90deg,#22c55e,#f9c74f,#ef4444);width:100%;transition:width 10s linear}
+.tf-q-area{background:var(--green-pal);padding:22px 26px;text-align:center}
+.tf-q-num{font-size:.78rem;font-weight:700;color:var(--green);margin-bottom:8px}
+.tf-q-text{font-family:'Frank Ruhl Libre',serif;font-size:1.45rem;font-weight:700;color:var(--ink);line-height:1.75;margin-bottom:20px}
+.tf-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.tf-btn{flex:1;max-width:200px;border:none;border-radius:18px;padding:18px 10px;font-family:'Heebo',sans-serif;font-weight:900;font-size:1.2rem;cursor:pointer;transition:transform .1s,opacity .15s;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.tf-btn:hover:not(:disabled){transform:translateY(-3px);opacity:.9}
+.tf-btn:disabled{cursor:default;opacity:.6}
+.tf-true-btn{background:linear-gradient(135deg,#22c55e,#15803d);color:#fff}
+.tf-false-btn{background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff}
+.tf-feedback{min-height:28px;font-size:1.1rem;font-weight:800;text-align:center;padding:0 20px 12px}
+.tf-result{display:none;background:var(--green-pal);border:2px solid var(--green-lt);border-radius:18px;padding:24px;margin-top:16px;text-align:center}
+.tf-result h3{font-size:1.5rem;font-weight:900;color:var(--green-dk);margin-bottom:8px}
+.tf-result p{font-size:1rem;font-weight:600;color:var(--muted);margin-bottom:14px}
+.play-again-btn{background:var(--green-dk);color:#fff;border:none;border-radius:12px;padding:10px 30px;font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background .15s}
+.play-again-btn:hover{background:#0f2b1e}
+
+
+/* ── WRITING ─────────────────────────────────────────── */
+.writing-prompt{background:var(--green-pal);border:2px solid var(--green-md);border-radius:16px;padding:18px 20px;margin-bottom:16px;font-size:1rem;font-weight:600;color:var(--green-dk);line-height:1.9}
+.guide-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.guide-tag{background:var(--amber-lt);border:1.5px solid var(--amber);border-radius:20px;padding:4px 14px;font-size:.83rem;font-weight:700;color:#78350f}
+.writing-ta{width:100%;min-height:160px;border:2px solid var(--green-lt);border-radius:14px;padding:14px 16px;font-family:'Frank Ruhl Libre',serif;font-size:1.12rem;color:var(--ink);resize:vertical;outline:none;line-height:2.2;direction:rtl;background:#f7fffb;transition:border-color .2s}
+.writing-ta:focus{border-color:var(--green-md)}
+.writing-bar{display:flex;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap;gap:10px}
+.wc-label{font-size:.84rem;color:var(--muted);font-weight:600}
+.submit-btn{background:linear-gradient(135deg,var(--green-md),var(--green-dk));color:#fff;border:none;border-radius:12px;padding:10px 24px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 3px 10px rgba(45,106,79,.3);transition:opacity .15s,transform .1s}
+.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
+.writing-enc{margin-top:12px;border-radius:12px;padding:12px 16px;font-size:.95rem;font-weight:700;text-align:center;display:none}
+.enc-ok {background:#d8f3dc;color:#1a7a3f}
+.enc-mid{background:#fff9c4;color:#78350f}
+.enc-low{background:#fee2e2;color:#b91c1c}
+
+/* ── SCORE ───────────────────────────────────────────── */
+.score-panel{background:linear-gradient(135deg,#1b4332,#2d6a4f);border-radius:22px;padding:28px;color:#fff;text-align:center}
+.score-title{font-size:1.1rem;font-weight:800;margin-bottom:8px;color:var(--green-lt)}
+.score-emojis{font-size:2.2rem;margin-bottom:12px;letter-spacing:4px;min-height:2.5rem}
+.score-bar{background:#1b4332;border-radius:100px;height:16px;overflow:hidden;margin-bottom:10px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--green-md),var(--amber));border-radius:100px;width:0%;transition:width .8s ease}
+.score-msg{font-size:.95rem;font-weight:700;color:var(--green-lt)}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-wave"></div>
+  <span class="leaf" style="right:5%;top:15%;--dur:4s;--del:0s">🌿</span>
+  <span class="leaf" style="left:8%;top:20%;--dur:5s;--del:.5s">🍃</span>
+  <span class="leaf" style="right:20%;top:40%;--dur:3.5s;--del:1s">🌸</span>
+  <span class="leaf" style="left:22%;top:35%;--dur:6s;--del:.2s">🌳</span>
+  <div class="header-inner">
+    <div class="header-eyebrow">🌿 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 8</div>
+    <h1>הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר 🦋</h1>
+    <div class="header-sub">מִלּוֹת שְׁאֵלָה — מִי? מָה? אֵיפֹה? מָתַי? לָמָּה? אֵיךְ?</div>
+    <div class="header-badge">🌳 כִּיתָה ד׳ · עִבְרִית מְקוֹרִיִּים</div>
+  </div>
+</div>
+
+<!-- ══ NAV ══════════════════════════════════════════════ -->
+<div class="lesson-nav">
+  <a class="nav-btn" href="lesson01_yoni_vehagan.html">→ שִׁיעוּר 1</a>
+  <a class="nav-btn" href="lesson02_hakochav_hakatan.html">→ שִׁיעוּר 2</a>
+  <a class="nav-btn" href="lesson03_hamassa_el_hayam.html">→ שִׁיעוּר 3</a>
+  <a class="nav-btn" href="lesson04_pesach_besavta.html">→ שִׁיעוּר 4</a>
+  <a class="nav-btn" href="lesson05_haviv_ba.html">→ שִׁיעוּר 5</a>
+  <a class="nav-btn" href="lesson06_hashuk.html">→ שִׁיעוּר 6</a>
+  <a class="nav-btn" href="lesson07_noaa_besavta.html">→ שִׁיעוּר 7</a>
+  <span class="nav-current">📍 שִׁיעוּר 8: הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר</span>
+</div>
+
+<!-- ══ PROGRESS ═════════════════════════════════════════ -->
+<div class="progress-strip">
+  <span class="prog-label">🌟 הַתְקָדְמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+  <span class="prog-stars" id="progStars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 1 · STORY
+═══════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-green"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-green">📖</div>
+    <div>
+      <span class="sec-num">חֵלֶק א׳</span>
+      <span class="sec-title">קְרִיאָה — הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר</span>
+    </div>
+  </div>
+  <div class="story-wrap">
+    <div class="story-title">🦋 הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר</div>
+
+    <p class="story-p">
+      בְּיוֹם שְׁלִישִׁי יָצְאָה כִּיתָה ד׳ לְטִיּוּל בַּטֶּבַע.
+      הַמּוֹרֶה אֹרֶן אָמַר בְּשִׂמְחָה:
+      "הַיּוֹם נְגַלֶּה דְּבָרִים מְעַנְיְנִים!"
+    </p>
+
+    <p class="story-p">
+      כְּשֶׁהִגִּיעוּ לַיַּעַר, רָאוּ פְּרָחִים צִבְעוֹנִיִּים בְּכָל מָקוֹם.
+      "מָה שֵׁם הַפֶּרַח הַזֶּה?" שָׁאַל דָּוִיד.
+      הַמּוֹרֶה הֶסְבִּיר: "זוֹ כַּלָּנִית — פֶּרַח הָאָבִיב הַיָּפֶה."
+    </p>
+
+    <p class="story-p">
+      לְיַד נָחַל קָטָן עָצְרוּ לָנוּחַ.
+      נוֹעָה רָאֲתָה פַּרְפַּר כָּתֹם עָף בֵּין הַפְּרָחִים.
+      "כַּמָּה יָפֶה!" אָמְרָה בְּשִׂמְחָה.
+    </p>
+
+    <p class="story-p">
+      הַמּוֹרֶה לִימֵּד: "פַּרְפַּרִים אוֹהֲבִים פְּרָחִים כִּי הֵם שׁוֹתִים מֵהֶם."
+      "לָמָּה הַפַּרְפַּר כָּל כָּךְ צִבְעוֹנִי?" שָׁאַל אֲבִיב.
+      "כְּדֵי לְהֵחָבֵא מִפְּנֵי אוֹיְבִים," עָנָה הַמּוֹרֶה.
+    </p>
+
+    <p class="story-p">
+      אַחַר כָּךְ הִסְתַּכְּלוּ בִּצְמָחִים שׁוֹנִים.
+      חֶרֶק קָטָן זָחַל עַל עֵשֶׂב יָרֹק.
+      "מִי יוֹדֵעַ מָה שְׁמוֹ?" שָׁאַל הַמּוֹרֶה — אַךְ אִישׁ לֹא זִיהָה.
+    </p>
+
+    <p class="story-p">
+      בַּסּוֹף יָשְׁבוּ עַל הָעֵשֶׂב וְצִיְּרוּ אֶת מַה שֶּׁאָהֲבוּ.
+      דָּוִיד צִיֵּר נָחַל.
+      נוֹעָה צִיְּרָה פַּרְפַּר כָּתֹם.
+      אֲבִיב צִיֵּר פֶּרַח גָּדוֹל.
+      "זֶה הָיָה הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר!" אָמְרוּ כֻּלָּם יַחַד.
+    </p>
+
+    <div class="story-author">
+      * הַטִּיּוּל הַנִּפְלָא בְּיוֹתֵר — שִׁיעוּר 8
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 2 · VOCABULARY
+═══════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-green"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-green">🌼</div>
+    <div>
+      <span class="sec-num">חֵלֶק ב׳</span>
+      <span class="sec-title">אוֹצַר מִלִּים — מִלִּים חֲדָשׁוֹת</span>
+    </div>
+  </div>
+  <div class="vocab-grid">
+
+    <div class="vocab-item">
+      <div class="vemoji">🌳</div>
+      <div>
+        <span class="vword">יַעַר / יְעָרוֹת</span>
+        <span class="vdesc">forest / forests (m.)</span>
+        <span class="vex">הָלַכְנוּ לְטִיּוּל בַּיַּעַר הַיָּרֹק.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🦋</div>
+      <div>
+        <span class="vword">פַּרְפַּר / פַּרְפַּרִים</span>
+        <span class="vdesc">butterfly / butterflies (m.)</span>
+        <span class="vex">הַפַּרְפַּר עָף מִפֶּרַח לְפֶרַח.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🌸</div>
+      <div>
+        <span class="vword">פֶּרַח / פְּרָחִים</span>
+        <span class="vdesc">flower / flowers (m.)</span>
+        <span class="vex">בָּאָבִיב פּוֹרְחִים פְּרָחִים בַּשָּׂדֶה.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">💧</div>
+      <div>
+        <span class="vword">נָחַל / נְחָלִים</span>
+        <span class="vdesc">stream / brooks (m.)</span>
+        <span class="vex">יָשַׁבְנוּ לְיַד הַנָּחַל הַקָּטָן.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🌱</div>
+      <div>
+        <span class="vword">צֶמַח / צְמָחִים</span>
+        <span class="vdesc">plant / plants (m.)</span>
+        <span class="vex">בַּיַּעַר יֵשׁ צְמָחִים מְעַנְיְנִים.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🐛</div>
+      <div>
+        <span class="vword">חֶרֶק / חֲרָקִים</span>
+        <span class="vdesc">insect / insects (m.)</span>
+        <span class="vex">מָצָאנוּ חֶרֶק קָטָן עַל הָעֵשֶׂב.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🎨</div>
+      <div>
+        <span class="vword">צִיֵּר / לְצַיֵּר</span>
+        <span class="vdesc">drew / to draw (pi'el)</span>
+        <span class="vex">נוֹעָה צִיְּרָה פַּרְפַּר יָפֶה.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🔍</div>
+      <div>
+        <span class="vword">גִּלָּה / לְגַלּוֹת</span>
+        <span class="vdesc">discovered / to discover</span>
+        <span class="vex">גִּלִּינוּ צֶמַח חָדָשׁ בַּטְּיוּל.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🌿</div>
+      <div>
+        <span class="vword">עֵשֶׂב</span>
+        <span class="vdesc">grass (m.)</span>
+        <span class="vex">יָשַׁבְנוּ עַל הָעֵשֶׂב הַיָּרֹק.</span>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div class="vemoji">🌺</div>
+      <div>
+        <span class="vword">כַּלָּנִית / כַּלָּנִיּוֹת</span>
+        <span class="vdesc">anemone — spring wildflower (f.)</span>
+        <span class="vex">הַכַּלָּנִית הִיא פֶּרַח הָאָבִיב הַמְּפֻרְסָם.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 3 · GRAMMAR
+═══════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-purple"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-purple">📐</div>
+    <div>
+      <span class="sec-num">חֵלֶק ג׳</span>
+      <span class="sec-title">דִּקְדּוּק — מִלּוֹת שְׁאֵלָה</span>
+    </div>
+  </div>
+  <div class="gram-intro">
+    בַּשִּׁיעוּר הַזֶּה נִלְמַד אֶת <strong>מִלּוֹת הַשְּׁאֵלָה</strong> —
+    מִלִּים חֲשׁוּבוֹת שֶׁמַּתְחִילוֹת בְּהֶן שְׁאֵלוֹת בְּעִבְרִית.
+    כָּל מִלַּת שְׁאֵלָה שׁוֹאֶלֶת עַל נוֹשֵׂא שׁוֹנֶה!
+  </div>
+  <table class="gram-table">
+    <tr>
+      <th>מִלַּת הַשְּׁאֵלָה</th>
+      <th>שׁוֹאֶלֶת עַל</th>
+      <th>דּוּגְמָה</th>
+    </tr>
+    <tr>
+      <td class="verb-cell">מִי?</td>
+      <td class="guf-cell">אָדָם — who?</td>
+      <td class="ex-cell">מִי הַמּוֹרֶה שֶׁל כִּיתָה ד׳?</td>
+    </tr>
+    <tr>
+      <td class="verb-cell">מָה?</td>
+      <td class="guf-cell">דָּבָר — what?</td>
+      <td class="ex-cell">מָה רָאִיתֶם בַּיַּעַר?</td>
+    </tr>
+    <tr>
+      <td class="verb-cell">אֵיפֹה?</td>
+      <td class="guf-cell">מָקוֹם — where?</td>
+      <td class="ex-cell">אֵיפֹה הַנָּחַל הַקָּטָן?</td>
+    </tr>
+    <tr>
+      <td class="verb-cell">מָתַי?</td>
+      <td class="guf-cell">זְמַן — when?</td>
+      <td class="ex-cell">מָתַי יָצְאָה הַכִּיתָה לְטִיּוּל?</td>
+    </tr>
+    <tr>
+      <td class="verb-cell">לָמָּה?</td>
+      <td class="guf-cell">סִיבָּה — why?</td>
+      <td class="ex-cell">לָמָּה הַפַּרְפַּר צִבְעוֹנִי?</td>
+    </tr>
+    <tr>
+      <td class="verb-cell">אֵיךְ?</td>
+      <td class="guf-cell">אֹפֶן — how?</td>
+      <td class="ex-cell">אֵיךְ הִגַּעְתֶּם לַיַּעַר?</td>
+    </tr>
+    <tr>
+      <td class="verb-cell">כַּמָּה?</td>
+      <td class="guf-cell">כַּמּוּת — how many/much?</td>
+      <td class="ex-cell">כַּמָּה תַּלְמִידִים הָיוּ בַּטִּיּוּל?</td>
+    </tr>
+  </table>
+
+  <div class="gram-q-label">✏️ תַּרְגִּילֵי דִּקְדּוּק — בְּחֲרוּ אֶת מִלַּת הַשְּׁאֵלָה הַמַּתְאִימָה:</div>
+  <div class="gram-qs" id="gramQs"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 4 · COMPREHENSION GAME — TRUE / FALSE LIGHTNING
+═══════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-sky"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-sky">🎮</div>
+    <div>
+      <span class="sec-num">חֵלֶק ד׳</span>
+      <span class="sec-title">הֲבָנַת הַנִּקְרָא — ⚡ נָכוֹן אוֹ לֹא נָכוֹן?</span>
+    </div>
+  </div>
+
+  <div class="tf-intro">
+    ⚡ <strong>אֵיךְ מְשַׂחֲקִים?</strong><br>
+    קִרְאוּ אֶת הַמִּשְׁפָּט — וְהַחְלִיטוּ מַהֵר:<br>
+    לִחֲצוּ עַל <strong>✅ נָכוֹן</strong> אִם הַמִּשְׁפָּט נָכוֹן לְפִי הַסִּיפּוּר,
+    אוֹ עַל <strong>❌ לֹא נָכוֹן</strong> אִם הוּא שְׁגוּי.
+    יֵשׁ לָכֶם 10 שְׁנִיּוֹת לְכָל שְׁאֵלָה!
+  </div>
+
+  <button class="tf-start-btn" id="tfStartBtn" onclick="tfStart()">⚡ הַתְחֵל אֶת הַמִּשְׂחָק!</button>
+
+  <div class="tf-area" id="tfArea">
+    <div class="tf-container" id="tfContainer">
+      <div class="tf-status-bar">
+        <span id="tfQNum">שְׁאֵלָה 1 מִתּוֹךְ 6</span>
+        <span id="tfScoreDisplay">✅ 0 נְקֻדּוֹת</span>
+      </div>
+      <div class="tf-timer-bar">
+        <div class="tf-timer-fill" id="tfTimerFill"></div>
+      </div>
+      <div class="tf-q-area">
+        <div class="tf-q-num" id="tfQLbl">שְׁאֵלָה 1</div>
+        <div class="tf-q-text" id="tfQText">טוֹעֵן...</div>
+        <div class="tf-btns">
+          <button class="tf-btn tf-true-btn" id="tfTrueBtn" onclick="tfPick(true)">✅ נָכוֹן</button>
+          <button class="tf-btn tf-false-btn" id="tfFalseBtn" onclick="tfPick(false)">❌ לֹא נָכוֹן</button>
+        </div>
+        <div class="tf-feedback" id="tfFeedback"></div>
+      </div>
+    </div>
+    <div class="tf-result" id="tfResult">
+      <h3 id="tfResultTitle"></h3>
+      <p id="tfResultMsg"></p>
+      <button class="play-again-btn" onclick="tfStart()">🔄 שַׂחֵק שׁוּב</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 5 · WRITING
+═══════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-green"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-green">✍️</div>
+    <div>
+      <span class="sec-num">חֵלֶק ה׳</span>
+      <span class="sec-title">כְּתִיבָה חוֹפְשִׁית</span>
+    </div>
+  </div>
+  <div class="writing-prompt">
+    📝 <strong>תַּרְגִּיל כְּתִיבָה:</strong>
+    תָּאֲרוּ טִיּוּל שֶׁהָיִיתֶם בּוֹ — בַּטֶּבַע, בְּגַן חַיּוֹת, בַּיָּם אוֹ בְּמָקוֹם אַחֵר.
+    מָה רְאִיתֶם? מִי הָיָה אִתְּכֶם? נַסּוּ לְהִשְׁתַּמֵּשׁ <strong>בְּמִלּוֹת שְׁאֵלָה!</strong>
+  </div>
+  <div class="guide-row">
+    <span class="guide-tag">מִי הָיָה שָׁם?</span>
+    <span class="guide-tag">מָה רָאִינוּ?</span>
+    <span class="guide-tag">אֵיפֹה הָיִינוּ?</span>
+    <span class="guide-tag">מָתַי הָלַכְנוּ?</span>
+    <span class="guide-tag">אֵיךְ הִגַּעְנוּ?</span>
+    <span class="guide-tag">לָמָּה אָהַבְתִּי?</span>
+  </div>
+  <textarea class="writing-ta" id="writingTa" oninput="updateWC()" placeholder="כִּתְבוּ כָּאן בְּעִבְרִית..."></textarea>
+  <div class="writing-bar">
+    <span class="wc-label" id="wcLabel">0 מִלִּים</span>
+    <button class="submit-btn" onclick="submitWriting()">✅ שְׁלַח כְּתִיבָה</button>
+  </div>
+  <div class="writing-enc" id="writingEnc"></div>
+</div>
+
+<!-- ══ SCORE PANEL ═══════════════════════════════════════ -->
+<div class="score-panel">
+  <div class="score-title">🏆 הַנִּקּוּד שֶׁלָּכֶם</div>
+  <div class="score-emojis" id="scoreEmojis">⭐⭐⭐⭐⭐</div>
+  <div class="score-bar"><div class="score-bar-fill" id="scoreBarFill"></div></div>
+  <div class="score-msg" id="scoreMsgTxt">הַשְׁלִימוּ אֶת כָּל הַחֲלָקִים כְּדֵי לִרְאוֹת אֶת הַצִּיּוּן שֶׁלָּכֶם!</div>
+</div>
+
+<div class="lesson-nav" style="margin-top:0">
+  <a class="nav-btn" href="lesson01_yoni_vehagan.html">→ שִׁיעוּר 1</a>
+  <a class="nav-btn" href="lesson02_hakochav_hakatan.html">→ שִׁיעוּר 2</a>
+  <a class="nav-btn" href="lesson03_hamassa_el_hayam.html">→ שִׁיעוּר 3</a>
+  <a class="nav-btn" href="lesson04_pesach_besavta.html">→ שִׁיעוּר 4</a>
+  <a class="nav-btn" href="lesson05_haviv_ba.html">→ שִׁיעוּר 5</a>
+  <a class="nav-btn" href="lesson06_hashuk.html">→ שִׁיעוּר 6</a>
+  <a class="nav-btn" href="lesson07_noaa_besavta.html">→ שִׁיעוּר 7</a>
+</div>
+
+</div><!-- /page -->
+
+<script>
+/* ── SOUND ──────────────────────────────────────────────── */
+var _ac;
+function getAC(){if(!_ac)_ac=new(window.AudioContext||window.webkitAudioContext)();return _ac;}
+function playCorrect(){
+  try{
+    var ac=getAC();
+    [523,659,784,1047].forEach(function(f,i){
+      var o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.type='sine';o.frequency.value=f;
+      var t=ac.currentTime+i*.1;
+      g.gain.setValueAtTime(0,t);
+      g.gain.linearRampToValueAtTime(.25,t+.04);
+      g.gain.exponentialRampToValueAtTime(.001,t+.35);
+      o.start(t);o.stop(t+.35);
+    });
+  }catch(e){}
+}
+function playWrong(){
+  try{
+    var ac=getAC(),o=ac.createOscillator(),g=ac.createGain();
+    o.connect(g);g.connect(ac.destination);
+    o.type='sawtooth';o.frequency.value=220;
+    o.frequency.linearRampToValueAtTime(150,ac.currentTime+.2);
+    g.gain.setValueAtTime(.18,ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.3);
+    o.start(ac.currentTime);o.stop(ac.currentTime+.3);
+  }catch(e){}
+}
+function playTTS(text){
+  try{
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='he-IL';u.rate=.85;u.pitch=1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ── GLOBAL SCORE ────────────────────────────────────────── */
+var earnedPts=0,totalPts=0;
+function addPts(e,t){earnedPts+=e;totalPts+=t;updateScore();}
+function updateScore(){
+  if(!totalPts)return;
+  var pct=Math.round(earnedPts/totalPts*100);
+  document.getElementById('scoreBarFill').style.width=pct+'%';
+  document.getElementById('progFill').style.width=pct+'%';
+  var s=Math.min(5,Math.round(pct/20));
+  document.getElementById('progStars').textContent='★'.repeat(s)+'☆'.repeat(5-s);
+  document.getElementById('scoreEmojis').textContent='⭐'.repeat(s)+'✨'.repeat(5-s);
+  var msgs=[
+    'הַתְחָלָה טוֹבָה! הַמְשִׁיכוּ לְהִתְאַמֵּן! 💪',
+    'עֲבוֹדָה יָפָה! עוֹד קְצָת! 🌱',
+    'יְפֵה מְאֹד! כְּבָר חֲצִי הַדֶּרֶךְ! 🌟',
+    'כִּמְעַט מֻשְׁלָם! עוֹד מַאֲמָץ קָטָן! 🚀',
+    'מַדְהִים! עֲבוֹדָה מְצֻיֶּנֶת! 🏆'
+  ];
+  document.getElementById('scoreMsgTxt').textContent=msgs[Math.max(0,s-1)]||msgs[0];
+}
+
+/* ── MULTIPLE CHOICE BUILDER ─────────────────────────────── */
+function buildMC(cfg){
+  var cont=document.getElementById(cfg.containerId);
+  var state=cfg.questions.map(function(){return{selected:null,done:false};});
+  var dc=0,cc=0;
+  cfg.questions.forEach(function(q,qi){
+    var div=document.createElement('div');
+    div.className='mc-q';
+    div.innerHTML=
+      '<div class="mc-q-text"><span class="mc-num '+cfg.numColor+'">'+(qi+1)+'</span>'+
+        '<span class="mc-sentence">'+q.text+'</span></div>'+
+      '<div class="mc-opts" id="'+cfg.containerId+'_opts'+qi+'">'+
+        q.opts.map(function(o,oi){
+          return '<button class="mc-opt" onclick="mcSelect(\''+cfg.containerId+'\','+qi+','+oi+')">'+o+'</button>';
+        }).join('')+
+      '</div>'+
+      '<div class="mc-change-hint" id="'+cfg.containerId+'_hint'+qi+'">'+
+        '💡 רוֹצִים לְשַׁנּוֹת? לְחֲצוּ עַל תְּשׁוּבָה אַחֶרֶת לִפְנֵי הַבְּדִיקָה.'+
+      '</div>'+
+      '<div class="mc-check-row">'+
+        '<button class="check-btn" id="'+cfg.containerId+'_chk'+qi+'" '+
+          'onclick="mcCheck(\''+cfg.containerId+'\','+qi+','+q.correct+')" disabled>✅ בְּדֹק תְּשׁוּבָה</button>'+
+        '<div class="mc-fb" id="'+cfg.containerId+'_fb'+qi+'"></div>'+
+      '</div>';
+    cont.appendChild(div);
+  });
+  window['_mcState_'+cfg.containerId]=state;
+  window['_mcDone_'+cfg.containerId]=function(ok){
+    dc++;if(ok)cc++;
+    if(dc===cfg.questions.length&&typeof cfg.onDone==='function')cfg.onDone(cc,cfg.questions.length);
+  };
+}
+
+function mcSelect(cid,qi,oi){
+  var state=window['_mcState_'+cid];
+  if(state[qi].done)return;
+  state[qi].selected=oi;
+  document.getElementById(cid+'_opts'+qi).querySelectorAll('.mc-opt').forEach(function(b,i){
+    b.classList.toggle('selected',i===oi);
+  });
+  document.getElementById(cid+'_chk'+qi).disabled=false;
+}
+
+function mcCheck(cid,qi,correct){
+  var state=window['_mcState_'+cid];
+  if(state[qi].done||state[qi].selected===null)return;
+  state[qi].done=true;
+  var chosen=state[qi].selected;
+  var opts=document.getElementById(cid+'_opts'+qi).querySelectorAll('.mc-opt');
+  opts.forEach(function(b){b.disabled=true;});
+  opts[correct].classList.add('correct');
+  if(chosen!==correct)opts[chosen].classList.add('wrong');
+  opts.forEach(function(b){b.classList.remove('selected');});
+  document.getElementById(cid+'_hint'+qi).style.display='none';
+  var fb=document.getElementById(cid+'_fb'+qi);
+  if(chosen===correct){
+    fb.innerHTML='<span class="fb-ok">✅ כָּל הַכָּבוֹד! תְּשׁוּבָה נְכוֹנָה!</span>';
+    playCorrect();
+  } else {
+    fb.innerHTML='<span class="fb-err">❌ לֹא מְדֻיָּק — רְאוּ אֶת הַתְּשׁוּבָה הַנְּכוֹנָה בְּיָרֹק.</span>';
+    playWrong();
+  }
+  document.getElementById(cid+'_chk'+qi).disabled=true;
+  window['_mcDone_'+cid](chosen===correct);
+}
+
+/* ── GRAMMAR QUESTIONS ───────────────────────────────────── */
+buildMC({
+  containerId:'gramQs',
+  numColor:'num-purple',
+  questions:[
+    {
+      text:'___ הַמּוֹרֶה שֶׁל כִּיתָה ד׳?',
+      opts:['מָה','מָתַי','מִי','אֵיפֹה'],
+      correct:2
+    },
+    {
+      text:'___ עָשׂוּ הַתַּלְמִידִים בַּסּוֹף הַטִּיּוּל?',
+      opts:['לָמָּה','אֵיפֹה','מִי','מָה'],
+      correct:3
+    },
+    {
+      text:'___ הַנָּחַל הַקָּטָן?',
+      opts:['מָתַי','מִי','אֵיפֹה','לָמָּה'],
+      correct:2
+    },
+    {
+      text:'___ הַפַּרְפַּר כָּל כָּךְ צִבְעוֹנִי?',
+      opts:['אֵיךְ','מִי','אֵיפֹה','לָמָּה'],
+      correct:3
+    },
+    {
+      text:'___ יָצְאָה הַכִּיתָה לְטִיּוּל?',
+      opts:['מָה','מָתַי','מִי','לָמָּה'],
+      correct:1
+    }
+  ],
+  onDone:function(c,t){addPts(c,t);}
+});
+
+/* ── TRUE / FALSE LIGHTNING GAME ─────────────────────────── */
+var tfQs=[
+  {
+    text:'כִּיתָה ד׳ יָצְאָה לְטִיּוּל בַּמִּדְבָּר.',
+    correct:false,
+    explain:'כִּיתָה ד׳ יָצְאָה לְטִיּוּל בַּיַּעַר — לֹא בַּמִּדְבָּר!'
+  },
+  {
+    text:'שֵׁם הַמּוֹרֶה הוּא אֹרֶן.',
+    correct:true,
+    explain:'נָכוֹן! הַמּוֹרֶה שֶׁל הַכִּיתָה שְׁמוֹ אֹרֶן.'
+  },
+  {
+    text:'נוֹעָה רָאֲתָה פַּרְפַּר כָּחֹל.',
+    correct:false,
+    explain:'הַפַּרְפַּר הָיָה כָּתֹם — לֹא כָּחֹל!'
+  },
+  {
+    text:'הַכִּיתָה עָצְרָה לְיַד נָחַל קָטָן.',
+    correct:true,
+    explain:'נָכוֹן! הֵם עָצְרוּ לָנוּחַ לְיַד הַנָּחַל.'
+  },
+  {
+    text:'בַּסּוֹף שָׁרוּ הַתַּלְמִידִים שִׁירִים.',
+    correct:false,
+    explain:'בַּסּוֹף הֵם יָשְׁבוּ וְצִיְּרוּ — לֹא שָׁרוּ!'
+  },
+  {
+    text:'פַּרְפַּרִים אוֹהֲבִים פְּרָחִים כִּי הֵם שׁוֹתִים מֵהֶם.',
+    correct:true,
+    explain:'נָכוֹן! הַמּוֹרֶה הֶסְבִּיר שֶׁפַּרְפַּרִים שׁוֹתִים מִפְּרָחִים.'
+  }
+];
+
+var tfCur=0,tfScore=0,tfAnswered=false,tfAutoTimer=null;
+
+function tfStart(){
+  tfCur=0;tfScore=0;tfAnswered=false;
+  if(tfAutoTimer){clearTimeout(tfAutoTimer);tfAutoTimer=null;}
+  document.getElementById('tfStartBtn').style.display='none';
+  document.getElementById('tfArea').style.display='block';
+  document.getElementById('tfResult').style.display='none';
+  document.getElementById('tfContainer').style.display='block';
+  tfShowQ();
+}
+
+function tfShowQ(){
+  if(tfCur>=tfQs.length){tfFinish();return;}
+  tfAnswered=false;
+
+  var q=tfQs[tfCur];
+  document.getElementById('tfQNum').textContent='שְׁאֵלָה '+(tfCur+1)+' מִתּוֹךְ '+tfQs.length;
+  document.getElementById('tfQLbl').textContent='שְׁאֵלָה '+(tfCur+1);
+  document.getElementById('tfQText').textContent=q.text;
+  document.getElementById('tfFeedback').textContent='';
+  document.getElementById('tfScoreDisplay').textContent='✅ '+tfScore+' נְקֻדּוֹת';
+
+  var tb=document.getElementById('tfTrueBtn');
+  var fb=document.getElementById('tfFalseBtn');
+  tb.disabled=false;fb.disabled=false;
+  tb.style.opacity='1';fb.style.opacity='1';
+
+  var tf=document.getElementById('tfTimerFill');
+  tf.style.transition='none';
+  tf.style.width='100%';
+  setTimeout(function(){
+    tf.style.transition='width 10s linear';
+    tf.style.width='0%';
+  },40);
+
+  if(tfAutoTimer)clearTimeout(tfAutoTimer);
+  tfAutoTimer=setTimeout(function(){
+    if(!tfAnswered){
+      tfAnswered=true;
+      document.getElementById('tfTrueBtn').disabled=true;
+      document.getElementById('tfFalseBtn').disabled=true;
+      var fb2=document.getElementById('tfFeedback');
+      fb2.innerHTML='<span style="color:#b45309">⏱️ הַזְּמַן עָבַר! הַתְּשׁוּבָה: '+(tfQs[tfCur].correct?'✅ נָכוֹן':'❌ לֹא נָכוֹן')+'<br><small>'+tfQs[tfCur].explain+'</small></span>';
+      playWrong();
+      setTimeout(function(){tfCur++;tfShowQ();},2200);
+    }
+  },10000);
+}
+
+function tfPick(userAns){
+  if(tfAnswered)return;
+  tfAnswered=true;
+  if(tfAutoTimer){clearTimeout(tfAutoTimer);tfAutoTimer=null;}
+
+  var tf=document.getElementById('tfTimerFill');
+  tf.style.transition='none';
+
+  document.getElementById('tfTrueBtn').disabled=true;
+  document.getElementById('tfFalseBtn').disabled=true;
+
+  var q=tfQs[tfCur];
+  var fbEl=document.getElementById('tfFeedback');
+  if(userAns===q.correct){
+    tfScore++;
+    document.getElementById('tfScoreDisplay').textContent='✅ '+tfScore+' נְקֻדּוֹת';
+    fbEl.innerHTML='<span style="color:#15803d">✅ נְכוֹן! כָּל הַכָּבוֹד! — '+q.explain+'</span>';
+    playCorrect();
+  } else {
+    fbEl.innerHTML='<span style="color:#b91c1c">❌ לֹא מְדֻיָּק — '+q.explain+'</span>';
+    playWrong();
+  }
+  setTimeout(function(){tfCur++;tfShowQ();},2200);
+}
+
+function tfFinish(){
+  if(tfAutoTimer){clearTimeout(tfAutoTimer);tfAutoTimer=null;}
+  addPts(tfScore,tfQs.length);
+  document.getElementById('tfContainer').style.display='none';
+  var rp=document.getElementById('tfResult');
+  rp.style.display='block';
+  var title,msg;
+  if(tfScore===tfQs.length){
+    title='🏆 מוּשְׁלָם לְגַמְרֵי!';
+    msg='עָנִיתֶם נְכוֹן עַל כָּל '+tfQs.length+' הַשְּׁאֵלוֹת! אַלּוּפִים אֲמִיתִּיִּים! 🌟';
+  } else if(tfScore>=4){
+    title='🌟 יְפֵה מְאֹד!';
+    msg=tfScore+' מִתּוֹךְ '+tfQs.length+' נְכוֹנוֹת. כִּמְעַט מֻשְׁלָם!';
+  } else if(tfScore>=2){
+    title='👍 עֲבוֹדָה טוֹבָה!';
+    msg=tfScore+' מִתּוֹךְ '+tfQs.length+' נְכוֹנוֹת. נַסּוּ שׁוּב לְהִשְׁתַּפֵּר!';
+  } else {
+    title='💪 נַסּוּ שׁוּב!';
+    msg=tfScore+' מִתּוֹךְ '+tfQs.length+' נְכוֹנוֹת. קִרְאוּ שׁוּב אֶת הַסִּיפּוּר וְנַסּוּ שׁוּב!';
+  }
+  document.getElementById('tfResultTitle').textContent=title;
+  document.getElementById('tfResultMsg').textContent=msg;
+}
+
+/* ── WRITING ─────────────────────────────────────────────── */
+function updateWC(){
+  var ta=document.getElementById('writingTa');
+  var words=ta.value.trim().split(/\s+/).filter(function(w){return w.length>0;});
+  document.getElementById('wcLabel').textContent=words.length+' מִלִּים';
+}
+
+function submitWriting(){
+  var ta=document.getElementById('writingTa');
+  var words=ta.value.trim().split(/\s+/).filter(function(w){return w.length>0;});
+  var enc=document.getElementById('writingEnc');
+  enc.style.display='block';
+  if(words.length>=30){
+    enc.className='writing-enc enc-ok';
+    enc.textContent='🌟 כָּתַבְתֶּם '+words.length+' מִלִּים — עֲבוֹדָה מְצֻיֶּנֶת! אַלּוּפִים!';
+    addPts(3,3);
+  } else if(words.length>=15){
+    enc.className='writing-enc enc-mid';
+    enc.textContent='👍 כָּתַבְתֶּם '+words.length+' מִלִּים — טוֹב מְאֹד! נַסּוּ לְהַרְחִיב עוֹד קְצָת.';
+    addPts(2,3);
+  } else {
+    enc.className='writing-enc enc-low';
+    enc.textContent='✏️ כָּתַבְתֶּם '+words.length+' מִלִּים — נַסּוּ לִכְתֹּב לְפָחוֹת 15 מִלִּים!';
+    addPts(1,3);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַנְּסִיעָה שֶׁל עַמִּית — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blu:    #1e40af;
+  --blu-dk: #1e3a8a;
+  --blu-md: #3b82f6;
+  --blu-lt: #dbeafe;
+  --blu-pal:#eff6ff;
+  --blu-2:  #bfdbfe;
+  --orng:   #ea580c;
+  --orng-dk:#c2410c;
+  --orng-md:#f97316;
+  --orng-lt:#ffedd5;
+  --orng-pal:#fff7ed;
+  --ok:     #16a34a;
+  --ok-lt:  #dcfce7;
+  --red-lt: #fee2e2;
+  --ink:    #1e293b;
+  --muted:  #64748b;
+  --white:  #ffffff;
+  --parch:  #fffdf5;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--blu-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+/* ── HEADER ── */
+.header{background:linear-gradient(160deg,#1e3a8a 0%,#1e40af 50%,#3b82f6 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#bfdbfe;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(59,130,246,.5),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#bfdbfe;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#1e3a8a;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(30,64,175,.35)}
+.header-flag-strip{background:var(--orng);height:6px}
+
+/* ── NAV ── */
+.lesson-nav{background:#1e3a8a;padding:8px 20px;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#bfdbfe;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--blu-md);border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#1e40af;color:#fff}
+.nav-current{color:#93c5fd;font-size:.78rem;font-weight:800;margin-right:auto}
+
+/* ── PROGRESS ── */
+.progress-strip{background:#1e3a8a;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#bfdbfe;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:var(--blu-md);border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#93c5fd,var(--orng));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#bfdbfe;font-size:1rem;letter-spacing:2px}
+
+/* ── PAGE ── */
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-blu{background:linear-gradient(180deg,#bfdbfe,#1e40af)}
+.cs-orng{background:linear-gradient(180deg,#fed7aa,#ea580c)}
+.cs-grn{background:linear-gradient(180deg,#bbf7d0,#16a34a)}
+
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-blu{background:var(--blu-pal);border:1.5px solid var(--blu-2)}
+.si-orng{background:var(--orng-pal);border:1.5px solid #fed7aa}
+.si-grn{background:#f0fdf4;border:1.5px solid #bbf7d0}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+/* ── STORY ── */
+.story-wrap{background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--blu);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;line-height:2.9;color:#1e2d3d;margin-bottom:8px}
+.hl{background:var(--blu-lt);border-radius:4px;padding:1px 5px;font-weight:900;color:var(--blu-dk);border-bottom:2px dotted var(--blu-md);cursor:help;position:relative}
+.hl .tip{display:none;position:absolute;bottom:130%;right:50%;transform:translateX(50%);background:#1e293b;color:#fff;font-size:.75rem;font-family:'Heebo',sans-serif;padding:4px 10px;border-radius:8px;white-space:nowrap;z-index:30;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,.25);pointer-events:none}
+.hl:hover .tip{display:block}
+.story-note{background:var(--blu-lt);border:1.5px solid var(--blu-2);border-radius:10px;padding:10px 14px;font-size:.85rem;font-weight:700;color:var(--blu-dk);margin-top:14px;text-align:center;line-height:1.8}
+
+/* ── VOCAB ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.vocab-item{display:flex;align-items:flex-start;gap:12px;background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:16px;padding:14px;transition:transform .15s,box-shadow .15s;cursor:default}
+.vocab-item:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09)}
+.vemoji{font-size:2rem;width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.vword{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700;color:var(--blu);display:block;line-height:1.4}
+.vdesc{font-size:.82rem;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+
+/* ── GRAMMAR ── */
+.gram-intro{background:var(--blu-pal);border:2px dashed var(--blu-md);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--blu-dk);line-height:1.9}
+.gram-intro strong{color:var(--blu)}
+.gram-table{width:100%;border-collapse:collapse;margin-bottom:18px;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--blu);color:#fff;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;border-bottom:1px solid var(--blu-2);text-align:right}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:nth-child(even) td{background:var(--blu-pal)}
+.gram-rule{background:var(--blu-pal);border:2px solid var(--blu-lt);border-radius:12px;padding:12px 16px;font-size:.93rem;font-weight:600;color:var(--blu-dk);line-height:1.8;margin-bottom:8px}
+.gram-rule strong{color:var(--blu)}
+
+/* ── EXERCISES ── */
+.mc-q{background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:18px;padding:20px 22px;margin-bottom:16px}
+.mc-q-text{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:14px;display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.mc-num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;color:#fff;flex-shrink:0;margin-top:1px;background:var(--blu)}
+.mc-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.mc-opt{background:#fff;border:2px solid var(--blu-2);border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .12s,background .12s;line-height:1.6}
+.mc-opt.selected{border-color:var(--blu);background:var(--blu-lt)}
+.mc-opt:hover:not([disabled]):not(.correct):not(.wrong){border-color:var(--blu-md);background:var(--blu-lt)}
+.mc-opt.correct{background:var(--ok-lt);border-color:#22c55e;color:#15803d;font-weight:700}
+.mc-opt.wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c}
+.mc-change-hint{font-size:.8rem;color:var(--muted);min-height:1.2em;margin-bottom:6px}
+.mc-check-row{display:flex;align-items:center;gap:12px}
+.check-btn{background:var(--blu);color:#fff;border:none;border-radius:12px;padding:9px 22px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:6px}
+.check-btn:hover:not([disabled]){background:var(--blu-dk);transform:translateY(-1px)}
+.check-btn:disabled{opacity:.45;cursor:default}
+.mc-fb{font-size:.92rem;font-weight:700}
+.fb-ok{color:#16a34a}
+.fb-err{color:#dc2626}
+
+/* ══ FISHING GAME ══ */
+.fishing-intro{background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:14px;padding:14px 18px;margin-bottom:24px;font-size:.97rem;font-weight:600;color:var(--blu-dk);line-height:1.85}
+
+/* Scene */
+.fish-scene{position:relative;height:200px;background:linear-gradient(180deg,#bae6fd 0%,#e0f2fe 38%,#0284c7 38%,#0369a1 70%,#075985 100%);border-radius:18px;overflow:hidden;margin-bottom:24px;border:2px solid #93c5fd}
+
+.fish-sun{position:absolute;top:10px;right:20px;font-size:2.2rem;animation:sunPulse 3s infinite alternate ease-in-out}
+@keyframes sunPulse{0%{transform:scale(1)}100%{transform:scale(1.1)}}
+
+.fish-boat{position:absolute;top:22px;left:28px;font-size:2rem;z-index:4}
+
+.fish-rod{position:absolute;top:12px;left:46px;width:3px;height:65px;background:#78350f;border-radius:3px;transform:rotate(20deg);transform-origin:top center;z-index:5}
+.fish-line{position:absolute;top:12px;left:50px;width:1px;background:rgba(0,0,0,.5);z-index:5;height:95px}
+.fish-hook-emoji{position:absolute;top:100px;left:44px;font-size:.9rem;z-index:6}
+
+.fish-pips{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:6}
+.fpip{width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.3);border:2px solid rgba(255,255,255,.55);transition:all .3s}
+.fpip.done{background:#fbbf24;border-color:#b45309;box-shadow:0 0 6px rgba(251,191,36,.8)}
+.fpip.current{background:#fff;border-color:#ea580c;box-shadow:0 0 0 3px rgba(234,88,12,.3)}
+
+.deco-fish{position:absolute;font-size:1.4rem;animation:swimFish var(--sf,18s) var(--sd,0s) linear infinite;z-index:3}
+@keyframes swimFish{0%{left:-40px;transform:scaleX(1)}49.9%{transform:scaleX(1)}50%{left:110%;transform:scaleX(-1)}100%{left:-40px;transform:scaleX(-1)}}
+
+.fish-caught-anim{position:absolute;font-size:1.8rem;z-index:8;animation:caughtFish .7s ease-out forwards;pointer-events:none}
+@keyframes caughtFish{0%{bottom:20px;opacity:1;transform:scale(1) rotate(0deg)}100%{bottom:95px;opacity:0;transform:scale(1.4) rotate(-20deg)}}
+
+/* Question panel */
+.fish-q-panel{background:#fff;border:2.5px solid var(--blu-2);border-radius:20px;padding:24px}
+.fish-q-num{font-size:.85rem;font-weight:800;color:var(--blu);margin-bottom:12px}
+.fish-sentence-box{background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:14px;padding:16px 22px;margin-bottom:18px;text-align:center}
+.fish-sent-label{font-size:.88rem;font-weight:700;color:var(--muted);margin-bottom:6px}
+.fish-hint{font-size:.83rem;font-weight:800;color:var(--orng);margin-bottom:10px;background:var(--orng-lt);display:inline-block;padding:2px 10px;border-radius:8px}
+.fish-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;line-height:2.2;color:var(--ink)}
+
+.fish-opts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+@media(max-width:520px){.fish-opts{grid-template-columns:1fr 1fr}}
+.fish-opt{background:var(--blu-pal);border:2.5px solid var(--blu-2);border-radius:14px;padding:14px 8px;font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:800;color:var(--ink);cursor:pointer;text-align:center;transition:all .15s;line-height:1.4;position:relative}
+.fish-opt::before{content:'🐟';position:absolute;top:3px;right:5px;font-size:.55rem;opacity:.35}
+.fish-opt:hover:not([disabled]):not(.fo-correct):not(.fo-wrong){border-color:var(--blu-md);background:var(--blu-lt);transform:translateY(-2px)}
+.fish-opt.fo-selected{border-color:var(--blu);background:var(--blu-lt);box-shadow:0 0 0 3px rgba(30,64,175,.2);transform:translateY(-3px)}
+.fish-opt.fo-correct{background:var(--ok-lt);border-color:#22c55e;color:#15803d}
+.fish-opt.fo-wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c;animation:fishWrong .4s ease}
+@keyframes fishWrong{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.fish-opt:disabled{cursor:default}
+
+.fish-change-hint{font-size:.8rem;color:var(--muted);min-height:1.1em;text-align:center;margin-bottom:8px}
+.fish-check-row{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+.fish-check-btn{background:var(--orng);color:#fff;border:none;border-radius:14px;padding:11px 32px;font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background .15s,transform .1s;box-shadow:0 3px 12px rgba(234,88,12,.3)}
+.fish-check-btn:hover:not([disabled]){background:var(--orng-dk);transform:translateY(-2px)}
+.fish-check-btn:disabled{opacity:.45;cursor:default;transform:none}
+.fish-fb{font-size:.95rem;font-weight:700;text-align:center;min-height:1.4em}
+.fish-fb.ok{color:#16a34a}
+.fish-fb.err{color:#dc2626}
+
+.fish-explain{display:none;background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:12px 16px;margin-top:14px;font-size:.92rem;font-weight:700;color:var(--blu-dk);line-height:1.8}
+
+.fish-next-btn{display:none;background:var(--blu-md);color:#fff;border:none;border-radius:14px;padding:10px 28px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;transition:background .15s,transform .1s;box-shadow:0 3px 10px rgba(30,64,175,.3)}
+.fish-next-btn:hover{background:var(--blu);transform:translateY(-2px)}
+
+.fish-result{display:none;text-align:center;padding:30px 20px;background:var(--blu-pal);border:3px solid var(--blu-2);border-radius:18px}
+.fr-emoji{font-size:3.5rem;margin-bottom:10px}
+.fr-title{font-size:1.6rem;font-weight:900;color:var(--blu-dk);margin-bottom:8px}
+.fr-msg{font-size:1rem;color:var(--ink);margin-bottom:20px;font-weight:600;line-height:1.7}
+.fr-replay{background:#fff;color:var(--blu);border:2px solid var(--blu-2);border-radius:12px;padding:10px 32px;font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background .15s}
+.fr-replay:hover{background:var(--blu-pal)}
+
+/* ── SCORE ── */
+.score-panel{background:#fff;border:3px solid var(--blu-2);border-radius:22px;padding:24px 28px;text-align:center}
+.score-title{font-size:1.1rem;font-weight:900;color:var(--blu-dk);margin-bottom:10px}
+.score-emojis{font-size:2rem;letter-spacing:6px;margin-bottom:10px}
+.score-bar{background:var(--blu-2);border-radius:100px;height:12px;overflow:hidden;margin-bottom:12px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--blu-md),var(--orng));border-radius:100px;width:0%;transition:width .7s ease}
+.score-msg{font-size:.97rem;font-weight:600;color:var(--ink)}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;color:#1e293b;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🚂</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:22%">🎒</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:55%">🗺️</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:75%">🚉</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:38%">✉️</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">🚂 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 33</div>
+    <h1>הַנְּסִיעָה שֶׁל עַמִּית</h1>
+    <div class="header-sub">מִלַּת הַיַּחַס "אֶל" עִם כִּנּוּיֵי גוּף — אֵלַי, אֵלֶיךָ, אֵלָיו…</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: כִּנּוּיֵי "אֶל"</div>
+  </div>
+</div>
+<div class="header-flag-strip"></div>
+
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson29_hatiyul_shel_kita_dalet.html">→ 29</a>
+  <a class="nav-btn" href="lesson30_hamichtavim_shel_shani.html">→ 30</a>
+  <a class="nav-btn" href="lesson31_harayon_shel_meir.html">→ 31</a>
+  <a class="nav-btn" href="lesson32_hachagiga_shel_oren.html">→ 32</a>
+  <span class="nav-current">שִׁיעוּר 33 ◀</span>
+</nav>
+
+<div class="progress-strip">
+  <span class="prog-label">הַתְקָדְמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  <span class="prog-stars" id="prog-stars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+  <!-- ══ PART A: STORY ══ -->
+  <div class="card">
+    <div class="card-stripe cs-blu"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-blu">📖</div>
+      <div>
+        <span class="sec-num">חֵלֶק א׳</span>
+        <div class="sec-title">קְרִיאָה</div>
+      </div>
+    </div>
+    <div class="story-wrap">
+      <div class="story-title">הַנְּסִיעָה שֶׁל עַמִּית</div>
+
+      <p class="story-p">עַמִּית תִּכְנֵן נְסִיעָה לְבַקֵּר חֲבֵרִים בַּמּוֹשָׁב. לֵאָה, חֲבֵרָתוֹ מִשָּׁם, שָׁלְחָה לוֹ הוֹדָעָה: "בֹּא <span class="hl">אֵלַי<span class="tip">אֶל + אֲנִי = אֵלַי</span></span> בְּשִׂמְחָה — אֲנִי מְחַכָּה!" עַמִּית חָיֵּךְ וְכָתַב: "אָבוֹא <span class="hl">אֵלַיִּךְ<span class="tip">אֶל + אַתְּ = אֵלַיִּךְ</span></span> מָחָר!"</p>
+
+      <p class="story-p">דָּן, הַחָבֵר הַטּוֹב, שָׁלַח הוֹדָעָה: "עַמִּית, אַגִּיעַ <span class="hl">אֵלֶיךָ<span class="tip">אֶל + אַתָּה = אֵלֶיךָ</span></span> בַּבֹּקֶר לַעֲזֹר." אֲחוֹתוֹ הַקְּטַנָּה שֶׁל עַמִּית שָׁאֲלָה: "גַּם אֲנִי אָבוֹא <span class="hl">אֵלֶיךָ<span class="tip">אֶל + אַתָּה = אֵלֶיךָ</span></span> לָרַכֶּבֶת?" עַמִּית אָמַר: "לֹא, אֲבָל אֶחְזֹר <span class="hl">אֵלַיִּךְ<span class="tip">אֶל + אַתְּ = אֵלַיִּךְ</span></span> בָּעֶרֶב!"</p>
+
+      <p class="story-p">בָּרַכֶּבֶת פָּגַשׁ עַמִּית אֶת יוֹסִי. כָּל הַנּוֹסְעִים פָּנוּ <span class="hl">אֵלָיו<span class="tip">אֶל + הוּא = אֵלָיו</span></span> כִּי הֶחְזִיק גִּיטָרָה גְּדוֹלָה. הַמַּדְרִיכָה עָמְדָה לְיַד הַדֶּלֶת — עַמִּית הָלַךְ <span class="hl">אֶלֶיהָ<span class="tip">אֶל + הִיא = אֶלֶיהָ</span></span> לִשְׁאֹל אֵיפֹה לָשֶׁבֶת.</p>
+
+      <p class="story-p">כְּשֶׁהִגִּיעַ לַמּוֹשָׁב, סָבָא וְסָבְתָא פָּתְחוּ אֶת הַשַּׁעַר: "בֹּא <span class="hl">אֵלֵינוּ<span class="tip">אֶל + אֲנַחְנוּ = אֵלֵינוּ</span></span> מַהֵר — הִכַּנּוּ אֲרוּחַת עֶרֶב!" בַּלַּיְלָה כָּתַב עַמִּית לְחֶבְרֵי כִּיתָה: "הַשָּׁבוּעַ הַבָּא אֲנִי בָּא <span class="hl">אֲלֵיכֶם<span class="tip">אֶל + אַתֶּם = אֲלֵיכֶם</span></span> לְסַפֵּר!"</p>
+
+      <div class="story-note">💡 עֲבֹר עִם הָעַכְבָּר עַל הַמִּלִּים הַמְּסֻמָּנוֹת כְּדֵי לִרְאוֹת אֵיךְ מִלַּת הַיַּחַס "אֶל" מִשְׁתַּנָּה עִם כִּנּוּיֵי הַגּוּף.</div>
+    </div>
+  </div>
+
+  <!-- ══ PART B: VOCABULARY ══ -->
+  <div class="card">
+    <div class="card-stripe cs-orng"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-orng">📚</div>
+      <div>
+        <span class="sec-num">חֵלֶק ב׳</span>
+        <div class="sec-title">אוֹצַר מִלִּים</div>
+      </div>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vemoji">🗺️</div>
+        <div><span class="vword">תִּכְנֵן</span><span class="vdesc">planned</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🚂</div>
+        <div><span class="vword">רַכֶּבֶת</span><span class="vdesc">train</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">👩‍🏫</div>
+        <div><span class="vword">מַדְרִיכָה</span><span class="vdesc">guide / instructor (f)</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🎸</div>
+        <div><span class="vword">גִּיטָרָה</span><span class="vdesc">guitar</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🏘️</div>
+        <div><span class="vword">מוֹשָׁב</span><span class="vdesc">מוֹשָׁב (כְּפַר שִׁיתּוּפִי)</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">👀</div>
+        <div><span class="vword">פָּנוּ</span><span class="vdesc">פָּנוּ אֵלָיו (הִסְתּוֹבְבוּ לְכִיוּּנוֹ)</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">🚪</div>
+        <div><span class="vword">שַׁעַר</span><span class="vdesc">gate</span></div>
+      </div>
+      <div class="vocab-item">
+        <div class="vemoji">✉️</div>
+        <div><span class="vword">הוֹדָעָה</span><span class="vdesc">message</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART C: GRAMMAR ══ -->
+  <div class="card">
+    <div class="card-stripe cs-blu"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-blu">📐</div>
+      <div>
+        <span class="sec-num">חֵלֶק ג׳</span>
+        <div class="sec-title">דִּקְדּוּק — מִלַּת הַיַּחַס "אֶל" עִם כִּנּוּיֵי גוּף</div>
+      </div>
+    </div>
+
+    <div class="gram-intro">
+      בְּעִבְרִית, מִלַּת הַיַּחַס <strong>"אֶל"</strong> (= to / towards) מִשְׁתַּנָּה כְּשֶׁהִיא מִתְחַבֶּרֶת לְכִנּוּי גוּף. לָדֹגְמָה: "בֹּא <strong>אֵלַי</strong>" (אֶל + אֲנִי). כָּל גוּף מְקַבֵּל צוּרָה מְיֻחֶדֶת — לָמְדוּ וְזִכְרוּ!
+    </div>
+
+    <table class="gram-table">
+      <tr>
+        <th>כִּנּוּי גוּף</th>
+        <th>צוּרַת "אֶל"</th>
+        <th>דּוּגְמָה</th>
+      </tr>
+      <tr><td>אֲנִי</td><td><strong>אֵלַי</strong></td><td>בֹּא אֵלַי!</td></tr>
+      <tr><td>אַתָּה</td><td><strong>אֵלֶיךָ</strong></td><td>אֲנִי אָבוֹא אֵלֶיךָ.</td></tr>
+      <tr><td>אַתְּ</td><td><strong>אֵלַיִּךְ</strong></td><td>הוּא הָלַךְ אֵלַיִּךְ.</td></tr>
+      <tr><td>הוּא</td><td><strong>אֵלָיו</strong></td><td>הִסְתַּכַּלְנוּ אֵלָיו.</td></tr>
+      <tr><td>הִיא</td><td><strong>אֶלֶיהָ</strong></td><td>הָלַכְתִּי אֶלֶיהָ.</td></tr>
+      <tr><td>אֲנַחְנוּ</td><td><strong>אֵלֵינוּ</strong></td><td>בֹּאוּ אֵלֵינוּ!</td></tr>
+      <tr><td>אַתֶּם</td><td><strong>אֲלֵיכֶם</strong></td><td>אָבוֹא אֲלֵיכֶם.</td></tr>
+      <tr><td>אַתֶּן</td><td><strong>אֲלֵיכֶן</strong></td><td>שָׁלַחְתִּי אֲלֵיכֶן.</td></tr>
+      <tr><td>הֵם</td><td><strong>אֲלֵיהֶם</strong></td><td>רָצְנוּ אֲלֵיהֶם.</td></tr>
+      <tr><td>הֵן</td><td><strong>אֲלֵיהֶן</strong></td><td>כָּתַבְנוּ אֲלֵיהֶן.</td></tr>
+    </table>
+
+    <div class="gram-rule">
+      🐟 <strong>כְּלָל 1:</strong> גּוּף רִאשׁוֹן — <strong>אֵלַי</strong> (יָחִיד) וְ-<strong>אֵלֵינוּ</strong> (רַבִּים). שִׂים לֵב: גּוּף שֵׁנִי נְקֵבָה יָחִיד = <strong>אֵלַיִּךְ</strong> (לֹא "אֵלֶיךְ").
+    </div>
+    <div class="gram-rule">
+      🐟 <strong>כְּלָל 2:</strong> גּוּף שְׁלִישִׁי — <strong>אֵלָיו</strong> (זָכָר) לְעוּמַּת <strong>אֶלֶיהָ</strong> (נְקֵבָה). גּוּף שֵׁנִי וּשְׁלִישִׁי רַבִּים מַתְחִילִים בְּ-<strong>אֲלֵ</strong>.
+    </div>
+    <div class="gram-rule">
+      ✅ <strong>נָכוֹן:</strong> <strong>הָלַכְתִּי אֶלֶיהָ</strong> (נְקֵבָה) &nbsp;&nbsp;❌ <strong>לֹא נָכוֹן:</strong> הָלַכְתִּי אֶל הִיא / הָלַכְתִּי אֵלָיו (כְּשֶׁמְּדַבְּרִים עַל נְקֵבָה)
+    </div>
+  </div>
+
+  <!-- ══ PART D: EXERCISES ══ -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-grn">✏️</div>
+      <div>
+        <span class="sec-num">חֵלֶק ד׳</span>
+        <div class="sec-title">תַּרְגִּילִים</div>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="mc-q" id="q1">
+      <div class="mc-q-text"><span class="mc-num">1</span> לְמָה נָסַע עַמִּית?</div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selectOpt(1,'a')">לָרֶכֶבֶת חֲדָשָׁה</button>
+        <button class="mc-opt" onclick="selectOpt(1,'b')">לִלְמֹד גִּיטָרָה</button>
+        <button class="mc-opt" onclick="selectOpt(1,'c')">לְבַקֵּר חֲבֵרִים בַּמּוֹשָׁב</button>
+        <button class="mc-opt" onclick="selectOpt(1,'d')">לִקְנוֹת מַתָּנָה</button>
+      </div>
+      <div class="mc-change-hint" id="q1-hint"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="q1-btn" disabled onclick="checkMC(1,'c')">בְּדֹק</button>
+        <span class="mc-fb" id="q1-fb"></span>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="mc-q" id="q2">
+      <div class="mc-q-text"><span class="mc-num">2</span> אֵיזֶה מִשְׁפָּט נָכוֹן דִּקְדּוּקִית?</div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selectOpt(2,'a')">הָלַכְתִּי אֶל הִיא</button>
+        <button class="mc-opt" onclick="selectOpt(2,'b')">בֹּא אֵלַי!</button>
+        <button class="mc-opt" onclick="selectOpt(2,'c')">רָץ אֶלֶיהָ (לְגַבֵּי זָכָר)</button>
+        <button class="mc-opt" onclick="selectOpt(2,'d')">שָׁלַחְתִּי אֵלָיו (לְגַבֵּי נְקֵבָה)</button>
+      </div>
+      <div class="mc-change-hint" id="q2-hint"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="q2-btn" disabled onclick="checkMC(2,'b')">בְּדֹק</button>
+        <span class="mc-fb" id="q2-fb"></span>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="mc-q" id="q3">
+      <div class="mc-q-text"><span class="mc-num">3</span> מַה אָמְרוּ הַסָּבָא וְהַסָּבְתָא כְּשֶׁהִגִּיעַ עַמִּית?</div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selectOpt(3,'a')">הִכַּנּוּ לְךָ אֶת הַמִּטָּה</button>
+        <button class="mc-opt" onclick="selectOpt(3,'b')">בֹּא אֵלֵינוּ מַהֵר!</button>
+        <button class="mc-opt" onclick="selectOpt(3,'c')">אֲנַחְנוּ בָּאִים אֵלֶיךָ</button>
+        <button class="mc-opt" onclick="selectOpt(3,'d')">נִפְגַּשׁ בָּרַכֶּבֶת</button>
+      </div>
+      <div class="mc-change-hint" id="q3-hint"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="q3-btn" disabled onclick="checkMC(3,'b')">בְּדֹק</button>
+        <span class="mc-fb" id="q3-fb"></span>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="mc-q" id="q4">
+      <div class="mc-q-text"><span class="mc-num">4</span> אֵיזֶה צוּרָה שֶׁל "אֶל" מִתְאִימָה לְ-הֵם?</div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selectOpt(4,'a')">אֲלֵיכֶם</button>
+        <button class="mc-opt" onclick="selectOpt(4,'b')">אֲלֵיהֶן</button>
+        <button class="mc-opt" onclick="selectOpt(4,'c')">אֵלָיו</button>
+        <button class="mc-opt" onclick="selectOpt(4,'d')">אֲלֵיהֶם</button>
+      </div>
+      <div class="mc-change-hint" id="q4-hint"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="q4-btn" disabled onclick="checkMC(4,'d')">בְּדֹק</button>
+        <span class="mc-fb" id="q4-fb"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART E: GAME — FISHING ══ -->
+  <div class="card">
+    <div class="card-stripe cs-orng"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-orng">🎮</div>
+      <div>
+        <span class="sec-num">חֵלֶק ה׳</span>
+        <div class="sec-title">מִשְׂחַק: הַדַּיִג 🎣</div>
+      </div>
+    </div>
+
+    <div class="fishing-intro">
+      🎣 עֲזֹר לְעַמִּית לִדּוֹג אֶת הַתְּשׁוּבָה הַנְּכוֹנָה! בְּחַר אֶת הַצּוּרָה הַנְּכוֹנָה שֶׁל "אֶל" עִם כִּנּוּי הַגּוּף. כָּל תְּשׁוּבָה נְכוֹנָה — דָּג 🐟 עוֹלֶה לַחַכָּה! 6 דָּגִים — יַאַלָּה!
+    </div>
+
+    <!-- Scene -->
+    <div class="fish-scene" id="fish-scene">
+      <div class="fish-sun">☀️</div>
+      <div class="fish-boat">🚤</div>
+      <div class="fish-rod"></div>
+      <div class="fish-line" id="fish-line"></div>
+      <div class="fish-hook-emoji" id="fish-hook">🪝</div>
+      <div class="deco-fish" style="--sf:20s;--sd:0s;top:120px">🐠</div>
+      <div class="deco-fish" style="--sf:27s;--sd:-10s;top:148px">🐟</div>
+      <div class="deco-fish" style="--sf:16s;--sd:-5s;top:132px">🐡</div>
+      <div class="deco-fish" style="--sf:23s;--sd:-15s;top:162px">🐠</div>
+      <div class="fish-pips" id="fish-pips">
+        <div class="fpip current" id="fpip-0"></div>
+        <div class="fpip" id="fpip-1"></div>
+        <div class="fpip" id="fpip-2"></div>
+        <div class="fpip" id="fpip-3"></div>
+        <div class="fpip" id="fpip-4"></div>
+        <div class="fpip" id="fpip-5"></div>
+      </div>
+    </div>
+
+    <!-- Game panel -->
+    <div id="fish-game-panel">
+      <div class="fish-q-panel">
+        <div class="fish-q-num" id="fish-q-num">דָּג 1 מִתּוֹךְ 6</div>
+        <div class="fish-sentence-box">
+          <div class="fish-sent-label">בְּחַר אֶת צוּרַת "אֶל" הַנְּכוֹנָה:</div>
+          <div class="fish-hint" id="fish-hint"></div>
+          <div class="fish-sentence" id="fish-sentence"></div>
+        </div>
+        <div class="fish-opts" id="fish-opts"></div>
+        <div class="fish-change-hint" id="fish-change-hint"></div>
+        <div class="fish-check-row">
+          <button class="fish-check-btn" id="fish-check-btn" disabled onclick="checkFish()">🎣 הַשְׁלֵךְ חַכָּה!</button>
+          <span class="fish-fb" id="fish-fb"></span>
+          <button class="fish-next-btn" id="fish-next-btn" onclick="nextFish()">הַבָּא ←</button>
+        </div>
+        <div class="fish-explain" id="fish-explain"></div>
+      </div>
+    </div>
+
+    <div class="fish-result" id="fish-result">
+      <div class="fr-emoji" id="fr-emoji">🐟</div>
+      <div class="fr-title" id="fr-title">סִיַּמְתָּ אֶת הַדַּיִג!</div>
+      <div class="fr-msg" id="fr-msg"></div>
+      <button class="fr-replay" onclick="resetFish()">שַׂחַק שׁוּב 🔄</button>
+    </div>
+  </div>
+
+  <!-- ══ PART F: WRITING ══ -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-grn">✍️</div>
+      <div><span class="sec-num">חֵלֶק ו׳</span><div class="sec-title">מַטְלַת כְּתִיבָה</div></div>
+    </div>
+    <div class="gram-intro">כְּתֹב 5 מִשְׁפָּטִים עִם <strong>כִּנּוּיֵי "אֶל"</strong>: אֵלַי, אֵלֶיךָ, אֵלָיו, אֵלֶיהָ, אֵלֵינוּ. לְדֻגְמָה: "הוּא פָּנָה אֵלַי בְּחִיּוּךְ."</div>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+      <button class="check-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="check-btn" style="background:var(--muted)" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+  </div>
+
+  <!-- ══ SCORE ══ -->
+  <div class="score-panel" id="score-panel">
+    <div class="score-title">הַתּוֹצָאָה הַכְּלָלִית שֶׁלָּכֶם</div>
+    <div class="score-emojis" id="score-emojis">☆☆☆☆☆</div>
+    <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    <div class="score-msg" id="score-msg">עֲנוּ עַל כָּל הַשְּׁאֵלוֹת כְּדֵי לִרְאוֹת תּוֹצָאָה.</div>
+  </div>
+
+  <!-- ══ SURPRISE ══ -->
+  <div class="card" id="surprise-card" style="text-align:center;cursor:pointer;user-select:none" onclick="triggerSurprise()">
+    <div class="card-stripe cs-orng"></div>
+    <div style="font-size:2.5rem;margin-bottom:10px">🎁</div>
+    <div style="font-size:1.1rem;font-weight:900;color:var(--blu-dk);margin-bottom:6px">יֵשׁ כָּאן הַפְתָּעָה!</div>
+    <div style="font-size:.92rem;color:var(--muted);font-weight:700">לְחַצוּ כְּדֵי לְגַלּוֹת 👇</div>
+  </div>
+
+  <!-- joke reveal -->
+  <div id="joke-box" style="display:none;max-width:900px;margin:0 auto 0;padding:0 16px 60px">
+    <div class="card" style="background:linear-gradient(135deg,#fffbeb,#fef9c3);border:3px solid #fbbf24;text-align:center">
+      <div class="card-stripe" style="background:linear-gradient(180deg,#fde68a,#f59e0b)"></div>
+      <div style="font-size:3rem;margin-bottom:12px" id="joke-emoji">🚂</div>
+      <div style="font-size:1.25rem;font-weight:900;color:#92400e;margin-bottom:18px;line-height:1.7" id="joke-q"></div>
+      <button onclick="revealAnswer()" id="reveal-btn" style="background:var(--orng);color:#fff;border:none;border-radius:14px;padding:12px 32px;font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;box-shadow:0 3px 12px rgba(234,88,12,.3)">
+        גַּלּוּ אֶת הַתְּשׁוּבָה 🤔
+      </button>
+      <div id="joke-a" style="display:none;margin-top:20px">
+        <div style="font-size:1.5rem;font-weight:900;color:#b45309;margin-bottom:10px;line-height:1.7" id="joke-answer"></div>
+        <div style="font-size:2rem;letter-spacing:4px;margin-bottom:14px">😂🤣😂</div>
+        <div style="font-size:.88rem;color:var(--muted);font-weight:700;background:#fff;border-radius:10px;padding:8px 14px;display:inline-block" id="joke-explain"></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end .page -->
+
+<script>
+const jokes = [
+  {
+    emoji: '🚂',
+    q: 'לָמָּה הָרַכֶּבֶת לֹא הָלְכָה אֶל הַתַּחֲנָה?',
+    a: 'כִּי הִיא לֹא יָכְלָה — הִיא תָּמִיד עַל הַמְּסִלָּה!',
+    explain: '😄 רַכֶּבֶת הוֹלֶכֶת לְפִי מְסִלָּה — אֵין לָהּ בְּרֵרָה!'
+  },
+  {
+    emoji: '🎒',
+    q: 'עַמִּית שָׁאַל אֶת הַתִּיק: "אֵלַי אוֹ אֵלֶיךָ?" הַתִּיק עָנָה — מָה הוּא אָמַר?',
+    a: 'כְּלוּם. תִּיקִים לֹא מְדַבְּרִים. עַמִּית לָמַד דִּקְדּוּק יוֹתֵר מִדַּי!',
+    explain: '😂 כְּשֶׁלּוֹמְדִים כִּנּוּיֵי גוּף יוֹתֵר מִדַּי...'
+  },
+  {
+    emoji: '🐟',
+    q: 'לָמָּה הַדָּג לֹא עָנָה נָכוֹן בַּמִּשְׂחָק?',
+    a: 'כִּי הוּא לֹא לָמַד — הוּא כָּל הַזְּמַן בַּמַּיִם וְלֹא בַּכִּיתָה!',
+    explain: '🐟 גַּם לְדָגִים יֵשׁ תֵּרוּצִים...'
+  },
+  {
+    emoji: '🗺️',
+    q: 'עַמִּית אָמַר לַמַּפָּה: "אֵלַיִּךְ!" הַמַּפָּה עָנְתָה — מָה?',
+    a: '"אֲנִי לֹא יוֹדַעַת לְאָן אַתָּה הוֹלֵךְ — אַתָּה לֹא מֵסְתַּכֵּל עָלַי!"',
+    explain: '🗺️ כְּשֶׁנּוֹסְעִים — מִסְתַּכְּלִים עַל הַמַּפָּה (לֹא אֵלֶיהָ)!'
+  }
+];
+
+function triggerSurprise() {
+  const card = document.getElementById('surprise-card');
+  card.style.display = 'none';
+  const box = document.getElementById('joke-box');
+  box.style.display = 'block';
+  const j = jokes[Math.floor(Math.random() * jokes.length)];
+  document.getElementById('joke-emoji').textContent   = j.emoji;
+  document.getElementById('joke-q').textContent       = j.q;
+  document.getElementById('joke-answer').textContent  = j.answer;
+  document.getElementById('joke-explain').textContent = j.explain;
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  window._currentJoke = j;
+}
+
+function revealAnswer() {
+  document.getElementById('reveal-btn').style.display = 'none';
+  document.getElementById('joke-a').style.display = 'block';
+}
+</script>
+
+<script>
+// ── GLOBAL STATE ──────────────────────────────────────────
+const TOTAL_Q = 10;
+let correct = 0;
+
+// ── PROGRESS ─────────────────────────────────────────────
+function updateProgress() {
+  const pct = Math.round((correct / TOTAL_Q) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  const stars = Math.round(correct / 2);
+  let s = '';
+  for (let i = 0; i < 5; i++) s += i < stars ? '★' : '☆';
+  document.getElementById('prog-stars').textContent = s;
+  updateScorePanel(pct, s);
+}
+
+function updateScorePanel(pct, starsStr) {
+  document.getElementById('score-bar-fill').style.width = pct + '%';
+  document.getElementById('score-emojis').textContent = starsStr || document.getElementById('prog-stars').textContent;
+  let msg;
+  if (pct === 100)    msg = '🌟 מֻשְׁלָם לְחַלּוּטִין! אַתֶּם אַלּוּפֵי כִּנּוּיֵי "אֶל"!';
+  else if (pct >= 80) msg = '👍 מְצֻיָּן! אַתֶּם שׁוֹלְטִים הֵיטֵב בְּמִלַּת הַיַּחַס "אֶל"!';
+  else if (pct >= 60) msg = '😊 יָפֶה! עוֹד תְּרְגּוּל קָטָן וְתִהְיוּ מוּמְחִים!';
+  else                msg = 'עֲנוּ עַל כָּל הַשְּׁאֵלוֹת וְסַיְּמוּ אֶת הַמִּשְׂחָק.';
+  document.getElementById('score-msg').textContent = msg;
+}
+
+// ── MULTIPLE CHOICE ──────────────────────────────────────
+const mcSel     = { 1: null, 2: null, 3: null, 4: null };
+const mcChecked = { 1: false, 2: false, 3: false, 4: false };
+
+function selectOpt(qn, val) {
+  if (mcChecked[qn]) return;
+  mcSel[qn] = val;
+  const q = document.getElementById('q' + qn);
+  q.querySelectorAll('.mc-opt').forEach(b => b.classList.remove('selected'));
+  const idx = ['a','b','c','d'].indexOf(val);
+  q.querySelectorAll('.mc-opt')[idx].classList.add('selected');
+  document.getElementById('q' + qn + '-btn').disabled = false;
+  document.getElementById('q' + qn + '-hint').textContent = 'תוּכְלוּ לְשַׁנּוֹת אֶת תְּשׁוּבָתְכֶם לִפְנֵי הַבְּדִיקָה';
+}
+
+function checkMC(qn, correctAns) {
+  if (!mcSel[qn] || mcChecked[qn]) return;
+  mcChecked[qn] = true;
+  const q    = document.getElementById('q' + qn);
+  const btns = q.querySelectorAll('.mc-opt');
+  const lets = ['a','b','c','d'];
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (lets[i] === correctAns)     b.classList.add('correct');
+    else if (lets[i] === mcSel[qn]) b.classList.add('wrong');
+  });
+  document.getElementById('q' + qn + '-btn').disabled = true;
+  document.getElementById('q' + qn + '-hint').textContent = '';
+  const isOk = mcSel[qn] === correctAns;
+  const fb   = document.getElementById('q' + qn + '-fb');
+  fb.textContent = isOk ? '✅ כָּל הַכָּבוֹד!' : '❌ לֹא נָכוֹן.';
+  fb.className   = 'mc-fb ' + (isOk ? 'fb-ok' : 'fb-err');
+  if (isOk) { correct++; updateProgress(); }
+}
+
+// ── FISHING GAME DATA ─────────────────────────────────────
+const fishingQs = [
+  {
+    sentence: 'לֵאָה כָּתְבָה: "בֹּא _____ — אֲנִי מְחַכָּה לְךָ!"',
+    hint: '(אֲנִי — לֵאָה מְדַבֶּרֶת עַל עַצְמָהּ)',
+    opts: ['אֵלַי', 'אֵלֶיךָ', 'אֵלָיו', 'אֵלֵינוּ'],
+    answer: 0,
+    explain: 'אֶל + אֲנִי = אֵלַי. כְּשֶׁמְּדַבְּרִים עַל עַצְמֵנוּ, אוֹמְרִים אֵלַי.'
+  },
+  {
+    sentence: 'דָּן כָּתַב: "עַמִּית, אַגִּיעַ _____ בַּבֹּקֶר לַעֲזֹר."',
+    hint: '(אַתָּה — עַמִּית הוּא זָכָר)',
+    opts: ['אֵלַי', 'אֵלֶיךָ', 'אֵלַיִּךְ', 'אֲלֵיהֶם'],
+    answer: 1,
+    explain: 'אֶל + אַתָּה = אֵלֶיךָ. גּוּף שֵׁנִי יָחִיד זָכָר = אֵלֶיךָ.'
+  },
+  {
+    sentence: 'כָּל הַנּוֹסְעִים פָּנוּ _____ בְּגַלַּל הַגִּיטָרָה.',
+    hint: '(הוּא — יוֹסִי)',
+    opts: ['אֶלֶיהָ', 'אֵלַי', 'אֵלָיו', 'אֵלֵינוּ'],
+    answer: 2,
+    explain: 'אֶל + הוּא = אֵלָיו. יוֹסִי הוּא זָכָר גּוּף שְׁלִישִׁי = אֵלָיו. הַפּוֹעַל "פָּנָה" בָּא עִם "אֶל".'
+  },
+  {
+    sentence: 'עַמִּית הָלַךְ _____ לִשְׁאֹל אֵיפֹה לָשֶׁבֶת.',
+    hint: '(הִיא — הַמַּדְרִיכָה)',
+    opts: ['אֵלַי', 'אֵלָיו', 'אֶלֶיהָ', 'אֲלֵיכֶם'],
+    answer: 2,
+    explain: 'אֶל + הִיא = אֶלֶיהָ. הַמַּדְרִיכָה הִיא נְקֵבָה גּוּף שְׁלִישִׁי = אֶלֶיהָ.'
+  },
+  {
+    sentence: 'סָבָא וְסָבְתָא צָעֲקוּ: "בֹּא _____ מַהֵר!"',
+    hint: '(אֲנַחְנוּ — שְׁנֵיהֶם יַחַד)',
+    opts: ['אֵלַי', 'אֲלֵיכֶם', 'אֵלֵינוּ', 'אֲלֵיהֶם'],
+    answer: 2,
+    explain: 'אֶל + אֲנַחְנוּ = אֵלֵינוּ. קְבוּצָה שֶׁכּוֹלֶלֶת אוֹתָנוּ = אֵלֵינוּ.'
+  },
+  {
+    sentence: 'עַמִּית כָּתַב לַחֲבֵרִים: "הַשָּׁבוּעַ הַבָּא אֲנִי בָּא _____!"',
+    hint: '(אַתֶּם — חֶבְרֵי כִּיתָה הַזְּכָרִים)',
+    opts: ['אֵלֵינוּ', 'אֲלֵיכֶם', 'אֲלֵיהֶם', 'אֶלֶיהָ'],
+    answer: 1,
+    explain: 'אֶל + אַתֶּם = אֲלֵיכֶם. גּוּף שֵׁנִי רַבִּים זָכָר = אֲלֵיכֶם.'
+  }
+];
+
+let fishIdx      = 0;
+let fishCorrect  = 0;
+let fishSelected = null;
+let fishChecked  = false;
+
+function updateFishPips(idx) {
+  for (let i = 0; i < 6; i++) {
+    const p = document.getElementById('fpip-' + i);
+    p.classList.remove('done','current');
+    if (i < idx)        p.classList.add('done');
+    else if (i === idx) p.classList.add('current');
+  }
+}
+
+function showCaughtFish() {
+  const scene  = document.getElementById('fish-scene');
+  const emojis = ['🐠','🐡','🐟','🐠','🐡','🐟'];
+  const el     = document.createElement('div');
+  el.className   = 'fish-caught-anim';
+  el.textContent = emojis[fishIdx] || '🐟';
+  el.style.left  = Math.floor(Math.random() * 60 + 40) + 'px';
+  scene.appendChild(el);
+  setTimeout(() => el.remove(), 750);
+}
+
+function initFish() {
+  fishIdx = fishCorrect = 0;
+  fishSelected = null;
+  fishChecked  = false;
+  updateFishPips(0);
+  document.getElementById('fish-game-panel').style.display = '';
+  document.getElementById('fish-result').style.display     = 'none';
+  renderFishQ();
+}
+
+function renderFishQ() {
+  if (fishIdx >= fishingQs.length) { showFishResult(); return; }
+  const q = fishingQs[fishIdx];
+  document.getElementById('fish-q-num').textContent   = 'דָּג ' + (fishIdx + 1) + ' מִתּוֹךְ 6';
+  document.getElementById('fish-hint').textContent     = q.hint;
+  document.getElementById('fish-sentence').textContent = q.sentence;
+  const optsDiv = document.getElementById('fish-opts');
+  optsDiv.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const b       = document.createElement('button');
+    b.className   = 'fish-opt';
+    b.textContent = opt;
+    b.onclick     = () => selectFishOpt(i);
+    optsDiv.appendChild(b);
+  });
+  document.getElementById('fish-check-btn').disabled     = true;
+  document.getElementById('fish-fb').textContent          = '';
+  document.getElementById('fish-fb').className            = 'fish-fb';
+  document.getElementById('fish-explain').style.display   = 'none';
+  document.getElementById('fish-next-btn').style.display  = 'none';
+  document.getElementById('fish-change-hint').textContent = '';
+  fishSelected = null;
+  fishChecked  = false;
+}
+
+function selectFishOpt(i) {
+  if (fishChecked) return;
+  fishSelected = i;
+  document.getElementById('fish-opts').querySelectorAll('.fish-opt').forEach(b => b.classList.remove('fo-selected'));
+  document.getElementById('fish-opts').querySelectorAll('.fish-opt')[i].classList.add('fo-selected');
+  document.getElementById('fish-check-btn').disabled = false;
+  document.getElementById('fish-change-hint').textContent = 'תוּכְלוּ לְשַׁנּוֹת אֶת תְּשׁוּבָתְכֶם לִפְנֵי הַהַשְׁלָכָה';
+}
+
+function checkFish() {
+  if (fishSelected === null || fishChecked) return;
+  fishChecked = true;
+  const q    = fishingQs[fishIdx];
+  const isOk = fishSelected === q.answer;
+  document.getElementById('fish-opts').querySelectorAll('.fish-opt').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer)          b.classList.add('fo-correct');
+    else if (i === fishSelected) b.classList.add('fo-wrong');
+  });
+  document.getElementById('fish-check-btn').disabled     = true;
+  document.getElementById('fish-change-hint').textContent = '';
+  const fb = document.getElementById('fish-fb');
+  if (isOk) {
+    fb.textContent = '✅ נִדּוּג! הַדָּג עָלָה לַחַכָּה! 🐟';
+    fb.className   = 'fish-fb ok';
+    fishCorrect++;
+    correct++;
+    updateProgress();
+    setTimeout(showCaughtFish, 200);
+  } else {
+    fb.textContent = '❌ הַדָּג בָּרַח — נְסֶה בַּפַּעַם הַבָּאָה!';
+    fb.className   = 'fish-fb err';
+  }
+  const exp = document.getElementById('fish-explain');
+  exp.textContent   = '💡 ' + q.explain;
+  exp.style.display = 'block';
+  document.getElementById('fish-next-btn').style.display = 'inline-block';
+}
+
+function nextFish() {
+  fishIdx++;
+  updateFishPips(fishIdx < 6 ? fishIdx : 6);
+  if (fishIdx >= fishingQs.length) { showFishResult(); return; }
+  renderFishQ();
+}
+
+function showFishResult() {
+  document.getElementById('fish-game-panel').style.display = 'none';
+  document.getElementById('fish-result').style.display     = 'block';
+  let emoji, title, msg;
+  if (fishCorrect === 6) {
+    emoji = '🎣🐟🏆'; title = 'דַּיָּג מֻשְׁלָם!';
+    msg   = '🌟 מֻשְׁלָם! עֲנִיתֶם נָכוֹן עַל כָּל הַשְּׁאֵלוֹת. אַתֶּם אַלּוּפֵי מִלַּת הַיַּחַס "אֶל"!';
+  } else if (fishCorrect >= 4) {
+    emoji = '🎣🐟'; title = 'כָּל הַכָּבוֹד!';
+    msg   = '👍 יָפֶה מְאֹד! דַּגְתֶּם ' + fishCorrect + ' דָּגִים מִתּוֹךְ 6. עוֹד קְצָת תְּרְגּוּל!';
+  } else {
+    emoji = '🎣'; title = 'סִיַּמְתֶּם אֶת הַדַּיִג!';
+    msg   = 'דַּגְתֶּם ' + fishCorrect + ' דָּגִים מִתּוֹךְ 6. כָּל אֶחָד לוֹמֵד — נְסוּ שׁוּב!';
+  }
+  document.getElementById('fr-emoji').textContent = emoji;
+  document.getElementById('fr-title').textContent = title;
+  document.getElementById('fr-msg').textContent   = msg;
+}
+
+function resetFish() {
+  correct -= fishCorrect;
+  initFish();
+  updateProgress();
+}
+
+window.addEventListener('load', () => { initFish(); });
+</script>
+<script>
+(function(){
+const wP=['הוּא פָּנָה אֵלַי...','שָׁלַחְתִּי מִכְתָּב אֵלֶיךָ...','הִגַּעְנוּ אֵלָיו...','בָּאתָ אֵלֶיהָ...','הִקְשַׁבְנוּ אֵלֵינוּ...'];
+function initW(){const c=document.getElementById('writing-lines');if(!c)return;c.innerHTML='';wP.forEach((ph,i)=>{const d=document.createElement('div');d.className='writing-line';d.id='wline-'+i;d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';c.appendChild(d);});const r=document.getElementById('writing-result');if(r)r.style.display='none';const f=document.getElementById('writing-fb');if(f)f.textContent='';}
+window.submitWriting=function(){let n=0;for(let i=0;i<5;i++){const v=document.getElementById('winput-'+i).value.trim();const l=document.getElementById('wline-'+i);if(v.length>1){n++;l.className='writing-line filled';}else l.className='writing-line';}const fb=document.getElementById('writing-fb');const res=document.getElementById('writing-result');if(n<5){if(fb){fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.';fb.style.color='#dc2626';}if(res)res.style.display='none';return;}if(fb)fb.textContent='';if(res){res.style.display='block';res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כְּתַבְתֶּם 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדַתְכֶם!';}};
+window.resetWriting=function(){initW();};
+window.addEventListener('load',initW);
+})();
+</script>
+</body>
+</html>

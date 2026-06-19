@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַחֲגִיגָה — שִׁיעוּר עִבְרִית 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fest:     #7c3aed;
+  --fest-dk:  #4c1d95;
+  --fest-md:  #8b5cf6;
+  --fest-lt:  #ede9fe;
+  --fest-pal: #f5f3ff;
+  --gold:     #f9c74f;
+  --gold-lt:  #fff9c4;
+  --teal:     #52b788;
+  --teal-lt:  #d8f3dc;
+  --coral:    #f28482;
+  --coral-lt: #ffe4e6;
+  --rose:     #e11d48;
+  --sky:      #38bdf8;
+  --sky-lt:   #e0f4ff;
+  --ink:      #1e293b;
+  --muted:    #64748b;
+  --white:    #ffffff;
+  --parch:    #faf8ff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:#f0ebff;color:var(--ink);direction:rtl;min-height:100vh}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.header{background:linear-gradient(160deg,#4c1d95 0%,#7c3aed 55%,#9333ea 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.confetti-piece{position:absolute;width:10px;height:10px;border-radius:2px;animation:fall var(--dur,4s) var(--del,0s) infinite linear}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(200px) rotate(360deg);opacity:0}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#c4b5fd;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(196,181,253,.4),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#c4b5fd;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#3d2000;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(249,199,79,.5)}
+
+.lesson-nav{background:#3b0764;padding:8px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.nav-btn{color:#c4b5fd;font-size:.82rem;font-weight:700;text-decoration:none;padding:5px 14px;border:1.5px solid #7c3aed;border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#7c3aed;color:#fff}
+.nav-current{color:#e9d5ff;font-size:.82rem;font-weight:800}
+
+.progress-strip{background:#3b0764;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#c4b5fd;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:#4c1d95;border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--fest-md),var(--gold));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:var(--gold);font-size:1rem;letter-spacing:2px}
+
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+
+/* ── CARDS ───────────────────────────────────────────── */
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-fest  {background:linear-gradient(180deg,#9333ea,#4c1d95)}
+.cs-gold  {background:linear-gradient(180deg,#f9c74f,#f4a261)}
+.cs-teal  {background:linear-gradient(180deg,#52b788,#1a936f)}
+.cs-sky   {background:linear-gradient(180deg,#38bdf8,#0284c7)}
+.cs-coral {background:linear-gradient(180deg,#f28482,#e11d48)}
+
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-fest  {background:var(--fest-lt)}
+.si-gold  {background:var(--gold-lt)}
+.si-teal  {background:var(--teal-lt)}
+.si-sky   {background:var(--sky-lt)}
+.si-coral {background:var(--coral-lt)}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+/* ── STORY ───────────────────────────────────────────── */
+.story-wrap{background:var(--parch);border:2px solid #c4b5fd;border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--fest-dk);text-align:center;margin-bottom:18px}
+.story-illus{float:left;margin:0 0 14px 20px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;line-height:2.6;color:#1e2d3d;margin-bottom:8px}
+.hl{background:#ede9fe;border-radius:4px;padding:1px 5px;font-weight:700;cursor:help;position:relative}
+.hl .tip{display:none;position:absolute;bottom:130%;right:50%;transform:translateX(50%);background:#1e293b;color:#fff;font-size:.75rem;font-family:'Heebo',sans-serif;padding:4px 10px;border-radius:8px;white-space:nowrap;z-index:30;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,.25);pointer-events:none}
+.hl:hover .tip{display:block}
+.story-author{font-family:'Heebo',sans-serif;text-align:left;font-size:.8rem;color:var(--muted);font-style:italic;margin-top:12px}
+
+/* ── VOCABULARY ──────────────────────────────────────── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.vocab-item{display:flex;align-items:flex-start;gap:12px;background:var(--fest-pal);border:2px solid #c4b5fd;border-radius:16px;padding:14px;transition:transform .15s,box-shadow .15s;cursor:default}
+.vocab-item:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09)}
+.vemoji{font-size:2rem;width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.vword{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:700;color:var(--fest-dk);display:block;line-height:1.3}
+.vdesc{font-size:.82rem;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+.vex{font-size:.79rem;color:#aaa;font-style:italic;display:block;margin-top:2px}
+
+/* ── GRAMMAR ─────────────────────────────────────────── */
+.gram-intro{background:var(--fest-lt);border:2px dashed var(--fest-md);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--fest-dk);line-height:1.85}
+.gram-intro strong{color:var(--fest)}
+.gram-table{width:100%;border-collapse:collapse;border-radius:14px;overflow:hidden;font-size:1rem;margin-bottom:24px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.gram-table th{background:var(--fest-dk);color:#fff;padding:10px 16px;font-weight:800;font-size:.92rem}
+.gram-table td{padding:10px 16px;border-bottom:1px solid #e9d5ff;font-size:1rem;font-weight:600}
+.gram-table td.zman-cell{color:var(--muted);font-weight:700}
+.gram-table td.verb-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.25rem;color:var(--fest-dk);font-weight:700}
+.gram-table td.ex-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;color:#334155}
+.gram-table tr:nth-child(even) td{background:var(--fest-pal)}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-q-label{font-weight:800;font-size:1rem;margin-bottom:14px;color:var(--ink)}
+.gram-qs{display:flex;flex-direction:column;gap:16px}
+
+/* ── MULTIPLE CHOICE ─────────────────────────────────── */
+.mc-q{background:#f8fafc;border:2px solid #e2e8f0;border-radius:18px;padding:18px 20px}
+.mc-q-text{font-size:1.05rem;font-weight:700;margin-bottom:12px;color:var(--ink);display:flex;align-items:flex-start;gap:10px}
+.mc-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0;margin-top:1px}
+.num-fest  {background:var(--fest)}
+.num-gold  {background:#d97706}
+.num-teal  {background:#1a936f}
+.mc-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.18rem}
+.mc-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.mc-opt{background:var(--white);border:2px solid #e2e8f0;border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.08rem;font-weight:500;cursor:pointer;transition:all .15s;text-align:right;color:var(--ink);line-height:1.5}
+.mc-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--fest-md);background:var(--fest-lt)}
+.mc-opt.selected{border-color:var(--fest);background:var(--fest-lt);font-weight:700}
+.mc-opt.correct{background:#d8f3dc;border-color:#22c55e;color:#15803d;font-weight:700}
+.mc-opt.wrong  {background:#fee2e2;border-color:#ef4444;color:#b91c1c}
+.mc-opt:disabled{cursor:default}
+.mc-change-hint{font-size:.78rem;color:var(--muted);margin-bottom:10px;min-height:16px}
+.mc-check-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.check-btn{background:var(--fest-dk);color:#fff;border:none;border-radius:12px;padding:9px 22px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:6px}
+.check-btn:hover:not(:disabled){background:#3b0764;transform:translateY(-1px)}
+.check-btn:disabled{opacity:.45;cursor:default}
+.mc-fb{font-size:.88rem;font-weight:700;min-height:22px}
+.fb-ok {color:#15803d}
+.fb-err{color:#b91c1c}
+
+/* ── SPEAK ───────────────────────────────────────────── */
+.speak-intro{background:var(--sky-lt);border:2px solid #bae6fd;border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:.95rem;font-weight:600;color:#0c4a6e;line-height:1.8}
+.speak-cards{display:flex;flex-direction:column;gap:14px}
+.speak-card{background:#f8fafb;border:2px solid #e2e8f0;border-radius:16px;padding:16px 20px}
+.speak-text{font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;color:var(--ink);margin-bottom:12px;line-height:2;font-weight:500}
+.speak-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.hear-btn{display:inline-flex;align-items:center;gap:6px;background:var(--sky-lt);color:#0369a1;border:2px solid #bae6fd;border-radius:10px;padding:7px 16px;font-family:'Heebo',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:background .15s}
+.hear-btn:hover{background:#bae6fd}
+.self-check-btn{display:inline-flex;align-items:center;gap:6px;background:var(--teal-lt);color:#1a7a3f;border:2px solid #86efac;border-radius:10px;padding:7px 16px;font-family:'Heebo',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:background .15s}
+.self-check-btn:hover{background:#bbf7d0}
+.self-check-btn.done{background:#d8f3dc;border-color:#22c55e}
+.speak-status{font-size:.88rem;font-weight:600;color:var(--muted);min-height:20px}
+
+/* ── WRITING ─────────────────────────────────────────── */
+.writing-prompt{background:var(--gold-lt);border:2px solid var(--gold);border-radius:16px;padding:18px 20px;margin-bottom:16px;font-size:1rem;font-weight:600;color:#78350f;line-height:1.9}
+.guide-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.guide-tag{background:var(--fest-lt);border:1.5px solid var(--fest-md);border-radius:20px;padding:4px 14px;font-size:.83rem;font-weight:700;color:var(--fest-dk)}
+.writing-ta{width:100%;min-height:160px;border:2px solid #c4b5fd;border-radius:14px;padding:14px 16px;font-family:'Frank Ruhl Libre',serif;font-size:1.12rem;color:var(--ink);resize:vertical;outline:none;line-height:2.2;direction:rtl;background:var(--parch);transition:border-color .2s}
+.writing-ta:focus{border-color:var(--fest-md)}
+.writing-bar{display:flex;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap;gap:10px}
+.wc-label{font-size:.84rem;color:var(--muted);font-weight:600}
+.submit-btn{background:linear-gradient(135deg,var(--fest-md),var(--fest-dk));color:#fff;border:none;border-radius:12px;padding:10px 24px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;box-shadow:0 3px 10px rgba(124,58,237,.3);transition:opacity .15s,transform .1s}
+.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
+.writing-enc{margin-top:12px;border-radius:12px;padding:12px 16px;font-size:.95rem;font-weight:700;text-align:center;display:none}
+.enc-ok {background:#d8f3dc;color:#1a7a3f}
+.enc-mid{background:#fff9c4;color:#78350f}
+.enc-low{background:#fee2e2;color:#b91c1c}
+
+/* ── SCORE PANEL ─────────────────────────────────────── */
+.score-panel{background:linear-gradient(135deg,#3b0764,#4c1d95);border-radius:22px;padding:28px;text-align:center;color:#fff;box-shadow:0 6px 24px rgba(59,7,100,.3)}
+.score-title{font-size:1.4rem;font-weight:900;margin-bottom:6px}
+.score-emojis{font-size:2rem;letter-spacing:5px;margin:10px 0}
+.score-bar-wrap{background:rgba(255,255,255,.15);border-radius:100px;height:14px;max-width:400px;margin:12px auto;overflow:hidden}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,#c4b5fd,var(--gold));border-radius:100px;width:0%;transition:width .8s ease}
+.score-msg{font-size:1rem;font-weight:600;color:#c4b5fd}
+
+.hint-btn{display:inline-flex;align-items:center;gap:6px;background:var(--fest-lt);color:var(--fest-dk);border:none;border-radius:10px;padding:7px 16px;font-family:'Heebo',sans-serif;font-weight:700;font-size:.87rem;cursor:pointer;transition:background .15s;margin-top:12px}
+.hint-btn:hover{background:#ddd6fe}
+.hint-box{background:#f5f3ff;border:1.5px dashed #a78bfa;border-radius:12px;padding:12px 16px;margin-top:8px;font-size:.9rem;font-weight:600;color:#4c1d95;line-height:1.9}
+.hidden{display:none!important}
+
+@media(max-width:540px){
+  .mc-opts{grid-template-columns:1fr}
+  .vocab-grid{grid-template-columns:1fr}
+  .story-illus{float:none;display:block;margin:0 auto 16px}
+  .card{padding:20px 16px}
+  .gram-table td.ex-cell{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────── -->
+<div class="header">
+  <script>
+  (function(){
+    var colors=['#f9c74f','#f28482','#90e0ef','#52b788','#c4b5fd','#fbbf24'];
+    for(var i=0;i<20;i++){
+      var c=colors[i%colors.length];
+      var left=Math.random()*100;
+      var dur=(Math.random()*3+3).toFixed(1);
+      var del=(Math.random()*4).toFixed(1);
+      document.write('<div class="confetti-piece" style="background:'+c+';left:'+left+'%;top:-20px;--dur:'+dur+'s;--del:'+del+'s"></div>');
+    }
+  })();
+  </script>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 שִׁיעוּר עִבְרִית · סִדְרַת "סִיפּוּרִים בְּעִבְרִית"</div>
+    <h1>הַחֲגִיגָה</h1>
+    <div class="header-sub">שִׁיעוּר 4 · סַקִירַת זְמַנִּים וּמִלּוֹן עָשִׁיר</div>
+    <div class="header-badge">🎉 שִׁיעוּר 4</div>
+  </div>
+</div>
+
+<div class="lesson-nav">
+  <a class="nav-btn" href="lesson03_hamassa_el_hayam.html">→ שִׁיעוּר 3</a>
+  <span class="nav-current">📍 שִׁיעוּר 4 — הַחֲגִיגָה</span>
+  <span style="opacity:.5;font-size:.8rem;color:#c4b5fd">שִׁיעוּר 5 ←</span>
+</div>
+
+<div class="progress-strip">
+  <span class="prog-label">הַהִתְקַדְּמוּת שֶׁלִּי:</span>
+  <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+  <div class="prog-stars" id="progStars">☆☆☆☆☆</div>
+</div>
+
+<div class="page">
+
+<!-- ① קְרִיאָה -->
+<div class="card">
+  <div class="card-stripe cs-fest"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-fest">📖</div>
+    <div>
+      <span class="sec-num">חֵלֶק א׳</span>
+      <div class="sec-title">קְרִיאָה</div>
+    </div>
+  </div>
+
+  <div class="story-wrap">
+    <!-- Inline SVG illustration: classroom celebration -->
+    <svg class="story-illus" width="175" height="175" viewBox="0 0 175 175" xmlns="http://www.w3.org/2000/svg">
+      <!-- background -->
+      <rect width="175" height="175" rx="20" fill="#f5f3ff"/>
+      <!-- table -->
+      <rect x="20" y="120" width="135" height="10" rx="4" fill="#c4b5fd"/>
+      <rect x="30" y="130" width="8" height="25" rx="2" fill="#a78bfa"/>
+      <rect x="137" y="130" width="8" height="25" rx="2" fill="#a78bfa"/>
+      <!-- cake -->
+      <rect x="65" y="95" width="45" height="30" rx="5" fill="#fbbf24"/>
+      <rect x="65" y="88" width="45" height="12" rx="4" fill="#f9a8d4"/>
+      <!-- candles -->
+      <rect x="77" y="75" width="5" height="16" rx="2" fill="#93c5fd"/>
+      <ellipse cx="79.5" cy="74" rx="3" ry="4" fill="#fde68a"/>
+      <rect x="93" y="75" width="5" height="16" rx="2" fill="#86efac"/>
+      <ellipse cx="95.5" cy="74" rx="3" ry="4" fill="#fde68a"/>
+      <!-- balloons -->
+      <ellipse cx="30" cy="55" rx="16" ry="20" fill="#f28482"/>
+      <line x1="30" y1="75" x2="32" y2="110" stroke="#f28482" stroke-width="1.5"/>
+      <ellipse cx="145" cy="50" rx="14" ry="18" fill="#38bdf8"/>
+      <line x1="145" y1="68" x2="143" y2="110" stroke="#38bdf8" stroke-width="1.5"/>
+      <ellipse cx="88" cy="25" rx="13" ry="17" fill="#a78bfa"/>
+      <line x1="88" y1="42" x2="86" y2="80" stroke="#a78bfa" stroke-width="1.5"/>
+      <!-- children -->
+      <!-- child 1 (left) -->
+      <circle cx="40" cy="108" r="9" fill="#fbbf24"/>
+      <rect x="33" y="117" width="14" height="18" rx="3" fill="#60a5fa"/>
+      <!-- child 2 (center-left) -->
+      <circle cx="65" cy="110" r="8" fill="#fcd34d"/>
+      <rect x="58" y="118" width="13" height="16" rx="3" fill="#f472b6"/>
+      <!-- child 3 (center-right) -->
+      <circle cx="110" cy="110" r="8" fill="#fbbf24"/>
+      <rect x="103" y="118" width="13" height="16" rx="3" fill="#34d399"/>
+      <!-- child 4 (right) -->
+      <circle cx="135" cy="108" r="9" fill="#fcd34d"/>
+      <rect x="128" y="117" width="14" height="18" rx="3" fill="#fb923c"/>
+      <!-- star decorations -->
+      <text x="15" y="20" font-size="14" fill="#fbbf24">★</text>
+      <text x="150" y="25" font-size="12" fill="#f28482">★</text>
+      <text x="85" y="10" font-size="10" fill="#38bdf8">✦</text>
+    </svg>
+
+    <div class="story-title">הַחֲגִיגָה</div>
+
+    <p class="story-p">
+      כִּיתָּה ד׳ מְחַכָּה בְּסַבְלָנוּת לְ<span class="hl">חֲגִיגַת<span class="tip">חֲגִיגָה = מְסִיבָּה, אֵירוּעַ שָׂמֵחַ</span></span>
+      סוֹף הַשָּׁנָה.
+      הַ<span class="hl">מּוֹרָה<span class="tip">מוֹרָה = teacher (feminine)</span></span> מִרְיָם כָּתְבָה עַל הַלּוּחַ:
+      ״כָּל תַּלְמִיד יָבִיא מַשֶּׁהוּ טָעִים לַחֲגִיגָה.״
+    </p>
+
+    <p class="story-p">
+      יוֹנִי הֶחְלִיט לֶ<span class="hl">אֱפוֹת<span class="tip">לֶאֱפוֹת = to bake</span></span> עוּגָה.
+      הוּא עָמַד עִם אִמּוֹ בַּ<span class="hl">מִּטְבָּח<span class="tip">מִטְבָּח = kitchen</span></span>
+      וְיַחְדָּו אָפוּ עוּגַת שׁוֹקוֹלָד נִפְלָאָה.
+    </p>
+
+    <p class="story-p">
+      בְּיוֹם הַחֲגִיגָה כָּל הַיְּלָדִים הֵבִיאוּ אֹכֶל.
+      דָּנִית הֵבִיאָה <span class="hl">סָלָט פֵּרוֹת<span class="tip">fruit salad</span></span>,
+      אֵלִי הֵבִיא לֶחֶם עִם גְּבִינָה, וְיוֹנִי הֵבִיא
+      אֶת הָעוּגָה הַגְּדוֹלָה.
+      הַמּוֹרָה מִרְיָם חִיְּכָה וְאָמְרָה: ״<span class="hl">כָּל הַכָּבוֹד<span class="tip">כָּל הַכָּבוֹד = well done! / bravo!</span></span>!״
+    </p>
+
+    <p class="story-p">
+      בְּסוֹף הַחֲגִיגָה הַמּוֹרָה נָתְנָה לְכָל תַּלְמִיד
+      <span class="hl">מַתָּנָה<span class="tip">מַתָּנָה = gift, present</span></span>
+      קְטַנָּה — סֵפֶר עִבְרִי יָפֶה.
+      יוֹנִי שָׂמַח מְאוֹד וְחָשַׁב:
+      ״הַשָּׁנָה הַבָּאָה אֶקְרָא הַרְבֵּה סְפָרִים!״
+    </p>
+
+    <div class="story-author">— סִיפּוּר מְקוֹרִי לְשִׁיעוּר כִּיתָּה ד׳ —</div>
+  </div>
+
+  <button class="hint-btn" onclick="tog('readHint')">💡 טִיפ לִקְרִיאָה</button>
+  <div id="readHint" class="hint-box hidden">
+    עִבְרוּ עִם הָעַכְבָּר עַל הַמִּלִּים הַמֻּדְגָּשׁוֹת בְּסָגוֹל כְּדֵי לִרְאוֹת הֶסְבֵּר.
+    שִׂימוּ לֵב לַפְּעָלִים — חֵלֶק בָּהֶם בְּהוֹוֶה, חֵלֶק בְּעָבָר, וְחֵלֶק בְּעָתִיד!
+  </div>
+</div>
+
+<!-- ② אוֹצַר מִלִּים -->
+<div class="card">
+  <div class="card-stripe cs-gold"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-gold">📝</div>
+    <div>
+      <span class="sec-num">חֵלֶק ב׳</span>
+      <div class="sec-title">אוֹצַר מִלִּים</div>
+    </div>
+  </div>
+  <div class="vocab-grid">
+    <div class="vocab-item">
+      <div class="vemoji">🎉</div>
+      <div>
+        <span class="vword">חֲגִיגָה</span>
+        <span class="vdesc">מְסִיבָּה, אֵירוּעַ שָׂמֵחַ</span>
+        <span class="vex">״הַחֲגִיגָה הָיְתָה מְאֻשֶּׁרֶת.״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🍳</div>
+      <div>
+        <span class="vword">מִטְבָּח</span>
+        <span class="vdesc">הַחֶדֶר שֶׁבּוֹ מְבַשְּׁלִים</span>
+        <span class="vex">״אִמָּא בּוֹשֶׁלֶת בַּמִּטְבָּח.״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🎂</div>
+      <div>
+        <span class="vword">לֶאֱפוֹת / אָפָה</span>
+        <span class="vdesc">לְהַכִּין עוּגָה אוֹ לֶחֶם בַּתַּנּוּר</span>
+        <span class="vex">״הוּא אָפָה עוּגָה טְעִימָה.״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🍰</div>
+      <div>
+        <span class="vword">עוּגָה</span>
+        <span class="vdesc">מַאֲפֶה מָתוֹק לְחֲגִיגוֹת</span>
+        <span class="vex">״הָעוּגָה הַשּׁוֹקוֹלָד טְעִימָה.״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🥗</div>
+      <div>
+        <span class="vword">סָלָט פֵּרוֹת</span>
+        <span class="vdesc">תַּעֲרֹבֶת פֵּרוֹת טְרִיִּים</span>
+        <span class="vex">״הִיא הֵבִיאָה סָלָט פֵּרוֹת טָרִי.״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">👏</div>
+      <div>
+        <span class="vword">כָּל הַכָּבוֹד</span>
+        <span class="vdesc">ביטוי שבח — well done! / bravo!</span>
+        <span class="vex">״כָּל הַכָּבוֹד עַל הָעֲבוֹדָה!״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🎁</div>
+      <div>
+        <span class="vword">מַתָּנָה</span>
+        <span class="vdesc">דָּבָר שֶׁנּוֹתְנִים לְמִישֶׁהוּ בְּחֵן</span>
+        <span class="vex">״קִבַּלְתִּי מַתָּנָה יָפָה.״</span>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">📚</div>
+      <div>
+        <span class="vword">הֶחְלִיט</span>
+        <span class="vdesc">קָבַע בְּדַעְתּוֹ, הִגִּיעַ לְהַחְלָטָה</span>
+        <span class="vex">״הוּא הֶחְלִיט לֶאֱפוֹת עוּגָה.״</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ③ דִּקְדּוּק — פְּעָלִים בִּשְׁלוֹשָׁה זְמַנִּים -->
+<div class="card">
+  <div class="card-stripe cs-teal"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-teal">✏️</div>
+    <div>
+      <span class="sec-num">חֵלֶק ג׳</span>
+      <div class="sec-title">דִּקְדּוּק — פְּעָלִים בִּשְׁלוֹשָׁה זְמַנִּים</div>
+    </div>
+  </div>
+
+  <div class="gram-intro">
+    בָּעִבְרִית יֵשׁ שְׁלוֹשָׁה זְמַנִּים עִיקָרִיִּים לַפֹּעַל:
+    <strong>עָבָר</strong> (מַשֶּׁהוּ שֶׁכְּבָר קָרָה),
+    <strong>הוֹוֶה</strong> (מַשֶּׁהוּ שֶׁקּוֹרֶה עַכְשָׁו),
+    <strong>עָתִיד</strong> (מַשֶּׁהוּ שֶׁיִּקְרֶה).
+    הִסְתַּכְּלוּ עַל הַפּוֹעַל <em>הֵבִיא</em> בְּכָל הַזְּמַנִּים:
+  </div>
+
+  <table class="gram-table">
+    <thead>
+      <tr>
+        <th>זְמַן</th>
+        <th>גּוּף שְׁלִישִׁי יָחִיד (הוּא/הִיא)</th>
+        <th>דֻּגְמָה מִן הַסִּיפּוּר</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="zman-cell">⏮ עָבָר</td>
+        <td class="verb-cell">הֵבִיא / הֵבִיאָה</td>
+        <td class="ex-cell">דָּנִית הֵבִיאָה סָלָט פֵּרוֹת.</td>
+      </tr>
+      <tr>
+        <td class="zman-cell">⏺ הוֹוֶה</td>
+        <td class="verb-cell">מֵבִיא / מְבִיאָה</td>
+        <td class="ex-cell">הִיא מְבִיאָה עוּגָה לַכִּיתָּה.</td>
+      </tr>
+      <tr>
+        <td class="zman-cell">⏭ עָתִיד</td>
+        <td class="verb-cell">יָבִיא / תָּבִיא</td>
+        <td class="ex-cell">יוֹנִי יָבִיא עוּגָה גְּדוֹלָה.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram-intro" style="margin-top:0">
+    וְהָנֵה הַפּוֹעַל <em>לֶאֱפוֹת</em> — שֶׁמַּשְׁמָעוּתוֹ to bake:
+  </div>
+
+  <table class="gram-table">
+    <thead>
+      <tr>
+        <th>זְמַן</th>
+        <th>גּוּף שְׁלִישִׁי יָחִיד (הוּא/הִיא)</th>
+        <th>דֻּגְמָה</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="zman-cell">⏮ עָבָר</td>
+        <td class="verb-cell">אָפָה</td>
+        <td class="ex-cell">אִמּוֹ אָפְתָה עוּגָה טְעִימָה.</td>
+      </tr>
+      <tr>
+        <td class="zman-cell">⏺ הוֹוֶה</td>
+        <td class="verb-cell">אוֹפֶה</td>
+        <td class="ex-cell">הָאַבָּא אוֹפֶה לֶחֶם כָּל בֹּקֶר.</td>
+      </tr>
+      <tr>
+        <td class="zman-cell">⏭ עָתִיד</td>
+        <td class="verb-cell">יֶאֱפֶה / תֶּאֱפֶה</td>
+        <td class="ex-cell">יוֹנִי יֶאֱפֶה עוּגָה לְיוֹם הֻלַּדְתּוֹ.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram-q-label">🔍 בִּחְרוּ אֶת הַפֹּעַל הַנָּכוֹן:</div>
+  <div class="gram-qs" id="gramQs">
+
+    <!-- GQ 1 -->
+    <div class="mc-q" id="gq1">
+      <div class="mc-q-text">
+        <span class="mc-num num-fest" style="font-size:.75rem">1</span>
+        <span class="mc-sentence">אֶתְמוֹל דָּנִית ________ עוּגָה לַכִּיתָּה.</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selGram(this,'gq1')">מְבִיאָה</button>
+        <button class="mc-opt" onclick="selGram(this,'gq1')">הֵבִיאָה</button>
+        <button class="mc-opt" onclick="selGram(this,'gq1')">תָּבִיא</button>
+        <button class="mc-opt" onclick="selGram(this,'gq1')">מַבִיאָה</button>
+      </div>
+      <div class="mc-change-hint" id="gq1-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="gq1-btn" onclick="checkGram('gq1','הֵבִיאָה','עָבָר — אֶתְמוֹל = זְמַן עָבָר!')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="gq1-fb"></span>
+      </div>
+    </div>
+
+    <!-- GQ 2 -->
+    <div class="mc-q" id="gq2">
+      <div class="mc-q-text">
+        <span class="mc-num num-gold" style="font-size:.75rem">2</span>
+        <span class="mc-sentence">מָחָר יוֹנִי ________ עוּגָה לַבַּיִת.</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selGram(this,'gq2')">אָפָה</button>
+        <button class="mc-opt" onclick="selGram(this,'gq2')">אוֹפֶה</button>
+        <button class="mc-opt" onclick="selGram(this,'gq2')">יֶאֱפֶה</button>
+        <button class="mc-opt" onclick="selGram(this,'gq2')">אוֹפִים</button>
+      </div>
+      <div class="mc-change-hint" id="gq2-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="gq2-btn" onclick="checkGram('gq2','יֶאֱפֶה','עָתִיד — מָחָר = זְמַן עָתִיד!')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="gq2-fb"></span>
+      </div>
+    </div>
+
+    <!-- GQ 3 -->
+    <div class="mc-q" id="gq3">
+      <div class="mc-q-text">
+        <span class="mc-num num-teal" style="font-size:.75rem;background:#1a936f">3</span>
+        <span class="mc-sentence">עַכְשָׁו אִמּוֹ ________ שׁוֹקוֹלָד בַּמִּטְבָּח.</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selGram(this,'gq3')">בִּישְּׁלָה</button>
+        <button class="mc-opt" onclick="selGram(this,'gq3')">מְבַשֶּׁלֶת</button>
+        <button class="mc-opt" onclick="selGram(this,'gq3')">תְּבַשֵּׁל</button>
+        <button class="mc-opt" onclick="selGram(this,'gq3')">בִּשְּׁלוּ</button>
+      </div>
+      <div class="mc-change-hint" id="gq3-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="gq3-btn" onclick="checkGram('gq3','מְבַשֶּׁלֶת','הוֹוֶה — עַכְשָׁו = זְמַן הוֹוֶה!')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="gq3-fb"></span>
+      </div>
+    </div>
+
+  </div><!-- /gramQs -->
+</div>
+
+<!-- ④ שְׁאֵלוֹת הֲבָנָה -->
+<div class="card">
+  <div class="card-stripe cs-sky"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-sky">❓</div>
+    <div>
+      <span class="sec-num">חֵלֶק ד׳</span>
+      <div class="sec-title">שְׁאֵלוֹת הֲבָנָה</div>
+    </div>
+  </div>
+  <div class="gram-qs" id="compQs">
+
+    <!-- CQ 1 -->
+    <div class="mc-q" id="cq1">
+      <div class="mc-q-text">
+        <span class="mc-num num-fest">1</span>
+        <span class="mc-sentence">מַה הֶחְלִיט יוֹנִי לֶאֱפוֹת לַחֲגִיגָה?</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selComp(this,'cq1')">לֶחֶם עִם גְּבִינָה</button>
+        <button class="mc-opt" onclick="selComp(this,'cq1')">עוּגַת שׁוֹקוֹלָד</button>
+        <button class="mc-opt" onclick="selComp(this,'cq1')">סָלָט פֵּרוֹת</button>
+        <button class="mc-opt" onclick="selComp(this,'cq1')">קְרֵמְבּוֹ</button>
+      </div>
+      <div class="mc-change-hint" id="cq1-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="cq1-btn" onclick="checkComp('cq1','עוּגַת שׁוֹקוֹלָד','נָכוֹן! יוֹנִי וְאִמּוֹ אָפוּ עוּגַת שׁוֹקוֹלָד.')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="cq1-fb"></span>
+      </div>
+    </div>
+
+    <!-- CQ 2 -->
+    <div class="mc-q" id="cq2">
+      <div class="mc-q-text">
+        <span class="mc-num num-gold">2</span>
+        <span class="mc-sentence">אֵיפֹה עָמַד יוֹנִי כְּשֶׁאָפָה אֶת הָעוּגָה?</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selComp(this,'cq2')">בְּחֶדֶר הַשֵּׁנָה</button>
+        <button class="mc-opt" onclick="selComp(this,'cq2')">בַּכִּיתָּה</button>
+        <button class="mc-opt" onclick="selComp(this,'cq2')">בַּמִּטְבָּח</button>
+        <button class="mc-opt" onclick="selComp(this,'cq2')">בַּגַּן</button>
+      </div>
+      <div class="mc-change-hint" id="cq2-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="cq2-btn" onclick="checkComp('cq2','בַּמִּטְבָּח','נָכוֹן! הוּא עָמַד עִם אִמּוֹ בַּמִּטְבָּח.')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="cq2-fb"></span>
+      </div>
+    </div>
+
+    <!-- CQ 3 -->
+    <div class="mc-q" id="cq3">
+      <div class="mc-q-text">
+        <span class="mc-num" style="background:#1a936f">3</span>
+        <span class="mc-sentence">מַה אָמְרָה הַמּוֹרָה מִרְיָם כְּשֶׁרָאֲתָה אֶת הָאֹכֶל?</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selComp(this,'cq3')">׳תּוֹדָה רַבָּה׳</button>
+        <button class="mc-opt" onclick="selComp(this,'cq3')">׳כָּל הַכָּבוֹד!׳</button>
+        <button class="mc-opt" onclick="selComp(this,'cq3')">׳אֲנַחְנוּ לוֹמְדִים׳</button>
+        <button class="mc-opt" onclick="selComp(this,'cq3')">׳שָׁלוֹם לְכֻלָּם׳</button>
+      </div>
+      <div class="mc-change-hint" id="cq3-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="cq3-btn" onclick="checkComp('cq3','׳כָּל הַכָּבוֹד!׳','נָכוֹן! הַמּוֹרָה חִיְּכָה וְאָמְרָה ״כָּל הַכָּבוֹד!״')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="cq3-fb"></span>
+      </div>
+    </div>
+
+    <!-- CQ 4 -->
+    <div class="mc-q" id="cq4">
+      <div class="mc-q-text">
+        <span class="mc-num num-fest">4</span>
+        <span class="mc-sentence">מַה קִּבֵּל כָּל תַּלְמִיד מֵהַמּוֹרָה בְּסוֹף הַחֲגִיגָה?</span>
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" onclick="selComp(this,'cq4')">כַּרְטִיס</button>
+        <button class="mc-opt" onclick="selComp(this,'cq4')">שׁוֹקוֹלָד</button>
+        <button class="mc-opt" onclick="selComp(this,'cq4')">סֵפֶר עִבְרִי</button>
+        <button class="mc-opt" onclick="selComp(this,'cq4')">עֵט</button>
+      </div>
+      <div class="mc-change-hint" id="cq4-hint">בַּחֲרוּ תְּשׁוּבָה לִפְנֵי הַבְּדִיקָה.</div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="cq4-btn" onclick="checkComp('cq4','סֵפֶר עִבְרִי','נָכוֹן! הַמּוֹרָה נָתְנָה לְכָל אֶחָד סֵפֶר עִבְרִי יָפֶה.')" disabled>✔ בְּדִיקָה</button>
+        <span class="mc-fb" id="cq4-fb"></span>
+      </div>
+    </div>
+
+  </div><!-- /compQs -->
+</div>
+
+<!-- ⑤ דִּבּוּר — תַּרְגּוּל הֲגִיָּה -->
+<div class="card">
+  <div class="card-stripe cs-coral"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-coral">🎤</div>
+    <div>
+      <span class="sec-num">חֵלֶק ה׳</span>
+      <div class="sec-title">דִּבּוּר — תַּרְגּוּל הֲגִיָּה</div>
+    </div>
+  </div>
+
+  <div class="speak-intro">
+    לְחֲצוּ עַל 🔊 כְּדֵי לִשְׁמֹעַ אֶת הַמִּשְׁפָּט.
+    אַחַר כָּךְ אִמְרוּ אֶת הַמִּשְׁפָּט בְּקוֹל רָם — וּלְחֲצוּ ✅ כְּשֶׁאַתֶּם מוּכָנִים.
+  </div>
+
+  <div class="speak-cards">
+
+    <div class="speak-card" id="sc1">
+      <div class="speak-text" id="sc1-text">הַחֲגִיגָה הָיְתָה כֵּיפִית וּמְאֻשֶּׁרֶת.</div>
+      <div class="speak-btns">
+        <button class="hear-btn" onclick="hearCard('sc1-text')">🔊 הַאֲזִינוּ</button>
+        <button class="self-check-btn" id="sc1-chk" onclick="doneSpeak('sc1-chk','sc1-status',1)">✅ אָמַרְתִּי!</button>
+      </div>
+      <div class="speak-status" id="sc1-status"></div>
+    </div>
+
+    <div class="speak-card" id="sc2">
+      <div class="speak-text" id="sc2-text">יוֹנִי וְאִמּוֹ אָפוּ יַחְדָּו עוּגַת שׁוֹקוֹלָד בַּמִּטְבָּח.</div>
+      <div class="speak-btns">
+        <button class="hear-btn" onclick="hearCard('sc2-text')">🔊 הַאֲזִינוּ</button>
+        <button class="self-check-btn" id="sc2-chk" onclick="doneSpeak('sc2-chk','sc2-status',1)">✅ אָמַרְתִּי!</button>
+      </div>
+      <div class="speak-status" id="sc2-status"></div>
+    </div>
+
+    <div class="speak-card" id="sc3">
+      <div class="speak-text" id="sc3-text">כָּל הַתַּלְמִידִים קִבְּלוּ מַתָּנָה יָפָה מֵהַמּוֹרָה.</div>
+      <div class="speak-btns">
+        <button class="hear-btn" onclick="hearCard('sc3-text')">🔊 הַאֲזִינוּ</button>
+        <button class="self-check-btn" id="sc3-chk" onclick="doneSpeak('sc3-chk','sc3-status',1)">✅ אָמַרְתִּי!</button>
+      </div>
+      <div class="speak-status" id="sc3-status"></div>
+    </div>
+
+    <div class="speak-card" id="sc4">
+      <div class="speak-text" id="sc4-text">הַשָּׁנָה הַבָּאָה אֶקְרָא הַרְבֵּה סְפָרִים בְּעִבְרִית!</div>
+      <div class="speak-btns">
+        <button class="hear-btn" onclick="hearCard('sc4-text')">🔊 הַאֲזִינוּ</button>
+        <button class="self-check-btn" id="sc4-chk" onclick="doneSpeak('sc4-chk','sc4-status',1)">✅ אָמַרְתִּי!</button>
+      </div>
+      <div class="speak-status" id="sc4-status"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⑥ כְּתִיבָה -->
+<div class="card">
+  <div class="card-stripe cs-gold"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-gold">✍️</div>
+    <div>
+      <span class="sec-num">חֵלֶק ו׳</span>
+      <div class="sec-title">כְּתִיבָה חוֹפְשִׁית</div>
+    </div>
+  </div>
+
+  <div class="writing-prompt">
+    ✨ כִּתְבוּ 3–5 מִשְׁפָּטִים: <strong>מָה הֱבֵאתֶם לַחֲגִיגָה?</strong>
+    סַפְּרוּ בָּעָבָר — מָה עֲשִׂיתֶם לִפְנֵי הַחֲגִיגָה, מֶה הֱבֵאתֶם, וּמָה הִרְגַּשְׁתֶּם.
+  </div>
+
+  <div class="guide-row">
+    <span class="guide-tag">הֱבֵאתִי...</span>
+    <span class="guide-tag">הֶחְלַטְתִּי לֶאֱפוֹת...</span>
+    <span class="guide-tag">עָמַדְתִּי עִם...</span>
+    <span class="guide-tag">הַחֲגִיגָה הָיְתָה...</span>
+    <span class="guide-tag">שָׂמַחְתִּי כִּי...</span>
+  </div>
+
+  <textarea class="writing-ta" id="writingTA" placeholder="כִּתְבוּ כָּאן..." oninput="updateWC()"></textarea>
+  <div class="writing-bar">
+    <span class="wc-label">מִלִּים: <span id="wcCount">0</span></span>
+    <button class="submit-btn" onclick="submitWriting()">שְׁלַח ✓</button>
+  </div>
+  <div class="writing-enc" id="writingEnc"></div>
+</div>
+
+<!-- ⑦ לוּחַ תּוֹצָאוֹת -->
+<div class="score-panel" id="scorePanel">
+  <div class="score-title">📊 הַתּוֹצָאוֹת שֶׁלִּי</div>
+  <div class="score-emojis" id="scoreEmojis">⭐⭐⭐⭐⭐</div>
+  <div class="score-bar-wrap">
+    <div class="score-bar-fill" id="scoreBarFill"></div>
+  </div>
+  <div class="score-msg" id="scoreMsg">ענוּ עַל הַשְּׁאֵלוֹת כְּדֵי לִרְאוֹת תּוֹצָאוֹת!</div>
+</div>
+
+</div><!-- /page -->
+
+<script>
+/* ── UTILS ─────────────────────────────────────────────── */
+function tog(id){
+  var el=document.getElementById(id);
+  el.classList.toggle('hidden');
+}
+
+/* ── AUDIO ENGINE ───────────────────────────────────────── */
+var _ac=null;
+function getAC(){
+  if(!_ac) _ac=new(window.AudioContext||window.webkitAudioContext)();
+  return _ac;
+}
+function playArpeggio(){
+  try{
+    var ac=getAC();
+    [523,659,784,1047].forEach(function(f,i){
+      var o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.frequency.value=f;o.type='sine';
+      var t=ac.currentTime+i*0.12;
+      g.gain.setValueAtTime(0,t);
+      g.gain.linearRampToValueAtTime(0.22,t+0.05);
+      g.gain.linearRampToValueAtTime(0,t+0.22);
+      o.start(t);o.stop(t+0.25);
+    });
+  }catch(e){}
+}
+function playBuzz(){
+  try{
+    var ac=getAC();
+    [300,250,200].forEach(function(f,i){
+      var o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.frequency.value=f;o.type='sawtooth';
+      var t=ac.currentTime+i*0.1;
+      g.gain.setValueAtTime(0,t);
+      g.gain.linearRampToValueAtTime(0.15,t+0.03);
+      g.gain.linearRampToValueAtTime(0,t+0.18);
+      o.start(t);o.stop(t+0.2);
+    });
+  }catch(e){}
+}
+
+/* ── SCORE TRACKING ─────────────────────────────────────── */
+var totalQ=7; /* 3 gram + 4 comp */
+var correctCount=0;
+var speakCount=0; var totalSpeak=4;
+var writingDone=false;
+
+function updateProgress(){
+  var pts=correctCount+speakCount+(writingDone?1:0);
+  var maxPts=totalQ+totalSpeak+1;
+  var pct=Math.round(pts/maxPts*100);
+  document.getElementById('progFill').style.width=pct+'%';
+  var stars=Math.round(pts/maxPts*5);
+  var s='';
+  for(var i=0;i<5;i++) s+=(i<stars?'★':'☆');
+  document.getElementById('progStars').textContent=s;
+  /* score panel */
+  var qPct=Math.round(correctCount/totalQ*100);
+  document.getElementById('scoreBarFill').style.width=qPct+'%';
+  var emojis='';
+  var rating=Math.round(qPct/20);
+  for(var j=0;j<5;j++) emojis+=(j<rating?'⭐':'☆');
+  document.getElementById('scoreEmojis').textContent=emojis;
+  var msg='';
+  if(correctCount===0) msg='ענוּ עַל הַשְּׁאֵלוֹת כְּדֵי לִרְאוֹת תּוֹצָאוֹת!';
+  else if(qPct===100) msg='מֻשְׁלָם! עֲנִיתֶם נָכוֹן עַל הַכֹּל! 🎉';
+  else if(qPct>=70) msg='יָפֶה מְאוֹד! כִּמְעַט הַכֹּל נָכוֹן! 👍';
+  else if(qPct>=40) msg='טוֹב! נַסּוּ שׁוּב אֶת הַשְּׁאֵלוֹת הַשְּׁגוּיוֹת. 💪';
+  else msg='נַסּוּ שׁוּב! אַתֶּם יְכוֹלִים! 🌟';
+  document.getElementById('scoreMsg').textContent=msg;
+}
+
+/* ── GRAMMAR QUESTIONS ──────────────────────────────────── */
+var gramSel={};
+var gramDone={};
+function selGram(btn,qid){
+  if(gramDone[qid]) return;
+  var opts=btn.closest('.mc-q').querySelectorAll('.mc-opt');
+  opts.forEach(function(o){o.classList.remove('selected');});
+  btn.classList.add('selected');
+  gramSel[qid]=btn.textContent.trim();
+  document.getElementById(qid+'-hint').textContent='לְחֲצוּ "בְּדִיקָה" לִבְדוֹק אֶת הַתְּשׁוּבָה.';
+  document.getElementById(qid+'-btn').disabled=false;
+}
+function checkGram(qid,correct,explain){
+  if(gramDone[qid]) return;
+  var chosen=gramSel[qid];
+  var opts=document.getElementById(qid).querySelectorAll('.mc-opt');
+  opts.forEach(function(o){
+    o.disabled=true;
+    if(o.textContent.trim()===correct) o.classList.add('correct');
+    else if(o.textContent.trim()===chosen && chosen!==correct) o.classList.add('wrong');
+  });
+  document.getElementById(qid+'-btn').disabled=true;
+  var fb=document.getElementById(qid+'-fb');
+  if(chosen===correct){
+    fb.textContent='✅ נָכוֹן! '+explain;
+    fb.className='mc-fb fb-ok';
+    playArpeggio();
+    correctCount++;
+  } else {
+    fb.textContent='❌ לֹא נָכוֹן. '+explain;
+    fb.className='mc-fb fb-err';
+    playBuzz();
+  }
+  gramDone[qid]=true;
+  updateProgress();
+}
+
+/* ── COMPREHENSION QUESTIONS ────────────────────────────── */
+var compSel={};
+var compDone={};
+function selComp(btn,qid){
+  if(compDone[qid]) return;
+  var opts=btn.closest('.mc-q').querySelectorAll('.mc-opt');
+  opts.forEach(function(o){o.classList.remove('selected');});
+  btn.classList.add('selected');
+  compSel[qid]=btn.textContent.trim();
+  document.getElementById(qid+'-hint').textContent='לְחֲצוּ "בְּדִיקָה" לִבְדוֹק אֶת הַתְּשׁוּבָה.';
+  document.getElementById(qid+'-btn').disabled=false;
+}
+function checkComp(qid,correct,explain){
+  if(compDone[qid]) return;
+  var chosen=compSel[qid];
+  var opts=document.getElementById(qid).querySelectorAll('.mc-opt');
+  opts.forEach(function(o){
+    o.disabled=true;
+    if(o.textContent.trim()===correct) o.classList.add('correct');
+    else if(o.textContent.trim()===chosen && chosen!==correct) o.classList.add('wrong');
+  });
+  document.getElementById(qid+'-btn').disabled=true;
+  var fb=document.getElementById(qid+'-fb');
+  if(chosen===correct){
+    fb.textContent='✅ '+explain;
+    fb.className='mc-fb fb-ok';
+    playArpeggio();
+    correctCount++;
+  } else {
+    fb.textContent='❌ לֹא נָכוֹן. '+explain;
+    fb.className='mc-fb fb-err';
+    playBuzz();
+  }
+  compDone[qid]=true;
+  updateProgress();
+}
+
+/* ── TTS / SPEAK ────────────────────────────────────────── */
+function hearCard(textId){
+  var txt=document.getElementById(textId).textContent.trim();
+  if('speechSynthesis' in window){
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(txt);
+    u.lang='he-IL';u.rate=0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+var speakDone={};
+function doneSpeak(btnId,statusId,pts){
+  if(speakDone[btnId]) return;
+  speakDone[btnId]=true;
+  var btn=document.getElementById(btnId);
+  btn.classList.add('done');
+  btn.disabled=true;
+  document.getElementById(statusId).textContent='🌟 כָּל הַכָּבוֹד! הִגַּדְתָּ אֶת הַמִּשְׁפָּט!';
+  playArpeggio();
+  speakCount+=pts;
+  updateProgress();
+}
+
+/* ── WRITING ────────────────────────────────────────────── */
+function updateWC(){
+  var words=document.getElementById('writingTA').value.trim().split(/\s+/).filter(function(w){return w.length>0;});
+  document.getElementById('wcCount').textContent=words.length;
+}
+function submitWriting(){
+  var words=document.getElementById('writingTA').value.trim().split(/\s+/).filter(function(w){return w.length>0;});
+  var enc=document.getElementById('writingEnc');
+  enc.style.display='block';
+  if(words.length>=20){
+    enc.className='writing-enc enc-ok';
+    enc.textContent='🌟 כָּל הַכָּבוֹד! כָּתַבְתָּ תְּשׁוּבָה מְפֹרֶטֶת וְיָפָה!';
+    playArpeggio();
+  } else if(words.length>=10){
+    enc.className='writing-enc enc-mid';
+    enc.textContent='👍 יָפֶה! נַסּוּ לְהוֹסִיף עוֹד פְּרָטִים.';
+  } else {
+    enc.className='writing-enc enc-low';
+    enc.textContent='✏️ כִּתְבוּ עוֹד — לְפָחוֹת 3–4 מִשְׁפָּטִים.';
+  }
+  if(!writingDone && words.length>=10){
+    writingDone=true;
+    updateProgress();
+  }
+}
+
+/* init */
+updateProgress();
+</script>
+</body>
+</html>

@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שִׁיעוּר 58 — הַמִּלִּים הַמַּפְתִּיעוֹת</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #edecf8;
+      color: #13903a;
+      direction: rtl;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, #312e81 0%, #edecf8 100%);
+      border-bottom: 4px solid #a3e635;
+      padding: 28px 20px 20px;
+      text-align: center;
+    }
+    header .lesson-num {
+      font-size: 0.95rem;
+      color: #a3e635;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+    header .subtitle {
+      font-size: 1.1rem;
+      color: #102a93;
+      margin-bottom: 8px;
+    }
+    header .topic-badge {
+      display: inline-block;
+      background: #a3e635;
+      color: #1e1b4b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; }
+
+    .section {
+      background: #eef2ff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+      border: 2px solid #c7d2fe;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #a3e635;
+      border-bottom: 2px solid #4338ca;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    /* Vocabulary */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .vocab-card {
+      background: #edecf8;
+      border: 2px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .vocab-word {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #a3e635;
+      margin-bottom: 6px;
+    }
+    .vocab-meanings {
+      font-size: 0.92rem;
+      color: #102a93;
+      line-height: 1.7;
+    }
+    .vocab-meanings span {
+      display: block;
+      padding: 2px 0;
+    }
+    .vocab-meanings .meaning-num {
+      color: #a3e635;
+      font-weight: bold;
+      margin-left: 4px;
+    }
+
+    /* Story */
+    .story-text {
+      font-size: 1.12rem;
+      line-height: 2.2;
+      color: #102e93;
+    }
+    .story-text p { margin-bottom: 16px; }
+    .highlight { color: #a3e635; font-weight: bold; }
+
+    /* Grammar box */
+    .grammar-box {
+      background: #edecf8;
+      border-right: 5px solid #a3e635;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .grammar-box h3 {
+      color: #a3e635;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .grammar-box p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #102a93;
+      margin-bottom: 10px;
+    }
+    .examples-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    .examples-table th {
+      background: #eef2ff;
+      color: #3f6212;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      text-align: right;
+      border: 1px solid #4338ca;
+    }
+    .examples-table td {
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      color: #102e93;
+      border: 1px solid #4338ca;
+      line-height: 1.8;
+    }
+    .examples-table tr: nth-child(even) td { background: #edecf8; }
+
+    /* Game shared */
+    .game-area {
+      background: #edecf8;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 16px;
+      border: 2px solid #c7d2fe;
+    }
+    .game-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #a3e635;
+      margin-bottom: 6px;
+    }
+    .game-subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #102a93;
+      margin-bottom: 20px;
+    }
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #eef2ff;
+      border: 2px solid #c7d2fe;
+      transition: all 0.3s;
+    }
+    .dot.active { background: #a3e635; border-color: #a3e635; transform: scale(1.2); }
+    .dot.done { background: #65a30d; border-color: #d8f8aa; }
+
+    .question-box {
+      background: #eef2ff;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #102e93;
+      min-height: 60px;
+      text-align: center;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .opt-btn {
+      background: #eef2ff;
+      border: 2px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      color: #102e93;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: right;
+      font-family: inherit;
+      direction: rtl;
+      line-height: 1.6;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: #a3e635; color: #a3e635; }
+    .opt-btn.selected { border-color: #a3e635; background: #ecf1f9; color: #1e293b; }
+    .opt-btn.correct { border-color: #d8f8aa; background: #eafaf1; color: #1e293b; }
+    .opt-btn.wrong { border-color: #ef4444; background: #fce9e9; color: #1e293b; }
+    .opt-btn:disabled { cursor: default; }
+
+    .submit-btn, .next-btn {
+      display: block;
+      margin: 0 auto;
+      background: #a3e635;
+      color: #1e1b4b;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 36px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .submit-btn:hover, .next-btn:hover { background: #84cc16; transform: scale(1.03); }
+    .submit-btn:disabled { background: #4b5563; color: #fff; cursor: default; transform: none; }
+
+    .explanation-box {
+      background: #ecf1f9;
+      border: 2px solid #a3e635;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      color: #102e93;
+      line-height: 1.8;
+      display: none;
+    }
+    .explanation-box.show { display: block; }
+
+    .result-banner {
+      text-align: center;
+      padding: 30px 20px;
+      display: none;
+    }
+    .result-banner.show { display: block; }
+    .result-banner .big-emoji { font-size: 3.5rem; margin-bottom: 12px; }
+    .result-banner h3 { font-size: 1.5rem; color: #a3e635; margin-bottom: 8px; }
+    .result-banner p { color: #102a93; font-size: 1rem; margin-bottom: 16px; }
+    .result-banner .score { font-size: 2rem; font-weight: bold; color: #1e293b; margin-bottom: 16px; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+    .shake { animation: shake 0.4s ease; }
+
+    /* Crystal Ball specific */
+    .crystal-scene {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .crystal-ball-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    .crystal-ball {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #c4b5fd 0%, #7c3aed 30%, #312e81 65%, #edecf8 100%);
+      box-shadow: 0 0 30px rgba(163,230,53,0.3), inset 0 0 30px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.4s;
+    }
+    .crystal-ball.glow {
+      box-shadow: 0 0 60px rgba(163,230,53,0.7), inset 0 0 30px rgba(0,0,0,0.4);
+    }
+    .crystal-ball: :before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: 25%;
+      width: 35%;
+      height: 25%;
+      background: radial-gradient(ellipse, rgba(0,0,0,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: rotate(-30deg);
+    }
+    .crystal-swirl {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent 0%, rgba(163,230,53,0.15) 25%, transparent 50%, rgba(167,139,250,0.15) 75%, transparent 100%);
+      animation: swirlAnim 4s linear infinite;
+    }
+    @keyframes swirlAnim {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .crystal-question-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #102e93;
+      text-align: center;
+      line-height: 1.5;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .crystal-question-text.visible { opacity: 1; }
+    .crystal-stand {
+      width: 120px;
+      height: 20px;
+      background: linear-gradient(to bottom, #4c1d95, #f0e9fc);
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .crystal-prompt {
+      font-size: 0.9rem;
+      color: #102a93;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    /* Magic Lamp specific */
+    .lamp-scene {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .lamp-container {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 8px;
+    }
+    .lamp-body {
+      width: 80px;
+      height: 60px;
+      background: linear-gradient(135deg, #ca8a04, #fcf0e8);
+      border-radius: 10px 10px 30px 30px;
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+    }
+    .lamp-spout {
+      width: 50px;
+      height: 16px;
+      background: linear-gradient(to right, #ca8a04, #fcf0e8);
+      border-radius: 8px 0 0 8px;
+      position: absolute;
+      bottom: 44px;
+      right: 0px;
+    }
+    .lamp-handle {
+      width: 24px;
+      height: 30px;
+      border: 6px solid #ca8a04;
+      border-radius: 50% 50% 50% 0;
+      position: absolute;
+      bottom: 24px;
+      left: 8px;
+    }
+    .lamp-flame {
+      width: 30px;
+      height: 40px;
+      position: absolute;
+      top: 10px;
+      left: 55px;
+      transition: filter 0.5s;
+    }
+    .lamp-flame: :before {
+      content: '🔥';
+      font-size: 2rem;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .lamp-glow {
+      position: absolute;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(251,191,36,0.4) 0%, transparent 70%);
+      top: 0; left: 30px;
+      transition: all 0.5s;
+      opacity: 0;
+    }
+    .lamp-glow-level-1 { opacity: 0.2; width: 90px; height: 90px; }
+    .lamp-glow-level-2 { opacity: 0.35; width: 100px; height: 100px; left: 20px; }
+    .lamp-glow-level-3 { opacity: 0.5; width: 110px; height: 110px; left: 15px; top: -5px; }
+    .lamp-glow-level-4 { opacity: 0.65; width: 120px; height: 120px; left: 10px; top: -10px; }
+    .lamp-glow-level-5 { opacity: 0.8; width: 130px; height: 130px; left: 5px; top: -15px; }
+    .lamp-glow-level-6 { opacity: 1; width: 140px; height: 140px; left: 0; top: -20px; box-shadow: 0 0 30px rgba(251,191,36,0.5); }
+    .lamp-label {
+      font-size: 0.85rem;
+      color: #fbbf24;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .glow-bar-wrap {
+      width: 140px;
+      height: 10px;
+      background: #edecf8;
+      border-radius: 5px;
+      border: 1px solid #4338ca;
+      overflow: hidden;
+    }
+    .glow-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to left, #fbbf24, #a3e635);
+      border-radius: 5px;
+      transition: width 0.6s ease;
+    }
+    .sentence-display {
+      background: #eef2ff;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #102e93;
+      text-align: center;
+    }
+    .highlighted-word {
+      background: rgba(163,230,53,0.25);
+      color: #a3e635;
+      font-weight: bold;
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+
+    /* Writing exercise */
+    .writing-prompt {
+      background: #edecf8;
+      border-right: 5px solid #a3e635;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #102a93;
+    }
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      background: #edecf8;
+      border: 2px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 1.05rem;
+      color: #102e93;
+      font-family: inherit;
+      direction: rtl;
+      resize: vertical;
+      line-height: 1.9;
+    }
+    textarea:focus { outline: none; border-color: #a3e635; }
+
+    /* Summary */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .summary-card {
+      background: #edecf8;
+      border: 2px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .summary-card .word { font-size: 1.3rem; font-weight: bold; color: #a3e635; margin-bottom: 6px; }
+    .summary-card .meanings-list { font-size: 0.9rem; color: #102a93; line-height: 1.8; }
+
+    .restart-btn {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #a3e635;
+      border-radius: 10px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      color: #a3e635;
+      cursor: pointer;
+      margin-top: 10px;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .restart-btn:hover { background: #a3e635; color: #1e1b4b; }
+
+    @media (max-width: 600px) {
+      .options-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.6rem; }
+    }
+  </style>
+<style>
+:root{--p1:#65a30d;--p1dk:#3f6212;--p1md:#bef264;--p1lt:#ecfccb;--page:#f7fee7;--p2:#4f46e5;--p2lt:#e0e7ff}
+/* ══ עיצוב אחיד בסגנון שיעור 35 ══ */
+body{font-family:'Heebo',sans-serif !important;background:var(--page) !important;color:#1e293b !important;font-size:17px}
+.container{background:transparent}
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header35 .header-art{margin-top:12px;line-height:0;opacity:.95}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+.section-title{font-size:1.42rem !important;font-weight:900 !important;color:#1e293b !important;border-right:none !important;border-bottom:none !important;padding:0 0 0 0 !important;margin:34px 0 14px !important;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.section,.story-box,.grammar-box,.game-box{background:#fff !important;border:none !important;border-radius:22px !important;box-shadow:0 4px 22px rgba(0,0,0,.08) !important;position:relative;overflow:hidden}
+.story-box{padding:26px 30px !important}
+.story-box::before,.grammar-box::before,.game-box::before,.section::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+.story-box,.story-box p{font-family:'Frank Ruhl Libre',serif !important;font-size:1.28rem !important;line-height:2.5 !important;color:#1e2d3d !important}
+.story-box .highlight{background:var(--p1lt) !important;color:var(--p1dk) !important;border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.vocab-card{background:var(--p1lt) !important;border:2px solid var(--p1md) !important;border-radius:16px !important;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09) !important;border-color:var(--p1) !important}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif !important;color:var(--p1dk) !important;font-size:1.2rem !important}
+.vocab-card .eng{color:#64748b !important}
+.grammar-box{padding:24px 28px !important}
+.grammar-box h3{color:var(--p1) !important;font-weight:900}
+.grammar-box p{color:#1e293b !important;font-size:1.02rem !important}
+.grammar-box .ex-chip{background:var(--p1lt) !important;border:1.5px solid var(--p1md) !important;color:var(--p1dk) !important;border-radius:10px !important;font-weight:700}
+.game-box{padding:24px 22px !important}
+.game-title{color:var(--p1dk) !important;font-size:1.25rem !important;font-weight:900 !important}
+.game-subtitle{color:#64748b !important}
+button{font-family:'Heebo',sans-serif !important}
+.topic-badge{display:none}
+header.old-header{display:none}
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🔮</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🪔</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">💡</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">🎩</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">✨</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 58</div>
+    <h1>הַמִּלִּים הַמַּפְתִּיעוֹת</h1>
+    <div class="header-sub">מִלָּה אַחַת — הַרְבֵּה מַשְׁמָעֻיּוֹת</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; לָשׁוֹן: מִלִּים רַב-מַשְׁמָעִיּוֹת</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson54_hahanut_shel_saba.html">→ 54</a>
+  <a class="nav-btn" href="lesson55_hauga_shel_roni.html">→ 55</a>
+  <a class="nav-btn" href="lesson56_hagina_shel_savta_roza.html">→ 56</a>
+  <a class="nav-btn" href="lesson57_gan_hahayot.html">→ 57</a>
+  <span class="nav-current">שִׁיעוּר 58 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- VOCABULARY -->
+  <div class="section">
+    <div class="section-title">🔤 מִלּוֹן הַשִּׁיעוּר</div>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">עַיִן</div>
+        <div class="vocab-meanings">
+          <span><span class="meaning-num">1.</span> אֵיבַר הָרְאִיָּה (organ of sight)</span>
+          <span><span class="meaning-num">2.</span> מַעְיָן מַיִם (spring of water)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">כּוֹכָב</div>
+        <div class="vocab-meanings">
+          <span><span class="meaning-num">1.</span> גֶּרֶם שָׁמַיִם זוֹהֵר (celestial star)</span>
+          <span><span class="meaning-num">2.</span> שַׂחְקָן מְפֻרְסָם (famous actor/star)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">קֶשֶׁת</div>
+        <div class="vocab-meanings">
+          <span><span class="meaning-num">1.</span> קֶשֶׁת בֶּעָנָן (rainbow)</span>
+          <span><span class="meaning-num">2.</span> כְּלִי לִירִיַּת חִצִּים (bow)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">רֶגֶל</div>
+        <div class="vocab-meanings">
+          <span><span class="meaning-num">1.</span> חֵלֶק תַּחְתּוֹן בַּגּוּף (leg/foot)</span>
+          <span><span class="meaning-num">2.</span> חֵלֶק תַּחְתּוֹן שֶׁל הָהָר (foot of mountain)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">אוֹר</div>
+        <div class="vocab-meanings">
+          <span><span class="meaning-num">1.</span> מַה שֶּׁמֵּאִיר אֶת הַחֹשֶׁךְ (light)</span>
+          <span><span class="meaning-num">2.</span> שֵׁם פְּרָטִי (the name Or)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">מַשְׁמָעוּת</div>
+        <div class="vocab-meanings">
+          <span>פֵּרוּשׁ שֶׁל מִלָּה אוֹ מִשְׁפָּט</span>
+          <span>(meaning of a word or sentence)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">הֶקְשֵׁר</div>
+        <div class="vocab-meanings">
+          <span>הַמִּשְׁפָּטִים סְבִיב הַמִּלָּה</span>
+          <span>(context — the words around a word)</span>
+        </div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">מֻמְחֶה</div>
+        <div class="vocab-meanings">
+          <span>מִי שֶׁיּוֹדֵעַ הַרְבֵּה בְּנוֹשֵׂא מְסֻיָּם</span>
+          <span>(expert, specialist)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div class="section">
+    <div class="section-title">📖 קְרִיאָה — הַסֵּפֶר הַמְּדַבֵּר שֶׁל אָדִי</div>
+    <div class="story-text">
+      <p>אָדִי אָהַב לְבַקֵּר בַּסִּפְרִיָּה הַיְּשָׁנָה שֶׁבִּרְחוֹבוֹ. יוֹם אֶחָד הוּא מָצָא עַל הַמַּדָּף סֵפֶר עִם כְּרִיכָה <span class="highlight">כְּחֻלָּה</span> וּכְתָב זָהָב. כַּאֲשֶׁר פָּתַח אָדִי אֶת הַסֵּפֶר, הוּא שָׁמַע קוֹל מַפְתִּיעַ.</p>
+      <p>"שָׁלוֹם, אָדִי," אָמַר הַסֵּפֶר. "אֲנִי הַסֵּפֶר הַמְּדַבֵּר! אֲנִי אֲלַמֵּד אוֹתְךָ סוֹד מְרַתֵּק עַל מִלִּים עִבְרִיּוֹת."</p>
+      <p>אָדִי בָּלַע רֹק בְּהַפְתָּעָה. "סֵפֶר מְדַבֵּר?" הוּא לָחַשׁ. "זֶה לֹא יֵאָמֵן!"</p>
+      <p>"הַרְבֵּה מִלִּים בְּעִבְרִית," הִסְבִּיר הַסֵּפֶר, "נִרְאוֹת אוֹתוֹ דָּבָר אֲבָל <span class="highlight">מַשְׁמָעוּתָן שׁוֹנָה לְגַמְרֵי</span>. הַכֹּל תָּלוּי בַּהֶקְשֵׁר — בַּמִּשְׁפָּטִים שֶׁסָּבִיב הַמִּלָּה."</p>
+      <p>הַסֵּפֶר פָּתַח דַּף וְאָדִי קָרָא בְּקוֹל: "<span class="highlight">עַיִן</span>."</p>
+      <p>"עַיִן?" שָׁאַל אָדִי. "זֹאת הָעַיִן שֶׁרוֹאָה?"</p>
+      <p>"נָכוֹן מְאֹד!" אָמַר הַסֵּפֶר. "אֲבָל עַיִן יְכוֹלָה גַּם לִהְיוֹת <span class="highlight">מַעְיָן מַיִם</span> בָּהָר. הַכֹּל תָּלוּי בַּ<span class="highlight">הֶקְשֵׁר</span>!"</p>
+      <p>אָדִי הִנְהֵן בְּרֹאשׁוֹ. הַסֵּפֶר הוֹסִיף: "וְהַמִּלָּה <span class="highlight">כּוֹכָב</span> — הִיא גַּם כּוֹכָב בַּשָּׁמַיִם וְגַם <span class="highlight">כּוֹכָב קוֹלְנוֹעַ</span> מְפֻרְסָם."</p>
+      <p>אָדִי פָּתַח אֶת מַחְבַּרְתּוֹ וְצִיֵּר שְׁתֵּי תְּמוּנוֹת לְכָל מִלָּה. לַמִּלָּה <span class="highlight">קֶשֶׁת</span> הוּא צִיֵּר קֶשֶׁת צִבְעוֹנִית בַּשָּׁמַיִם וְגַם קֶשֶׁת שֶׁיּוֹרָה חִצִּים. לַמִּלָּה <span class="highlight">גַּן</span> הוּא צִיֵּר גַּן פְּרָחִים יָפֶה וְגַם גַּן יְלָדִים עִם יְלָדִים מְשַׂחֲקִים.</p>
+      <p>"אַתָּה מְצֻיָּן!" קָרָא הַסֵּפֶר בְּשִׂמְחָה. "וְלַמִּלָּה <span class="highlight">רֶגֶל</span> — מָה אַתָּה יוֹדֵעַ?"</p>
+      <p>"רֶגֶל זֹאת חֵלֶק בַּגּוּף," עָנָה אָדִי בְּבִטָּחוֹן.</p>
+      <p>"נָכוֹן! אֲבָל גַּם <span class="highlight">רֶגֶל הָהָר</span> — הַחֵלֶק הַנָּמוּךְ שֶׁל הָהָר — גַּם זוֹ רֶגֶל!" אָמַר הַסֵּפֶר.</p>
+      <p>אָדִי הֻפְתַּע. הוּא לֹא חָשַׁב שֶׁמִּלִּים מֻכָּרוֹת כָּל כָּךְ יְכוֹלוֹת לְהַפְתִּיעַ אוֹתוֹ. הוּא סָגַר אֶת הַמַּחְבֶּרֶת וְחִיֵּךְ. יוֹם אֶחָד, הוּא יִהְיֶה <span class="highlight">מֻמְחֶה</span> לְמִלִּים!</p>
+    </div>
+  </div>
+
+  <!-- COMPREHENSION GAME: Crystal Ball -->
+  <div class="section">
+    <div class="section-title">🔮 הֲבָנַת הַנִּקְרָא — כַּדּוּר הַבְּדֹלַח</div>
+    <p style="color:#c7d2fe;font-size:0.95rem;margin-bottom:12px;">הַכַּדּוּר הַמִּסְתּוֹרִי חוֹשֵׂף שְׁאֵלוֹת עַל הַסִּיפּוּר. לְחַץ עָלָיו כְּדֵי לִגְלוֹת אֶת הַשְּׁאֵלָה, בְּחַר תְּשׁוּבָה וּלְחַץ "אַשֵּׁר"!</p>
+
+    <div class="game-area" id="crystalGame">
+      <div class="game-title">🔮 כַּדּוּר הַבְּדֹלַח</div>
+      <div class="game-subtitle">Crystal Ball — 5 שְׁאֵלוֹת הֲבָנָה</div>
+
+      <div class="progress-dots" id="crystalDots">
+        <div class="dot" id="cdot0"></div>
+        <div class="dot" id="cdot1"></div>
+        <div class="dot" id="cdot2"></div>
+        <div class="dot" id="cdot3"></div>
+        <div class="dot" id="cdot4"></div>
+      </div>
+
+      <div class="crystal-scene">
+        <div class="crystal-prompt" id="crystalPrompt">לְחַץ עַל כַּדּוּר הַבְּדֹלַח כְּדֵי לִגְלוֹת שְׁאֵלָה</div>
+        <div class="crystal-ball-wrap" onclick="revealCrystalQuestion()">
+          <div class="crystal-ball" id="crystalBall">
+            <div class="crystal-swirl"></div>
+            <div class="crystal-question-text" id="crystalInnerText"></div>
+          </div>
+        </div>
+        <div class="crystal-stand"></div>
+      </div>
+
+      <div class="question-box" id="crystalQuestion" style="display:none;"></div>
+      <div class="options-grid" id="crystalOptions" style="display:none;"></div>
+      <div class="explanation-box" id="crystalExplanation"></div>
+      <div style="text-align:center;">
+        <button class="submit-btn" id="crystalSubmit" style="display:none;" onclick="submitCrystal()">אַשֵּׁר ✔</button>
+        <button class="next-btn" id="crystalNext" style="display:none;" onclick="nextCrystal()">הַמִּשְׁפָּט הַבָּא ←</button>
+      </div>
+
+      <div class="result-banner" id="crystalResult">
+        <div class="big-emoji">🔮✨</div>
+        <h3>הַכַּדּוּר גִּלָּה הַכֹּל!</h3>
+        <div class="score" id="crystalScore"></div>
+        <p>כָּל הַכָּבוֹד עַל הֲבָנַת הַסִּיפּוּר!</p>
+        <button class="restart-btn" onclick="restartCrystal()">שַׂחֵק שׁוּב 🔄</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR EXPLANATION -->
+  <div class="section">
+    <div class="section-title">📚 דִּקְדּוּק — מִלִּים בַּעֲלוֹת מַשְׁמָעוּיוֹת רַבּוֹת</div>
+
+    <div class="grammar-box">
+      <h3>מַה זֶּה מִלָּה בַּעֲלַת מַשְׁמָעוּיוֹת רַבּוֹת?</h3>
+      <p>בְּעִבְרִית יֵשׁ מִלִּים שֶׁנִּרְאוֹת אוֹתוֹ דָּבָר אֲבָל יֵשׁ לָהֶן <strong>יוֹתֵר מִמַּשְׁמָעוּת אַחַת</strong>. כְּדֵי לְהָבִין אֵיזוֹ מַשְׁמָעוּת נְכוֹנָה, צָרִיךְ לִקְרֹא אֶת <strong>הַהֶקְשֵׁר</strong> — הַמִּשְׁפָּטִים שֶׁלְּפָנֶיהָ וְאַחֲרֶיהָ.</p>
+      <p>לְדֻגְמָה: הַמִּלָּה <strong>עַיִן</strong> יְכוֹלָה לְקַבֵּל מַשְׁמָעוּת שׁוֹנָה לְגַמְרֵי בְּמִשְׁפָּטִים שׁוֹנִים:</p>
+    </div>
+
+    <table class="examples-table">
+      <thead>
+        <tr>
+          <th>מִלָּה</th>
+          <th>מַשְׁמָעוּת 1</th>
+          <th>דֻּגְמָה 1</th>
+          <th>מַשְׁמָעוּת 2</th>
+          <th>דֻּגְמָה 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>עַיִן</strong></td>
+          <td>אֵיבַר הָרְאִיָּה</td>
+          <td>יֵשׁ לָהּ עֵינַיִם יָפוֹת.</td>
+          <td>מַעְיָן מַיִם</td>
+          <td>הֵם שָׁתוּ מִן הָעַיִן שֶׁבַּהָר.</td>
+        </tr>
+        <tr>
+          <td><strong>כּוֹכָב</strong></td>
+          <td>גֶּרֶם שָׁמַיִם</td>
+          <td>רָאִינוּ כּוֹכָבִים בַּלַּיְלָה.</td>
+          <td>שַׂחְקָן מְפֻרְסָם</td>
+          <td>הִיא כּוֹכֶבֶת קוֹלְנוֹעַ.</td>
+        </tr>
+        <tr>
+          <td><strong>קֶשֶׁת</strong></td>
+          <td>קֶשֶׁת בֶּעָנָן</td>
+          <td>אַחֲרֵי הַגֶּשֶׁם רָאִינוּ קֶשֶׁת בַּשָּׁמַיִם.</td>
+          <td>כְּלִי לִירִיַּת חִצִּים</td>
+          <td>הַיֶּלֶד יָרָה חֵץ מִן הַקֶּשֶׁת.</td>
+        </tr>
+        <tr>
+          <td><strong>רֶגֶל</strong></td>
+          <td>חֵלֶק בַּגּוּף</td>
+          <td>כָּאֲבָה לִי הָרֶגֶל.</td>
+          <td>חֵלֶק תַּחְתּוֹן שֶׁל הָהָר</td>
+          <td>עָמַדְנוּ בְּרֶגֶל הָהָר.</td>
+        </tr>
+        <tr>
+          <td><strong>אוֹר</strong></td>
+          <td>מַה שֶּׁמֵּאִיר אֶת הַחֹשֶׁךְ</td>
+          <td>הִדְלַקְנוּ אֶת הָאוֹר בַּחֶדֶר.</td>
+          <td>שֵׁם פְּרָטִי</td>
+          <td>אוֹר הוּא הַחָבֵר הַכִּי טוֹב שֶׁלִּי.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grammar-box" style="margin-top:20px;">
+      <h3>⚡ טִיפ חָשׁוּב!</h3>
+      <p>כְּשֶׁאַתֶּם פּוֹגְשִׁים מִלָּה לֹא מוּבֶנֶת — קִרְאוּ אֶת כָּל הַמִּשְׁפָּט! הַהֶקְשֵׁר יַסְבִּיר לָכֶם אֵיזוֹ מַשְׁמָעוּת נְכוֹנָה.</p>
+    </div>
+  </div>
+
+  <!-- GRAMMAR GAME: Magic Lamp -->
+  <div class="section">
+    <div class="section-title">🪔 תַּרְגּוּל דִּקְדּוּק — מְנוֹרַת הַקְּסָמִים</div>
+    <p style="color:#c7d2fe;font-size:0.95rem;margin-bottom:12px;">עִם כָּל תְּשׁוּבָה נְכוֹנָה — הַמְּנוֹרָה תַּבְהִיק יוֹתֵר! קְרָא אֶת הַמִּשְׁפָּט, מְצָא אֶת מַשְׁמָעוּת הַמִּלָּה הַמּוּדְגֶּשֶׁת וּבְחַר אֶת הַתְּשׁוּבָה הַנְּכוֹנָה.</p>
+
+    <div class="game-area" id="lampGame">
+      <div class="game-title">🪔 מְנוֹרַת הַקְּסָמִים</div>
+      <div class="game-subtitle">Magic Lamp — 6 שְׁאֵלוֹת</div>
+
+      <div class="progress-dots" id="lampDots">
+        <div class="dot" id="ldot0"></div>
+        <div class="dot" id="ldot1"></div>
+        <div class="dot" id="ldot2"></div>
+        <div class="dot" id="ldot3"></div>
+        <div class="dot" id="ldot4"></div>
+        <div class="dot" id="ldot5"></div>
+      </div>
+
+      <div class="lamp-scene">
+        <div class="lamp-container" id="lampContainer">
+          <div class="lamp-glow" id="lampGlow"></div>
+          <div class="lamp-body"></div>
+          <div class="lamp-spout"></div>
+          <div class="lamp-handle"></div>
+          <div class="lamp-flame"></div>
+        </div>
+        <div class="lamp-label" id="lampLabel">הַמְּנוֹרָה מְחַכָּה...</div>
+        <div class="glow-bar-wrap">
+          <div class="glow-bar" id="glowBar"></div>
+        </div>
+      </div>
+
+      <div class="sentence-display" id="lampSentence"></div>
+      <div class="options-grid" id="lampOptions"></div>
+      <div class="explanation-box" id="lampExplanation"></div>
+      <div style="text-align:center;">
+        <button class="submit-btn" id="lampSubmit" onclick="submitLamp()">אַשֵּׁר ✔</button>
+        <button class="next-btn" id="lampNext" style="display:none;" onclick="nextLamp()">שְׁאֵלָה הַבָּאָה ←</button>
+      </div>
+
+      <div class="result-banner" id="lampResult">
+        <div class="big-emoji">🪔✨</div>
+        <h3>הַמְּנוֹרָה בּוֹהֶקֶת בִּמְלוֹא יָפְיָהּ!</h3>
+        <div class="score" id="lampScore"></div>
+        <p>אַתֶּם מֻמְחִים לְמַשְׁמָעוּיוֹת מִלִּים!</p>
+        <button class="restart-btn" onclick="restartLamp()">שַׂחֵק שׁוּב 🔄</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WRITING EXERCISE -->
+  <div class="section">
+    <div class="section-title">✍️ כְּתִיבָה יְצִירָתִית</div>
+    <div class="writing-prompt">
+      <strong>כְּתֹב שְׁנֵי מִשְׁפָּטִים לְכָל מִלָּה — מִשְׁפָּט אֶחָד לְכָל מַשְׁמָעוּת:</strong>
+      <br><br>
+      1. <strong>עַיִן</strong> — כְּתֹב מִשְׁפָּט עִם הָעַיִן שֶׁרוֹאָה וּמִשְׁפָּט עִם עַיִן שֶׁהִיא מַעְיָן מַיִם.<br><br>
+      2. <strong>כּוֹכָב</strong> — כְּתֹב מִשְׁפָּט עִם כּוֹכָב בַּשָּׁמַיִם וּמִשְׁפָּט עִם כּוֹכָב מְפֻרְסָם.<br><br>
+      3. <strong>בְּחַר מִלָּה מַפְתִּיעָה מִשֶּׁלְּךָ</strong> — מִלָּה שֶׁיֵּשׁ לָהּ יוֹתֵר מִמַּשְׁמָעוּת אַחַת, וּכְתֹב שְׁנֵי מִשְׁפָּטִים.
+    </div>
+    <textarea placeholder="כִּתְבוּ כָּאן אֶת הַמִּשְׁפָּטִים שֶׁלָּכֶם..."></textarea>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">📝 סִיכּוּם הַשִּׁיעוּר</div>
+    <p style="color:#c7d2fe;font-size:1rem;margin-bottom:16px;line-height:1.9;">בַּשִּׁיעוּר הַזֶּה לָמַדְנוּ שֶׁבְּעִבְרִית יֵשׁ מִלִּים בַּעֲלוֹת <strong style="color:#a3e635;">מַשְׁמָעוּיוֹת רַבּוֹת</strong>. כְּדֵי לְהָבִין אֵיזוֹ מַשְׁמָעוּת נְכוֹנָה — מִסְתַּכְּלִים עַל <strong style="color:#a3e635;">הַהֶקְשֵׁר</strong>.</p>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="word">עַיִן</div>
+        <div class="meanings-list">👁️ אֵיבַר הָרְאִיָּה<br>💧 מַעְיָן מַיִם</div>
+      </div>
+      <div class="summary-card">
+        <div class="word">כּוֹכָב</div>
+        <div class="meanings-list">⭐ גֶּרֶם שָׁמַיִם<br>🎬 שַׂחְקָן מְפֻרְסָם</div>
+      </div>
+      <div class="summary-card">
+        <div class="word">קֶשֶׁת</div>
+        <div class="meanings-list">🌈 קֶשֶׁת בֶּעָנָן<br>🏹 כְּלִי לִירִיַּת חִצִּים</div>
+      </div>
+      <div class="summary-card">
+        <div class="word">רֶגֶל</div>
+        <div class="meanings-list">🦵 חֵלֶק בַּגּוּף<br>⛰️ רֶגֶל הָהָר</div>
+      </div>
+      <div class="summary-card">
+        <div class="word">אוֹר</div>
+        <div class="meanings-list">💡 אוֹר שֶׁמֵּאִיר<br>👦 שֵׁם פְּרָטִי</div>
+      </div>
+      <div class="summary-card">
+        <div class="word">הֶקְשֵׁר</div>
+        <div class="meanings-list">📄 הַמִּשְׁפָּטִים סְבִיב הַמִּלָּה עוֹזְרִים לְהָבִין אֶת פֵּרוּשָׁהּ</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ===== CRYSTAL BALL GAME ===== */
+const crystalQs = [
+  {
+    q: "אֵיפֹה מָצָא אָדִי אֶת הַסֵּפֶר הַמְּדַבֵּר?",
+    short: "אֵיפֹה?",
+    opts: ["בְּבֵית הַסֵּפֶר", "בַּסִּפְרִיָּה שֶׁבִּרְחוֹבוֹ", "בַּחֲנוּת הַסְּפָרִים", "בַּגִּינָה שֶׁלּוֹ"],
+    ans: 1,
+    exp: "נָכוֹן! הַסִּפְרִיָּה הָיְתָה בָּרְחוֹב שֶׁל אָדִי. הַסֵּפֶר הָיָה עַל הַמַּדָּף."
+  },
+  {
+    q: "מַה צֶּבַע הַכְּרִיכָה שֶׁל הַסֵּפֶר הַמְּדַבֵּר?",
+    short: "אֵיזֶה צֶבַע?",
+    opts: ["אָדֹם עִם כְּתָב כֶּסֶף", "יָרֹק עִם כְּתָב שָׁחֹר", "כָּחֹל עִם כְּתָב זָהָב", "צָהֹב עִם כְּתָב כָּחֹל"],
+    ans: 2,
+    exp: "נָכוֹן! בַּסִּיפּוּר כָּתוּב 'כְּרִיכָה כְּחֻלָּה וּכְתָב זָהָב'."
+  },
+  {
+    q: "מַה הַסּוֹד שֶׁהַסֵּפֶר לִמֵּד אֶת אָדִי?",
+    short: "מָה לָמַד?",
+    opts: ["אֵיךְ לִכְתֹּב שִׁירִים יָפִים", "שֶׁמִּלִּים יְכוֹלוֹת לִהְיוֹת בַּעֲלוֹת מַשְׁמָעוּיוֹת שׁוֹנוֹת", "אֵיךְ לִקְרֹא בְּמַהִירוּת", "מַה הֵם שֻׁרָשֵׁי הַמִּלִּים"],
+    ans: 1,
+    exp: "נָכוֹן! הַסֵּפֶר הִסְבִּיר שֶׁלְּמִלִּים רַבּוֹת יֵשׁ יוֹתֵר מִמַּשְׁמָעוּת אַחַת, וְהַהֶקְשֵׁר עוֹזֵר לָנוּ לְהָבִין."
+  },
+  {
+    q: "כַּמָּה תְּמוּנוֹת צִיֵּר אָדִי לְכָל מִלָּה בַּמַּחְבֶּרֶת?",
+    short: "כַּמָּה תְּמוּנוֹת?",
+    opts: ["תְּמוּנָה אַחַת בִּלְבַד", "שָׁלֹשׁ תְּמוּנוֹת", "שְׁתֵּי תְּמוּנוֹת", "אַרְבַּע תְּמוּנוֹת"],
+    ans: 2,
+    exp: "נָכוֹן! אָדִי צִיֵּר שְׁתֵּי תְּמוּנוֹת לְכָל מִלָּה — תְּמוּנָה לְכָל מַשְׁמָעוּת."
+  },
+  {
+    q: "מָה עוֹד יְכוֹלָה הַמִּלָּה 'רֶגֶל' לְצַיֵּן, חוּץ מֵחֵלֶק בַּגּוּף?",
+    short: "מָה עוֹד 'רֶגֶל'?",
+    opts: ["חֵלֶק שֶׁל הַיָּם", "הַחֵלֶק הַתַּחְתּוֹן שֶׁל הָהָר", "חֵלֶק שֶׁל הַבַּיִת", "חֵלֶק שֶׁל הָעֵץ"],
+    ans: 1,
+    exp: "נָכוֹן! הַסֵּפֶר לִמֵּד שֶׁ'רֶגֶל הָהָר' הוּא הַחֵלֶק הַנָּמוּךְ שֶׁל הָהָר."
+  }
+];
+
+let cIdx = 0, cScore = 0, cSelected = null, cAnswered = false, cRevealed = false;
+
+function buildCrystalDots() {
+  for (let i = 0; i < 5; i++) {
+    const d = document.getElementById('cdot' + i);
+    d.className = 'dot' + (i === cIdx ? ' active' : (i < cIdx ? ' done' : ''));
+  }
+}
+
+function revealCrystalQuestion() {
+  if (cAnswered || cRevealed) return;
+  const q = crystalQs[cIdx];
+  const ball = document.getElementById('crystalBall');
+  const innerText = document.getElementById('crystalInnerText');
+  ball.classList.add('glow');
+  innerText.textContent = q.short;
+  innerText.classList.add('visible');
+  setTimeout(() => {
+    document.getElementById('crystalPrompt').textContent = '';
+    document.getElementById('crystalQuestion').style.display = 'block';
+    document.getElementById('crystalQuestion').textContent = q.q;
+    buildCrystalOptions(q);
+    document.getElementById('crystalOptions').style.display = 'grid';
+    document.getElementById('crystalSubmit').style.display = 'inline-block';
+  }, 600);
+  cRevealed = true;
+}
+
+function buildCrystalOptions(q) {
+  const container = document.getElementById('crystalOptions');
+  container.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => selectCrystalOpt(i);
+    container.appendChild(btn);
+  });
+}
+
+function selectCrystalOpt(i) {
+  if (cAnswered) return;
+  cSelected = i;
+  document.querySelectorAll('#crystalOptions .opt-btn').forEach((b, idx) => {
+    b.className = 'opt-btn' + (idx === i ? ' selected' : '');
+  });
+}
+
+function submitCrystal() {
+  if (cSelected === null) return;
+  cAnswered = true;
+  const q = crystalQs[cIdx];
+  const btns = document.querySelectorAll('#crystalOptions .opt-btn');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.ans) b.classList.add('correct');
+    else if (i === cSelected) b.classList.add('wrong');
+  });
+  if (cSelected === q.ans) {
+    cScore++;
+    document.getElementById('crystalBall').style.boxShadow = '0 0 80px rgba(163,230,53,0.9), inset 0 0 30px rgba(0,0,0,0.4)';
+  } else {
+    document.getElementById('crystalGame').classList.add('shake');
+    setTimeout(() => document.getElementById('crystalGame').classList.remove('shake'), 400);
+    document.getElementById('crystalBall').style.boxShadow = '0 0 60px rgba(239,68,68,0.7), inset 0 0 30px rgba(0,0,0,0.4)';
+  }
+  const expBox = document.getElementById('crystalExplanation');
+  expBox.textContent = q.exp;
+  expBox.classList.add('show');
+  document.getElementById('crystalSubmit').style.display = 'none';
+  const isLast = cIdx === crystalQs.length - 1;
+  const nextBtn = document.getElementById('crystalNext');
+  nextBtn.style.display = 'inline-block';
+  nextBtn.textContent = isLast ? 'סִיּוּם 🎉' : 'שְׁאֵלָה הַבָּאָה ←';
+}
+
+function nextCrystal() {
+  if (cIdx < crystalQs.length - 1) {
+    cIdx++;
+    cSelected = null;
+    cAnswered = false;
+    cRevealed = false;
+    document.getElementById('crystalBall').style.boxShadow = '';
+    document.getElementById('crystalBall').classList.remove('glow');
+    document.getElementById('crystalInnerText').textContent = '';
+    document.getElementById('crystalInnerText').classList.remove('visible');
+    document.getElementById('crystalQuestion').style.display = 'none';
+    document.getElementById('crystalOptions').style.display = 'none';
+    document.getElementById('crystalExplanation').classList.remove('show');
+    document.getElementById('crystalSubmit').style.display = 'none';
+    document.getElementById('crystalNext').style.display = 'none';
+    document.getElementById('crystalPrompt').textContent = 'לְחַץ עַל כַּדּוּר הַבְּדֹלַח כְּדֵי לִגְלוֹת שְׁאֵלָה';
+    buildCrystalDots();
+  } else {
+    showCrystalResult();
+  }
+}
+
+function showCrystalResult() {
+  document.getElementById('crystalGame').querySelector('.crystal-scene').style.display = 'none';
+  document.getElementById('crystalQuestion').style.display = 'none';
+  document.getElementById('crystalOptions').style.display = 'none';
+  document.getElementById('crystalExplanation').classList.remove('show');
+  document.getElementById('crystalNext').style.display = 'none';
+  document.getElementById('crystalScore').textContent = cScore + ' / ' + crystalQs.length;
+  document.getElementById('crystalResult').classList.add('show');
+}
+
+function restartCrystal() {
+  cIdx = 0; cScore = 0; cSelected = null; cAnswered = false; cRevealed = false;
+  document.getElementById('crystalResult').classList.remove('show');
+  document.getElementById('crystalGame').querySelector('.crystal-scene').style.display = 'flex';
+  document.getElementById('crystalPrompt').textContent = 'לְחַץ עַל כַּדּוּר הַבְּדֹלַח כְּדֵי לִגְלוֹת שְׁאֵלָה';
+  document.getElementById('crystalBall').style.boxShadow = '';
+  document.getElementById('crystalBall').classList.remove('glow');
+  document.getElementById('crystalInnerText').textContent = '';
+  document.getElementById('crystalInnerText').classList.remove('visible');
+  document.getElementById('crystalSubmit').style.display = 'none';
+  buildCrystalDots();
+}
+
+buildCrystalDots();
+
+/* ===== MAGIC LAMP GAME ===== */
+const lampQs = [
+  {
+    sentence: "הַיֶּלֶד רוֹאֶה בְּ<mark>עַיִן</mark> אַחַת בִּלְבַד.",
+    word: "עַיִן",
+    opts: ["מַעְיָן מַיִם בָּהָר", "אֵיבַר הָרְאִיָּה", "חֵלֶק שֶׁל הַפָּנִים", "מִין שֶׁל דָּג"],
+    ans: 1,
+    exp: "כָּאן 'עַיִן' פֵּרוּשָׁהּ אֵיבַר הָרְאִיָּה — אֶחָד מֵאֵיבְרֵי הַחוּשִׁים. הַיֶּלֶד רוֹאֶה בְּעֵינוֹ."
+  },
+  {
+    sentence: "אַחֲרֵי הַטִּיּוּל הֵם שָׁתוּ מֵהָ<mark>עַיִן</mark> הַקָּרָה.",
+    word: "עַיִן",
+    opts: ["אֵיבַר הָרְאִיָּה", "כּוֹס שֶׁל מַיִם", "מַעְיָן מַיִם טִבְעִי", "בְּרֵכַת שְׁחִיָּה"],
+    ans: 2,
+    exp: "כָּאן 'עַיִן' פֵּרוּשָׁהּ מַעְיָן — מַיִם שֶׁנּוֹבְעִים מֵהָאֲדָמָה. שָׁתוּ מַיִם טִבְעִיִּים בַּטֶּבַע."
+  },
+  {
+    sentence: "רָאִינוּ <mark>כּוֹכָבִים</mark> רַבִּים בַּשָּׁמַיִם הַלַּיְלָה.",
+    word: "כּוֹכָב",
+    opts: ["שַׂחְקָנִים מְפֻרְסָמִים", "גְּרָמֵי שָׁמַיִם זוֹהֲרִים", "אֲבָנִים טוֹבוֹת", "מְטוֹסִים"],
+    ans: 1,
+    exp: "כָּאן 'כּוֹכָבִים' פֵּרוּשָׁם גְּרָמֵי שָׁמַיִם — הַנְּקֻדּוֹת הַמְּאִירוֹת שֶׁרוֹאִים בַּלַּיְלָה."
+  },
+  {
+    sentence: "הִיא <mark>כּוֹכֶבֶת</mark> שֶׁל הַסֶּרֶט הַגָּדוֹל הַזֶּה.",
+    word: "כּוֹכֶבֶת",
+    opts: ["גֶּרֶם שָׁמַיִם נְקֵבָה", "שַׂחְקָנִית מְפֻרְסֶמֶת", "נְסִיכָה", "מוֹרָה טוֹבָה"],
+    ans: 1,
+    exp: "כָּאן 'כּוֹכֶבֶת' פֵּרוּשָׁהּ שַׂחְקָנִית מְפֻרְסֶמֶת — מִי שֶׁמְּשַׂחֶקֶת בַּסֶּרֶט."
+  },
+  {
+    sentence: "הַ<mark>שֶּׁמֶשׁ</mark> שׁוֹקַעַת בַּמַּעֲרָב בְּשָׁעוֹת הָעֶרֶב.",
+    word: "שֶׁמֶשׁ",
+    opts: ["פֶּרַח צָהֹב גָּדוֹל", "כּוֹכָב הָאֵשׁ הַגָּדוֹל בַּמֶּרְכָּז", "אוֹר חַשְׁמַל", "עֵץ גָּדוֹל"],
+    ans: 1,
+    exp: "כָּאן 'שֶׁמֶשׁ' פֵּרוּשָׁהּ הַכּוֹכָב הַמֶּרְכָּזִי שֶׁלָּנוּ — זֶה שֶׁשּׁוֹקֵעַ בְּכָל עֶרֶב."
+  },
+  {
+    sentence: "גִּינָה שָׁתְלָה פֶּרַח <mark>שֶׁמֶשׁ</mark> גָּדוֹל בַּגִּינָה שֶׁלָּהּ.",
+    word: "שֶׁמֶשׁ",
+    opts: ["כּוֹכָב הָאֵשׁ", "צֶמַח עִם פֶּרַח צָהֹב גָּדוֹל", "מַנּוֹרָה", "עֵץ תְּמָרִים"],
+    ans: 1,
+    exp: "כָּאן 'פֶּרַח שֶׁמֶשׁ' פֵּרוּשׁוֹ הַצֶּמַח Sunflower — פֶּרַח צָהֹב גָּדוֹל שֶׁפּוֹנֶה לַשֶּׁמֶשׁ."
+  }
+];
+
+let lIdx = 0, lScore = 0, lSelected = null, lAnswered = false;
+
+function buildLampDots() {
+  for (let i = 0; i < 6; i++) {
+    const d = document.getElementById('ldot' + i);
+    d.className = 'dot' + (i === lIdx ? ' active' : (i < lIdx ? ' done' : ''));
+  }
+}
+
+function updateLampGlow(level) {
+  const glow = document.getElementById('lampGlow');
+  glow.className = 'lamp-glow' + (level > 0 ? ' lamp-glow-level-' + level : '');
+  const bar = document.getElementById('glowBar');
+  bar.style.width = Math.round((level / 6) * 100) + '%';
+  const labels = ['הַמְּנוֹרָה מְחַכָּה...', 'נִצּוּץ רִאשׁוֹן! ✨', 'הָאוֹר מִתְגַּבֵּר... 🌟', 'יָפֶה! הַמְּנוֹרָה בּוֹהֶקֶת 💛', 'נֶהְדָּר! כִּמְעַט מָלֵא 🌟', 'עוֹד קְצָת! ⭐', 'הַמְּנוֹרָה בּוֹהֶקֶת בִּמְלֹא אוֹרָהּ! 🔥✨'];
+  document.getElementById('lampLabel').textContent = labels[level];
+}
+
+function buildLampQuestion() {
+  const q = lampQs[lIdx];
+  const sentenceEl = document.getElementById('lampSentence');
+  sentenceEl.innerHTML = q.sentence.replace('<mark>', '<span class="highlighted-word">').replace('</mark>', '</span>');
+  const container = document.getElementById('lampOptions');
+  container.innerHTML = '';
+  lSelected = null;
+  lAnswered = false;
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => selectLampOpt(i);
+    container.appendChild(btn);
+  });
+  document.getElementById('lampSubmit').style.display = 'inline-block';
+  document.getElementById('lampSubmit').disabled = true;
+  document.getElementById('lampNext').style.display = 'none';
+  document.getElementById('lampExplanation').classList.remove('show');
+  buildLampDots();
+}
+
+function selectLampOpt(i) {
+  if (lAnswered) return;
+  lSelected = i;
+  document.querySelectorAll('#lampOptions .opt-btn').forEach((b, idx) => {
+    b.className = 'opt-btn' + (idx === i ? ' selected' : '');
+  });
+  document.getElementById('lampSubmit').disabled = false;
+}
+
+function submitLamp() {
+  if (lSelected === null || lAnswered) return;
+  lAnswered = true;
+  const q = lampQs[lIdx];
+  const btns = document.querySelectorAll('#lampOptions .opt-btn');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.ans) b.classList.add('correct');
+    else if (i === lSelected) b.classList.add('wrong');
+  });
+  if (lSelected === q.ans) {
+    lScore++;
+    updateLampGlow(lScore);
+  } else {
+    document.getElementById('lampGame').classList.add('shake');
+    setTimeout(() => document.getElementById('lampGame').classList.remove('shake'), 400);
+  }
+  const expBox = document.getElementById('lampExplanation');
+  expBox.textContent = q.exp;
+  expBox.classList.add('show');
+  document.getElementById('lampSubmit').style.display = 'none';
+  const nextBtn = document.getElementById('lampNext');
+  nextBtn.style.display = 'inline-block';
+  nextBtn.textContent = lIdx === lampQs.length - 1 ? 'סִיּוּם 🎉' : 'שְׁאֵלָה הַבָּאָה ←';
+}
+
+function nextLamp() {
+  if (lIdx < lampQs.length - 1) {
+    lIdx++;
+    buildLampQuestion();
+  } else {
+    document.getElementById('lampSentence').style.display = 'none';
+    document.getElementById('lampOptions').style.display = 'none';
+    document.getElementById('lampExplanation').classList.remove('show');
+    document.getElementById('lampNext').style.display = 'none';
+    document.querySelector('.lamp-scene').style.display = 'none';
+    document.getElementById('lampScore').textContent = lScore + ' / ' + lampQs.length;
+    document.getElementById('lampResult').classList.add('show');
+  }
+}
+
+function restartLamp() {
+  lIdx = 0; lScore = 0; lSelected = null; lAnswered = false;
+  document.getElementById('lampResult').classList.remove('show');
+  document.querySelector('.lamp-scene').style.display = 'flex';
+  document.getElementById('lampSentence').style.display = 'block';
+  document.getElementById('lampOptions').style.display = 'grid';
+  updateLampGlow(0);
+  buildLampQuestion();
+}
+
+buildLampQuestion();
+updateLampGlow(0);
+</script>
+
+</body>
+</html>

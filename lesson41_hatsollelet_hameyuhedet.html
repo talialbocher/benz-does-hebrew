@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַצּוֹלֶלֶת הַמְּיֻחֶדֶת — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:#be123c; --rose-dk:#881337; --rose-md:#fb7185; --rose-lt:#ffe4e6; --rose-pal:#fff1f2; --rose-2:#fecdd3;
+  --emer:#059669; --emer-dk:#047857; --emer-md:#34d399; --emer-lt:#d1fae5; --emer-pal:#ecfdf5; --emer-2:#a7f3d0;
+  --ok:#16a34a; --ok-lt:#dcfce7; --red-lt:#fee2e2;
+  --ink:#1a0a0d; --muted:#6b7280; --white:#fff;
+  /* aliases used by the submarine game widgets */
+  --primary:#be123c; --primary-light:#e11d48; --primary-pale:#fff1f2;
+  --accent:#059669; --accent-light:#34d399; --accent-pale:#d1fae5;
+  --correct:#16a34a; --wrong:#dc2626; --text:#1a0a0d; --card:#fff; --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--rose-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+.header{background:linear-gradient(160deg,#4a0d1e 0%,#be123c 55%,#fb7185 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#fecdd3;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(251,113,133,.5),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#fecdd3;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#4a0d1e;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(190,18,60,.35)}
+.header-flag-strip{background:var(--emer);height:6px}
+
+.lesson-nav{background:#4a0d1e;padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#fecdd3;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--rose-md);border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#be123c;color:#fff}
+.nav-current{color:#fda4af;font-size:.78rem;font-weight:800;margin-right:auto}
+
+.progress-strip{background:#4a0d1e;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#fecdd3;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:var(--rose-md);border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#fecdd3,var(--emer));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#fde68a;font-size:1rem;letter-spacing:2px}
+
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-rose{background:linear-gradient(180deg,#fecdd3,#be123c)}
+.cs-emer{background:linear-gradient(180deg,#a7f3d0,#059669)}
+.cs-grn{background:linear-gradient(180deg,#bbf7d0,#16a34a)}
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-rose{background:var(--rose-pal);border:1.5px solid var(--rose-2)}
+.si-emer{background:var(--emer-pal);border:1.5px solid var(--emer-2)}
+.si-grn{background:#f0fdf4;border:1.5px solid #bbf7d0}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+.story-wrap{background:var(--rose-pal);border:2px solid var(--rose-2);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--rose-dk);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.7;color:#1e2d3d;margin-bottom:10px}
+.active-mark{color:var(--emer-dk);font-weight:800;background:var(--emer-lt);border-radius:4px;padding:0 4px}
+.passive-mark{color:var(--rose-dk);font-weight:800;background:var(--rose-lt);border-radius:4px;padding:0 4px}
+.story-legend{font-size:.86rem;color:var(--muted);margin-top:12px;text-align:center}
+
+.gram-intro{background:var(--rose-pal);border:2px dashed var(--rose-md);border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:.97rem;font-weight:600;color:var(--rose-dk);line-height:1.9}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.vocab-item{background:var(--emer-pal);border:2px solid var(--emer-2);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vword{font-family:'Frank Ruhl Libre',serif;font-weight:700;color:var(--emer-dk);font-size:1.15rem}
+.vdef{color:var(--muted);font-size:.85rem;text-align:left;direction:ltr}
+
+/* comprehension + exercises (preserved widgets, re-themed) */
+.comp-question{margin-bottom:14px;background:var(--rose-pal);border:2px solid var(--rose-2);border-radius:14px;padding:14px 18px}
+.comp-q-text{font-size:1.06rem;font-weight:700;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start}
+.comp-q-text .n{width:26px;height:26px;border-radius:50%;background:var(--rose);color:#fff;font-weight:900;font-size:.82rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.comp-options{display:flex;flex-wrap:wrap;gap:8px}
+.comp-opt{background:#fff;border:2px solid var(--rose-2);border-radius:10px;padding:8px 14px;font-size:1rem;cursor:pointer;font-family:'Frank Ruhl Libre',serif;transition:all .18s}
+.comp-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--rose);background:var(--rose-lt)}
+.comp-opt.correct{background:var(--ok-lt);border-color:var(--ok);color:#14532d;font-weight:600}
+.comp-opt.wrong{background:var(--red-lt);border-color:var(--wrong);color:#7f1d1d}
+.comp-feedback{font-size:.9rem;color:var(--ok);margin-top:8px;min-height:1.1rem;font-weight:700}
+.comp-feedback.wrong{color:var(--wrong)}
+
+.ex-item{margin-bottom:14px;padding:14px 18px;background:var(--emer-pal);border:2px solid var(--emer-2);border-radius:14px;font-size:1.05rem;line-height:1.9}
+.ex-num{font-weight:800;color:var(--emer-dk);margin-left:.4rem}
+.ex-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ex-btn{background:#fff;border:2px solid var(--emer-2);border-radius:10px;padding:8px 16px;font-size:1rem;cursor:pointer;font-family:'Frank Ruhl Libre',serif;transition:all .18s}
+.ex-btn:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--emer);background:var(--emer-lt)}
+.ex-btn.correct{background:var(--ok-lt);border-color:var(--ok);color:#14532d;font-weight:600}
+.ex-btn.wrong{background:var(--red-lt);border-color:var(--wrong);color:#7f1d1d}
+.ex-feedback{font-size:.9rem;margin-top:8px;min-height:1.1rem;font-weight:700}
+.ex-feedback.ok{color:var(--ok)}.ex-feedback.no{color:var(--wrong)}
+
+/* grammar compare */
+.grammar-compare{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}
+@media(max-width:520px){.grammar-compare{grid-template-columns:1fr}.vocab-grid{grid-template-columns:1fr}}
+.gbox{border-radius:12px;padding:14px 16px;font-size:1rem;line-height:1.9}
+.gbox.active-box{background:var(--emer-pal);border:2px solid var(--emer-2)}
+.gbox.passive-box{background:var(--rose-pal);border:2px solid var(--rose-2)}
+.gbox h3{font-size:1.05rem;margin-bottom:.35rem}
+.gbox h3.a{color:var(--emer-dk)}.gbox h3.p{color:var(--rose-dk)}
+.gbox .sent{font-size:1.1rem;margin-bottom:.3rem;font-family:'Frank Ruhl Libre',serif}
+.grammar-note{background:#fffbeb;border:2px solid #fde68a;border-radius:12px;padding:.85rem 1rem;margin:.8rem 0;font-size:.97rem;line-height:1.8;color:#78350f}
+.grammar-note strong{color:#92400e}
+.passive-forms{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.5rem;margin-top:.7rem}
+.form-card{background:var(--rose-pal);border:2px solid var(--rose-2);border-radius:10px;padding:.55rem .8rem;font-size:.97rem;line-height:1.8}
+.form-card .root{font-weight:800;color:var(--rose-dk);font-size:1.1rem;font-family:'Frank Ruhl Libre',serif}
+
+/* submarine game (preserved) */
+#sub-game{user-select:none}
+.ocean-scene{position:relative;width:100%;height:340px;background:linear-gradient(to bottom,#7dd3fc 0%,#0ea5e9 12%,#0369a1 35%,#1e4e8c 60%,#0f2d5a 80%,#07142a 100%);border-radius:14px;overflow:hidden;margin-bottom:1rem;border:2px solid var(--rose)}
+.ocean-scene::before{content:'';position:absolute;top:22px;left:-10%;width:120%;height:22px;background:rgba(125,211,252,.45);border-radius:50%;box-shadow:0 8px 20px rgba(125,211,252,.3);animation:wave 3s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:translateY(0) scaleX(1)}50%{transform:translateY(4px) scaleX(1.04)}}
+.depth-line{position:absolute;right:0;left:0;height:1px;background:rgba(255,255,255,.12)}
+.depth-label{position:absolute;left:10px;color:rgba(255,255,255,.45);font-size:.75rem;transform:translateY(-50%)}
+.submarine{position:absolute;right:30px;width:90px;height:38px;transition:top .9s cubic-bezier(.4,0,.2,1)}
+.sub-body{width:90px;height:38px;background:var(--rose);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;position:relative;box-shadow:inset -6px -4px 0 rgba(0,0,0,.2)}
+.sub-tower{position:absolute;top:-16px;right:24px;width:22px;height:17px;background:var(--primary-light);border-radius:4px 4px 0 0}
+.sub-scope{position:absolute;top:-24px;right:31px;width:4px;height:10px;background:var(--accent-light);border-radius:2px}
+.sub-prop{position:absolute;left:-7px;top:9px;width:7px;height:20px;background:#fecdd3;border-radius:3px;animation:spin-prop .6s linear infinite}
+@keyframes spin-prop{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+.sub-port{position:absolute;top:12px;right:28px;width:14px;height:14px;background:#fbbf24;border-radius:50%;border:2px solid rgba(255,255,255,.4)}
+.sub-port2{position:absolute;top:12px;right:50px;width:10px;height:10px;background:#fbbf24;opacity:.6;border-radius:50%;border:2px solid rgba(255,255,255,.3)}
+@keyframes sub-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(8px)}40%{transform:translateX(-8px)}60%{transform:translateX(5px)}80%{transform:translateX(-5px)}}
+.sub-shake{animation:sub-shake .5s ease}
+.bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);animation:rise 1.8s ease-in forwards}
+@keyframes rise{0%{opacity:.7;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-80px) scale(.4)}}
+.treasure{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:2rem;opacity:0;transition:opacity .8s .4s;filter:drop-shadow(0 0 8px #fbbf24)}
+.treasure.show{opacity:1}
+.depth-display{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.45);color:#fff;padding:.3rem .7rem;border-radius:20px;font-size:.85rem;font-weight:600}
+.pips{display:flex;gap:.45rem;justify-content:center;margin-bottom:.9rem}
+.pip{width:14px;height:14px;border-radius:50%;background:var(--rose-2);transition:background .3s,transform .2s}
+.pip.done{background:var(--emer)}.pip.current{background:var(--rose);transform:scale(1.15)}
+.game-q-card{background:var(--rose-pal);border:2px solid var(--rose-2);border-radius:14px;padding:1rem 1.2rem;margin-bottom:.9rem;font-size:1.1rem;line-height:1.85;text-align:center}
+.game-q-label{font-size:.88rem;color:var(--muted);margin-bottom:.3rem}
+.game-sentence{font-size:1.25rem;font-weight:600;color:var(--ink);font-family:'Frank Ruhl Libre',serif}
+.choice-btns{display:flex;gap:.7rem;justify-content:center;margin-bottom:.7rem;flex-wrap:wrap}
+.choice-btn{min-width:120px;padding:.65rem 1.4rem;border-radius:12px;border:2.5px solid #d1d5db;background:#fff;font-size:1.1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;transition:all .18s}
+.choice-btn.active-choice{border-color:var(--emer);background:var(--emer-pal);color:var(--emer-dk)}
+.choice-btn.passive-choice{border-color:var(--rose);background:var(--rose-pal);color:var(--rose-dk)}
+.choice-btn.correct-answer{background:var(--ok-lt);border-color:var(--ok);color:#14532d}
+.choice-btn.wrong-answer{background:var(--red-lt);border-color:var(--wrong);color:#7f1d1d}
+.confirm-btn{display:none;width:100%;max-width:220px;margin:0 auto .7rem;padding:.6rem 1rem;border:none;border-radius:12px;background:var(--rose);color:#fff;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.confirm-btn.show{display:block}
+.explain-box{display:none;background:var(--emer-pal);border:2px solid var(--emer-2);border-radius:12px;padding:.75rem 1rem;font-size:.97rem;color:var(--emer-dk);line-height:1.8;margin-bottom:.8rem;font-weight:600}
+.explain-box.show{display:block}
+.next-btn{display:none;width:100%;max-width:180px;margin:0 auto;padding:.55rem 1rem;border:none;border-radius:12px;background:var(--emer);color:#fff;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.next-btn.show{display:block}
+.result-banner{display:none;text-align:center;padding:1.4rem 1rem;background:linear-gradient(135deg,#be123c,#4a0d1e);color:#fff;border-radius:14px;margin-top:.8rem}
+.result-banner.show{display:block}
+.result-banner h2{font-size:1.5rem;margin-bottom:.4rem}
+.result-banner p{font-size:1rem;opacity:.9;line-height:1.6}
+.score-big{font-size:2.5rem;font-weight:bold;color:var(--emer-md)}
+
+/* writing */
+.writing-intro{background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:14px 18px;margin-bottom:16px;font-size:.97rem;font-weight:600;color:#166534;line-height:1.9}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.92rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-submit-btn{background:var(--rose);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-reset-btn{background:#6b7280;color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+
+.score-panel{background:#fff;border:3px solid var(--rose-2);border-radius:22px;padding:24px 28px;text-align:center}
+.score-title{font-size:1.1rem;font-weight:900;color:var(--rose-dk);margin-bottom:10px}
+.score-emojis{font-size:2rem;letter-spacing:6px;margin-bottom:10px}
+.score-bar{background:var(--rose-2);border-radius:100px;height:12px;overflow:hidden;margin-bottom:12px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--rose-md),var(--emer));border-radius:100px;width:0%;transition:width .7s ease}
+.score-msg{font-size:.97rem;font-weight:600;color:var(--ink)}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px 16px 40px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🚢</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🌊</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:55%">💎</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:74%">🔍</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:40%">⚓</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">🚢 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 41</div>
+    <h1>הַצּוֹלֶלֶת הַמְּיֻחֶדֶת</h1>
+    <div class="header-sub">פָּעִיל וְסָבִיל — Active &amp; Passive</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: פָּעִיל וְסָבִיל</div>
+  </div>
+</div>
+<div class="header-flag-strip"></div>
+
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson39_haotsar_hamusstar.html">→ 39</a>
+  <a class="nav-btn" href="lesson40_hakatav_hakatan.html">→ 40</a>
+  <a class="nav-btn" href="lesson42_hayom_harishon.html">→ 42</a>
+  <span class="nav-current">שִׁיעוּר 41 ◀</span>
+</nav>
+
+<div class="progress-strip">
+  <span class="prog-label">הַתְקַדְּמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  <span class="prog-stars" id="prog-stars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+  <!-- STORY -->
+  <div class="card">
+    <div class="card-stripe cs-rose"></div>
+    <div class="sec-header"><div class="sec-icon si-rose">📖</div><div><span class="sec-num">חֵלֶק א׳</span><div class="sec-title">קְרִיאָה</div></div></div>
+    <div class="story-wrap">
+      <div class="story-title">הַצּוֹלֶלֶת הַמְּיֻחֶדֶת</div>
+      <p class="story-p">כִּיתָה ד׳ <span class="active-mark">יָצְאָה</span> לְטִיּוּל מְיֻחָד. הַמּוֹרָה דָּנִית <span class="active-mark">הוֹבִילָה</span> אֶת הַיְּלָדִים לְנָמֵל הַיָּם. שָׁם עָמְדָה צוֹלֶלֶת גְּדוֹלָה וּמַרְשִׁימָה. "הַצּוֹלֶלֶת הַזֹּאת <span class="passive-mark">נִבְנְתָה</span> לִפְנֵי עֶשְׂרִים שָׁנָה," אָמְרָה הַמּוֹרָה, "וְהִיא <span class="passive-mark">נִמְסְרָה</span> לַמּוּזֵאוֹן לִפְנֵי שָׁלֹשׁ שָׁנִים."</p>
+      <p class="story-p">אוֹרִי <span class="active-mark">הִסְתַּכֵּל</span> עַל הַצּוֹלֶלֶת בְּהִתְפַּעֲלוּת. "מִי בָּנָה אוֹתָהּ?" הוּא שָׁאַל. "הִיא <span class="passive-mark">נִבְנְתָה</span> עַל-יְדֵי מְהַנְדְּסִים מְנֻסִּים," הִסְבִּירָה הַמּוֹרָה. "כָּל בֹּרֶג וְכָל לוּחַ מַתֶּכֶת <span class="passive-mark">יֻצַּר</span> בְּמִפְעָל מְיֻחָד, וְאַחַר כָּךְ הַחֲלָקִים <span class="passive-mark">הוּרְכְּבוּ</span> יַחַד."</p>
+      <p class="story-p">מַדְרִיךְ בְּשֵׁם רוֹנֶן <span class="active-mark">קִיבֵּל</span> אֶת הַיְּלָדִים בְּחִיּוּךְ גָּדוֹל. הוּא <span class="active-mark">לָקַח</span> אוֹתָם פְּנִימָה וְהֶרְאָה לָהֶם לוּחוֹת שְׁלִיטָה וּמַסָּכֵי מַחְשֵׁב. "הַמָּנוֹעַ <span class="passive-mark">מֻפְעָל</span> עַל-יְדֵי חַשְׁמַל," אָמַר רוֹנֶן, "וְהַמַּיִם <span class="passive-mark">נִשְׁאָבִים</span> לְתוֹךְ הַמְּכָלִים כְּדֵי שֶׁהַצּוֹלֶלֶת תִּצְלֹל."</p>
+      <p class="story-p">שִׁירָה <span class="active-mark">שָׁאֲלָה</span>: "אֶפְשָׁר לִלְמֹד לְהַפְעִיל צוֹלֶלֶת?" "כֵּן," אָמַר רוֹנֶן, "אֲבָל צָרִיךְ לִלְמֹד שָׁנִים רַבּוֹת." בְּסוֹף הַטִּיּוּל, כָּל יֶלֶד <span class="active-mark">קִיבֵּל</span> חוֹבֶרֶת קְטַנָּה שֶׁ<span class="passive-mark">נִּכְתְּבָה</span> עַל-יְדֵי רוֹנֶן עַצְמוֹ. "אֲנִי רוֹצָה לִהְיוֹת מְהַנְדֶּסֶת צוֹלֶלוֹת!" <span class="active-mark">אָמְרָה</span> שִׁירָה בְּגַאֲוָה.</p>
+      <div class="story-legend"><span style="color:var(--emer-dk);font-weight:700">יָרֹק</span> = פָּעִיל (active) &nbsp;|&nbsp; <span style="color:var(--rose-dk);font-weight:700">אָדֹם</span> = סָבִיל (passive)</div>
+    </div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="card">
+    <div class="card-stripe cs-emer"></div>
+    <div class="sec-header"><div class="sec-icon si-emer">📝</div><div><span class="sec-num">חֵלֶק ב׳</span><div class="sec-title">אוֹצַר מִילִּים</div></div></div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="vword">צוֹלֶלֶת</span><span class="vdef">submarine</span></div>
+      <div class="vocab-item"><span class="vword">נָמֵל</span><span class="vdef">port, harbor</span></div>
+      <div class="vocab-item"><span class="vword">מְהַנְדֵּס / מְהַנְדֶּסֶת</span><span class="vdef">engineer (m/f)</span></div>
+      <div class="vocab-item"><span class="vword">מַדְרִיךְ / מַדְרִיכָה</span><span class="vdef">guide (m/f)</span></div>
+      <div class="vocab-item"><span class="vword">מָנוֹעַ</span><span class="vdef">engine, motor</span></div>
+      <div class="vocab-item"><span class="vword">מְכָלִים</span><span class="vdef">tanks, containers</span></div>
+      <div class="vocab-item"><span class="vword">הִתְפַּעֲלוּת</span><span class="vdef">admiration, amazement</span></div>
+      <div class="vocab-item"><span class="vword">הוּרְכְּבוּ</span><span class="vdef">were assembled</span></div>
+    </div>
+  </div>
+
+  <!-- COMPREHENSION -->
+  <div class="card">
+    <div class="card-stripe cs-rose"></div>
+    <div class="sec-header"><div class="sec-icon si-rose">💬</div><div><span class="sec-num">חֵלֶק ג׳</span><div class="sec-title">שְׁאֵלוֹת הֲבָנָה</div></div></div>
+    <div id="comprehension"></div>
+  </div>
+
+  <!-- GRAMMAR -->
+  <div class="card">
+    <div class="card-stripe cs-emer"></div>
+    <div class="sec-header"><div class="sec-icon si-emer">📚</div><div><span class="sec-num">חֵלֶק ד׳</span><div class="sec-title">פָּעִיל וְסָבִיל</div></div></div>
+    <div class="gram-intro">בְּעִבְרִית יֵשׁ שְׁנֵי סוּגֵי מִשְׁפָּטִים עִיקָּרִיִּים לְפִי מִי עוֹשֶׂה אֶת הַפְּעֻלָּה:</div>
+    <div class="grammar-compare">
+      <div class="gbox active-box"><h3 class="a">פָּעִיל (Active)</h3><p>הַנּוֹשֵׂא <strong>עוֹשֶׂה</strong> אֶת הַפְּעֻלָּה.</p><br><div class="sent">🟢 אוֹרִי <strong>בָּנָה</strong> אֶת הַמִּגְדָּל.</div><div class="sent">🟢 הַמּוֹרָה <strong>כָּתְבָה</strong> אֶת הַשִּׁיעוּר.</div><div class="sent">🟢 הַיְּלָדִים <strong>שָׁרוּ</strong> שִׁיר.</div></div>
+      <div class="gbox passive-box"><h3 class="p">סָבִיל (Passive)</h3><p>הַנּוֹשֵׂא <strong>מְקַבֵּל</strong> אֶת הַפְּעֻלָּה.</p><br><div class="sent">🔴 הַמִּגְדָּל <strong>נִבְנָה</strong> עַל-יְדֵי אוֹרִי.</div><div class="sent">🔴 הַשִּׁיעוּר <strong>נִכְתַּב</strong> עַל-יְדֵי הַמּוֹרָה.</div><div class="sent">🔴 הַשִּׁיר <strong>נִשְׁמַע</strong> בֶּחָצֵר.</div></div>
+    </div>
+    <div class="grammar-note">💡 <strong>סִימָן מַזְהֶה:</strong> בְּמִשְׁפָּט סָבִיל הַפֹּעַל מַתְחִיל לְרֹב בְּ<strong>נִ-</strong> (נִבְנָה, נִכְתַּב, נִפְתַּח) אוֹ מְקַבֵּל תַּבְנִית מְיֻחֶדֶת (מֻפְעָל, הוּרְכַּב). לְעִתִּים מוֹפִיעָה הַמִּילָּה <strong>"עַל-יְדֵי"</strong> כְּדֵי לְהַסְבִּיר מִי עָשָׂה אֶת הַפְּעֻלָּה.</div>
+    <p style="font-weight:800;margin:.8rem 0 .5rem;color:var(--rose-dk)">דּוּגְמָאוֹת לִפְעָלִים סְבִילִים נְפוֹצִים:</p>
+    <div class="passive-forms">
+      <div class="form-card"><div class="root">נִבְנָה / נִבְנְתָה</div>was built (m/f)</div>
+      <div class="form-card"><div class="root">נִכְתַּב / נִכְתְּבָה</div>was written (m/f)</div>
+      <div class="form-card"><div class="root">נִפְתַּח / נִפְתְּחָה</div>was opened (m/f)</div>
+      <div class="form-card"><div class="root">נִשְׁלַח / נִשְׁלְחָה</div>was sent (m/f)</div>
+      <div class="form-card"><div class="root">נִמְצָא / נִמְצְאָה</div>was found (m/f)</div>
+      <div class="form-card"><div class="root">מֻפְעָל / מֻפְעֶלֶת</div>is operated (m/f)</div>
+    </div>
+  </div>
+
+  <!-- EXERCISES -->
+  <div class="card">
+    <div class="card-stripe cs-rose"></div>
+    <div class="sec-header"><div class="sec-icon si-rose">✏️</div><div><span class="sec-num">חֵלֶק ה׳</span><div class="sec-title">תַּרְגִּיל — פָּעִיל אוֹ סָבִיל?</div></div></div>
+    <div class="gram-intro">בְּחַר אֶת הַתְּשׁוּבָה הַנְּכוֹנָה לְכָל מִשְׁפָּט.</div>
+    <div id="exercises"></div>
+  </div>
+
+  <!-- GAME -->
+  <div class="card" id="sub-game">
+    <div class="card-stripe cs-emer"></div>
+    <div class="sec-header"><div class="sec-icon si-emer">🎮</div><div><span class="sec-num">חֵלֶק ו׳ — מִשְׂחָק</span><div class="sec-title">צְלִילַת הַצּוֹלֶלֶת</div></div></div>
+    <div class="gram-intro" style="text-align:center">לְכָל תְּשׁוּבָה נְכוֹנָה הַצּוֹלֶלֶת יוֹרֶדֶת עוֹד שְׁכָבָה! 6 שְׁאֵלוֹת — הַגִּיעוּ לָאוֹצָר! 💎</div>
+    <div class="pips" id="game-pips"><div class="pip current" id="pip0"></div><div class="pip" id="pip1"></div><div class="pip" id="pip2"></div><div class="pip" id="pip3"></div><div class="pip" id="pip4"></div><div class="pip" id="pip5"></div></div>
+    <div class="ocean-scene" id="ocean">
+      <div class="depth-display" id="depth-display">פְּנֵי הַיָּם</div>
+      <div class="depth-line" style="top:17%"><span class="depth-label" style="top:17%">10מ׳</span></div>
+      <div class="depth-line" style="top:33%"><span class="depth-label" style="top:33%">20מ׳</span></div>
+      <div class="depth-line" style="top:50%"><span class="depth-label" style="top:50%">30מ׳</span></div>
+      <div class="depth-line" style="top:66%"><span class="depth-label" style="top:66%">40מ׳</span></div>
+      <div class="depth-line" style="top:82%"><span class="depth-label" style="top:82%">50מ׳</span></div>
+      <div class="submarine" id="submarine" style="top:20px;"><div class="sub-body"><div class="sub-tower"></div><div class="sub-scope"></div><div class="sub-prop"></div><div class="sub-port"></div><div class="sub-port2"></div></div></div>
+      <div class="treasure" id="treasure">💎</div>
+    </div>
+    <div id="game-area">
+      <div class="game-q-card" id="game-q"><div class="game-q-label">קְרָא אֶת הַמִּשְׁפָּט וְהַחְלֵט:</div><div class="game-sentence" id="game-sent"></div></div>
+      <div class="choice-btns">
+        <button class="choice-btn" id="btn-active" onclick="choose('פָּעִיל')">פָּעִיל ✅</button>
+        <button class="choice-btn" id="btn-passive" onclick="choose('סָבִיל')">סָבִיל 🔄</button>
+      </div>
+      <button class="confirm-btn" id="confirm-btn" onclick="confirmAns()">אֲשֵׁר תְּשׁוּבָה ▶</button>
+      <div class="explain-box" id="explain-box"></div>
+      <button class="next-btn" id="next-btn" onclick="nextRound()">הַמְשֵׁךְ ←</button>
+    </div>
+    <div class="result-banner" id="result-banner">
+      <div class="score-big" id="final-score"></div>
+      <h2>🎉 כָּל הַכָּבוֹד!</h2>
+      <p>הַצּוֹלֶלֶת <strong>הִגִּיעָה</strong> לָאוֹצָר! 💎<br>אַתֶּם מְבִינִים מְצֻיָּן אֶת הַהֶבְדֵּל בֵּין פָּעִיל לְסָבִיל!</p>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header"><div class="sec-icon si-grn">✍️</div><div><span class="sec-num">חֵלֶק ז׳</span><div class="sec-title">מַטְלַת כְּתִיבָה</div></div></div>
+    <div class="writing-intro">כְּתֹב 5 מִשְׁפָּטִים — שְׁנַיִם בְּגוּף פָּעִיל וּשְׁלֹשָׁה בְּגוּף סָבִיל. לְדֻגְמָה: <strong>פָּעִיל:</strong> הַמּוֹרָה בֵּרְכָה אֶת הַתַּלְמִידִים. <strong>סָבִיל:</strong> הַתַּלְמִידִים בּוֹרְכוּ עַל-יְדֵי הַמּוֹרָה.</div>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+      <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+  </div>
+
+  <!-- SCORE -->
+  <div class="score-panel" id="score-panel">
+    <div class="score-title">📊 תּוֹצְאוֹת הַשִּׁיעוּר</div>
+    <div class="score-emojis" id="score-emojis">☆☆☆☆☆</div>
+    <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    <div class="score-msg" id="score-msg">עֲנֵה עַל הַשְּׁאֵלוֹת וְשַׂחֵק כְּדֵי לִרְאוֹת אֶת הַתּוֹצָאָה!</div>
+  </div>
+
+</div>
+
+<footer>שִׁיעוּר 41 מִתּוֹךְ סִדְרַת "סִיפּוּרִים בְּעִבְרִית" · כָּל הַזְּכֻיּוֹת שְׁמוּרוֹת</footer>
+
+<script>
+let correct = 0;
+const TOTAL = 4 + 5 + 6;
+function updateProgress() {
+  const pct = Math.round((correct / TOTAL) * 100);
+  const s = Math.round((correct / TOTAL) * 5);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-stars').textContent = '★'.repeat(s) + '☆'.repeat(5 - s);
+  document.getElementById('score-emojis').textContent = '★'.repeat(s) + '☆'.repeat(5 - s);
+  document.getElementById('score-bar-fill').style.width = pct + '%';
+  const msg = document.getElementById('score-msg');
+  if (correct >= TOTAL) msg.textContent = '🏆 מֻשְׁלָם! עָנִיתָ נָכוֹן עַל הַכֹּל!';
+  else msg.textContent = correct + ' מִתּוֹךְ ' + TOTAL + ' נְכוֹנִים — כָּל הַכָּבוֹד!';
+}
+
+// COMPREHENSION
+const COMP = [
+  { q:'לְאָן יָצְאָה כִּיתָה ד׳ לְטִיּוּל?', options:['לְמוּזֵאוֹן הַמַּדָּע','לְנָמֵל הַיָּם','לְמִפְעַל מְהַנְדְּסִים'], answer:1 },
+  { q:'מִי בָּנָה אֶת הַצּוֹלֶלֶת?', options:['רוֹנֶן הַמַּדְרִיךְ','הַמּוֹרָה דָּנִית','מְהַנְדְּסִים מְנֻסִּים'], answer:2 },
+  { q:'מָה עוֹשִׂים הַמַּיִם בַּצּוֹלֶלֶת?', options:['מְצַנְּנִים אֶת הַמָּנוֹעַ','נִשְׁאָבִים לְתוֹךְ הַמְּכָלִים כְּדֵי שֶׁהַצּוֹלֶלֶת תִּצְלֹל','מַפְעִילִים אֶת לוּחוֹת הַשְּׁלִיטָה'], answer:1 },
+  { q:'מָה רָצְתָה שִׁירָה לִהְיוֹת כְּשֶׁתִּגְדַּל?', options:['מַדְרִיכַת טִיּוּלִים','קַצִּינַת יָם','מְהַנְדֶּסֶת צוֹלֶלוֹת'], answer:2 }
+];
+const compDone = {};
+function buildComp() {
+  const w = document.getElementById('comprehension');
+  COMP.forEach((c, i) => {
+    const d = document.createElement('div');
+    d.className = 'comp-question';
+    d.innerHTML = '<div class="comp-q-text"><span class="n">' + (i + 1) + '</span>' + c.q + '</div>';
+    const opts = document.createElement('div'); opts.className = 'comp-options';
+    c.options.forEach((opt, j) => {
+      const b = document.createElement('button');
+      b.className = 'comp-opt'; b.textContent = opt;
+      b.onclick = () => ansComp(i, b, j);
+      opts.appendChild(b);
+    });
+    d.appendChild(opts);
+    const fb = document.createElement('div'); fb.className = 'comp-feedback'; fb.id = 'cf' + i;
+    d.appendChild(fb);
+    w.appendChild(d);
+  });
+}
+function ansComp(i, btn, j) {
+  const c = COMP[i], fb = document.getElementById('cf' + i);
+  if (j === c.answer) {
+    if (compDone[i]) return; compDone[i] = true;
+    document.querySelectorAll('#comprehension .comp-question')[i].querySelectorAll('.comp-opt').forEach((b, k) => { b.disabled = true; if (k === c.answer) b.classList.add('correct'); });
+    fb.textContent = '✔ נְכוֹן מְאוֹד!'; fb.className = 'comp-feedback';
+    correct++; updateProgress();
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '✘ לֹא מְדֻיָּק — נַסֵּה שׁוּב.'; fb.className = 'comp-feedback wrong';
+    setTimeout(() => { btn.classList.remove('wrong'); }, 700);
+  }
+}
+
+// EXERCISES
+const EX = [
+  { text:'הַדֶּלֶת נִפְתְּחָה עַל-יְדֵי הַמּוֹרָה.', options:['פָּעִיל','סָבִיל'], answer:'סָבִיל' },
+  { text:'הַיְּלָדִים שָׁרוּ שִׁיר יָפֶה.', options:['פָּעִיל','סָבִיל'], answer:'פָּעִיל' },
+  { text:'הַמִּכְתָּב נִשְׁלַח לַחֲבֵרָה בְּאֵילַת.', options:['פָּעִיל','סָבִיל'], answer:'סָבִיל' },
+  { text:'הַסֵּפֶר הֶחָדָשׁ נִמְצָא בַּסִּפְרִיָּה.', options:['פָּעִיל','סָבִיל'], answer:'סָבִיל' },
+  { text:'אֵיזֶה מִשְׁפָּט הוּא הַצּוּרָה הַסְּבִילָה שֶׁל "הָאַרְנָב אָכַל אֶת הַגֶּזֶר"?', options:['הָאַרְנָב לֹא אָכַל אֶת הַגֶּזֶר.','הַגֶּזֶר נֶאֱכַל עַל-יְדֵי הָאַרְנָב.','הָאַרְנָב אוֹהֵב לֶאֱכֹל גְּזָרִים.'], answer:'הַגֶּזֶר נֶאֱכַל עַל-יְדֵי הָאַרְנָב.' }
+];
+const exDone = {};
+function buildEx() {
+  const w = document.getElementById('exercises');
+  EX.forEach((ex, i) => {
+    const d = document.createElement('div');
+    d.className = 'ex-item';
+    d.innerHTML = '<span class="ex-num">' + (i + 1) + '.</span> ' + ex.text;
+    const opts = document.createElement('div'); opts.className = 'ex-opts';
+    ex.options.forEach(opt => {
+      const b = document.createElement('button');
+      b.className = 'ex-btn'; b.textContent = opt;
+      b.onclick = () => ansEx(i, b, opt);
+      opts.appendChild(b);
+    });
+    d.appendChild(opts);
+    const fb = document.createElement('div'); fb.className = 'ex-feedback'; fb.id = 'ef' + i;
+    d.appendChild(fb);
+    w.appendChild(d);
+  });
+}
+function ansEx(i, btn, chosen) {
+  const ex = EX[i], fb = document.getElementById('ef' + i);
+  if (chosen === ex.answer) {
+    if (exDone[i]) return; exDone[i] = true;
+    document.querySelectorAll('#exercises .ex-item')[i].querySelectorAll('.ex-btn').forEach(b => { b.disabled = true; if (b.textContent === ex.answer) b.classList.add('correct'); });
+    fb.textContent = '✔ נָכוֹן!'; fb.className = 'ex-feedback ok';
+    correct++; updateProgress();
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '✘ לֹא מְדֻיָּק — נַסֵּה שׁוּב.'; fb.className = 'ex-feedback no';
+    setTimeout(() => { btn.classList.remove('wrong'); }, 700);
+  }
+}
+
+// SUBMARINE GAME
+const rounds = [
+  { sent:'כִּיתָה ד׳ יָצְאָה לְטִיּוּל מְיֻחָד.', correct:'פָּעִיל', explain:'הַפֹּעַל "יָצְאָה" הוּא פָּעִיל — כִּיתָה ד׳ עָשְׂתָה אֶת הַפְּעֻלָּה בְּעַצְמָהּ.' },
+  { sent:'הַצּוֹלֶלֶת נִבְנְתָה לִפְנֵי עֶשְׂרִים שָׁנָה.', correct:'סָבִיל', explain:'הַפֹּעַל "נִבְנְתָה" הוּא סָבִיל — מִישֶׁהוּ אַחֵר בָּנָה אֶת הַצּוֹלֶלֶת; הִיא קִיבְּלָה אֶת הַפְּעֻלָּה.' },
+  { sent:'רוֹנֶן לָקַח אֶת הַיְּלָדִים פְּנִימָה.', correct:'פָּעִיל', explain:'הַפֹּעַל "לָקַח" הוּא פָּעִיל — רוֹנֶן עָשָׂה אֶת הַפְּעֻלָּה בְּעַצְמוֹ.' },
+  { sent:'הַמָּנוֹעַ מֻפְעָל עַל-יְדֵי חַשְׁמַל.', correct:'סָבִיל', explain:'הַפֹּעַל "מֻפְעָל" הוּא סָבִיל — הַחַשְׁמַל מַפְעִיל; הַמָּנוֹעַ מְקַבֵּל אֶת הַפְּעֻלָּה.' },
+  { sent:'שִׁירָה שָׁאֲלָה שְׁאֵלָה בְּסַקְרָנוּת.', correct:'פָּעִיל', explain:'הַפֹּעַל "שָׁאֲלָה" הוּא פָּעִיל — שִׁירָה עַצְמָהּ עָשְׂתָה אֶת הַפְּעֻלָּה.' },
+  { sent:'הַחוֹבֶרֶת נִכְתְּבָה עַל-יְדֵי רוֹנֶן עַצְמוֹ.', correct:'סָבִיל', explain:'הַפֹּעַל "נִכְתְּבָה" הוּא סָבִיל — רוֹנֶן כָּתַב, אֲבָל הַחוֹבֶרֶת הִיא שֶׁ"קִיבְּלָה" אֶת הַכְּתִיבָה.' }
+];
+const depthLabels = ['פְּנֵי הַיָּם','10מ׳','20מ׳','30מ׳','40מ׳','50מ׳','קַרְקָעִית 💎'];
+const subPositions = [20, 62, 107, 152, 197, 232, 268];
+let gState = { round:0, score:0, chosen:null, confirmed:false };
+function initGame() { gState = { round:0, score:0, chosen:null, confirmed:false }; updateSub(0); showRound(); }
+function showRound() {
+  if (gState.round >= rounds.length) { endGame(); return; }
+  const r = rounds[gState.round];
+  document.getElementById('game-sent').textContent = r.sent;
+  document.getElementById('confirm-btn').classList.remove('show');
+  document.getElementById('explain-box').classList.remove('show');
+  document.getElementById('next-btn').classList.remove('show');
+  document.getElementById('explain-box').textContent = '';
+  document.getElementById('btn-active').disabled = false;
+  document.getElementById('btn-passive').disabled = false;
+  document.getElementById('btn-active').className = 'choice-btn';
+  document.getElementById('btn-passive').className = 'choice-btn';
+  gState.chosen = null; gState.confirmed = false;
+  document.getElementById('depth-display').textContent = depthLabels[gState.round];
+  for (let i = 0; i < 6; i++) document.getElementById('pip' + i).className = 'pip' + (i < gState.round ? ' done' : (i === gState.round ? ' current' : ''));
+}
+function choose(val) {
+  if (gState.confirmed) return;
+  gState.chosen = val;
+  document.getElementById('btn-active').className = 'choice-btn' + (val === 'פָּעִיל' ? ' active-choice' : '');
+  document.getElementById('btn-passive').className = 'choice-btn' + (val === 'סָבִיל' ? ' passive-choice' : '');
+  document.getElementById('confirm-btn').classList.add('show');
+}
+function confirmAns() {
+  if (!gState.chosen || gState.confirmed) return;
+  gState.confirmed = true;
+  const r = rounds[gState.round];
+  const isOK = gState.chosen === r.correct;
+  document.getElementById('btn-active').disabled = true;
+  document.getElementById('btn-passive').disabled = true;
+  document.getElementById('confirm-btn').classList.remove('show');
+  const ba = document.getElementById('btn-active'), bp = document.getElementById('btn-passive');
+  if (isOK) {
+    gState.score++; correct++; updateProgress();
+    if (gState.chosen === 'פָּעִיל') ba.classList.add('correct-answer'); else bp.classList.add('correct-answer');
+    updateSub(gState.round + 1); spawnBubbles();
+  } else {
+    if (gState.chosen === 'פָּעִיל') { ba.classList.add('wrong-answer'); bp.classList.add('correct-answer'); }
+    else { bp.classList.add('wrong-answer'); ba.classList.add('correct-answer'); }
+    const sub = document.getElementById('submarine');
+    sub.classList.add('sub-shake');
+    setTimeout(() => sub.classList.remove('sub-shake'), 600);
+  }
+  const eb = document.getElementById('explain-box');
+  eb.textContent = (isOK ? '✔ ' : '✘ ') + r.explain;
+  eb.classList.add('show');
+  document.getElementById('next-btn').classList.add('show');
+}
+function nextRound() {
+  gState.round++;
+  const prevPip = document.getElementById('pip' + (gState.round - 1));
+  if (prevPip) prevPip.className = 'pip done';
+  showRound();
+}
+function updateSub(level) {
+  const sub = document.getElementById('submarine');
+  sub.style.top = subPositions[Math.min(level, subPositions.length - 1)] + 'px';
+  document.getElementById('depth-display').textContent = depthLabels[Math.min(level, depthLabels.length - 1)];
+}
+function spawnBubbles() {
+  const scene = document.getElementById('ocean'), sub = document.getElementById('submarine');
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const size = 6 + Math.random() * 10;
+      const subTop = parseInt(sub.style.top) || 20;
+      b.style.cssText = 'width:' + size + 'px;height:' + size + 'px;right:' + (20 + Math.random() * 80) + 'px;top:' + (subTop + 20 + Math.random() * 10) + 'px;animation-duration:' + (1.2 + Math.random() * 0.8) + 's';
+      scene.appendChild(b);
+      setTimeout(() => b.remove(), 2200);
+    }, i * 120);
+  }
+}
+function endGame() {
+  document.getElementById('game-area').style.display = 'none';
+  document.getElementById('final-score').textContent = gState.score + '/6';
+  document.getElementById('result-banner').classList.add('show');
+  document.getElementById('treasure').classList.add('show');
+  document.getElementById('depth-display').textContent = 'קַרְקָעִית 💎';
+  for (let i = 0; i < 6; i++) document.getElementById('pip' + i).className = 'pip done';
+}
+
+// WRITING
+const wP = ['פָּעִיל: ...', 'פָּעִיל: ...', 'סָבִיל: ... עַל-יְדֵי ...', 'סָבִיל: ... עַל-יְדֵי ...', 'סָבִיל: ... עַל-יְדֵי ...'];
+function initW() {
+  const c = document.getElementById('writing-lines'); if (!c) return;
+  c.innerHTML = '';
+  wP.forEach((ph, i) => {
+    const d = document.createElement('div');
+    d.className = 'writing-line'; d.id = 'wline-' + i;
+    d.innerHTML = '<div class="writing-num">' + (i + 1) + '</div><input class="writing-input" id="winput-' + i + '" type="text" placeholder="' + ph + '" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d);
+  });
+  const r = document.getElementById('writing-result'); if (r) r.style.display = 'none';
+  const f = document.getElementById('writing-fb'); if (f) f.textContent = '';
+}
+function submitWriting() {
+  let n = 0;
+  for (let i = 0; i < 5; i++) {
+    const v = document.getElementById('winput-' + i).value.trim();
+    const l = document.getElementById('wline-' + i);
+    if (v.length > 1) { n++; l.className = 'writing-line filled'; } else l.className = 'writing-line';
+  }
+  const fb = document.getElementById('writing-fb'), res = document.getElementById('writing-result');
+  if (n < 5) { if (fb) { fb.textContent = '⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.'; fb.style.color = '#dc2626'; } if (res) res.style.display = 'none'; return; }
+  if (fb) fb.textContent = '';
+  if (res) { res.style.display = 'block'; res.innerHTML = '🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!'; }
+}
+function resetWriting() { initW(); }
+
+buildComp();
+buildEx();
+initGame();
+initW();
+</script>
+</body>
+</html>

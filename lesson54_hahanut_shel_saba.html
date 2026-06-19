@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שִׁיעוּר 54 — הַחֲנוּת שֶׁל סַבָּא</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ebf1fa;
+      color: #105f93;
+      direction: rtl;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #ece8fd 0%, #ebe8fc 100%);
+      border-bottom: 4px solid #a78bfa;
+      padding: 28px 20px 20px;
+      text-align: center;
+    }
+    header .lesson-num { font-size: 0.9rem; color: #311093; letter-spacing: 3px; margin-bottom: 6px; }
+    header h1 { font-size: 2.1rem; color: #1e293b; margin-bottom: 4px; }
+    header .subtitle { font-size: 1.05rem; color: #271093; margin-bottom: 10px; }
+    header .topic-badge {
+      display: inline-block;
+      background: #a78bfa;
+      color: #1a0a5c;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 4px 18px;
+      border-radius: 20px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 24px 16px 70px; }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #311093;
+      border-right: 5px solid #a78bfa;
+      padding-right: 12px;
+      margin: 32px 0 16px;
+    }
+
+    /* ===== STORY ===== */
+    .story-box {
+      background: #edeafa;
+      border: 1px solid #c0b7eb;
+      border-radius: 14px;
+      padding: 26px 28px;
+      font-size: 1.18rem;
+      line-height: 2.1;
+    }
+    .story-box p { margin-bottom: 0.6em; }
+    .story-box .highlight {
+      background: rgba(167,139,250,0.2);
+      color: #311093;
+      border-radius: 4px;
+      padding: 0 3px;
+      font-weight: bold;
+    }
+
+    /* ===== VOCABULARY ===== */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .vocab-card {
+      background: #edeafa;
+      border: 2px solid #c0b7eb;
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .vocab-card:hover { border-color: #a78bfa; }
+    .vocab-card .heb { font-size: 1.15rem; color: #311093; font-weight: bold; }
+    .vocab-card .eng { font-size: 0.85rem; color: #2c1093; margin-top: 4px; }
+
+    /* ===== GRAMMAR BOX ===== */
+    .grammar-box {
+      background: #edf8ed;
+      border: 2px solid #a78bfa;
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+    }
+    .grammar-box h3 { color: #311093; font-size: 1.2rem; margin-bottom: 12px; }
+    .grammar-box p { line-height: 1.9; color: #4e1093; font-size: 1.05rem; }
+    .grammar-table {
+      width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 1.05rem;
+    }
+    .grammar-table th {
+      background: rgba(167,139,250,0.2);
+      color: #311093;
+      padding: 10px 14px;
+      border: 1px solid #a78bfa;
+      text-align: center;
+    }
+    .grammar-table td {
+      padding: 10px 14px;
+      border: 1px solid #c0b7eb;
+      text-align: center;
+      color: #4e1093;
+    }
+    .grammar-table tr: nth-child(even) td { background: rgba(167,139,250,0.05); }
+    .grammar-box .example-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .grammar-box .ex-chip {
+      background: rgba(167,139,250,0.15);
+      border: 1px solid #a78bfa;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 1.05rem;
+      color: #311093;
+      white-space: nowrap;
+    }
+
+    /* ===== GAME SHARED ===== */
+    .game-box {
+      background: #edeafa;
+      border: 2px solid #c0b7eb;
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+    .game-title { font-size: 1.2rem; font-weight: bold; color: #1e293b; text-align: center; margin-bottom: 4px; }
+    .game-subtitle { font-size: 0.9rem; color: #271093; text-align: center; margin-bottom: 18px; }
+    .result-banner {
+      display: none;
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      color: #3b0764;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+    .progress-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 14px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #ece8fd; border: 2px solid #c0b7eb; transition: background 0.3s; }
+    .dot.done { background: #a78bfa; border-color: #a78bfa; }
+
+    /* ===== CARD FLIP GAME ===== */
+    #card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .flip-card-wrap {
+      perspective: 800px;
+      height: 100px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+      transform-style: preserve-3d;
+    }
+    .flip-card-wrap.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .flip-card-front {
+      background: linear-gradient(135deg, #eeebf9, #ece8fd);
+      border: 2px solid #a78bfa;
+      color: #311093;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: #ece8fd;
+      border: 2px solid #c0b7eb;
+      font-size: 1rem;
+      color: #271093;
+    }
+    .flip-card-wrap.answered .flip-card-front { cursor: default; }
+    .flip-card-wrap.correct-card .flip-card-back { border-color: #4ade80; background: rgba(74,222,128,0.1); }
+    .flip-card-wrap.wrong-card .flip-card-back { border-color: #f87171; background: rgba(248,113,113,0.1); }
+
+    #card-question-panel {
+      background: rgba(10,3,30,0.95);
+      border: 2px solid #a78bfa;
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: none;
+      margin-top: 4px;
+    }
+    #card-question-text {
+      font-size: 1.15rem;
+      font-weight: bold;
+      line-height: 1.9;
+      color: #105f93;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .card-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .card-opt-btn {
+      background: #ece8fd;
+      border: 2px solid #c0b7eb;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      color: #105f93;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      font-family: inherit;
+    }
+    .card-opt-btn:hover:not(:disabled) { border-color: #a78bfa; background: #eee9fb; }
+    .card-opt-btn.selected { border-color: #a78bfa; background: rgba(167,139,250,0.15); }
+    .card-opt-btn.correct-ans { border-color: #4ade80; background: rgba(74,222,128,0.15); color: #4ade80; }
+    .card-opt-btn.wrong-ans { border-color: #f87171; background: rgba(248,113,113,0.15); color: #931010; }
+    #card-submit-btn, #card-next-btn {
+      display: block; margin: 14px auto 0;
+      background: #a78bfa; color: #1a0a5c;
+      border: none; border-radius: 10px;
+      padding: 10px 28px; font-size: 1rem;
+      font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+    #card-submit-btn:disabled { opacity: 0.4; cursor: default; }
+    #card-next-btn { display: none; background: #7c3aed; color: #fff; }
+    #card-explanation {
+      background: rgba(167,139,250,0.12);
+      border: 1px solid #a78bfa;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: #271093;
+      margin-top: 12px;
+      display: none;
+      line-height: 1.7;
+      text-align: center;
+    }
+    #card-status { text-align: center; color: #2c1093; font-size: 0.92rem; margin-top: 10px; }
+
+    /* ===== MARKET GRAMMAR GAME ===== */
+    #market-scene {
+      background: linear-gradient(180deg, #edf8ed 0%, #ecf9ef 60%, #ebf1fa 100%);
+      border-radius: 14px;
+      padding: 20px;
+      min-height: 260px;
+      position: relative;
+    }
+    #market-deco {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      font-size: 2.4rem;
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    #market-deco.collected { transform: translateY(-140px) scale(1.4); opacity: 0; }
+    #market-round-label { text-align: center; color: #2c1093; font-size: 0.9rem; margin-bottom: 14px; }
+    #market-sentence-display {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #105f93;
+      background: rgba(0,0,0,0.00);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      line-height: 2;
+    }
+    #market-sentence-display .blank {
+      display: inline-block;
+      min-width: 100px;
+      border-bottom: 3px solid #a78bfa;
+      color: #311093;
+      font-size: 1.4rem;
+      vertical-align: bottom;
+      text-align: center;
+      padding: 0 6px;
+    }
+    #market-prompt { text-align: center; color: #4e1093; font-size: 1rem; margin-bottom: 16px; }
+    .market-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .market-opt-btn {
+      background: rgba(0,0,0,0.00);
+      border: 2px solid #c0b7eb;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 1.1rem;
+      color: #105f93;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+      font-family: inherit;
+    }
+    .market-opt-btn:hover:not(:disabled) { border-color: #a78bfa; background: rgba(167,139,250,0.1); }
+    .market-opt-btn.selected { border-color: #f59e0b; background: rgba(245,158,11,0.15); color: #937910; }
+    .market-opt-btn.correct-ans { border-color: #4ade80; background: rgba(74,222,128,0.15); color: #4ade80; }
+    .market-opt-btn.wrong-ans { border-color: #f87171; background: rgba(248,113,113,0.15); color: #931010; }
+    #market-submit-btn, #market-next-btn {
+      display: block; margin: 16px auto 0;
+      background: #a78bfa; color: #1a0a5c;
+      border: none; border-radius: 10px;
+      padding: 11px 30px; font-size: 1rem;
+      font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+    #market-submit-btn:disabled { opacity: 0.4; cursor: default; }
+    #market-next-btn { display: none; background: #7c3aed; color: #fff; }
+    #market-explanation {
+      background: rgba(167,139,250,0.13);
+      border: 1px solid #a78bfa;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: #271093;
+      margin-top: 12px;
+      display: none;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Basket progress bar */
+    #basket-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      direction: ltr;
+    }
+    #basket-label { font-size: 0.85rem; color: #2c1093; white-space: nowrap; direction: rtl; }
+    #basket-track {
+      flex: 1;
+      height: 14px;
+      background: #ece8fd;
+      border-radius: 8px;
+      border: 1px solid #c0b7eb;
+      overflow: hidden;
+    }
+    #basket-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #7c3aed, #a78bfa, #c4b5fd);
+      border-radius: 8px;
+      transition: width 0.5s ease;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+    .shake-anim { animation: shake 0.4s; }
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      70% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* ── writing assignment ── */
+    .writing-line{display: flex;align-items: center;gap: 10px;background: #f8fafc;border: 2px solid #e2e8f0;border-radius: 14px;padding: 12px 16px}
+    .writing-num{width: 28px;height: 28px;border-radius: 50%;background: #475569;color: #fff;font-weight: 900;font-size: .85rem;display: flex;align-items: center;justify-content: center;flex-shrink: 0}
+    .writing-input{flex: 1;border: none;background: transparent;font-family: inherit;font-size: 1.1rem;direction: rtl;outline: none;min-width: 0}
+    .writing-input: :placeholder{color: #1e293b;font-size: .95rem}
+    .writing-line.filled{border-color: #22c55e;background: #f0fdf4}
+    .writing-submit-btn{background: #4c1d95;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+    .writing-reset-btn{background: #6b7280;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+  </style>
+<style>
+:root{--p1:#4f46e5;--p1dk: #3730a3;--p1md: #a5b4fc;--p1lt: #e0e7ff;--page: #eef2ff;--p2:#e11d48;--p2lt: #ffe4e6}
+/* ══ עיצוב אחיד בסגנון שיעור 35 ══ */
+body{font-family: 'Heebo',sans-serif !important;background: var(--page) !important;color: #1e293b !important;font-size: 17px}
+.container{background: transparent}
+.header35{background: linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position: relative;overflow: hidden;padding-bottom: 26px}
+.header35 .header-wave{position: absolute;bottom: 0;left: 0;right: 0;height: 22px;background: rgba(0,0,0,0.01);clip-path: ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position: absolute;opacity: .22;font-size: 2rem;animation: floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform: translateY(6px) rotate(-5deg)}100%{transform: translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position: relative;z-index: 2;padding: 36px 20px 12px;text-align: center}
+.header35 .header-eyebrow{font-size: .88rem;font-weight: 700;color: var(--p1lt);letter-spacing: 1px;margin-bottom: 10px}
+.header35 h1{font-family: 'Frank Ruhl Libre',serif;font-size: clamp(2rem,6vw,3.2rem);font-weight: 700;color: #1e293b;text-shadow: 0 3px 12px rgba(0,0,0,.35);line-height: 1.2;margin-bottom: 8px}
+.header35 .header-sub{color: var(--p1lt);font-size: .97rem;font-weight: 600;margin-bottom: 14px}
+.header35 .header-badge{display: inline-flex;align-items: center;gap: 6px;background: #fff;color: var(--p1dk);font-weight: 800;font-size: .88rem;padding: 5px 18px;border-radius: 30px;box-shadow: 0 0 14px rgba(0,0,0,.18)}
+.header35 .header-art{margin-top: 12px;line-height: 0;opacity: .95}
+.header-flag-strip35{background: var(--p2);height: 6px}
+.lesson-nav35{background: var(--p1dk);padding: 8px 20px;display: flex;align-items: center;justify-content: flex-start;gap: 6px;flex-wrap: wrap}
+.lesson-nav35 .nav-btn{color: var(--p1lt);font-size: .78rem;font-weight: 700;text-decoration: none;padding: 4px 12px;border: 1.5px solid var(--p1md);border-radius: 20px;transition: background .15s}
+.lesson-nav35 .nav-btn:hover{background: var(--p1);color: #1e293b}
+.lesson-nav35 .nav-current{color: #1e293b;font-size: .78rem;font-weight: 800;margin-right: auto;opacity: .9}
+.section-title{font-size: 1.42rem !important;font-weight: 900 !important;color: #1e293b !important;border-right: none !important;border-bottom: none !important;padding: 0 0 0 0 !important;margin: 34px 0 14px !important;display: flex;align-items: center;gap: 10px}
+.section-title: :after{content: "";flex: 1;height: 3px;border-radius: 3px;background: linear-gradient(90deg,var(--p1md),transparent)}
+.section,.story-box,.grammar-box,.game-box{background: #fff !important;border: none !important;border-radius: 22px !important;box-shadow: 0 4px 22px rgba(0,0,0,.08) !important;position: relative;overflow: hidden}
+.story-box{padding: 26px 30px !important}
+.story-box: :before,.grammar-box::before,.game-box::before,.section::before{content: "";position: absolute;right: 0;top: 0;bottom: 0;width: 6px;border-radius: 0 22px 22px 0;background: linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box: :before{background: linear-gradient(180deg,var(--p2lt),var(--p2))}
+.story-box,.story-box p{font-family: 'Frank Ruhl Libre',serif !important;font-size: 1.28rem !important;line-height: 2.5 !important;color: #1e2d3d !important}
+.story-box .highlight{background: var(--p1lt) !important;color: var(--p1dk) !important;border-radius: 4px;padding: 1px 5px;font-weight: 900;border-bottom: 2px dotted var(--p1)}
+.vocab-card{background: var(--p1lt) !important;border: 2px solid var(--p1md) !important;border-radius: 16px !important;transition: transform .15s,box-shadow .15s}
+.vocab-card:hover{transform: translateY(-3px);box-shadow: 0 6px 18px rgba(0,0,0,.09) !important;border-color: var(--p1) !important}
+.vocab-card .heb{font-family: 'Frank Ruhl Libre',serif !important;color: var(--p1dk) !important;font-size: 1.2rem !important}
+.vocab-card .eng{color: #64748b !important}
+.grammar-box{padding: 24px 28px !important}
+.grammar-box h3{color: var(--p1) !important;font-weight: 900}
+.grammar-box p{color: #1e293b !important;font-size: 1.02rem !important}
+.grammar-box .ex-chip{background: var(--p1lt) !important;border: 1.5px solid var(--p1md) !important;color: var(--p1dk) !important;border-radius: 10px !important;font-weight: 700}
+.game-box{padding: 24px 22px !important}
+.game-title{color: var(--p1dk) !important;font-size: 1.25rem !important;font-weight: 900 !important}
+.game-subtitle{color: #64748b !important}
+button{font-family: 'Heebo',sans-serif !important}
+.topic-badge{display: none}
+header.old-header{display: none}
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🏪</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🧺</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🍬</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">📦</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">💝</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 54</div>
+    <h1>הַחֲנוּת שֶׁל סַבָּא</h1>
+    <div class="header-sub">סִיפּוּר עַל חֲנוּת קְטַנָּה — וּשְׁמוֹת תֹּאַר</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: שְׁמוֹת תֹּאַר</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson50_hatiyul_hagadol_shel_ori.html">→ 50</a>
+  <a class="nav-btn" href="lesson51_mah_osim_bair.html">→ 51</a>
+  <a class="nav-btn" href="lesson52_yom_bachof.html">→ 52</a>
+  <a class="nav-btn" href="lesson53_tekhunot_lakayitz.html">→ 53</a>
+  <span class="nav-current">שִׁיעוּר 54 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- STORY -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>לְסַבָּא יוֹסֵף יֵשׁ חֲנוּת <span class="highlight">קְטַנָּה</span> בָּרְחוֹב.</p>
+    <p>בַּחֲנוּת יֵשׁ הַרְבֵּה פֵּרוֹת <span class="highlight">מְתוּקִים</span> וִירָקוֹת <span class="highlight">טְרִיִּים</span>.</p>
+    <p>כָּל בֹּקֶר, סַבָּא מַגִּיעַ מֻקְדָּם. הוּא מְסַדֵּר אֶת הַמַּדָּף הַ<span class="highlight">גָּבוֹהַּ</span> וְאֶת הַשֻּׁלְחָן הַ<span class="highlight">נָּמוּךְ</span>.</p>
+    <p>בַּבֹּקֶר בָּא יוֹנִי, הַנֶּכֶד הַ<span class="highlight">קָּטָן</span> שֶׁל סַבָּא, כְּדֵי לַעֲזֹר.</p>
+    <p>"מָה אֶעֱשֶׂה?" שָׁאַל יוֹנִי.</p>
+    <p>"תְּסַדֵּר אֶת הַסַּלִּים," אָמַר סַבָּא בְּקוֹל <span class="highlight">עָדִין</span>.</p>
+    <p>יוֹנִי סִדֵּר סַל <span class="highlight">גָּדוֹל</span> מָלֵא בְּתַפּוּחִים <span class="highlight">אֲדֻמִּים</span> וְסַל <span class="highlight">קָטָן</span> מָלֵא בְּלִימוֹנִים <span class="highlight">צְהֻבִּים</span>.</p>
+    <p>"יָפֶה מְאֹד!" אָמַר סַבָּא בְּשִׂמְחָה <span class="highlight">גְּדוֹלָה</span>.</p>
+    <p>לָקוֹחוֹת רַבּוֹת בָּאוּ לַחֲנוּת הַ<span class="highlight">נֶּחְמֶדֶת</span> וְקָנוּ פֵּרוֹת וִירָקוֹת.</p>
+    <p>"זֹאת חֲנוּת <span class="highlight">מְסֻדֶּרֶת</span>!" אָמְרָה לָקוֹחָה אַחַת בְּקוֹל <span class="highlight">שָׂמֵחַ</span>.</p>
+    <p>סַבָּא חִיֵּךְ. "תּוֹדָה לַעוֹזֵר הַ<span class="highlight">קָּטָן</span> שֶׁלִּי!"</p>
+    <p>יוֹנִי הֶאֱדִים מִ<span class="highlight">גַּאֲוָה</span>.</p>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="heb">חֲנוּת</div>
+      <div class="eng">shop / store</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">לָקוֹחַ / לָקוֹחָה</div>
+      <div class="eng">customer (m / f)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">מַדָּף</div>
+      <div class="eng">shelf</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">סַל</div>
+      <div class="eng">basket</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">יְרָקוֹת</div>
+      <div class="eng">vegetables</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">טָרִי / טְרִיָּה</div>
+      <div class="eng">fresh (m / f)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">מָתוֹק / מְתוּקָה</div>
+      <div class="eng">sweet (m / f)</div>
+    </div>
+    <div class="vocab-card">
+      <div class="heb">גַּאֲוָה</div>
+      <div class="eng">pride</div>
+    </div>
+  </div>
+
+  <!-- COMPREHENSION GAME: Card Flip -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — הֲפִיכַת הַכַּרְטִיסִיּוֹת</div>
+  <div class="game-box">
+    <div class="game-title">🃏 הֲפִיכַת הַכַּרְטִיסִיּוֹת</div>
+    <div class="game-subtitle">לְחַץ עַל כַּרְטִיסִיָּה כְּדֵי לַהֲפֹךְ אוֹתָהּ וְלִגְלוֹת שְׁאֵלָה! — Flip a card to reveal a question!</div>
+
+    <div id="card-grid"></div>
+
+    <div id="card-question-panel">
+      <div id="card-question-text"></div>
+      <div class="card-options" id="card-options"></div>
+      <div id="card-explanation"></div>
+      <button id="card-submit-btn" disabled onclick="cardSubmit()">שְׁלַח תְּשׁוּבָה ✓</button>
+      <button id="card-next-btn" onclick="cardNext()">כַּרְטִיסִיָּה הַבָּאָה ←</button>
+      <div id="card-status"></div>
+    </div>
+    <div class="result-banner" id="card-result"></div>
+  </div>
+
+  <!-- GRAMMAR EXPLANATION -->
+  <div class="section-title">📚 דִּקְדּוּק — שְׁמוֹת תֹּאַר</div>
+  <div class="grammar-box">
+    <h3>שֵׁם תֹּאַר — חַיָּב לְהַסְכִּים עִם שֵׁם הָעֶצֶם!</h3>
+    <p>בָּעִבְרִית, שֵׁם תֹּאַר בָּא <strong>אַחֲרֵי</strong> שֵׁם הָעֶצֶם וְ<strong>מַסְכִּים</strong> אִתּוֹ בְּ<strong>מִין</strong> (זָכָר / נְקֵבָה) וּבְ<strong>מִסְפָּר</strong> (יָחִיד / רַבִּים).</p>
+
+    <table class="grammar-table">
+      <tr>
+        <th>צוּרָה (Form)</th>
+        <th>גָּדוֹל</th>
+        <th>קָטָן</th>
+        <th>אָדֹם</th>
+        <th>טוֹב</th>
+      </tr>
+      <tr>
+        <td>זָכָר יָחִיד</td>
+        <td>גָּדוֹל</td>
+        <td>קָטָן</td>
+        <td>אָדֹם</td>
+        <td>טוֹב</td>
+      </tr>
+      <tr>
+        <td>נְקֵבָה יְחִידָה</td>
+        <td>גְּדוֹלָה</td>
+        <td>קְטַנָּה</td>
+        <td>אֲדֻמָּה</td>
+        <td>טוֹבָה</td>
+      </tr>
+      <tr>
+        <td>זָכָר רַבִּים</td>
+        <td>גְּדוֹלִים</td>
+        <td>קְטַנִּים</td>
+        <td>אֲדֻמִּים</td>
+        <td>טוֹבִים</td>
+      </tr>
+      <tr>
+        <td>נְקֵבָה רַבִּים</td>
+        <td>גְּדוֹלוֹת</td>
+        <td>קְטַנּוֹת</td>
+        <td>אֲדֻמּוֹת</td>
+        <td>טוֹבוֹת</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:14px;">
+      <strong>הַכְּלָל:</strong><br>
+      • נְקֵבָה יְחִידָה — מוֹסִיפִים <strong>ָה-</strong> בַּסּוֹף<br>
+      • זָכָר רַבִּים — מוֹסִיפִים <strong>ִים-</strong> בַּסּוֹף<br>
+      • נְקֵבָה רַבִּים — מוֹסִיפִים <strong>וֹת-</strong> בַּסּוֹף
+    </p>
+    <div class="example-row">
+      <span class="ex-chip">יֶלֶד גָּדוֹל 👦</span>
+      <span class="ex-chip">יַלְדָּה גְּדוֹלָה 👧</span>
+      <span class="ex-chip">יְלָדִים גְּדוֹלִים 👦👦</span>
+      <span class="ex-chip">יְלָדוֹת גְּדוֹלוֹת 👧👧</span>
+      <span class="ex-chip">תַּפּוּחַ אָדֹם 🍎</span>
+      <span class="ex-chip">תַּפּוּחִים אֲדֻמִּים 🍎🍎</span>
+    </div>
+  </div>
+
+  <!-- GRAMMAR GAME: Market Basket -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — מַלֵּא אֶת הַסַּל</div>
+  <div class="game-box">
+    <div class="game-title">🧺 מַלֵּא אֶת הַסַּל</div>
+    <div class="game-subtitle">בְּחַר אֶת שֵׁם הַתֹּאַר הַנָּכוֹן — Choose the correct adjective form!</div>
+
+    <div id="basket-bar-wrap">
+      <span id="basket-label">🧺 הַסַּל:</span>
+      <div id="basket-track"><div id="basket-fill"></div></div>
+    </div>
+
+    <div class="progress-dots" id="market-dots"></div>
+
+    <div id="market-scene">
+      <div id="market-deco">🍎</div>
+      <div id="market-round-label">שְׁאֵלָה 1 מִתּוֹךְ 6</div>
+      <div id="market-sentence-display"></div>
+      <div id="market-prompt"></div>
+      <div class="market-options" id="market-options"></div>
+      <div id="market-explanation"></div>
+      <button id="market-submit-btn" disabled onclick="marketSubmit()">שְׁלַח ✓</button>
+      <button id="market-next-btn" onclick="marketNext()">הַבָּא ←</button>
+    </div>
+    <div class="result-banner" id="market-result"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// =============================================
+// CARD FLIP COMPREHENSION GAME
+// =============================================
+const cardQuestions = [
+  {
+    icon: "🏪",
+    question: "אֵיפֹה נִמְצֵאת הַחֲנוּת שֶׁל סַבָּא יוֹסֵף?",
+    options: ["בַּמֶּרְכָּז הַמִּסְחָרִי", "בָּרְחוֹב", "בַּשּׁוּק", "בַּבַּיִת"],
+    correct: 1,
+    explanation: "הַסִּפּוּר אוֹמֵר: 'לְסַבָּא יוֹסֵף יֵשׁ חֲנוּת קְטַנָּה בָּרְחוֹב.'"
+  },
+  {
+    icon: "⏰",
+    question: "מָתַי הִגִּיעַ סַבָּא לַחֲנוּת כָּל בֹּקֶר?",
+    options: ["מְאֻחָר", "בַּצָּהֳרַיִם", "מֻקְדָּם", "בָּעֶרֶב"],
+    correct: 2,
+    explanation: "הַסִּפּוּר אוֹמֵר: 'כָּל בֹּקֶר, סַבָּא מַגִּיעַ מֻקְדָּם.'"
+  },
+  {
+    icon: "🧺",
+    question: "מָה סִדֵּר יוֹנִי בַּחֲנוּת?",
+    options: ["אֶת הַמְּדַפִּים", "אֶת הַסַּלִּים", "אֶת הַשֻּׁלְחָן", "אֶת הַמַּחְשֵׁב"],
+    correct: 1,
+    explanation: "סַבָּא אָמַר לְיוֹנִי: 'תְּסַדֵּר אֶת הַסַּלִּים.'"
+  },
+  {
+    icon: "🍋",
+    question: "אֵיזֶה פְּרִי הָיָה בַּסַּל הַקָּטָן?",
+    options: ["תַּפּוּחִים", "עֲנָבִים", "לִימוֹנִים", "תַּפּוּזִים"],
+    correct: 2,
+    explanation: "הַסִּפּוּר אוֹמֵר: 'סַל קָטָן מָלֵא בְּלִימוֹנִים צְהֻבִּים.'"
+  },
+  {
+    icon: "👴",
+    question: "מָה אָמַר סַבָּא כְּשֶׁרָאָה אֶת עֲבוֹדַת יוֹנִי?",
+    options: ["'תַּסְתִּיר אֶת הַסַּלִּים!'", "'יָפֶה מְאֹד!'", "'עֲשֵׂה זֹאת שׁוּב!'", "'אֵין זְמַן!'"],
+    correct: 1,
+    explanation: "הַסִּפּוּר אוֹמֵר: 'יָפֶה מְאֹד! אָמַר סַבָּא בְּשִׂמְחָה גְּדוֹלָה.'"
+  },
+  {
+    icon: "😊",
+    question: "מַדּוּעַ הֶאֱדִים יוֹנִי בְּסוֹף הַסִּפּוּר?",
+    options: ["מִכַּעַס", "מִפַּחַד", "מִגַּאֲוָה", "מִחֹם"],
+    correct: 2,
+    explanation: "הַסִּפּוּר אוֹמֵר: 'יוֹנִי הֶאֱדִים מִגַּאֲוָה.' — הוּא הָיָה גֵּאֶה בַּעֲבוֹדָתוֹ."
+  }
+];
+
+let cardCurrent = -1;
+let cardAnswered = [];
+let cardSelected = null;
+let cardScore = 0;
+
+function buildCardGrid() {
+  const grid = document.getElementById('card-grid');
+  grid.innerHTML = '';
+  cardQuestions.forEach((q, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'flip-card-wrap';
+    wrap.id = `card-wrap-${i}`;
+    wrap.innerHTML = `
+      <div class="flip-card-inner">
+        <div class="flip-card-front">${q.icon}</div>
+        <div class="flip-card-back" id="card-back-${i}">?</div>
+      </div>`;
+    wrap.onclick = () => cardFlip(i);
+    grid.appendChild(wrap);
+  });
+}
+
+function cardFlip(idx) {
+  if (cardAnswered.includes(idx)) return;
+  const wrap = document.getElementById(`card-wrap-${idx}`);
+  wrap.classList.add('flipped');
+
+  if (cardCurrent !== -1 && !cardAnswered.includes(cardCurrent)) {
+    document.getElementById(`card-wrap-${cardCurrent}`).classList.remove('flipped');
+  }
+  cardCurrent = idx;
+  showCardQuestion(idx);
+}
+
+function showCardQuestion(idx) {
+  const q = cardQuestions[idx];
+  cardSelected = null;
+
+  const panel = document.getElementById('card-question-panel');
+  panel.style.display = 'block';
+  document.getElementById('card-question-text').textContent = q.question;
+  document.getElementById('card-explanation').style.display = 'none';
+  document.getElementById('card-next-btn').style.display = 'none';
+
+  const submitBtn = document.getElementById('card-submit-btn');
+  submitBtn.style.display = 'block';
+  submitBtn.disabled = true;
+
+  const opts = document.getElementById('card-options');
+  opts.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const btn = document.createElement('button');
+    btn.className = 'card-opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => cardChoose(oi);
+    opts.appendChild(btn);
+  });
+  document.getElementById('card-status').textContent = '';
+}
+
+function cardChoose(oi) {
+  if (cardAnswered.includes(cardCurrent)) return;
+  cardSelected = oi;
+  document.querySelectorAll('.card-opt-btn').forEach((b, i) => {
+    b.classList.toggle('selected', i === oi);
+  });
+  document.getElementById('card-submit-btn').disabled = false;
+}
+
+function cardSubmit() {
+  if (cardSelected === null) return;
+  const idx = cardCurrent;
+  const q = cardQuestions[idx];
+  const isCorrect = cardSelected === q.correct;
+
+  document.querySelectorAll('.card-opt-btn').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct-ans');
+    else if (i === cardSelected) b.classList.add('wrong-ans');
+  });
+
+  const wrap = document.getElementById(`card-wrap-${idx}`);
+  const back = document.getElementById(`card-back-${idx}`);
+  back.textContent = isCorrect ? '✅' : '❌';
+  wrap.classList.add(isCorrect ? 'correct-card' : 'wrong-card');
+  wrap.classList.add('answered');
+
+  if (isCorrect) cardScore++;
+  cardAnswered.push(idx);
+
+  const exp = document.getElementById('card-explanation');
+  exp.textContent = q.explanation;
+  exp.style.display = 'block';
+  document.getElementById('card-submit-btn').style.display = 'none';
+
+  if (cardAnswered.length < cardQuestions.length) {
+    document.getElementById('card-next-btn').style.display = 'block';
+    document.getElementById('card-status').textContent =
+      `✅ עָנִיתָ עַל ${cardAnswered.length} מִתּוֹךְ 6 כַּרְטִיסִיּוֹת`;
+  } else {
+    document.getElementById('card-next-btn').style.display = 'none';
+    setTimeout(showCardResult, 600);
+  }
+}
+
+function cardNext() {
+  for (let i = 0; i < cardQuestions.length; i++) {
+    if (!cardAnswered.includes(i)) { cardFlip(i); return; }
+  }
+}
+
+function showCardResult() {
+  const banner = document.getElementById('card-result');
+  banner.style.display = 'block';
+  const emoji = cardScore >= 6 ? '🃏🌟🃏' : cardScore >= 4 ? '🃏🃏' : '🃏';
+  banner.innerHTML = `${emoji}<br>הֲפַכְתָּ אֶת כָּל הַכַּרְטִיסִיּוֹת! קִבַּלְתָּ ${cardScore} מִתּוֹךְ 6 ${emoji}`;
+  banner.style.animation = 'popIn 0.5s';
+}
+
+buildCardGrid();
+
+
+// =============================================
+// MARKET BASKET GRAMMAR GAME
+// =============================================
+const marketQuestions = [
+  {
+    before: "הַתַּפּוּחַ",
+    after: "וְטָעִים.",
+    prompt: "תַּפּוּחַ — זָכָר יָחִיד. אֵיזוֹ צוּרָה?",
+    options: ["אֲדֻמָּה", "אָדֹם", "אֲדֻמִּים", "אֲדֻמּוֹת"],
+    correct: 1,
+    emoji: "🍎",
+    explanation: "תַּפּוּחַ = זָכָר יָחִיד ← אָדֹם ✅"
+  },
+  {
+    before: "הַחֲנוּת",
+    after: "וּמְסֻדֶּרֶת.",
+    prompt: "חֲנוּת — נְקֵבָה יְחִידָה. אֵיזוֹ צוּרָה?",
+    options: ["קָטָן", "קְטַנִּים", "קְטַנָּה", "קְטַנּוֹת"],
+    correct: 2,
+    emoji: "🏪",
+    explanation: "חֲנוּת = נְקֵבָה יְחִידָה ← קְטַנָּה ✅"
+  },
+  {
+    before: "הַסַּלִּים",
+    after: "וּמְלֵאִים.",
+    prompt: "סַלִּים — זָכָר רַבִּים. אֵיזוֹ צוּרָה?",
+    options: ["גְּדוֹלוֹת", "גָּדוֹל", "גְּדוֹלִים", "גְּדוֹלָה"],
+    correct: 2,
+    emoji: "🧺",
+    explanation: "סַלִּים = זָכָר רַבִּים ← גְּדוֹלִים ✅"
+  },
+  {
+    before: "יְלָדוֹת",
+    after: "קָנוּ פֵּרוֹת בַּחֲנוּת.",
+    prompt: "יְלָדוֹת — נְקֵבָה רַבִּים. אֵיזוֹ צוּרָה?",
+    options: ["שְׂמֵחוֹת", "שָׂמֵחַ", "שְׂמֵחִים", "שְׂמֵחָה"],
+    correct: 0,
+    emoji: "👩",
+    explanation: "יְלָדוֹת = נְקֵבָה רַבִּים ← שְׂמֵחוֹת ✅"
+  },
+  {
+    before: "הַלֵּימוֹנִים",
+    after: "וּטְעִימִים.",
+    prompt: "לִימוֹנִים — זָכָר רַבִּים. אֵיזוֹ צוּרָה?",
+    options: ["צְהֻבָּה", "צָהֹב", "צְהֻבּוֹת", "צְהֻבִּים"],
+    correct: 3,
+    emoji: "🍋",
+    explanation: "לִימוֹנִים = זָכָר רַבִּים ← צְהֻבִּים ✅"
+  },
+  {
+    before: "הַמִּשְׁפָּחָה שֶׁל יוֹנִי",
+    after: "מְאֹד.",
+    prompt: "מִשְׁפָּחָה — נְקֵבָה יְחִידָה. אֵיזוֹ צוּרָה?",
+    options: ["טוֹבִים", "טוֹב", "טוֹבָה", "טוֹבוֹת"],
+    correct: 2,
+    emoji: "👨‍👩‍👦",
+    explanation: "מִשְׁפָּחָה = נְקֵבָה יְחִידָה ← טוֹבָה ✅"
+  }
+];
+
+let marketRound = 0;
+let marketSelected = null;
+let marketAnswered = false;
+let marketScore = 0;
+
+function updateBasketBar() {
+  const pct = (marketScore / marketQuestions.length) * 100;
+  document.getElementById('basket-fill').style.width = pct + '%';
+}
+
+function buildMarketDots() {
+  const dots = document.getElementById('market-dots');
+  dots.innerHTML = '';
+  marketQuestions.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.id = `mdot-${i}`;
+    dots.appendChild(d);
+  });
+}
+
+function loadMarketRound() {
+  const q = marketQuestions[marketRound];
+  marketSelected = null;
+  marketAnswered = false;
+
+  document.getElementById('market-deco').textContent = q.emoji;
+  document.getElementById('market-deco').classList.remove('collected');
+  document.getElementById('market-deco').style.transform = '';
+  document.getElementById('market-deco').style.opacity = '';
+  document.getElementById('market-round-label').textContent =
+    `שְׁאֵלָה ${marketRound + 1} מִתּוֹךְ ${marketQuestions.length}`;
+  document.getElementById('market-sentence-display').innerHTML =
+    `${q.before} <span class="blank" id="market-blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> ${q.after}`;
+  document.getElementById('market-prompt').textContent = q.prompt;
+  document.getElementById('market-explanation').style.display = 'none';
+  document.getElementById('market-next-btn').style.display = 'none';
+
+  const submitBtn = document.getElementById('market-submit-btn');
+  submitBtn.style.display = 'block';
+  submitBtn.disabled = true;
+
+  const opts = document.getElementById('market-options');
+  opts.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const btn = document.createElement('button');
+    btn.className = 'market-opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => marketChoose(oi);
+    opts.appendChild(btn);
+  });
+}
+
+function marketChoose(oi) {
+  if (marketAnswered) return;
+  marketSelected = oi;
+  document.querySelectorAll('.market-opt-btn').forEach((b, i) => {
+    b.classList.toggle('selected', i === oi);
+  });
+  document.getElementById('market-blank').textContent = marketQuestions[marketRound].options[oi];
+  document.getElementById('market-submit-btn').disabled = false;
+}
+
+function marketSubmit() {
+  if (marketSelected === null) return;
+  const q = marketQuestions[marketRound];
+  const isCorrect = marketSelected === q.correct;
+  marketAnswered = true;
+
+  document.querySelectorAll('.market-opt-btn').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct-ans');
+    else if (i === marketSelected) b.classList.add('wrong-ans');
+  });
+
+  const blank = document.getElementById('market-blank');
+  blank.textContent = q.options[q.correct];
+
+  if (isCorrect) {
+    marketScore++;
+    document.getElementById(`mdot-${marketRound}`).classList.add('done');
+    blank.style.color = '#4ade80';
+    blank.style.borderBottomColor = '#4ade80';
+    updateBasketBar();
+    setTimeout(() => {
+      document.getElementById('market-deco').classList.add('collected');
+    }, 300);
+  } else {
+    blank.style.color = '#f87171';
+    blank.style.borderBottomColor = '#f87171';
+    const scene = document.getElementById('market-scene');
+    scene.classList.add('shake-anim');
+    setTimeout(() => scene.classList.remove('shake-anim'), 500);
+  }
+
+  const exp = document.getElementById('market-explanation');
+  exp.textContent = q.explanation;
+  exp.style.display = 'block';
+  document.getElementById('market-submit-btn').style.display = 'none';
+
+  if (marketRound < marketQuestions.length - 1) {
+    document.getElementById('market-next-btn').style.display = 'block';
+  } else {
+    setTimeout(showMarketResult, 900);
+  }
+}
+
+function marketNext() {
+  marketRound++;
+  loadMarketRound();
+}
+
+function showMarketResult() {
+  const banner = document.getElementById('market-result');
+  banner.style.display = 'block';
+  const emoji = marketScore >= 6 ? '🧺🌟🧺' : marketScore >= 4 ? '🧺🧺' : '🧺';
+  banner.innerHTML = `${emoji}<br>הַסַּל מָלֵא! הִשְׁלַמְתָּ ${marketScore} מִתּוֹךְ 6 נָכוֹן! ${emoji}`;
+  banner.style.animation = 'popIn 0.5s';
+}
+
+buildMarketDots();
+loadMarketRound();
+</script>
+
+
+<!-- ══ WRITING ASSIGNMENT ══ -->
+<script>
+const wP=[
+  'כְּתֹב מִשְׁפָּט עִם "יֶלֶד + תֹּאַר זָכָר יָחִיד"...',
+  'כְּתֹב מִשְׁפָּט עִם "יַלְדָּה + תֹּאַר נְקֵבָה יְחִידָה"...',
+  'כְּתֹב מִשְׁפָּט עִם "יְלָדִים + תֹּאַר זָכָר רַבִּים"...',
+  'כְּתֹב מִשְׁפָּט עַל הַחֲנוּת עִם שֵׁם תֹּאַר...',
+  'כְּתֹב מִשְׁפָּט חוֹפְשִׁי עִם שֵׁם תֹּאַר מַתְאִים...'
+];
+function initW(){
+  const c=document.getElementById('writing-lines');
+  if(!c)return;
+  c.innerHTML='';
+  wP.forEach((ph,i)=>{
+    const d=document.createElement('div');
+    d.className='writing-line';
+    d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d);
+  });
+  const r=document.getElementById('writing-result');
+  if(r)r.style.display='none';
+  const f=document.getElementById('writing-fb');
+  if(f)f.textContent='';
+}
+window.submitWriting=function(){
+  let n=0;
+  for(let i=0;i<5;i++){
+    const v=document.getElementById('winput-'+i).value.trim();
+    const l=document.getElementById('wline-'+i);
+    if(v.length>1){n++;l.className='writing-line filled';}
+    else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb');
+  const res=document.getElementById('writing-result');
+  if(n<5){
+    if(fb){fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.';fb.style.color='#dc2626';}
+    if(res)res.style.display='none';
+    return;
+  }
+  if(fb)fb.textContent='';
+  if(res){
+    res.style.display='block';
+    res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים עִם שְׁמוֹת תֹּאַר. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+  }
+};
+window.resetWriting=function(){initW();};
+window.addEventListener('DOMContentLoaded',initW);
+</script>
+<div style="background:#fff;border-radius:16px;padding:24px 20px;margin:18px 0;box-shadow:0 2px 12px rgba(0,0,0,.08)">
+  <div style="font-size:1.25rem;font-weight:900;color:#4c1d95;margin-bottom:14px;direction:rtl">✍️ מַטְלַת כְּתִיבָה</div>
+  <p style="margin-bottom:16px;font-size:1rem;direction:rtl;color:#1e293b;">כְּתֹב 5 מִשְׁפָּטִים עִם <strong>שְׁמוֹת תֹּאַר</strong> מַתְאִימִים לְשֵׁם הָעֶצֶם. לְדֻגְמָה: <strong>הַחֲנוּת קְטַנָּה וְנֶחְמֶדֶת.</strong></p>
+  <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+    <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+    <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+    <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+  </div>
+  <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+</div>
+
+</body>
+</html>

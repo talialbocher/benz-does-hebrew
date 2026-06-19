@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מְדוּרַת לַ"ג בָּעֹמֶר — שִׁיעוּר מְיוּחָד</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fire:    #dc2626;
+  --fire-dk: #991b1b;
+  --fire-md: #f97316;
+  --fire-lt: #fed7aa;
+  --fire-pal:#fff7ed;
+  --acc:     #d97706;
+  --acc-lt:  #fef3c7;
+  --acc-dk:  #92400e;
+  --green:   #16a34a;
+  --green-lt:#dcfce7;
+  --red-lt:  #fee2e2;
+  --ink:     #1e293b;
+  --muted:   #64748b;
+  --white:   #ffffff;
+  --parch:   #fff7ed;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--fire-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.header{background:linear-gradient(160deg,#450a0a 0%,#7f1d1d 38%,#dc2626 72%,#f97316 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.flame-float{position:absolute;opacity:.28;font-size:2.2rem;animation:flameDance var(--dur,3s) var(--del,0s) infinite ease-in-out}
+@keyframes flameDance{0%,100%{transform:translateY(0) rotate(-6deg) scale(1)}50%{transform:translateY(-22px) rotate(6deg) scale(1.18)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#fed7aa;letter-spacing:1px;margin-bottom:6px}
+.header-special{font-size:.83rem;font-weight:800;color:#fef3c7;background:rgba(255,255,255,.16);border-radius:20px;padding:4px 16px;display:inline-block;margin-bottom:10px;border:1px solid rgba(255,255,255,.3)}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 32px rgba(253,186,116,.55),0 3px 12px rgba(0,0,0,.45);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#fed7aa;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#991b1b;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 16px rgba(220,38,38,.45)}
+.header-flag-strip{background:var(--fire-md);height:6px}
+
+/* ── NAV ────────────────────────────────────────────── */
+.lesson-nav{background:#7f1d1d;padding:8px 20px;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#fed7aa;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid #f97316;border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#f97316;color:#fff}
+.nav-current{color:#fcd34d;font-size:.78rem;font-weight:800;margin-right:auto}
+
+/* ── PROGRESS ───────────────────────────────────────── */
+.progress-strip{background:#7f1d1d;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#fed7aa;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:#ef4444;border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#fef3c7,#fbbf24);border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#fbbf24;font-size:1rem;letter-spacing:2px}
+
+/* ── PAGE ───────────────────────────────────────────── */
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+
+/* ── CARD ───────────────────────────────────────────── */
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-fire{background:linear-gradient(180deg,#fed7aa,#dc2626)}
+.cs-acc {background:linear-gradient(180deg,#fef3c7,#d97706)}
+.cs-blue{background:linear-gradient(180deg,#bfdbfe,#1d4ed8)}
+.cs-green{background:linear-gradient(180deg,#4ade80,#16a34a)}
+
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-fire {background:#fff7ed;border:1.5px solid #fed7aa}
+.si-acc  {background:#fef3c7;border:1.5px solid #fde68a}
+.si-blue {background:#eff6ff;border:1.5px solid #bfdbfe}
+.si-green{background:var(--green-lt);border:1.5px solid #86efac}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+/* ── STORY ──────────────────────────────────────────── */
+.story-wrap{background:var(--parch);border:2px solid var(--fire-lt);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--fire);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;line-height:2.8;color:#1e2d3d;margin-bottom:8px}
+.cmp-hl{background:#fed7aa;border-radius:4px;padding:1px 5px;font-weight:900;color:#7f1d1d;border-bottom:2px solid var(--fire)}
+.hl{background:#fef3c7;border-radius:4px;padding:1px 5px;font-weight:700;cursor:help;position:relative;border-bottom:2px dotted var(--acc)}
+.hl .tip{display:none;position:absolute;bottom:130%;right:50%;transform:translateX(50%);background:#1e293b;color:#fff;font-size:.75rem;font-family:'Heebo',sans-serif;padding:4px 10px;border-radius:8px;white-space:nowrap;z-index:30;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,.25);pointer-events:none}
+.hl:hover .tip{display:block}
+.story-author{font-family:'Heebo',sans-serif;text-align:left;font-size:.8rem;color:var(--muted);font-style:italic;margin-top:12px}
+.story-note{background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:10px 16px;font-size:.85rem;font-weight:700;color:var(--acc-dk);margin-top:14px;line-height:1.9}
+.holiday-banner{background:linear-gradient(135deg,#7f1d1d,#b91c1c);color:#fff;border-radius:14px;padding:12px 20px;text-align:center;font-weight:800;font-size:1rem;margin-bottom:18px;line-height:1.8}
+
+/* ── VOCAB ──────────────────────────────────────────── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.vocab-item{display:flex;align-items:flex-start;gap:12px;background:var(--fire-pal);border:2px solid var(--fire-lt);border-radius:16px;padding:14px;transition:transform .15s,box-shadow .15s;cursor:default}
+.vocab-item:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09)}
+.vemoji{font-size:2rem;width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.vword{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:700;color:var(--fire);display:block;line-height:1.3}
+.vtrans{font-size:.82rem;color:var(--muted);font-weight:600;display:block;margin-top:2px}
+.vexamp{font-family:'Frank Ruhl Libre',serif;font-size:.95rem;color:var(--ink);margin-top:8px;line-height:1.8;border-top:1px solid var(--fire-lt);padding-top:8px}
+
+/* ── GRAMMAR ────────────────────────────────────────── */
+.gram-intro{background:var(--fire-pal);border:2px dashed var(--fire-md);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--fire-dk);line-height:1.88}
+.gram-intro strong{color:var(--fire)}
+.gram-table{width:100%;border-collapse:collapse;border-radius:14px;overflow:hidden;font-size:1rem;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.gram-table th{background:var(--fire);color:#fff;padding:10px 12px;font-weight:800;font-size:.88rem;text-align:center}
+.gram-table td{padding:10px 12px;border-bottom:1px solid var(--fire-lt);text-align:center}
+.gram-table td.verb-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.18rem;color:var(--fire-dk);font-weight:700;background:var(--fire-pal)}
+.gram-table td.noun-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.22rem;color:var(--fire);font-weight:900;background:#fff}
+.gram-table td.ex-cell{font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;color:#1d4ed8;font-weight:600;background:#eff6ff}
+.gram-rule{background:#fef3c7;border:2px solid #fde68a;border-radius:12px;padding:12px 16px;margin-top:4px;font-size:.92rem;font-weight:700;color:var(--acc-dk);line-height:2}
+.gram-rule b{color:var(--fire)}
+
+/* ── MC EXERCISES ───────────────────────────────────── */
+.mc-qs{display:flex;flex-direction:column;gap:20px}
+.mc-q{background:var(--fire-pal);border:2px solid var(--fire-lt);border-radius:16px;padding:18px 20px}
+.mc-q-text{font-family:'Frank Ruhl Libre',serif;font-size:1.18rem;font-weight:700;color:var(--ink);margin-bottom:14px;line-height:1.8;display:flex;gap:10px;align-items:flex-start}
+.mc-num{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;color:#fff;flex-shrink:0;margin-top:1px;background:var(--fire)}
+.mc-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.mc-opt{background:#fff;border:2px solid var(--fire-lt);border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.08rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:all .15s}
+.mc-opt.selected{border-color:var(--fire-md);background:var(--fire-pal)}
+.mc-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--fire-md);background:var(--fire-pal)}
+.mc-opt.correct{background:var(--green-lt);border-color:#22c55e;color:#15803d}
+.mc-opt.wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c;animation:shake .35s ease}
+.mc-opt:disabled{cursor:default}
+.mc-hint{font-size:.8rem;color:var(--muted);min-height:1.2em;margin-bottom:6px}
+.mc-check-row{display:flex;align-items:center;gap:12px}
+.check-btn{background:var(--fire);color:#fff;border:none;border-radius:12px;padding:9px 24px;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;transition:background .15s}
+.check-btn:hover:not(:disabled){background:var(--fire-dk)}
+.check-btn:disabled{opacity:.4;cursor:default}
+.mc-fb{font-size:.92rem;font-weight:700;min-height:20px}
+.fb-ok{color:#16a34a}
+.fb-err{color:#dc2626}
+
+/* ── BONFIRE GAME ───────────────────────────────────── */
+.bf-scene{background:linear-gradient(180deg,#0c0a09 0%,#1c1917 45%,#292524 72%,#44403c 100%);border-radius:18px;padding:20px;min-height:190px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;margin-bottom:20px}
+.bf-stars-layer{position:absolute;top:0;left:0;right:0;height:55%;display:flex;flex-wrap:wrap;align-content:flex-start;padding:8px 14px;gap:18px;justify-content:space-between}
+.bf-star{color:#fbbf24;font-size:.55rem;opacity:.75;animation:twinkle var(--tw,2s) var(--td,0s) infinite alternate}
+@keyframes twinkle{0%{opacity:.4}100%{opacity:.9}}
+.bf-fire-wrap{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
+.bf-flames{font-size:2.8rem;line-height:1.05;min-height:3.6rem;display:flex;align-items:flex-end;gap:2px;justify-content:center;transition:all .5s ease}
+.bf-logs{font-size:1.9rem;display:flex;gap:2px;margin-top:-6px}
+.bf-level-badge{position:absolute;top:12px;left:14px;background:rgba(255,255,255,.1);color:#fbbf24;font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:10px;font-family:'Heebo',sans-serif}
+.bf-intro{background:#fef3c7;border:2px solid #fde68a;border-radius:12px;padding:14px 18px;font-size:.92rem;font-weight:700;color:var(--acc-dk);margin-bottom:16px;text-align:center;line-height:1.8}
+.bf-progress{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+.bf-dot{width:13px;height:13px;border-radius:50%;background:#e2e8f0;transition:background .35s}
+.bf-dot.lit{background:var(--fire)}
+.bf-q-area{background:var(--fire-pal);border:2px solid var(--fire-lt);border-radius:14px;padding:20px}
+.bf-q-text{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.8}
+.bf-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bf-opt{background:#fff;border:2px solid var(--fire-lt);border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.06rem;font-weight:700;cursor:pointer;text-align:center;transition:all .15s;color:var(--ink)}
+.bf-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--fire-md);background:var(--fire-pal)}
+.bf-opt.correct{background:var(--green-lt);border-color:#22c55e;color:#15803d}
+.bf-opt.wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c;animation:shake .35s ease}
+.bf-opt:disabled{cursor:default}
+.bf-expl{background:#fef3c7;border:1.5px solid #fde68a;border-radius:10px;padding:10px 14px;margin-top:12px;font-size:.88rem;font-weight:700;color:var(--acc-dk);display:none;line-height:1.8}
+.bf-expl.show{display:block}
+.bf-next{display:none;margin-top:12px;background:var(--fire);color:#fff;border:none;border-radius:12px;padding:10px 26px;font-size:.95rem;font-weight:800;font-family:'Heebo',sans-serif;cursor:pointer}
+.bf-next.show{display:inline-block}
+.bf-next:hover{background:var(--fire-dk)}
+.bf-result{text-align:center;padding:22px;display:none}
+.bf-result.show{display:block}
+.bf-result h3{font-size:1.5rem;font-weight:900;color:var(--fire);margin-bottom:8px}
+.bf-result p{font-size:.96rem;color:var(--muted)}
+
+/* ── BOW & ARROW GAME ───────────────────────────────── */
+.ba-scene{background:linear-gradient(180deg,#dbeafe 0%,#e0f2fe 55%,#dcfce7 100%);border-radius:18px;padding:18px 28px;margin-bottom:20px;position:relative;min-height:110px;display:flex;align-items:center;justify-content:space-between;overflow:hidden}
+.ba-bow{font-size:3.2rem;z-index:2;position:relative;transform:scaleX(-1)}
+.ba-target{font-size:3.2rem;z-index:2;position:relative}
+.ba-arrow-wrap{position:absolute;left:14%;right:14%;top:50%;transform:translateY(-50%);height:2.4rem;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.ba-arrow{font-size:1.8rem;opacity:0;position:absolute;right:0;transition:none}
+.ba-arrow.fly{animation:arrowFly .55s ease-out forwards}
+.ba-arrow.miss-shake{opacity:1;position:absolute;right:30%;animation:shake .4s ease}
+@keyframes arrowFly{0%{right:90%;opacity:0}10%{opacity:1}100%{right:0%;opacity:1}}
+.ba-score-dots{display:flex;gap:10px;justify-content:center;margin-bottom:14px}
+.ba-sd{width:30px;height:30px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;transition:all .3s;color:var(--muted)}
+.ba-sd.hit{background:#16a34a;color:#fff}
+.ba-sd.miss{background:#dc2626;color:#fff}
+.ba-intro{background:#dbeafe;border:2px solid #bfdbfe;border-radius:12px;padding:14px 18px;font-size:.92rem;font-weight:700;color:#1e40af;margin-bottom:16px;text-align:center;line-height:1.8}
+.ba-q-area{background:#eff6ff;border:2px solid #bfdbfe;border-radius:14px;padding:20px}
+.ba-q-text{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.8}
+.ba-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba-opt{background:#fff;border:2px solid #bfdbfe;border-radius:12px;padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.06rem;font-weight:700;cursor:pointer;text-align:center;transition:all .15s;color:var(--ink)}
+.ba-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:#60a5fa;background:#dbeafe}
+.ba-opt.correct{background:var(--green-lt);border-color:#22c55e;color:#15803d}
+.ba-opt.wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c;animation:shake .35s ease}
+.ba-opt:disabled{cursor:default}
+.ba-expl{background:#dbeafe;border:1.5px solid #bfdbfe;border-radius:10px;padding:10px 14px;margin-top:12px;font-size:.88rem;font-weight:700;color:#1e40af;display:none;line-height:1.8}
+.ba-expl.show{display:block}
+.ba-next{display:none;margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:12px;padding:10px 26px;font-size:.95rem;font-weight:800;font-family:'Heebo',sans-serif;cursor:pointer}
+.ba-next.show{display:inline-block}
+.ba-next:hover{background:#1e3a8a}
+.ba-result{text-align:center;padding:22px;display:none}
+.ba-result.show{display:block}
+.ba-result h3{font-size:1.5rem;font-weight:900;color:#1d4ed8;margin-bottom:8px}
+.ba-result p{font-size:.96rem;color:var(--muted)}
+
+/* ── SCORE PANEL ────────────────────────────────────── */
+.score-panel{background:linear-gradient(135deg,#450a0a,#7f1d1d);border-radius:22px;padding:30px;text-align:center;color:#fff}
+.score-title{font-size:1.5rem;font-weight:900;margin-bottom:8px}
+.score-emoji{font-size:3.2rem;margin-bottom:8px}
+.score-num{font-size:2.6rem;font-weight:900;color:#fbbf24}
+.score-msg{font-size:.96rem;color:#fed7aa;margin-top:10px}
+
+/* ── UTILS ──────────────────────────────────────────── */
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════════════ -->
+<header class="header">
+  <span class="flame-float" style="--dur:3.2s;--del:0s;right:6%;top:12%">🔥</span>
+  <span class="flame-float" style="--dur:4s;--del:.7s;right:18%;top:18%">🔥</span>
+  <span class="flame-float" style="--dur:2.8s;--del:1.3s;right:78%;top:8%">🔥</span>
+  <span class="flame-float" style="--dur:3.6s;--del:.4s;right:58%;top:14%">🔥</span>
+  <span class="flame-float" style="--dur:4.4s;--del:1s;right:40%;top:5%">🔥</span>
+  <div class="header-inner">
+    <div class="header-eyebrow">סִיפּוּרִים בְּעִבְרִית — כִּיתָה ד׳</div>
+    <div class="header-special">⭐ שִׁיעוּר מְיוּחָד לַחָג ⭐</div>
+    <h1>מְדוּרַת לַ"ג בָּעֹמֶר</h1>
+    <div class="header-sub">שֵׁמוֹת פְּעֻלָּה · מוּקָם בֵּין שִׁיעוּר 20 לְשִׁיעוּר 21</div>
+    <div class="header-badge">🔥 לַ"ג בָּעֹמֶר שָׂמֵחַ! 🏹</div>
+  </div>
+  <div class="header-flag-strip"></div>
+</header>
+
+<!-- NAV -->
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson16_hachalom_shel_maya.html">→ 16</a>
+  <a class="nav-btn" href="lesson17_yom_haatzmaut.html">→ 17</a>
+  <a class="nav-btn" href="lesson18_hachayot_shel_hayaar.html">→ 18</a>
+  <a class="nav-btn" href="lesson19_hamaafiya_shel_savta.html">→ 19</a>
+  <a class="nav-btn" href="lesson20_hachalomot_shel_tom.html">← שִׁיעוּר 20</a>
+  <span class="nav-current">📍 🔥 לַ"ג בָּעֹמֶר (מְיוּחָד)</span>
+  <a class="nav-btn" href="lesson21_hamesiba_shel_linor.html">שִׁיעוּר 21 →</a>
+</nav>
+
+<!-- PROGRESS -->
+<div class="progress-strip">
+  <span class="prog-label">הַתְקַדְּמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+  <span class="prog-stars" id="progStars">☆☆☆☆☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════════════════════
+     חֵלֶק א׳ · קְטַע קְרִיאָה
+════════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-fire"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-fire">📖</div>
+    <div>
+      <span class="sec-num">חֵלֶק א׳</span>
+      <span class="sec-title">קְטַע קְרִיאָה</span>
+    </div>
+  </div>
+
+  <div class="holiday-banner">
+    🔥 לַ"ג בָּעֹמֶר שָׂמֵחַ! 🏹<br>
+    הַיּוֹם הוּא הַיּוֹם הַשְּׁלֹשִׁים וְשָׁלֹשׁ לִסְפִירַת הָעֹמֶר
+  </div>
+
+  <div class="story-wrap">
+    <div class="story-title">מְדוּרַת לַ"ג בָּעֹמֶר</div>
+
+    <p class="story-p">
+      בְּיוֹם <span class="hl">לַ"ג בָּעֹמֶר<span class="tip">לַ"ג = 33 בְּגִימַטְרִיָּה; בָּעֹמֶר = בִּסְפִירַת הָעֹמֶר</span></span> יָצְאָה מִשְׁפַּחַת לֵוִי לַשָּׂדֶה.
+      אַבָּא הֵכִין <span class="cmp-hl">עֵצִים</span> גְּדוֹלִים לַ<span class="cmp-hl">מְדוּרָה</span>.
+      דָּנִי עָזַר לוֹ לְסַדֵּר אֶת הָעֵצִים בְּזָהִירוּת.
+    </p>
+
+    <p class="story-p">
+      אִמָּא הֵבִיאָה <span class="hl">תַּפּוּחֵי אֲדָמָה<span class="tip">תַּפּוּחֵי אֲדָמָה = potatoes (lit. earth apples)</span></span> לַ<span class="hl">צְּלִיָּה<span class="tip">צְּלִיָּה = grilling / roasting — שֵׁם פְּעֻלָּה מִ"לִצְלוֹת"</span></span>.
+      נֹעָה רָצְתָה לְנַסּוֹת אֶת הַ<span class="cmp-hl">קֶשֶׁת</span>.
+    </p>
+
+    <p class="story-p">
+      "אַבָּא, אֵיךְ יוֹרִים בְּ<span class="cmp-hl">קֶשֶׁת</span>?" שָׁאֲלָה נֹעָה בְּ<span class="cmp-hl">סַקְרָנוּת</span>.
+      "שִׂימִי אֶת הַ<span class="hl">חֵץ<span class="tip">חֵץ = arrow; רַבִּים: חִצִּים</span></span> עַל הַקֶּשֶׁת," הֵסְבִּיר אַבָּא בְּ<span class="cmp-hl">סַבְלָנוּת</span>.
+      "כָּכָה?" שָׁאֲלָה נֹעָה, וְהִמְתִּינָה.
+      "כֵּן! עַכְשָׁיו <span class="hl">מְשֹׁכִי<span class="tip">מְשֹׁכִי = pull! (ציווי, נקבה)</span></span> וְשַׁחְרְרִי!"
+    </p>
+
+    <p class="story-p">
+      הַחֵץ עָף לְ<span class="hl">מֶרְחָק<span class="tip">מֶרְחָק = distance — שֵׁם פְּעֻלָּה מִ"לְהִתְרַחֵק"</span></span>,
+      וְנֹעָה <span class="cmp-hl">צָחֲקָה מִשִּׂמְחָה</span>.
+    </p>
+
+    <p class="story-p">
+      כְּשֶׁ<span class="cmp-hl">הַמְּדוּרָה</span> <span class="hl">הִתְלַקְּחָה<span class="tip">הִתְלַקְּחָה = caught fire / blazed up</span></span>,
+      כֻּלָּם <span class="hl">הִתְכַּנְּסוּ<span class="tip">הִתְכַּנְּסוּ = gathered together</span></span> מִסָּבִיב.
+      הָאֵשׁ הָיְתָה גְּדוֹלָה וְחַמָּה.
+      אַבָּא <span class="hl">צָלָה<span class="tip">צָלָה = grilled / roasted</span></span> תַּפּוּחֵי אֲדָמָה, וְהַכֹּל הָיָה <span class="cmp-hl">טָעִים מְאֹד</span>.
+    </p>
+
+    <p class="story-p">
+      <span class="hl">יַלְדֵי<span class="tip">יַלְדֵי = children of — צוּרַת סְמִיכוּת</span></span> הַשְּׁכֵנִים גַּם <span class="hl">הִצְטָרְפוּ<span class="tip">הִצְטָרְפוּ = joined in</span></span> לַ<span class="cmp-hl">חֲגִיגָה</span>.
+      לִפְנֵי שֶׁחָזְרוּ הַבַּיְתָה, שָׁרוּ כֻּלָּם שִׁירֵי לַ"ג בָּעֹמֶר בְּקוֹל רָם.
+      "זֶה הַחָג הֲכִי <span class="hl">כֵּיפִי<span class="tip">כֵּיפִי = fun / cool (slang from Arabic: כֵּיף)</span></span>!" אָמַר דָּנִי בְּ<span class="cmp-hl">שִׂמְחָה</span>.
+    </p>
+
+    <div class="story-note">
+      🕯️ <strong>לַ"ג בָּעֹמֶר</strong> הוּא הַיּוֹם הַ-33 בִּסְפִירַת הָעֹמֶר.
+      מַדְלִיקִים <strong>מְדוּרוֹת</strong>, יוֹרִים בְּ<strong>קֶשֶׁת וָחֵץ</strong>,
+      וְחוֹגְגִים לְזֵכֶר <strong>רַבִּי שִׁמְעוֹן בַּר יוֹחַאי</strong> וְגִבּוֹרֵי בַּר כּוֹכְבָא.
+    </div>
+    <div class="story-author">— סִיפּוּר: סִיפּוּרִים בְּעִבְרִית, כִּיתָה ד׳</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     חֵלֶק ב׳ · אוֹצַר מִלִּים
+════════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-acc"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-acc">📚</div>
+    <div>
+      <span class="sec-num">חֵלֶק ב׳</span>
+      <span class="sec-title">אוֹצַר מִלִּים</span>
+    </div>
+  </div>
+
+  <div class="vocab-grid">
+    <div class="vocab-item">
+      <div class="vemoji">🔥</div>
+      <div>
+        <span class="vword">מְדוּרָה</span>
+        <span class="vtrans">bonfire</span>
+        <div class="vexamp">הִדְלַקְנוּ <strong>מְדוּרָה</strong> גְּדוֹלָה בַּשָּׂדֶה.</div>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🏹</div>
+      <div>
+        <span class="vword">קֶשֶׁת</span>
+        <span class="vtrans">bow (weapon) / rainbow</span>
+        <div class="vexamp">נֹעָה יָרְתָה בְּ<strong>קֶשֶׁת</strong> וָחֵץ.</div>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🎯</div>
+      <div>
+        <span class="vword">חֵץ</span>
+        <span class="vtrans">arrow</span>
+        <div class="vexamp">הַ<strong>חֵץ</strong> עָף רָחוֹק מְאֹד.</div>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">😄</div>
+      <div>
+        <span class="vword">שִׂמְחָה</span>
+        <span class="vtrans">joy · from: לִשְׂמֹחַ</span>
+        <div class="vexamp">הָיְתָה <strong>שִׂמְחָה</strong> גְּדוֹלָה בַּחֲגִיגָה.</div>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🎉</div>
+      <div>
+        <span class="vword">חֲגִיגָה</span>
+        <span class="vtrans">celebration · from: לַחְגֹּג</span>
+        <div class="vexamp">כֻּלָּם הִצְטָרְפוּ לַ<strong>חֲגִיגָה</strong>.</div>
+      </div>
+    </div>
+    <div class="vocab-item">
+      <div class="vemoji">🧘</div>
+      <div>
+        <span class="vword">סַבְלָנוּת</span>
+        <span class="vtrans">patience</span>
+        <div class="vexamp">אַבָּא הֵסְבִּיר בְּ<strong>סַבְלָנוּת</strong> רַבָּה.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     חֵלֶק ג׳ · דִּקְדּוּק — שֵׁמוֹת פְּעֻלָּה
+════════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-fire"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-fire">📝</div>
+    <div>
+      <span class="sec-num">חֵלֶק ג׳</span>
+      <span class="sec-title">דִּקְדּוּק — שֵׁם פְּעֻלָּה</span>
+    </div>
+  </div>
+
+  <div class="gram-intro">
+    בְּעִבְרִית, מִכָּל <strong>פֹּעַל</strong> אֶפְשָׁר לִיצוֹר <strong>שֵׁם עֶצֶם</strong> שֶׁמְּתָאֵר אֶת הַפְּעֻלָּה עַצְמָהּ.<br>
+    שֵׁם עֶצֶם כָּזֶה נִקְרָא <strong>שֵׁם פְּעֻלָּה</strong>.<br>
+    לְדֻגְמָה: הַפֹּעַל <strong>לִשְׂמֹחַ</strong> → שֵׁם הַפְּעֻלָּה <strong>שִׂמְחָה</strong>.<br>
+    אַפְשָׁר לִשְׁאֹל: "מָה קָרָה?" — "הָיְתָה <strong>שִׂמְחָה</strong> גְּדוֹלָה!"
+  </div>
+
+  <table class="gram-table">
+    <thead>
+      <tr>
+        <th>פֹּעַל</th>
+        <th>שֵׁם פְּעֻלָּה</th>
+        <th>דֻּגְמָה בְּמִשְׁפָּט</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="verb-cell">לִשְׂמֹחַ</td>
+        <td class="noun-cell">שִׂמְחָה</td>
+        <td class="ex-cell">הָיְתָה <strong>שִׂמְחָה</strong> גְּדוֹלָה.</td>
+      </tr>
+      <tr>
+        <td class="verb-cell">לְבַשֵּׁל</td>
+        <td class="noun-cell">בִּישּׁוּל</td>
+        <td class="ex-cell">אוֹהֵב <strong>בִּישּׁוּל</strong> עַל אֵשׁ.</td>
+      </tr>
+      <tr>
+        <td class="verb-cell">לִירוֹת</td>
+        <td class="noun-cell">יְרִיָּה</td>
+        <td class="ex-cell">הַ<strong>יְרִיָּה</strong> הָיְתָה מְדֻיֶּקֶת.</td>
+      </tr>
+      <tr>
+        <td class="verb-cell">לְשַׂחֵק</td>
+        <td class="noun-cell">מִשְׂחָק</td>
+        <td class="ex-cell">זֶה <strong>מִשְׂחָק</strong> כֵּיפִי!</td>
+      </tr>
+      <tr>
+        <td class="verb-cell">לַחְגֹּג</td>
+        <td class="noun-cell">חֲגִיגָה</td>
+        <td class="ex-cell">הַ<strong>חֲגִיגָה</strong> הָיְתָה נֶהְדֶּרֶת.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram-rule">
+    💡 <strong>שֵׁם פְּעֻלָּה</strong> הוּא שֵׁם עֶצֶם הַנּוֹצָר מִפֹּעַל וּמְתָאֵר אֶת הַפְּעֻלָּה כְּדָבָר.<br>
+    הוּא עוֹנֶה עַל הַשְּׁאֵלָה: <b>מַה הִיא הַפְּעֻלָּה?</b><br>
+    דֻּגְמָה: "יְרִיָּה" (= הַמַּעֲשֶׂה שֶׁל לִירוֹת), "שִׂמְחָה" (= הַמַּצָּב שֶׁל לִשְׂמֹחַ).
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     חֵלֶק ד׳ · תַּרְגִּילִים
+════════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-acc"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-acc">✏️</div>
+    <div>
+      <span class="sec-num">חֵלֶק ד׳</span>
+      <span class="sec-title">תַּרְגִּילִים — בְּחַר תְּשׁוּבָה</span>
+    </div>
+  </div>
+
+  <div class="mc-qs">
+
+    <!-- Q1 -->
+    <div class="mc-q" id="mcq1">
+      <div class="mc-q-text">
+        <span class="mc-num">1</span>
+        מָה הֵכִין אַבָּא לַ<strong>מְדוּרָה</strong>?
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" id="mcq1o0" onclick="pickMC(1,this,false)">תַּפּוּחֵי אֲדָמָה</button>
+        <button class="mc-opt" id="mcq1o1" onclick="pickMC(1,this,true)">עֵצִים גְּדוֹלִים</button>
+        <button class="mc-opt" id="mcq1o2" onclick="pickMC(1,this,false)">קֶשֶׁת וָחֵץ</button>
+        <button class="mc-opt" id="mcq1o3" onclick="pickMC(1,this,false)">שִׁירִים לַחָג</button>
+      </div>
+      <div class="mc-hint" id="mch1"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="mck1" onclick="checkMC(1)" disabled>בְּדֹק ✓</button>
+        <span class="mc-fb" id="mcfb1"></span>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="mc-q" id="mcq2">
+      <div class="mc-q-text">
+        <span class="mc-num">2</span>
+        מִי לִמֵּד אֶת נֹעָה לִירוֹת בְּקֶשֶׁת?
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" id="mcq2o0" onclick="pickMC(2,this,false)">דָּנִי</button>
+        <button class="mc-opt" id="mcq2o1" onclick="pickMC(2,this,true)">אַבָּא</button>
+        <button class="mc-opt" id="mcq2o2" onclick="pickMC(2,this,false)">אִמָּא</button>
+        <button class="mc-opt" id="mcq2o3" onclick="pickMC(2,this,false)">יַלְדֵי הַשְּׁכֵנִים</button>
+      </div>
+      <div class="mc-hint" id="mch2"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="mck2" onclick="checkMC(2)" disabled>בְּדֹק ✓</button>
+        <span class="mc-fb" id="mcfb2"></span>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="mc-q" id="mcq3">
+      <div class="mc-q-text">
+        <span class="mc-num">3</span>
+        אֵיזֶה שֵׁם פְּעֻלָּה נוֹצָר מִן הַפֹּעַל <strong>לְבַשֵּׁל</strong>?
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" id="mcq3o0" onclick="pickMC(3,this,false)">מְבַשֵּׁל</button>
+        <button class="mc-opt" id="mcq3o1" onclick="pickMC(3,this,false)">בִּשֵּׁל</button>
+        <button class="mc-opt" id="mcq3o2" onclick="pickMC(3,this,true)">בִּישּׁוּל</button>
+        <button class="mc-opt" id="mcq3o3" onclick="pickMC(3,this,false)">תְּבַשֵּׁל</button>
+      </div>
+      <div class="mc-hint" id="mch3"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="mck3" onclick="checkMC(3)" disabled>בְּדֹק ✓</button>
+        <span class="mc-fb" id="mcfb3"></span>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="mc-q" id="mcq4">
+      <div class="mc-q-text">
+        <span class="mc-num">4</span>
+        מָה אָמַר דָּנִי לִפְנֵי שֶׁחָזְרוּ הַבַּיְתָה?
+      </div>
+      <div class="mc-opts">
+        <button class="mc-opt" id="mcq4o0" onclick="pickMC(4,this,false)">"אֲנִי עָיֵף!"</button>
+        <button class="mc-opt" id="mcq4o1" onclick="pickMC(4,this,true)">"זֶה הַחָג הֲכִי כֵּיפִי!"</button>
+        <button class="mc-opt" id="mcq4o2" onclick="pickMC(4,this,false)">"הַמְּדוּרָה גְּדוֹלָה"</button>
+        <button class="mc-opt" id="mcq4o3" onclick="pickMC(4,this,false)">"הַחֵץ לֹא פָגַע"</button>
+      </div>
+      <div class="mc-hint" id="mch4"></div>
+      <div class="mc-check-row">
+        <button class="check-btn" id="mck4" onclick="checkMC(4)" disabled>בְּדֹק ✓</button>
+        <span class="mc-fb" id="mcfb4"></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     חֵלֶק ה׳ · מִשְׂחַק א׳ — בּוֹנֵה הַמְּדוּרָה
+════════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-fire"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-fire">🎮</div>
+    <div>
+      <span class="sec-num">חֵלֶק ה׳</span>
+      <span class="sec-title">מִשְׂחַק א׳ — בּוֹנֵה הַמְּדוּרָה 🔥</span>
+    </div>
+  </div>
+
+  <!-- Scene -->
+  <div class="bf-scene">
+    <div class="bf-stars-layer" aria-hidden="true">
+      <span class="bf-star" style="--tw:1.8s;--td:0s">✦</span>
+      <span class="bf-star" style="--tw:2.3s;--td:.4s">✦</span>
+      <span class="bf-star" style="--tw:1.5s;--td:.8s">✦</span>
+      <span class="bf-star" style="--tw:2.8s;--td:.2s">✦</span>
+      <span class="bf-star" style="--tw:2s;--td:1s">✦</span>
+      <span class="bf-star" style="--tw:1.6s;--td:.6s">✦</span>
+      <span class="bf-star" style="--tw:3s;--td:.1s">✦</span>
+      <span class="bf-star" style="--tw:2.1s;--td:.9s">✦</span>
+    </div>
+    <div class="bf-level-badge" id="bfLvl">שְׁלַב 0 / 6</div>
+    <div class="bf-fire-wrap">
+      <div class="bf-flames" id="bfFlames"></div>
+      <div class="bf-logs">🪵🪵🪵🪵🪵</div>
+    </div>
+  </div>
+
+  <div class="bf-intro">
+    🎯 <strong>עֲנֵה נָכוֹן — וְהַמְּדוּרָה תִּגְדַּל!</strong><br>
+    6 שְׁאֵלוֹת · עַל כָּל תְּשׁוּבָה נְכוֹנָה הַלַּהַב גָּדֵל
+  </div>
+
+  <div class="bf-progress" id="bfProg">
+    <span class="bf-dot" id="bfd0"></span>
+    <span class="bf-dot" id="bfd1"></span>
+    <span class="bf-dot" id="bfd2"></span>
+    <span class="bf-dot" id="bfd3"></span>
+    <span class="bf-dot" id="bfd4"></span>
+    <span class="bf-dot" id="bfd5"></span>
+  </div>
+
+  <div class="bf-q-area" id="bfQArea">
+    <div class="bf-q-text" id="bfQText"></div>
+    <div class="bf-opts" id="bfOpts"></div>
+    <div class="bf-expl" id="bfExpl"></div>
+    <button class="bf-next" id="bfNext" onclick="bfAdvance()">הַמְשֵׁךְ ←</button>
+  </div>
+
+  <div class="bf-result" id="bfResult">
+    <div style="font-size:3.2rem;margin-bottom:8px">🔥🔥🔥</div>
+    <h3>הַמְּדוּרָה בּוֹעֶרֶת!</h3>
+    <p id="bfResultMsg"></p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     חֵלֶק ו׳ · מִשְׂחַק ב׳ — קֶשֶׁת וָחֵץ
+════════════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-stripe cs-blue"></div>
+  <div class="sec-header">
+    <div class="sec-icon si-blue">🎮</div>
+    <div>
+      <span class="sec-num">חֵלֶק ו׳</span>
+      <span class="sec-title">מִשְׂחַק ב׳ — קֶשֶׁת וָחֵץ 🏹</span>
+    </div>
+  </div>
+
+  <!-- Scene -->
+  <div class="ba-scene">
+    <span class="ba-bow" aria-hidden="true">🏹</span>
+    <div class="ba-arrow-wrap">
+      <span class="ba-arrow" id="baArrow" aria-hidden="true">➡️</span>
+    </div>
+    <span class="ba-target" aria-hidden="true">🎯</span>
+  </div>
+
+  <div class="ba-score-dots" id="baScoreDots">
+    <span class="ba-sd" id="basd0">1</span>
+    <span class="ba-sd" id="basd1">2</span>
+    <span class="ba-sd" id="basd2">3</span>
+    <span class="ba-sd" id="basd3">4</span>
+    <span class="ba-sd" id="basd4">5</span>
+  </div>
+
+  <div class="ba-intro">
+    🏹 <strong>מַצֵּא אֶת שֵׁם הַפְּעֻלָּה הַנָּכוֹן!</strong><br>
+    עֲנֵה נָכוֹן — וְהַחֵץ יָעוּף אֶל הַמַּטָּרָה 🎯
+  </div>
+
+  <div class="ba-q-area" id="baQArea">
+    <div class="ba-q-text" id="baQText"></div>
+    <div class="ba-opts" id="baOpts"></div>
+    <div class="ba-expl" id="baExpl"></div>
+    <button class="ba-next" id="baNext" onclick="baAdvance()">הַמְשֵׁךְ ←</button>
+  </div>
+
+  <div class="ba-result" id="baResult">
+    <div style="font-size:3.2rem;margin-bottom:8px">🏹🎯🌟</div>
+    <h3 id="baResultTitle"></h3>
+    <p id="baResultMsg"></p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     לוּחַ תּוֹצָאוֹת
+════════════════════════════════════════════════════════ -->
+<div class="card score-panel" id="scorePanel" style="display:none">
+  <div class="score-emoji">🔥🏹🌟</div>
+  <div class="score-title">סִיַּמְתָּ אֶת הַשִּׁיעוּר הַמְּיוּחָד!</div>
+  <div class="score-num" id="scoreNum">0 / 15</div>
+  <div class="score-msg" id="scoreMsg"></div>
+</div>
+
+</div><!-- /page -->
+
+<script>
+// ── SHARED STATE ─────────────────────────────────────
+const TOTAL = 15; // 4 MC + 6 BF + 5 BA
+let mcDone = 0, mcScore = 0;
+let bfDone = false, bfScore = 0;
+let baDone = false, baScore = 0;
+
+function updateProgress() {
+  const done = mcScore + bfScore + baScore;
+  const pct = Math.min(100, Math.round(done / TOTAL * 100));
+  document.getElementById('progFill').style.width = pct + '%';
+  const s = Math.round(done / TOTAL * 9);
+  document.getElementById('progStars').textContent = '★'.repeat(s) + '☆'.repeat(9 - s);
+}
+
+function tryShowFinalScore() {
+  if (mcDone >= 4 && bfDone && baDone) {
+    const panel = document.getElementById('scorePanel');
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const total = mcScore + bfScore + baScore;
+    document.getElementById('scoreNum').textContent = total + ' / ' + TOTAL;
+    const msgs = [
+      'נַסֵּה שׁוּב — אַתָּה יָכוֹל!',
+      'עוֹד קְצָת אִימּוּן...',
+      'יָפֶה! תִּמְשִׁיךְ כָּכָה.',
+      'טוֹב מְאֹד! כָּמַעַט מוּשְׁלָם!',
+      'כָּל הַכָּבוֹד! תּוֹצָאָה מְצוּיֶּנֶת!',
+      'מוּשְׁלָם! לַ"ג בָּעֹמֶר שָׂמֵחַ! 🔥🏹'
+    ];
+    const idx = Math.min(5, Math.floor(total / TOTAL * 5.5));
+    document.getElementById('scoreMsg').textContent = msgs[idx];
+  }
+}
+
+// ── MC LOGIC (fix-before-submit) ─────────────────────
+const mcSelected = { 1: null, 2: null, 3: null, 4: null };
+const mcCorrect  = { 1: false, 2: false, 3: false, 4: false };
+
+function pickMC(q, btn, isCorrect) {
+  if (mcCorrect[q]) return; // already correct, locked
+  // deselect previous
+  const opts = document.querySelectorAll('#mcq' + q + ' .mc-opt');
+  opts.forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  mcSelected[q] = { btn, isCorrect };
+  document.getElementById('mck' + q).disabled = false;
+  document.getElementById('mch' + q).textContent = 'לְחַץ "בְּדֹק" לְאִישׁוּר';
+}
+
+function checkMC(q) {
+  const sel = mcSelected[q];
+  if (!sel) return;
+  const fb = document.getElementById('mcfb' + q);
+  const hint = document.getElementById('mch' + q);
+  document.getElementById('mck' + q).disabled = true;
+
+  if (sel.isCorrect) {
+    sel.btn.classList.remove('selected');
+    sel.btn.classList.add('correct');
+    sel.btn.disabled = true;
+    // disable all others
+    document.querySelectorAll('#mcq' + q + ' .mc-opt').forEach(b => b.disabled = true);
+    fb.className = 'mc-fb fb-ok';
+    fb.textContent = '✅ נָכוֹן מְאֹד!';
+    hint.textContent = '';
+    mcCorrect[q] = true;
+    mcScore++;
+    mcDone++;
+    updateProgress();
+    tryShowFinalScore();
+  } else {
+    sel.btn.classList.remove('selected');
+    sel.btn.classList.add('wrong');
+    fb.className = 'mc-fb fb-err';
+    fb.textContent = '❌ לֹא נָכוֹן — נַסֵּה שׁוּב!';
+    hint.textContent = '';
+    setTimeout(() => {
+      if (!mcCorrect[q]) {
+        sel.btn.classList.remove('wrong');
+        fb.textContent = '';
+        mcSelected[q] = null;
+        document.getElementById('mck' + q).disabled = true;
+      }
+    }, 900);
+  }
+}
+
+// ── BONFIRE GAME ─────────────────────────────────────
+const bfQs = [
+  {
+    q: 'בְּלַ"ג בָּעֹמֶר מַדְלִיקִים _______.',
+    opts: ['מְדוּרוֹת', 'זִקּוּקִים', 'נֵרוֹת', 'אוֹרוֹת'],
+    ans: 0,
+    expl: '🔥 נָכוֹן! בְּלַ"ג בָּעֹמֶר מַדְלִיקִים מְדוּרוֹת בְּכָל הָאָרֶץ.'
+  },
+  {
+    q: 'הַכְּלִי שֶׁיּוֹרִים בּוֹ חֵץ נִקְרָא _______.',
+    opts: ['קֶשֶׁת', 'אֵשׁ', 'עֵץ', 'חֶרֶב'],
+    ans: 0,
+    expl: '🏹 נָכוֹן! הַקֶּשֶׁת הוּא הַכְּלִי שֶׁיּוֹרִים בּוֹ חִצִּים.'
+  },
+  {
+    q: 'מִי עָזַר לְאַבָּא לְסַדֵּר אֶת הָעֵצִים?',
+    opts: ['אִמָּא', 'נֹעָה', 'דָּנִי', 'הַשָּׁכֵן'],
+    ans: 2,
+    expl: '✅ נָכוֹן! "דָּנִי עָזַר לוֹ לְסַדֵּר אֶת הָעֵצִים בְּזָהִירוּת."'
+  },
+  {
+    q: 'כְּשֶׁהַמְּדוּרָה הִתְלַקְּחָה, כֻּלָּם _______ מִסָּבִיב.',
+    opts: ['רָצוּ', 'הִתְכַּנְּסוּ', 'שָׂחֲקוּ', 'יָשְׁנוּ'],
+    ans: 1,
+    expl: '✅ נָכוֹן! "כֻּלָּם הִתְכַּנְּסוּ מִסָּבִיב" — הִתְאַסְּפוּ בַּמָּקוֹם.'
+  },
+  {
+    q: 'אִמָּא הֵבִיאָה לַשָּׂדֶה _______.',
+    opts: ['עֵצִים', 'קֶשֶׁת', 'תַּפּוּחֵי אֲדָמָה', 'שִׁירִים'],
+    ans: 2,
+    expl: '✅ נָכוֹן! "אִמָּא הֵבִיאָה תַּפּוּחֵי אֲדָמָה לַצְּלִיָּה."'
+  },
+  {
+    q: 'לִפְנֵי שֶׁחָזְרוּ הַבַּיְתָה, כֻּלָּם _______.',
+    opts: ['יָשְׁנוּ', 'אָכְלוּ', 'שָׂחֲקוּ', 'שָׁרוּ שִׁירִים'],
+    ans: 3,
+    expl: '✅ נָכוֹן! "שָׁרוּ כֻּלָּם שִׁירֵי לַ"ג בָּעֹמֶר בְּקוֹל רָם."'
+  }
+];
+
+const flameLevels = ['', '🔥', '🔥🔥', '🔥🔥🔥', '🔥🔥🔥🔥', '🔥🔥🔥🔥🔥', '🔥🔥🔥🔥🔥🔥'];
+let bfIdx = 0, bfAnswered = false;
+
+function bfRender() {
+  if (bfIdx >= bfQs.length) { bfFinish(); return; }
+  const q = bfQs[bfIdx];
+  document.getElementById('bfQText').textContent = q.q;
+  const wrap = document.getElementById('bfOpts');
+  wrap.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'bf-opt';
+    btn.textContent = opt;
+    btn.onclick = () => bfAnswer(i, btn);
+    wrap.appendChild(btn);
+  });
+  document.getElementById('bfExpl').className = 'bf-expl';
+  document.getElementById('bfNext').className = 'bf-next';
+  bfAnswered = false;
+}
+
+function bfAnswer(idx, btn) {
+  const q = bfQs[bfIdx];
+  const allBtns = document.querySelectorAll('#bfOpts .bf-opt');
+  const expl = document.getElementById('bfExpl');
+
+  if (bfAnswered) return;
+
+  if (idx === q.ans) {
+    bfAnswered = true;
+    allBtns.forEach(b => b.disabled = true);
+    btn.classList.add('correct');
+    bfScore++;
+    document.getElementById('bfd' + bfIdx).classList.add('lit');
+    document.getElementById('bfFlames').textContent = flameLevels[bfScore];
+    document.getElementById('bfLvl').textContent = 'שְׁלַב ' + bfScore + ' / 6';
+    expl.textContent = q.expl;
+    expl.classList.add('show');
+    document.getElementById('bfNext').className = 'bf-next show';
+    updateProgress();
+  } else {
+    btn.classList.add('wrong');
+    setTimeout(() => btn.classList.remove('wrong'), 450);
+  }
+}
+
+function bfAdvance() {
+  bfIdx++;
+  if (bfIdx >= bfQs.length) { bfFinish(); return; }
+  bfRender();
+}
+
+function bfFinish() {
+  document.getElementById('bfQArea').style.display = 'none';
+  document.getElementById('bfProg').style.display = 'none';
+  const r = document.getElementById('bfResult');
+  r.classList.add('show');
+  const msgs = ['נַסֵּה שׁוּב!', 'עוֹד קְצָת!', 'יָפֶה!', 'טוֹב מְאֹד!', 'כָּל הַכָּבוֹד!', 'מְצוּיָן!', 'מוּשְׁלָם! 🔥'];
+  document.getElementById('bfResultMsg').textContent = bfScore + ' מִתּוֹךְ 6 — ' + (msgs[bfScore] || '');
+  bfDone = true;
+  tryShowFinalScore();
+}
+
+// ── BOW & ARROW GAME ─────────────────────────────────
+const baQs = [
+  {
+    q: 'מִן הַפֹּעַל "לִשְׂמֹחַ" נוֹצֶרֶת הַמִּלָּה _______.',
+    opts: ['שִׂמְחָה', 'שָׂמֵחַ', 'יִשְׂמַח', 'שֹׁמֵחַ'],
+    ans: 0,
+    expl: 'לִשְׂמֹחַ → שִׂמְחָה. "הָיְתָה שִׂמְחָה גְּדוֹלָה בַּשָּׂדֶה."'
+  },
+  {
+    q: 'מִן הַפֹּעַל "לְבַשֵּׁל" נוֹצֶרֶת הַמִּלָּה _______.',
+    opts: ['בִּישּׁוּל', 'מְבַשֵּׁל', 'בִּשֵּׁל', 'תְּבַשֵּׁל'],
+    ans: 0,
+    expl: 'לְבַשֵּׁל → בִּישּׁוּל. "אוֹהֵב בִּישּׁוּל עַל אֵשׁ."'
+  },
+  {
+    q: 'מִן הַפֹּעַל "לִירוֹת" נוֹצֶרֶת הַמִּלָּה _______.',
+    opts: ['יְרִיָּה', 'יוֹרֶה', 'יִירֶה', 'יָרָה'],
+    ans: 0,
+    expl: 'לִירוֹת → יְרִיָּה. "הַיְרִיָּה שֶׁל נֹעָה הָיְתָה מְדֻיֶּקֶת."'
+  },
+  {
+    q: 'מִן הַפֹּעַל "לְשַׂחֵק" נוֹצֶרֶת הַמִּלָּה _______.',
+    opts: ['מִשְׂחָק', 'מְשַׂחֵק', 'שִׂחֵק', 'יְשַׂחֵק'],
+    ans: 0,
+    expl: 'לְשַׂחֵק → מִשְׂחָק. "זֶה מִשְׂחָק כֵּיפִי מְאֹד!"'
+  },
+  {
+    q: 'מִן הַפֹּעַל "לַחְגֹּג" נוֹצֶרֶת הַמִּלָּה _______.',
+    opts: ['חֲגִיגָה', 'חוֹגֵג', 'יַחְגֹּג', 'חָגַג'],
+    ans: 0,
+    expl: 'לַחְגֹּג → חֲגִיגָה. "הַחֲגִיגָה שֶׁל לַ"ג בָּעֹמֶר הָיְתָה נֶהְדֶּרֶת!"'
+  }
+];
+
+let baIdx = 0, baAnswered = false;
+
+function baRender() {
+  if (baIdx >= baQs.length) { baFinish(); return; }
+  const q = baQs[baIdx];
+  document.getElementById('baQText').textContent = q.q;
+  const wrap = document.getElementById('baOpts');
+  wrap.innerHTML = '';
+  // Shuffle options
+  const shuffled = q.opts
+    .map((t, origIdx) => ({ t, origIdx }))
+    .sort(() => Math.random() - 0.5);
+  shuffled.forEach(({ t, origIdx }) => {
+    const btn = document.createElement('button');
+    btn.className = 'ba-opt';
+    btn.textContent = t;
+    btn.dataset.correct = (origIdx === q.ans) ? '1' : '0';
+    btn.onclick = () => baAnswer(origIdx === q.ans, btn);
+    wrap.appendChild(btn);
+  });
+  document.getElementById('baExpl').className = 'ba-expl';
+  document.getElementById('baNext').className = 'ba-next';
+  // Reset arrow
+  const arrow = document.getElementById('baArrow');
+  arrow.className = 'ba-arrow';
+  arrow.style.opacity = '0';
+  baAnswered = false;
+}
+
+function baAnswer(isCorrect, btn) {
+  const allBtns = document.querySelectorAll('#baOpts .ba-opt');
+  const expl = document.getElementById('baExpl');
+  const arrow = document.getElementById('baArrow');
+  const dot = document.getElementById('basd' + baIdx);
+
+  if (baAnswered) return;
+
+  if (isCorrect) {
+    baAnswered = true;
+    allBtns.forEach(b => b.disabled = true);
+    btn.classList.add('correct');
+    baScore++;
+    dot.classList.add('hit');
+    dot.textContent = '🎯';
+    arrow.style.opacity = '1';
+    arrow.className = 'ba-arrow fly';
+    expl.textContent = '✅ ' + baQs[baIdx].expl;
+    expl.classList.add('show');
+    document.getElementById('baNext').className = 'ba-next show';
+    updateProgress();
+  } else {
+    btn.classList.add('wrong');
+    setTimeout(() => btn.classList.remove('wrong'), 450);
+  }
+}
+
+function baAdvance() {
+  baIdx++;
+  if (baIdx >= baQs.length) { baFinish(); return; }
+  baRender();
+}
+
+function baFinish() {
+  document.getElementById('baQArea').style.display = 'none';
+  document.getElementById('baScoreDots').style.display = 'none';
+  const r = document.getElementById('baResult');
+  r.classList.add('show');
+  const titles = [
+    'נַסֵּה שׁוּב!', 'תִּמְשִׁיךְ לְהִתְאַמֵּן!',
+    'יָפֶה!', 'כָּל הַכָּבוֹד!', 'מְצוּיָן!', 'כָּל הַחִצִּים פָּגְעוּ! 🎯'
+  ];
+  document.getElementById('baResultTitle').textContent = titles[Math.min(baScore, 5)];
+  document.getElementById('baResultMsg').textContent =
+    baScore + ' מִתּוֹךְ 5 — ' + (baScore === 5 ? 'יְרִיָּה מוּשְׁלֶמֶת כְּמוֹ נֹעָה!' : 'תִּמְשִׁיךְ לְהִתְאַמֵּן!');
+  baDone = true;
+  tryShowFinalScore();
+}
+
+// ── INIT ─────────────────────────────────────────────
+bfRender();
+baRender();
+</script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַמֵּרוֹץ הַגָּדוֹל — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blu:     #2563eb;
+  --blu-dk:  #1d4ed8;
+  --blu-md:  #60a5fa;
+  --blu-lt:  #dbeafe;
+  --blu-pal: #eff6ff;
+  --blu-2:   #bfdbfe;
+  --orng:    #ea580c;
+  --orng-dk: #c2410c;
+  --orng-md: #fb923c;
+  --orng-lt: #ffedd5;
+  --orng-pal:#fff7ed;
+  --orng-2:  #fed7aa;
+  --ok:      #16a34a;
+  --ok-lt:   #dcfce7;
+  --red-lt:  #fee2e2;
+  --ink:     #1e293b;
+  --muted:   #64748b;
+  --white:   #ffffff;
+  /* aliases used by the staircase game */
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #dbeafe;
+  --accent: #ea580c;
+  --accent-light: #ffedd5;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--blu-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+/* ── HEADER ── */
+.header{background:linear-gradient(160deg,#1e3a8a 0%,#2563eb 50%,#60a5fa 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#bfdbfe;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(96,165,250,.5),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#bfdbfe;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#1e3a8a;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(37,99,235,.35)}
+.header-flag-strip{background:var(--orng);height:6px}
+
+/* ── NAV ── */
+.lesson-nav{background:#1e3a8a;padding:8px 20px;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#bfdbfe;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--blu-md);border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#2563eb;color:#fff}
+.nav-current{color:#93c5fd;font-size:.78rem;font-weight:800;margin-right:auto}
+
+/* ── PROGRESS ── */
+.progress-strip{background:#1e3a8a;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#bfdbfe;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:var(--blu-md);border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#bfdbfe,var(--orng));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#fde68a;font-size:1rem;letter-spacing:2px}
+
+/* ── PAGE ── */
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-blu{background:linear-gradient(180deg,#bfdbfe,#2563eb)}
+.cs-orng{background:linear-gradient(180deg,#fed7aa,#ea580c)}
+.cs-grn{background:linear-gradient(180deg,#bbf7d0,#16a34a)}
+
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-blu{background:var(--blu-pal);border:1.5px solid var(--blu-2)}
+.si-orng{background:var(--orng-pal);border:1.5px solid var(--orng-2)}
+.si-grn{background:#f0fdf4;border:1.5px solid #bbf7d0}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+/* ── STORY ── */
+.story-wrap{background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--blu);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;line-height:2.9;color:#1e2d3d;margin-bottom:8px}
+.hl{background:var(--blu-lt);border-radius:4px;padding:1px 5px;font-weight:900;color:var(--blu-dk);border-bottom:2px dotted var(--blu-md);cursor:help;position:relative}
+.hl .tip{display:none;position:absolute;bottom:130%;right:50%;transform:translateX(50%);background:#1e293b;color:#fff;font-size:.75rem;font-family:'Heebo',sans-serif;padding:4px 10px;border-radius:8px;white-space:nowrap;z-index:30;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,.25);pointer-events:none}
+.hl:hover .tip{display:block}
+.story-note{background:var(--blu-lt);border:1.5px solid var(--blu-2);border-radius:10px;padding:10px 14px;font-size:.85rem;font-weight:700;color:var(--blu-dk);margin-top:14px;text-align:center;line-height:1.8}
+
+/* ── GRAMMAR ── */
+.gram-intro{background:var(--blu-pal);border:2px dashed var(--blu-md);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--blu-dk);line-height:1.9}
+.gram-intro strong{color:var(--blu)}
+.gram-table{width:100%;border-collapse:collapse;margin-bottom:18px;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--orng);color:#fff;font-family:'Heebo',sans-serif;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:center}
+.gram-table td{padding:9px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;border-bottom:1px solid var(--orng-2);text-align:center}
+.gram-table tr:last-child td{border-bottom:none}
+.gram-table tr:nth-child(even) td{background:var(--orng-pal)}
+.gram-table td:first-child{font-weight:800;color:var(--orng-dk);font-family:'Heebo',sans-serif}
+.gram-rule{background:var(--orng-pal);border:2px solid var(--orng-lt);border-radius:12px;padding:12px 16px;font-size:.95rem;font-weight:600;color:var(--orng-dk);line-height:1.9;margin-bottom:8px}
+.gram-rule strong{color:var(--orng)}
+.gram-rule .ex{font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;color:#1e2d3d;display:block;margin-top:4px}
+
+/* ══ STAIRCASE GAME ══ */
+.tower-intro{background:var(--orng-pal);border:2px solid var(--orng-2);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:.97rem;font-weight:600;color:var(--orng-dk);line-height:1.85}
+
+#stair-scene{background:linear-gradient(to bottom,#bfdbfe 0%,#93c5fd 40%,#dbeafe 100%);border-radius:18px;padding:14px 16px 0;margin:0 0 16px;position:relative;height:220px;overflow:hidden;border:2px solid var(--blu-2)}
+#stair-scene::after{content:'';position:absolute;bottom:0;left:0;right:0;height:24px;background:#92400e;border-radius:0 0 16px 16px}
+#stair-steps{position:absolute;bottom:24px;left:0;right:0;direction:ltr}
+.step{position:absolute;background:#fb923c;border:2px solid #ea580c;border-radius:3px 3px 0 0}
+#runner{position:absolute;font-size:1.7em;transition:bottom .6s cubic-bezier(.34,1.56,.64,1),left .6s ease;z-index:10;text-shadow:0 2px 4px rgba(0,0,0,.2);transform:scaleX(-1)}
+.runner-bounce{animation:runnerBounce .5s ease}
+@keyframes runnerBounce{0%,100%{transform:scaleX(-1) translateY(0)}40%{transform:scaleX(-1) translateY(-12px)}}
+#stair-label{position:absolute;top:8px;width:100%;text-align:center;color:#1e3a8a;font-size:.9rem;font-weight:800}
+#finish-flag{position:absolute;right:14px;bottom:188px;font-size:1.7em;opacity:0;transition:opacity .5s}
+.tw-sun{position:absolute;top:10px;right:18px;font-size:2rem;animation:sunPulse 3s infinite alternate ease-in-out}
+@keyframes sunPulse{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+
+.progress-dots{display:flex;justify-content:center;gap:9px;margin:14px 0}
+.dot{width:14px;height:14px;border-radius:50%;background:var(--blu-2);transition:background .3s,transform .2s}
+.dot.done{background:var(--orng);transform:scale(1.18);box-shadow:0 0 6px rgba(234,88,12,.6)}
+
+.game-question{background:var(--blu-pal);border:2px solid var(--blu-2);border-radius:14px;padding:20px 22px;text-align:center;font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;line-height:2.2;color:var(--ink);margin:4px 0 14px}
+.blank{display:inline-block;min-width:120px;border-bottom:3px dashed var(--orng);color:var(--orng);font-weight:800;text-align:center;transition:color .3s}
+
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:520px){.options-grid{grid-template-columns:1fr 1fr}}
+.opt-btn{background:#fff;border:2.5px solid var(--blu-2);border-radius:14px;padding:14px 10px;font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:800;color:var(--ink);cursor:pointer;transition:all .15s;text-align:center;direction:rtl}
+.opt-btn:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--blu-md);background:var(--blu-lt);transform:translateY(-2px)}
+.opt-btn.selected{border-color:var(--blu);background:var(--blu-lt);box-shadow:0 0 0 3px rgba(37,99,235,.2);transform:translateY(-3px)}
+.opt-btn.correct{background:var(--ok-lt);border-color:#22c55e;color:#15803d}
+.opt-btn.wrong{background:var(--red-lt);border-color:#ef4444;color:#b91c1c}
+
+.action-btn{display:block;margin:12px auto;padding:11px 32px;font-size:1rem;font-family:'Heebo',sans-serif;font-weight:800;border:none;border-radius:14px;cursor:pointer;transition:all .2s}
+#submit-btn{background:var(--orng);color:#fff;box-shadow:0 3px 12px rgba(234,88,12,.3)}
+#submit-btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
+#submit-btn:not(:disabled):hover{transform:translateY(-2px)}
+#next-btn{background:var(--blu);color:#fff;display:none;box-shadow:0 3px 12px rgba(37,99,235,.3)}
+#next-btn:hover{transform:translateY(-2px)}
+
+.explanation-box{display:none;background:var(--orng-pal);border:2px solid var(--orng-2);border-radius:12px;padding:14px 16px;margin:8px 0;font-size:.95rem;font-weight:600;line-height:1.85;color:var(--orng-dk)}
+.explanation-box strong{color:var(--orng)}
+
+.result-banner{display:none;background:linear-gradient(135deg,#1e3a8a,#2563eb);color:#fff;text-align:center;padding:32px 24px;border-radius:18px;animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.result-banner .trophy{font-size:2.8rem;margin-bottom:10px}
+.result-banner .title{font-size:1.45rem;font-weight:800;margin-bottom:8px}
+.result-banner .sub{font-size:1rem;color:#bfdbfe}
+
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}80%{transform:translateX(9px)}}
+.shake{animation:shake .4s ease}
+
+/* ── WRITING ── */
+.writing-intro{background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:14px 18px;margin-bottom:16px;font-size:.97rem;font-weight:600;color:#166534;line-height:1.9}
+.writing-area{width:100%;min-height:140px;border:2px solid #bbf7d0;border-radius:14px;padding:14px 16px;font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;line-height:2;color:var(--ink);direction:rtl;outline:none;resize:vertical;background:#fafffb}
+.writing-area:focus{border-color:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+.writing-hint{background:#dcfce7;border-radius:10px;padding:10px 14px;font-size:.88rem;font-weight:700;color:#15803d;margin-top:12px;line-height:1.8}
+
+/* ── SCORE ── */
+.score-panel{background:#fff;border:3px solid var(--blu-2);border-radius:22px;padding:24px 28px;text-align:center}
+.score-title{font-size:1.1rem;font-weight:900;color:var(--blu-dk);margin-bottom:10px}
+.score-emojis{font-size:2rem;letter-spacing:6px;margin-bottom:10px}
+.score-bar{background:var(--blu-2);border-radius:100px;height:12px;overflow:hidden;margin-bottom:12px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--blu-md),var(--orng));border-radius:100px;width:0%;transition:width .7s ease}
+.score-msg{font-size:.97rem;font-weight:600;color:var(--ink)}
+
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px 16px 40px}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🏃</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🏅</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:55%">🥇</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:74%">🏁</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:40%">⏱️</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">🏃 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 38</div>
+    <h1>הַמֵּרוֹץ הַגָּדוֹל</h1>
+    <div class="header-sub">מִסְפָּרִים סִדּוּרִיִּים — רִאשׁוֹן, שֵׁנִי, שְׁלִישִׁי…</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; דִּקְדּוּק: מִסְפָּרִים סִדּוּרִיִּים</div>
+  </div>
+</div>
+<div class="header-flag-strip"></div>
+
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson36_hahatsaga_hagdola.html">→ 36</a>
+  <a class="nav-btn" href="lesson37_hagan_shel_eliad.html">→ 37</a>
+  <a class="nav-btn" href="lesson39_haotsar_hamusstar.html">→ 39</a>
+  <span class="nav-current">שִׁיעוּר 38 ◀</span>
+</nav>
+
+<div class="progress-strip">
+  <span class="prog-label">הַתְקַדְּמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  <span class="prog-stars" id="prog-stars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+  <!-- ══ PART A: STORY ══ -->
+  <div class="card">
+    <div class="card-stripe cs-blu"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-blu">📖</div>
+      <div>
+        <span class="sec-num">חֵלֶק א׳</span>
+        <div class="sec-title">קְרִיאָה</div>
+      </div>
+    </div>
+    <div class="story-wrap">
+      <div class="story-title">הַמֵּרוֹץ הַגָּדוֹל</div>
+
+      <p class="story-p">יוֹם הַשִּׁשִּׁי הָיָה הַיּוֹם הַמְּיֻחָל — יוֹם מֵרוֹץ בֵּית הַסֵּפֶר. כָּל <span class="hl">כִּיתָה<span class="tip">כִּיתָה — a class, a grade</span></span> בָּחֲרָה שְׁנֵי רָצִים: אֶחָד לְמֵרוֹץ הַבָּנִים וְאַחַת לְמֵרוֹץ הַבָּנוֹת. מִכִּיתָה ד׳ נִבְחֲרוּ נֹעַם וְתַמָּר.</p>
+
+      <p class="story-p">נֹעַם <span class="hl">הִתְאַמֵּן<span class="tip">הִתְאַמֵּן — trained, practiced</span></span> כָּל שָׁבוּעַ לִפְנֵי הַמֵּרוֹץ. הוּא הָיָה רָץ מָהִיר, אֲבָל יָדַע שֶׁגַּם דָּנִי מִכִּיתָה ה׳ וְשַׁי מִכִּיתָה ו׳ חֲזָקִים מְאוֹד.</p>
+
+      <p class="story-p">הַמֵּרוֹץ <span class="hl">הֵחֵל<span class="tip">הֵחֵל — began, started</span></span>. כֻּלָּם רָצוּ בְּכֹחַ. לְאַחַר מֵאָה מֶטֶר, הַסֵּדֶר הִשְׁתַּנָּה: שַׁי עָבַר קָדִימָה, אַחֲרָיו נֹעַם, וְדָנִי בַּמָּקוֹם הַשְּׁלִישִׁי.</p>
+
+      <p class="story-p">בְּסוֹף הַמֵּרוֹץ, הַמּוֹרָה מִיכַל <span class="hl">הִכְרִיזָה<span class="tip">הִכְרִיזָה — announced</span></span> אֶת הַתּוֹצָאוֹת:</p>
+
+      <p class="story-p">"בַּמָּקוֹם הָרִאשׁוֹן — שַׁי! בַּמָּקוֹם הַשֵּׁנִי — נֹעַם! בַּמָּקוֹם הַשְּׁלִישִׁי — דָּנִי!"</p>
+
+      <p class="story-p">נֹעַם קִבֵּל <span class="hl">מֶדַלְיָה<span class="tip">מֶדַלְיָה — a medal</span></span> כְּסוּפָה. הוּא הָיָה שָׂמֵחַ כָּל כָּךְ! "מָקוֹם שֵׁנִי זֶה <span class="hl">נֶהְדָּר<span class="tip">נֶהְדָּר — wonderful, great</span></span>!" אָמַר לְאִמָּא שֶׁלּוֹ אַחַר כָּךְ.</p>
+
+      <p class="story-p">בְּמֵרוֹץ הַבָּנוֹת, תַּמָּר הִגִּיעָה בַּמָּקוֹם הָרִאשׁוֹן! הִיא קִבְּלָה מֶדַלְיָה זְהֻבָּה וְהַכִּיתָה <span class="hl">מָחֲאָה כַּפַּיִם<span class="tip">מָחֲאָה כַּפַּיִם — applauded</span></span> בְּשִׂמְחָה.</p>
+
+      <p class="story-p">בָּעֶרֶב כָּתַב נֹעַם בַּיּוֹמָן שֶׁלּוֹ: "הַיּוֹם הָיִיתִי שֵׁנִי מִתּוֹךְ עֶשְׂרִים רָצִים. בַּמֵּרוֹץ הַבָּא אֲנַסֶּה לִהְיוֹת <span class="hl">רִאשׁוֹן<span class="tip">רִאשׁוֹן — first (m.)</span></span>!"</p>
+
+      <div class="story-note">💡 עִבְרוּ עִם הָעַכְבָּר עַל הַמִּילִּים הַמְּסֻמָּנוֹת כְּדֵי לִרְאוֹת אֶת הַפֵּרוּשׁ.</div>
+    </div>
+  </div>
+
+  <!-- ══ PART B: GRAMMAR ══ -->
+  <div class="card">
+    <div class="card-stripe cs-orng"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-orng">📐</div>
+      <div>
+        <span class="sec-num">חֵלֶק ב׳</span>
+        <div class="sec-title">דִּקְדּוּק — מִסְפָּרִים סִדּוּרִיִּים</div>
+      </div>
+    </div>
+
+    <div class="gram-intro">
+      מִסְפָּרִים סִדּוּרִיִּים מְסַמְּנִים <strong>סֵדֶר</strong> — רִאשׁוֹן, שֵׁנִי, שְׁלִישִׁי… בְּעִבְרִית הַמִּסְפָּר הַסִּדּוּרִי צָרִיךְ לְהַסְכִּים עִם הַשֵּׁם שֶׁהוּא מְתָאֵר: <strong>זָכָר אוֹ נְקֵבָה</strong>.
+    </div>
+
+    <table class="gram-table">
+      <tr>
+        <th>מִסְפָּר</th>
+        <th>זָכָר (ז׳)</th>
+        <th>נְקֵבָה (נ׳)</th>
+      </tr>
+      <tr><td>1</td><td>רִאשׁוֹן</td><td>רִאשׁוֹנָה</td></tr>
+      <tr><td>2</td><td>שֵׁנִי</td><td>שְׁנִיָּה</td></tr>
+      <tr><td>3</td><td>שְׁלִישִׁי</td><td>שְׁלִישִׁית</td></tr>
+      <tr><td>4</td><td>רְבִיעִי</td><td>רְבִיעִית</td></tr>
+      <tr><td>5</td><td>חֲמִישִׁי</td><td>חֲמִישִׁית</td></tr>
+      <tr><td>6</td><td>שִׁשִּׁי</td><td>שִׁשִּׁית</td></tr>
+      <tr><td>7</td><td>שְׁבִיעִי</td><td>שְׁבִיעִית</td></tr>
+      <tr><td>8</td><td>שְׁמִינִי</td><td>שְׁמִינִית</td></tr>
+      <tr><td>9</td><td>תְּשִׁיעִי</td><td>תְּשִׁיעִית</td></tr>
+      <tr><td>10</td><td>עֲשִׂירִי</td><td>עֲשִׂירִית</td></tr>
+    </table>
+
+    <div class="gram-rule">📌 <strong>כְּלָל 1 — מִסְפָּר סִדּוּרִי + הַ:</strong> בְּדֶרֶךְ כְּלָל הַמִּסְפָּר בָּא אַחֲרֵי הַמִּילָּה שֶׁהוּא מְתָאֵר, עִם אוֹת ה' בַּהַתְחָלָה.
+      <span class="ex">הַיֶּלֶד הָרִאשׁוֹן — הַיַּלְדָּה הָרִאשׁוֹנָה</span>
+      <span class="ex">בַּמָּקוֹם הַשֵּׁנִי — בַּפַּעַם הַשְּׁנִיָּה</span>
+    </div>
+    <div class="gram-rule">📌 <strong>כְּלָל 2 — זָכָר אוֹ נְקֵבָה?</strong> שֵׁמוֹת שֶׁנִּגְמָרִים בְּ-<strong>ָה</strong> הֵם בְּדֶרֶךְ כְּלָל נְקֵבָה (פַּעַם, קוֹמָה, שָׁנָה, כִּיתָה). שֵׁמוֹת שֶׁאֵינָם נִגְמָרִים בְּ-ָה הֵם בְּדֶרֶךְ כְּלָל זָכָר (מָקוֹם, שִׁיעוּר, יוֹם, סֵפֶר).
+    </div>
+    <div class="gram-rule">📌 <strong>כְּלָל 3 — יוֹצְאֵי דֹּפֶן:</strong> יֵשׁ שֵׁמוֹת יוֹצְאֵי דֹּפֶן — כְּמוֹ "שֻׁלְחָן" (זָכָר) אוֹ "דֶּרֶךְ" (נְקֵבָה). אוֹתָם צָרִיךְ לִזְכֹּר!
+    </div>
+  </div>
+
+  <!-- ══ PART C: GAME ══ -->
+  <div class="card">
+    <div class="card-stripe cs-blu"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-blu">🏃</div>
+      <div>
+        <span class="sec-num">חֵלֶק ג׳ — מִשְׂחָק</span>
+        <div class="sec-title">מְטַפֵּס הַמַּדְרֵגוֹת</div>
+      </div>
+    </div>
+
+    <div class="tower-intro">
+      בְּחַר אֶת צוּרַת הַמִּסְפָּר הַסִּדּוּרִי הַנְּכוֹנָה. עַל כָּל תְּשׁוּבָה נְכוֹנָה — הַמְּטַפֵּס עוֹלֶה מַדְרֵגָה! יֵשׁ 6 שְׁאֵלוֹת — טַפְּסוּ עַד לַפִּסְגָּה! 🏃
+    </div>
+
+    <!-- Staircase Scene -->
+    <div id="stair-scene">
+      <div class="tw-sun">☀️</div>
+      <div id="stair-label">סִיבּוּב 1 מִתּוֹךְ 6</div>
+      <div id="stair-steps"></div>
+      <div id="runner">🏃</div>
+      <div id="finish-flag">🏁</div>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="progress-dots" id="progress-dots"></div>
+
+    <!-- Question -->
+    <div class="game-question" id="game-question"></div>
+
+    <!-- Options -->
+    <div class="options-grid" id="options-grid"></div>
+
+    <!-- Buttons -->
+    <button class="action-btn" id="submit-btn" onclick="submitAnswer()" disabled>בְּדֹק ✓</button>
+    <button class="action-btn" id="next-btn" onclick="nextQuestion()">הַמְשֵׁךְ ▶</button>
+
+    <!-- Explanation -->
+    <div class="explanation-box" id="explanation-box"></div>
+
+    <!-- Result -->
+    <div class="result-banner" id="result-banner">
+      <div class="trophy">🏆</div>
+      <div class="title">כָּל הַכָּבוֹד! הַמְּטַפֵּס הִגִּיעַ לַפִּסְגָּה!</div>
+      <div class="sub">אַתָּה מֵבִין מְצֻיָּן מִסְפָּרִים סִדּוּרִיִּים! 🥇</div>
+    </div>
+  </div>
+
+  <!-- ══ PART D: CREATIVE WRITING ══ -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header">
+      <div class="sec-icon si-grn">✍️</div>
+      <div>
+        <span class="sec-num">חֵלֶק ד׳</span>
+        <div class="sec-title">כְּתִיבָה יְצִירָתִית</div>
+      </div>
+    </div>
+    <div class="writing-intro">
+      כְּתֹב שְׁלוֹשָׁה מִשְׁפָּטִים עִם מִסְפָּרִים סִדּוּרִיִּים. אֶפְשָׁר לְסַפֵּר עַל תַּחֲרוּת, עַל יָמִים בַּשָּׁבוּעַ, עַל הַמָּקוֹם שֶׁלְּךָ בַּתּוֹר — אוֹ עַל כָּל דָּבָר שֶׁתִּרְצֶה.
+    </div>
+    <textarea class="writing-area" placeholder="כְּתֹב כָּאן אֶת הַמִּשְׁפָּטִים שֶׁלְּךָ..."></textarea>
+    <div class="writing-hint">💡 לְדֻגְמָה: "הַסֵּפֶר הָרִאשׁוֹן בַּסִּדְרָה מְעַנְיֵין מְאוֹד, אֲבָל הַשֵּׁנִי אֲפִילּוּ יוֹתֵר!"</div>
+  </div>
+
+  <!-- ══ SCORE ══ -->
+  <div class="score-panel" id="score-panel">
+    <div class="score-title">📊 תּוֹצְאוֹת הַשִּׁיעוּר</div>
+    <div class="score-emojis" id="score-emojis">☆☆☆☆☆</div>
+    <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    <div class="score-msg" id="score-msg">שַׂחֵק בַּמִּשְׂחָק כְּדֵי לִרְאוֹת אֶת הַתּוֹצָאָה שֶׁלְּךָ!</div>
+  </div>
+
+</div><!-- /page -->
+
+<footer>שִׁיעוּר 38 מִתּוֹךְ סִדְרַת "סִיפּוּרִים בְּעִבְרִית" · כָּל הַזְּכֻיּוֹת שְׁמוּרוֹת</footer>
+
+<!-- ══ SCRIPT ══ -->
+<script>
+  // ── Audio ──
+  let _ctx;
+  function aC() { if (!_ctx) _ctx = new (window.AudioContext || window.webkitAudioContext)(); }
+  function tone(f, d, t='sine') {
+    if (!_ctx) return;
+    const o = _ctx.createOscillator(), g = _ctx.createGain();
+    o.connect(g); g.connect(_ctx.destination);
+    o.type = t; o.frequency.value = f;
+    g.gain.setValueAtTime(0.25, _ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, _ctx.currentTime + d);
+    o.start(); o.stop(_ctx.currentTime + d);
+  }
+  function playOK()  { aC(); tone(523,0.12); setTimeout(()=>tone(659,0.12),130); setTimeout(()=>tone(784,0.25),260); }
+  function playBad() { aC(); tone(200,0.35,'sawtooth'); }
+
+  // ── Global score ──
+  let correct = 0;
+  const TOTAL = 6;
+  function updateProgress() {
+    const pct = Math.round((correct / TOTAL) * 100);
+    const s = Math.round((correct / TOTAL) * 5);
+    const stars = '★'.repeat(s) + '☆'.repeat(5 - s);
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-stars').textContent = stars;
+    document.getElementById('score-emojis').textContent = stars;
+    document.getElementById('score-bar-fill').style.width = pct + '%';
+    const msg = document.getElementById('score-msg');
+    if (correct === TOTAL) msg.textContent = '🏆 מֻשְׁלָם! עָנִיתָ נָכוֹן עַל הַכֹּל!';
+    else if (correct >= TOTAL * .7) msg.textContent = '👍 יָפֶה מְאוֹד! ' + correct + ' מִתּוֹךְ ' + TOTAL + ' נְכוֹנִים.';
+    else msg.textContent = correct + ' מִתּוֹךְ ' + TOTAL + ' נְכוֹנִים — כָּל אֶחָד לוֹמֵד!';
+  }
+
+  // ── Build staircase ──
+  const ROUNDS = 6;
+  const groundH = 24;
+  const stepW = 50;
+  const stepH = 24;
+  const stepsEl = document.getElementById('stair-steps');
+  const stepPositions = [];
+  for (let i = 0; i < ROUNDS; i++) {
+    const s = document.createElement('div');
+    s.className = 'step';
+    const left = 26 + i * (stepW + 4);
+    s.style.left = left + 'px';
+    s.style.bottom = (i * stepH) + 'px';
+    s.style.width = stepW + 'px';
+    s.style.height = stepH + 'px';
+    stepsEl.appendChild(s);
+    stepPositions.push({ left: left + stepW / 2 - 16, bottom: groundH + i * stepH + stepH + 2 });
+  }
+  const runner = document.getElementById('runner');
+  const startPos = { left: 4, bottom: groundH + 2 };
+  runner.style.left = startPos.left + 'px';
+  runner.style.bottom = startPos.bottom + 'px';
+
+  // ── Build progress dots ──
+  const dotsEl = document.getElementById('progress-dots');
+  for (let i = 0; i < ROUNDS; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.id = 'pdot-' + i;
+    dotsEl.appendChild(dot);
+  }
+
+  // ── Questions data ──
+  const Qs = [
+    {
+      sentence:    'נֹעַם הִגִּיעַ בַּמָּקוֹם הַ_____ בַּמֵּרוֹץ.',
+      answer:      'שֵׁנִי',
+      options:     ['שֵׁנִי', 'שְׁנִיָּה', 'רִאשׁוֹן', 'שְׁלִישִׁי'],
+      explanation: '✅ נָכוֹן! "מָקוֹם" הוּא שֵׁם עֶצֶם זָכָר, לָכֵן נֹאמַר <strong>שֵׁנִי</strong> (לֹא שְׁנִיָּה).'
+    },
+    {
+      sentence:    'תַּמָּר הָיְתָה הַ_____ בֵּין הַבָּנוֹת.',
+      answer:      'רִאשׁוֹנָה',
+      options:     ['רִאשׁוֹן', 'רִאשׁוֹנָה', 'שֵׁנִי', 'שְׁלִישִׁית'],
+      explanation: '✅ נָכוֹן! כָּאן הַתֹּאַר מְתָאֵר אֶת תַּמָּר (נְקֵבָה) — לָכֵן <strong>רִאשׁוֹנָה</strong>.'
+    },
+    {
+      sentence:    'זֶה הַשִּׁיעוּר הַ_____ בַּשָּׁבוּעַ.',
+      answer:      'שְׁלִישִׁי',
+      options:     ['שְׁלִישִׁית', 'שְׁלִישִׁי', 'שֵׁנִי', 'רְבִיעִי'],
+      explanation: '✅ נָכוֹן! "שִׁיעוּר" הוּא שֵׁם עֶצֶם זָכָר — לָכֵן <strong>שְׁלִישִׁי</strong> (לֹא שְׁלִישִׁית).'
+    },
+    {
+      sentence:    'זֹאת הַפַּעַם הַ_____ שֶׁהָלַכְתִּי לְכָאן.',
+      answer:      'שְׁנִיָּה',
+      options:     ['שֵׁנִי', 'שְׁנִיָּה', 'שְׁלִישִׁי', 'רִאשׁוֹנָה'],
+      explanation: '✅ נָכוֹן! "פַּעַם" הִיא שֵׁם עֶצֶם נְקֵבָה — לָכֵן <strong>שְׁנִיָּה</strong> (לֹא שֵׁנִי).'
+    },
+    {
+      sentence:    'הֵם גָּרִים בַּקּוֹמָה הַ_____ בַּבִּנְיָן.',
+      answer:      'חֲמִישִׁית',
+      options:     ['חֲמִישִׁי', 'חֲמִישִׁית', 'שִׁשִּׁית', 'רְבִיעִי'],
+      explanation: '✅ נָכוֹן! "קוֹמָה" הִיא שֵׁם עֶצֶם נְקֵבָה (נִגְמֶרֶת בְּ-ָה) — לָכֵן <strong>חֲמִישִׁית</strong>.'
+    },
+    {
+      sentence:    'הוּא קָרָא אֶת הַסֵּפֶר הַ_____ בַּסִּדְרָה.',
+      answer:      'רְבִיעִי',
+      options:     ['רְבִיעִית', 'רְבִיעִי', 'חֲמִישִׁי', 'שְׁלִישִׁית'],
+      explanation: '✅ נָכוֹן! "סֵפֶר" הוּא שֵׁם עֶצֶם זָכָר — לָכֵן <strong>רְבִיעִי</strong> (לֹא רְבִיעִית).'
+    }
+  ];
+
+  let cur = 0, sel = null, locked = false;
+
+  function moveRunner(stepIndex) {
+    const pos = stepPositions[stepIndex];
+    runner.style.left = pos.left + 'px';
+    runner.style.bottom = pos.bottom + 'px';
+    runner.classList.remove('runner-bounce');
+    void runner.offsetWidth;
+    runner.classList.add('runner-bounce');
+    runner.addEventListener('animationend', () => runner.classList.remove('runner-bounce'), { once: true });
+  }
+
+  function render() {
+    const q = Qs[cur];
+    document.getElementById('stair-label').textContent = 'סִיבּוּב ' + (cur + 1) + ' מִתּוֹךְ ' + ROUNDS;
+    const parts = q.sentence.split('_____');
+    document.getElementById('game-question').innerHTML =
+      parts[0] + '<span class="blank" id="blank-span">_____</span>' + (parts[1] || '');
+    const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+    const grid = document.getElementById('options-grid');
+    grid.innerHTML = '';
+    shuffled.forEach(opt => {
+      const b = document.createElement('button');
+      b.className = 'opt-btn';
+      b.textContent = opt;
+      b.onclick = () => pick(b, opt);
+      grid.appendChild(b);
+    });
+    document.getElementById('submit-btn').disabled = true;
+    document.getElementById('submit-btn').textContent = 'בְּדֹק ✓';
+    document.getElementById('submit-btn').style.display = 'block';
+    document.getElementById('next-btn').style.display = 'none';
+    document.getElementById('explanation-box').style.display = 'none';
+    sel = null; locked = false;
+  }
+
+  function pick(btn, val) {
+    if (locked) return;
+    document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    sel = val;
+    document.getElementById('submit-btn').disabled = false;
+  }
+
+  function submitAnswer() {
+    if (!sel || locked) return;
+    const q = Qs[cur];
+    const isOK = sel === q.answer;
+    if (isOK) {
+      locked = true;
+      document.querySelectorAll('.opt-btn').forEach(b => {
+        b.disabled = true;
+        if (b.textContent === q.answer) b.classList.add('correct');
+      });
+      const blankEl = document.getElementById('blank-span');
+      blankEl.textContent = q.answer;
+      blankEl.style.color = 'var(--blu-dk)';
+      blankEl.style.borderBottomColor = 'var(--blu)';
+      const expEl = document.getElementById('explanation-box');
+      expEl.style.display = 'block';
+      expEl.innerHTML = q.explanation;
+      playOK();
+      moveRunner(cur);
+      document.getElementById('pdot-' + cur).classList.add('done');
+      correct++; updateProgress();
+      document.getElementById('submit-btn').style.display = 'none';
+      document.getElementById('next-btn').style.display = 'block';
+    } else {
+      // Wrong: flash the chosen option red, then let the student try again.
+      playBad();
+      document.querySelectorAll('.opt-btn').forEach(b => {
+        if (b.textContent === sel) b.classList.add('wrong');
+      });
+      const qEl = document.getElementById('game-question');
+      qEl.classList.add('shake');
+      qEl.addEventListener('animationend', () => qEl.classList.remove('shake'), { once: true });
+      sel = null;
+      const sb = document.getElementById('submit-btn');
+      sb.textContent = 'נַסֵּה שׁוּב ↺';
+      sb.disabled = true;
+      setTimeout(() => {
+        document.querySelectorAll('.opt-btn').forEach(b => {
+          b.disabled = false;
+          b.classList.remove('wrong', 'selected');
+        });
+      }, 600);
+    }
+  }
+
+  function nextQuestion() {
+    cur++;
+    if (cur >= ROUNDS) showResult();
+    else render();
+  }
+
+  function showResult() {
+    document.getElementById('game-question').style.display = 'none';
+    document.getElementById('options-grid').style.display = 'none';
+    document.getElementById('submit-btn').style.display = 'none';
+    document.getElementById('next-btn').style.display = 'none';
+    document.getElementById('explanation-box').style.display = 'none';
+    document.getElementById('result-banner').style.display = 'block';
+    document.getElementById('stair-label').textContent = '🎉 הִגַּעְתָּ לַפִּסְגָּה!';
+    document.getElementById('finish-flag').style.opacity = '1';
+    playOK();
+  }
+
+  render();
+</script>
+
+</body>
+</html>

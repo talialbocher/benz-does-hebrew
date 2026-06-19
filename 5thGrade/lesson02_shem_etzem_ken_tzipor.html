@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>עִבְרִית · כִּתָּה ה' · שִׁעוּר 2 — שֵׁם הָעֶצֶם</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --water:#1f7a8c; --water-deep:#0b4f63; --water-light:#bfe6ee;
+    --sand:#f3e6c4; --sand-deep:#e3cf9b;
+    --leaf:#3f8f5a; --leaf-deep:#256b3e;
+    --sun:#f2a541; --poppy:#d1495b;
+    --ink:#1c2b33; --paper:#fbf7ee; --card:#ffffff;
+    --good:#2e8b57; --bad:#c2453f;
+    --boy:#2f6db5; --girl:#c0497e;
+    --shadow:0 6px 20px rgba(11,79,99,.14);
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:linear-gradient(180deg,#eaf6f9 0%, #f7f1e2 100%); color:var(--ink); font-family:"Heebo",sans-serif; line-height:1.7; -webkit-text-size-adjust:100%;}
+  .hebtext{font-family:"Frank Ruhl Libre",serif;}
+  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(6px); box-shadow:var(--shadow);}
+  .brand{display:flex; align-items:center; gap:.6rem; padding:.7rem 1rem .4rem;}
+  .brand .logo{font-size:1.6rem}
+  .brand h1{font-family:"Frank Ruhl Libre",serif; font-size:1.15rem; margin:0; font-weight:700}
+  .brand small{display:block; font-weight:500; color:var(--leaf-deep); font-size:.8rem}
+  .progress-wrap{height:10px; background:var(--water-light);}
+  .progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--leaf),var(--water)); transition:width .5s ease;}
+  nav.sections{display:flex; gap:.4rem; overflow-x:auto; padding:.5rem 1rem .7rem;}
+  nav.sections button{flex:0 0 auto; border:none; background:var(--sand); color:var(--ink); font-family:"Heebo",sans-serif; font-weight:700; font-size:.85rem; padding:.45rem .8rem; border-radius:999px; cursor:pointer; white-space:nowrap; min-height:40px;}
+  nav.sections button.active{background:var(--leaf); color:#fff;}
+  main{max-width:760px; margin:0 auto; padding:1rem 1rem 4rem;}
+  section.lesson-sec{display:none; animation:fade .4s ease;}
+  section.lesson-sec.show{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+  .card{background:var(--card); border-radius:18px; padding:1.1rem 1.2rem; box-shadow:var(--shadow); margin:1rem 0;}
+  h2.sec-title{font-family:"Frank Ruhl Libre",serif; font-size:1.5rem; display:flex; align-items:center; gap:.5rem; margin:.2rem 0 .4rem;}
+  h3{font-family:"Frank Ruhl Libre",serif; color:var(--leaf-deep); margin:1rem 0 .3rem; font-size:1.2rem;}
+  p,li{font-size:1.05rem;}
+  .hint{background:var(--sand); border-right:6px solid var(--sun); padding:.7rem .9rem; border-radius:10px; font-size:.98rem;}
+  .poem{font-family:"Frank Ruhl Libre",serif; font-size:1.45rem; line-height:2.2; background:linear-gradient(180deg,#f0f8f1,#eaf4ef); border-radius:16px; padding:1.3rem; border:1px dashed var(--leaf); text-align:center;}
+  .source-note{font-size:.82rem; color:#5a6b72; margin-top:.5rem; text-align:center;}
+  .device{background:#eef7f0; border:1px solid var(--leaf); border-radius:12px; padding:.8rem 1rem; margin-top:1rem;}
+  .device b{color:var(--leaf-deep);}
+  .vocab-grid{display:grid; grid-template-columns:1fr; gap:.6rem;}
+  .vocab-item{display:flex; gap:.8rem; align-items:flex-start; background:var(--paper); border-radius:12px; padding:.7rem .9rem; cursor:pointer; border:1px solid #eee; min-height:48px;}
+  .vocab-item .word{font-family:"Frank Ruhl Libre",serif; font-weight:700; font-size:1.3rem; color:var(--leaf-deep); min-width:7rem;}
+  .vocab-item .def{font-family:"Frank Ruhl Libre",serif; font-size:1.12rem;}
+  table.morph{width:100%; border-collapse:collapse; font-family:"Frank Ruhl Libre",serif; font-size:1.15rem; margin:.4rem 0;}
+  table.morph td,table.morph th{border:1px solid #e4ddc8; padding:.45rem .6rem; text-align:center;}
+  table.morph th{background:var(--sand);}
+  .q{margin:1rem 0;}
+  .q .stem{font-family:"Frank Ruhl Libre",serif; font-size:1.2rem; font-weight:700; margin-bottom:.5rem;}
+  .opts{display:flex; flex-direction:column; gap:.5rem;}
+  .opt{text-align:right; font-family:"Frank Ruhl Libre",serif; font-size:1.15rem; background:var(--paper); border:2px solid #e6e0cf; border-radius:12px; padding:.7rem .9rem; cursor:pointer; min-height:48px;}
+  .opt.selected{border-color:var(--leaf); background:#eaf5ec;}
+  .opt.correct{border-color:var(--good); background:#e7f6ec;}
+  .opt.wrong{border-color:var(--bad); background:#fbeceb;}
+  .opt[disabled]{cursor:default; opacity:.85;}
+  .q-actions{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.6rem;}
+  .btn{border:none; border-radius:12px; font-family:"Heebo",sans-serif; font-weight:700; font-size:1rem; padding:.6rem 1.1rem; cursor:pointer; min-height:46px;}
+  .btn-main{background:var(--leaf); color:#fff;}
+  .btn-soft{background:var(--sand-deep); color:var(--ink);}
+  .btn-ghost{background:transparent; color:var(--leaf-deep); text-decoration:underline;}
+  .btn:disabled{opacity:.4; cursor:default;}
+  .feedback{margin-top:.5rem; font-weight:700; font-family:"Frank Ruhl Libre",serif; font-size:1.1rem; min-height:1.4rem;}
+  .feedback.good{color:var(--good);} .feedback.bad{color:var(--bad);}
+  /* game: sorting */
+  .game-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;}
+  .score{background:var(--leaf-deep); color:#fff; border-radius:999px; padding:.4rem 1rem; font-weight:800;}
+  .round-title{font-family:"Frank Ruhl Libre",serif; font-weight:700; font-size:1.2rem; text-align:center; margin:.6rem 0;}
+  .pool{display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; min-height:60px; margin:.6rem 0;}
+  .chip{font-family:"Frank Ruhl Libre",serif; font-size:1.25rem; font-weight:700; background:#fff; border:2px solid var(--sand-deep); border-radius:999px; padding:.45rem 1rem; cursor:pointer; min-height:46px;}
+  .chip.selected{border-color:var(--leaf); background:#eaf5ec; transform:scale(1.06);}
+  .bins{display:flex; gap:.8rem; justify-content:center; margin-top:.6rem;}
+  .bin{flex:1; max-width:200px; border:3px dashed var(--sand-deep); border-radius:16px; padding:.8rem .6rem; text-align:center; cursor:pointer; background:#fff;}
+  .bin .bin-label{font-family:"Frank Ruhl Libre",serif; font-weight:800; font-size:1.25rem;}
+  .bin .bin-count{font-weight:700; color:#6a7980; margin-top:.2rem;}
+  .bin.b0{border-color:var(--boy);} .bin.b0 .bin-label{color:var(--boy);}
+  .bin.b1{border-color:var(--girl);} .bin.b1 .bin-label{color:var(--girl);}
+  .bin.shake{animation:shake .4s;}
+  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .win{display:none; text-align:center; margin-top:.8rem;}
+  .win.show{display:block; animation:pop .5s ease;}
+  @keyframes pop{0%{transform:scale(.7); opacity:0} 100%{transform:scale(1); opacity:1}}
+  .speak-card{background:var(--paper); border-radius:14px; padding:.9rem 1rem; margin:.7rem 0; border:1px solid #ece6d4;}
+  .speak-card .line{font-family:"Frank Ruhl Libre",serif; font-size:1.35rem; margin-bottom:.5rem;}
+  .speak-card .task{font-size:.95rem; color:#55636a; margin-bottom:.5rem;}
+  .speak-btns{display:flex; gap:.5rem; flex-wrap:wrap;}
+  .speak-btns button{border:2px solid #e0dac8; background:#fff; border-radius:999px; padding:.45rem .9rem; cursor:pointer; font-weight:700; font-family:"Heebo",sans-serif; min-height:44px;}
+  .speak-btns button.done{background:#e7f6ec; border-color:var(--good);}
+  .speak-btns button.retry{background:#fff5e6; border-color:var(--sun);}
+  textarea#writing{width:100%; min-height:150px; border-radius:14px; border:2px solid var(--water-light); padding:.9rem; font-family:"Frank Ruhl Libre",serif; font-size:1.2rem; line-height:1.9; resize:vertical;}
+  .write-bar{display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin-top:.6rem;}
+  .counter{color:#55636a; font-weight:700;}
+  .lesson-nav{display:flex; justify-content:space-between; margin-top:1.5rem; gap:.6rem;}
+  .lesson-nav a{text-decoration:none;}
+  footer{text-align:center; color:#6a7980; font-size:.82rem; padding:1.5rem 1rem 2rem;}
+  @media (max-width:480px){ .vocab-item .word{min-width:6rem; font-size:1.2rem;} .poem{font-size:1.3rem;} h2.sec-title{font-size:1.3rem;} .chip{font-size:1.15rem;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">🪺</span>
+    <div>
+      <h1>עִבְרִית · כִּתָּה ה'</h1>
+      <small>שִׁעוּר 2 — שֵׁם הָעֶצֶם: מִין וּמִסְפָּר · "קֵן צִפּוֹר" / ביאליק</small>
+    </div>
+  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <nav class="sections" id="sectionNav">
+    <button data-i="0" class="active">📖 קְרִיאָה</button>
+    <button data-i="1">🗂️ מִלִּים</button>
+    <button data-i="2">🔤 דִּקְדּוּק</button>
+    <button data-i="3">🧺 מִשְׂחָק</button>
+    <button data-i="4">🗣️ דִּבּוּר</button>
+    <button data-i="5">✍️ כְּתִיבָה</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1. READING -->
+  <section class="lesson-sec show" data-sec="0">
+    <h2 class="sec-title">📖 קְרִיאָה — "קֵן צִפּוֹר"</h2>
+    <div class="card">
+      <p class="hebtext">חַיִּים נַחְמָן בְּיָאלִיק כָּתַב שִׁירִים רַבִּים לִילָדִים, וְרַבִּים מֵהֶם הֻלְחֲנוּ וְשָׁרִים אוֹתָם עַד הַיּוֹם. הַשִּׁיר "קֵן צִפּוֹר" קָצָר מְאוֹד, אֲבָל הוּא מְצַיֵּר תְּמוּנָה שְׁלֵמָה.</p>
+      <div class="poem hebtext">
+        קֵן לַצִּפּוֹר בֵּין הָעֵצִים,<br>
+        וּבַקֵּן לָהּ שָׁלֹשׁ בֵּיצִים.<br>
+        וּבְכָל־בֵּיצָה – הַס, פֶּן תָּעִיר –<br>
+        יָשֵׁן לוֹ אֶפְרוֹחַ זָעִיר.
+      </div>
+      <p class="source-note">חַיִּים נַחְמָן בְּיָאלִיק, "קֵן צִפּוֹר" (נַחֲלַת הַכְּלָל).</p>
+      <div class="device hebtext">
+        <p><b>🔍 מַבָּט קָרוֹב</b><br>
+        שִׂימוּ לֵב אֵיךְ הַשִּׁיר מִתְקָרֵב פְּנִימָה, שָׁלָב אַחַר שָׁלָב: מֵהָ<b>עֵצִים</b> → אֶל הַ<b>קֵּן</b> → אֶל הַ<b>בֵּיצָה</b> → וְעַד הָ<b>אֶפְרוֹחַ הַזָּעִיר</b> שֶׁיָּשֵׁן בִּפְנִים. כָּל מִלָּה כָּזֹאת הִיא <b>שֵׁם עֶצֶם</b> — וְעַל שְׁמוֹת הָעֶצֶם נִלְמַד הַיּוֹם.</p>
+      </div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(1)">הַמְשִׁיכוּ לְאוֹצַר הַמִּלִּים ←</button></div>
+  </section>
+
+  <!-- 2. VOCAB -->
+  <section class="lesson-sec" data-sec="1">
+    <h2 class="sec-title">🗂️ אוֹצַר מִלִּים</h2>
+    <div class="card">
+      <p class="hint hebtext">לְיַד כָּל שֵׁם עֶצֶם מְסֻמָּן הַמִּין שֶׁלּוֹ: (ז') = זָכָר, (נ') = נְקֵבָה.</p>
+      <div class="vocab-grid" id="vocabGrid"></div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(2)">הַמְשִׁיכוּ לַדִּקְדּוּק ←</button></div>
+  </section>
+
+  <!-- 3. GRAMMAR -->
+  <section class="lesson-sec" data-sec="2">
+    <h2 class="sec-title">🔤 דִּקְדּוּק — שֵׁם הָעֶצֶם: מִין וּמִסְפָּר</h2>
+    <div class="card hebtext">
+      <p>לְכָל <b>שֵׁם עֶצֶם</b> בְּעִבְרִית יֵשׁ <b>מִין</b> (זָכָר אוֹ נְקֵבָה) וְ<b>מִסְפָּר</b> (יָחִיד אוֹ רַבִּים).</p>
+      <p>בְּדֶרֶךְ כְּלָל, בָּרַבִּים שְׁמוֹת זָכָר מְקַבְּלִים סִיּוֹמֶת <b>־ים</b> וּשְׁמוֹת נְקֵבָה מְקַבְּלִים סִיּוֹמֶת <b>־ות</b>:</p>
+      <table class="morph">
+        <tr><th>יָחִיד</th><th>רַבִּים</th><th>מִין</th></tr>
+        <tr><td>עֵץ</td><td>עֵצִים</td><td>ז'</td></tr>
+        <tr><td>אֶפְרוֹחַ</td><td>אֶפְרוֹחִים</td><td>ז'</td></tr>
+        <tr><td>בֵּיצָה</td><td>בֵּיצִים</td><td>נ'</td></tr>
+        <tr><td>צִפּוֹר</td><td>צִפּוֹרִים</td><td>נ'</td></tr>
+      </table>
+
+      <h3>שִׂימוּ לֵב — לֹא תָּמִיד הַכְּלָל פּוֹעֵל</h3>
+      <p>יֵשׁ שֵׁמוֹת נְקֵבָה <b>בְּלִי ה' בַּסּוֹף</b>: צִפּוֹר, כָּנָף, דֶּרֶךְ, אֶבֶן, עִיר, יָד.<br>
+      וְיֵשׁ שֵׁמוֹת זָכָר שֶׁדַּוְקָא מְקַבְּלִים ־ות בָּרַבִּים: שֻׁלְחָן → שֻׁלְחָנוֹת, חַלּוֹן → חַלּוֹנוֹת, קוֹל → קוֹלוֹת.<br>
+      וְשֵׁמוֹת נְקֵבָה שֶׁמְּקַבְּלִים ־ים: שָׁנָה → שָׁנִים, מִלָּה → מִלִּים.</p>
+
+      <h3>צוּרוֹת רַבִּים מְיֻחָדוֹת (כְּדַאי לִזְכֹּר!)</h3>
+      <table class="morph">
+        <tr><td>אִישׁ → אֲנָשִׁים</td><td>אִשָּׁה → נָשִׁים</td></tr>
+        <tr><td>בַּיִת → בָּתִּים</td><td>עִיר → עָרִים</td></tr>
+        <tr><td>יוֹם → יָמִים</td><td>שָׁנָה → שָׁנִים</td></tr>
+        <tr><td>בֵּן → בָּנִים</td><td>בַּת → בָּנוֹת</td></tr>
+      </table>
+
+      <h3>תַּרְגְּלוּ בְּעַצְמְכֶם</h3>
+      <div id="grammarQs"></div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(3)">הַמְשִׁיכוּ לַמִּשְׂחָק ←</button></div>
+  </section>
+
+  <!-- 4. GAME -->
+  <section class="lesson-sec" data-sec="3">
+    <h2 class="sec-title">🧺 מִיּוּן שְׁמוֹת עֶצֶם</h2>
+    <div class="card">
+      <div class="game-top">
+        <p class="hebtext" style="margin:.2rem 0">סַמְּנוּ מִלָּה, וְאַחַר כָּךְ לַחֲצוּ עַל הַסַּל הַנָּכוֹן.</p>
+        <span class="score">נְקֻדּוֹת: <span id="score">0</span></span>
+      </div>
+      <div class="round-title hebtext" id="roundTitle"></div>
+      <div class="pool" id="pool"></div>
+      <div class="bins" id="bins"></div>
+      <div class="feedback hebtext" id="gameFb" style="text-align:center"></div>
+
+      <div class="win" id="winBox">
+        <div style="font-size:2.4rem">🐣🎉</div>
+        <p class="hebtext" style="font-size:1.3rem; font-weight:700; color:var(--good)">כָּל הַכָּבוֹד! מִיַּנְתֶּם נָכוֹן אֶת כָּל שְׁמוֹת הָעֶצֶם!</p>
+        <button class="btn btn-soft" onclick="startGame()">שַׂחֲקוּ שׁוּב 🔁</button>
+      </div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(4)">הַמְשִׁיכוּ לְתִרְגּוּל הַדִּבּוּר ←</button></div>
+  </section>
+
+  <!-- 5. SPEAKING -->
+  <section class="lesson-sec" data-sec="4">
+    <h2 class="sec-title">🗣️ תִּרְגּוּל דִּבּוּר</h2>
+    <div class="card">
+      <p class="hint hebtext">קִרְאוּ כָּל שׁוּרָה בְּקוֹל. כְּשֶׁאַתֶּם מְרֻצִּים — סַמְּנוּ ✅. רוֹצִים שׁוּב? לַחֲצוּ 🔁.</p>
+      <div id="speakCards"></div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(5)">הַמְשִׁיכוּ לַכְּתִיבָה ←</button></div>
+  </section>
+
+  <!-- 6. WRITING -->
+  <section class="lesson-sec" data-sec="5">
+    <h2 class="sec-title">✍️ כְּתִיבָה יוֹצֶרֶת</h2>
+    <div class="card hebtext">
+      <p><b>הַמְּשִׂימָה:</b> כִּתְבוּ אַרְבַּע עַד שֵׁשׁ שׁוּרוֹת עַל בַּיִת שֶׁל בַּעַל חַיִּים קָטָן — קֵן, מְאוּרָה, כַּוֶּרֶת אוֹ גֻּמָּה בָּאֲדָמָה. תָּאֲרוּ מָה יֵשׁ בְּתוֹכוֹ וּמִי גָּר שָׁם.</p>
+      <p>אַחֲרֵי הַכְּתִיבָה — סַמְּנוּ שְׁלוֹשָׁה שְׁמוֹת עֶצֶם, וְכִתְבוּ לְיַד כָּל אֶחָד אִם הוּא <b>זָכָר</b> אוֹ <b>נְקֵבָה</b>, <b>יָחִיד</b> אוֹ <b>רַבִּים</b>.</p>
+      <textarea id="writing" class="hebtext" placeholder="כִּתְבוּ כָּאן..."></textarea>
+      <div class="write-bar">
+        <span class="counter">מִסְפַּר מִלִּים: <span id="wordCount">0</span></span>
+        <button class="btn btn-main" onclick="downloadWriting()">שִׁמְרוּ אֶת הַטֶּקְסְט 💾</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('writing').value='';updateWordCount()">נַקּוּ</button>
+      </div>
+    </div>
+    <div class="lesson-nav">
+      <a href="lesson01_shira_kineret.html"><button class="btn btn-soft">→ שִׁעוּר 1: כִּנֶּרֶת</button></a>
+      <button class="btn btn-soft" onclick="alert('שִׁעוּר 3 יְצֹרַף בְּקָרוֹב 🙂')">לַשִּׁעוּר הַבָּא ←</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="hebtext">סִדְרַת "עִבְרִית לְכִתָּה ה'" · שִׁעוּר 2 · הַשִּׁיר נַחֲלַת הַכְּלָל מִתּוֹךְ פְּרוֹיֶקְט בֶּן־יְהוּדָה</footer>
+
+<script>
+/* ---------- sound ---------- */
+let actx;
+function tone(freq,dur,type='sine',when=0){
+  try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(),g=actx.createGain(); o.type=type; o.frequency.value=freq;
+    o.connect(g); g.connect(actx.destination); const t=actx.currentTime+when;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.25,t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur); o.start(t); o.stop(t+dur+0.02);
+  }catch(e){}
+}
+const sGood=()=>{tone(523,.12);tone(659,.12,'sine',.1);tone(784,.2,'sine',.2);};
+const sBad =()=>{tone(300,.18,'sawtooth');tone(220,.22,'sawtooth',.12);};
+const sClick=()=>tone(440,.06,'triangle');
+const sWin =()=>{[523,659,784,1047].forEach((f,i)=>tone(f,.25,'sine',i*.12));};
+
+/* ---------- navigation ---------- */
+const TOTAL=6;
+function goTo(i){
+  document.querySelectorAll('.lesson-sec').forEach(s=>s.classList.remove('show'));
+  document.querySelector('.lesson-sec[data-sec="'+i+'"]').classList.add('show');
+  document.querySelectorAll('#sectionNav button').forEach(b=>b.classList.toggle('active',+b.dataset.i===i));
+  document.getElementById('progressBar').style.width=(((i+1)/TOTAL)*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'}); sClick();
+}
+document.querySelectorAll('#sectionNav button').forEach(b=>b.onclick=()=>goTo(+b.dataset.i));
+document.getElementById('progressBar').style.width=(100/TOTAL)+'%';
+
+/* ---------- vocabulary ---------- */
+const VOCAB=[
+  ['קֵן (ז\')','הַבַּיִת שֶׁל הַצִּפּוֹר'],
+  ['צִפּוֹר (נ\')','בַּעַל כְּנָפַיִם שֶׁיּוֹדֵעַ לָעוּף'],
+  ['בֵּיצָה (נ\')','מִמֶּנָּה בּוֹקֵעַ הָאֶפְרוֹחַ'],
+  ['אֶפְרוֹחַ (ז\')','גּוֹזָל — צִפּוֹר צְעִירָה מְאוֹד'],
+  ['עֵץ (ז\')','צוֹמֵחַ בַּיַּעַר וּבַגַּן'],
+  ['כָּנָף (נ\')','אֵיבָר הַתְּעוּפָה שֶׁל הַצִּפּוֹר'],
+  ['זָעִיר','קָטָן מְאוֹד'],
+  ['הַס','שֶׁקֶט! אַל תַּרְעִישׁוּ'],
+  ['פֶּן','שֶׁמָּא, כְּדֵי שֶׁלֹּא'],
+  ['תָּעִיר','תְּעוֹרֵר מִישֶׁהוּ מִשֵּׁנָה'],
+];
+const vg=document.getElementById('vocabGrid');
+VOCAB.forEach(([w,d])=>{const el=document.createElement('div'); el.className='vocab-item';
+  el.innerHTML='<span class="word hebtext">'+w+'</span><span class="def hebtext">'+d+'</span>'; el.onclick=sClick; vg.appendChild(el);});
+
+/* ---------- reusable multiple choice ---------- */
+function buildMC(container,item){
+  const wrap=document.createElement('div'); wrap.className='q'; let chosen=null,locked=false;
+  wrap.innerHTML='<div class="stem hebtext">'+item.q+'</div>';
+  const opts=document.createElement('div'); opts.className='opts';
+  item.a.forEach((txt)=>{const o=document.createElement('button'); o.className='opt hebtext'; o.textContent=txt;
+    o.onclick=()=>{ if(locked)return; chosen=Array.from(opts.children).indexOf(o);
+      opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected')); o.classList.add('selected'); checkBtn.disabled=false; sClick(); };
+    opts.appendChild(o);});
+  wrap.appendChild(opts);
+  const actions=document.createElement('div'); actions.className='q-actions';
+  const checkBtn=document.createElement('button'); checkBtn.className='btn btn-main'; checkBtn.textContent='בִּדְקוּ תְּשׁוּבָה'; checkBtn.disabled=true;
+  const changeBtn=document.createElement('button'); changeBtn.className='btn btn-ghost'; changeBtn.textContent='שַׁנּוּ תְּשׁוּבָה';
+  changeBtn.onclick=()=>{ if(locked)return; chosen=null; opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected')); checkBtn.disabled=true; fb.textContent=''; fb.className='feedback'; };
+  actions.appendChild(checkBtn); actions.appendChild(changeBtn); wrap.appendChild(actions);
+  const fb=document.createElement('div'); fb.className='feedback'; wrap.appendChild(fb);
+  checkBtn.onclick=()=>{ if(chosen===null||locked)return; const els=opts.querySelectorAll('.opt');
+    if(chosen===item.c){ locked=true; els[chosen].classList.add('correct'); els.forEach(x=>x.disabled=true);
+      checkBtn.disabled=true; changeBtn.disabled=true; fb.textContent='כָּל הַכָּבוֹד! תְּשׁוּבָה נְכוֹנָה.'; fb.className='feedback good'; sGood();
+    } else { els[chosen].classList.add('wrong'); fb.textContent='לֹא מְדֻיָּק. נַסּוּ שׁוּב.'; fb.className='feedback bad'; sBad();
+      setTimeout(()=>{els[chosen].classList.remove('wrong','selected'); chosen=null; checkBtn.disabled=true;},900); } };
+  container.appendChild(wrap);
+}
+
+/* ---------- grammar questions ---------- */
+const GRAMMAR=[
+  {q:'מַהוּ הַמִּין שֶׁל הַמִּלָּה "צִפּוֹר"?', a:['זָכָר','נְקֵבָה'], c:1},
+  {q:'מָה צוּרַת הָרַבִּים שֶׁל "אִישׁ"?', a:['אִישִׁים','אֲנָשִׁים','אִישׁוֹת'], c:1},
+  {q:'אֵיזוֹ מִלָּה כְּתוּבָה בִּלְשׁוֹן רַבִּים?', a:['בֵּיצָה','בֵּיצִים','בֵּיצַת'], c:1},
+  {q:'מָה צוּרַת הָרַבִּים שֶׁל "שָׁנָה"?', a:['שָׁנוֹת','שָׁנִים','שְׁנָתַיִם'], c:1},
+];
+const gq=document.getElementById('grammarQs'); GRAMMAR.forEach(it=>buildMC(gq,it));
+
+/* ---------- game: sorting nouns ---------- */
+const ROUNDS=[
+  {title:'סִבּוּב 1 — מִיּוּן לְפִי מִין', bins:['זָכָר','נְקֵבָה'],
+   words:[['קֵן',0],['עֵץ',0],['אֶפְרוֹחַ',0],['סֵפֶר',0],['צִפּוֹר',1],['בֵּיצָה',1],['כָּנָף',1],['דֶּרֶךְ',1]]},
+  {title:'סִבּוּב 2 — מִיּוּן לְפִי מִסְפָּר', bins:['יָחִיד','רַבִּים'],
+   words:[['קֵן',0],['בֵּיצָה',0],['יוֹם',0],['אִישׁ',0],['עֵצִים',1],['בֵּיצִים',1],['יָמִים',1],['אֲנָשִׁים',1]]},
+];
+let roundIdx=0, score=0, selectedChip=null, counts=[0,0], remaining=0;
+
+function shuffle(a){a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a;}
+
+function renderRound(){
+  const r=ROUNDS[roundIdx];
+  document.getElementById('roundTitle').textContent=r.title;
+  document.getElementById('winBox').classList.remove('show');
+  document.getElementById('gameFb').textContent='';
+  selectedChip=null; counts=[0,0]; remaining=r.words.length;
+  const pool=document.getElementById('pool'); pool.innerHTML='';
+  shuffle(r.words).forEach(([w,bin])=>{
+    const c=document.createElement('div'); c.className='chip hebtext'; c.textContent=w; c.dataset.bin=bin;
+    c.onclick=()=>{ document.querySelectorAll('.chip').forEach(x=>x.classList.remove('selected'));
+      c.classList.add('selected'); selectedChip=c; sClick(); };
+    pool.appendChild(c);
+  });
+  const bins=document.getElementById('bins'); bins.innerHTML='';
+  r.bins.forEach((label,bi)=>{
+    const b=document.createElement('div'); b.className='bin b'+bi;
+    b.innerHTML='<div class="bin-label hebtext">'+label+'</div><div class="bin-count">0</div>';
+    b.onclick=()=>placeChip(bi,b); bins.appendChild(b);
+  });
+}
+function placeChip(bi,binEl){
+  if(!selectedChip){ document.getElementById('gameFb').textContent='קֹדֶם סַמְּנוּ מִלָּה.'; document.getElementById('gameFb').className='feedback hebtext bad'; return; }
+  if(+selectedChip.dataset.bin===bi){
+    selectedChip.remove(); selectedChip=null; counts[bi]++; remaining--;
+    binEl.querySelector('.bin-count').textContent=counts[bi];
+    score+=10; document.getElementById('score').textContent=score;
+    document.getElementById('gameFb').textContent='יָפֶה!'; document.getElementById('gameFb').className='feedback hebtext good'; sGood();
+    if(remaining===0) finishRound();
+  } else {
+    binEl.classList.add('shake'); setTimeout(()=>binEl.classList.remove('shake'),400);
+    document.getElementById('gameFb').textContent='לֹא מַתְאִים לַסַּל הַזֶּה. נַסּוּ שׁוּב.'; document.getElementById('gameFb').className='feedback hebtext bad'; sBad();
+  }
+}
+function finishRound(){
+  if(roundIdx<ROUNDS.length-1){
+    roundIdx++;
+    document.getElementById('gameFb').textContent='סִיַּמְתֶּם אֶת הַסִּבּוּב! מַמְשִׁיכִים...';
+    document.getElementById('gameFb').className='feedback hebtext good';
+    setTimeout(renderRound,1100);
+  } else {
+    document.getElementById('winBox').classList.add('show'); sWin();
+  }
+}
+function startGame(){ roundIdx=0; score=0; document.getElementById('score').textContent='0'; renderRound(); }
+startGame();
+
+/* ---------- speaking ---------- */
+const SPEAK=[
+  {line:'קֵן לַצִּפּוֹר בֵּין הָעֵצִים, וּבַקֵּן לָהּ שָׁלֹשׁ בֵּיצִים.', task:'קִרְאוּ בְּקוֹל רַךְ וְשָׁקֵט, כְּמוֹ שֶׁלֹּא רוֹצִים לְהָעִיר אֶת הָאֶפְרוֹחַ.'},
+  {line:'עֵץ–עֵצִים · בֵּיצָה–בֵּיצִים · צִפּוֹר–צִפּוֹרִים', task:'אִמְרוּ בְּקוֹל יָחִיד וְרַבִּים, וְשִׂימוּ לֵב לַסִּיּוֹמוֹת ־ים וְ־ות.'},
+  {line:'אִישׁ–אֲנָשִׁים · אִשָּׁה–נָשִׁים · יוֹם–יָמִים', task:'אֵלֶּה צוּרוֹת רַבִּים מְיֻחָדוֹת — תִּרְגְּלוּ אוֹתָן.'},
+  {line:'תָּאֲרוּ בְּמִשְׁפָּט אֶחָד צִפּוֹר שֶׁאַתֶּם מַכִּירִים.', task:'אִמְרוּ אֶת הַמִּשְׁפָּט בְּקוֹל, וְהִשְׁתַּמְּשׁוּ בִּשְׁנֵי שְׁמוֹת עֶצֶם לְפָחוֹת.'},
+];
+const sc=document.getElementById('speakCards');
+SPEAK.forEach(card=>{const el=document.createElement('div'); el.className='speak-card';
+  el.innerHTML='<div class="line hebtext">'+card.line+'</div><div class="task hebtext">'+card.task+'</div>';
+  const btns=document.createElement('div'); btns.className='speak-btns';
+  const done=document.createElement('button'); done.textContent='✅ קָרָאנוּ בְּקוֹל';
+  const retry=document.createElement('button'); retry.textContent='🔁 נְנַסֶּה שׁוּב';
+  done.onclick=()=>{done.classList.add('done'); retry.classList.remove('retry'); sGood();};
+  retry.onclick=()=>{retry.classList.add('retry'); done.classList.remove('done'); sClick();};
+  btns.appendChild(done); btns.appendChild(retry); el.appendChild(btns); sc.appendChild(el);});
+
+/* ---------- writing ---------- */
+const ta=document.getElementById('writing');
+function updateWordCount(){const w=ta.value.trim().split(/\s+/).filter(Boolean).length; document.getElementById('wordCount').textContent=w;}
+ta.addEventListener('input',updateWordCount);
+function downloadWriting(){const text=ta.value.trim(); if(!text){alert('כִּתְבוּ מַשֶּׁהוּ קֹדֶם 🙂'); return;}
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'}); const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='הכתיבה_שלי_קן_ציפור.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); sGood();}
+updateWordCount();
+</script>
+</body>
+</html>

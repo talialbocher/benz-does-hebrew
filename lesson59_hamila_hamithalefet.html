@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 59 — הַמִּלָּה הַמִּתְחַלֶּפֶת</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0369a1;
+    --accent: #f59e0b;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --text: #1c1917;
+    --light: #fef2f2;
+    --border: #fca5a5;
+    --correct: #16a34a;
+    --wrong: #dc2626;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    direction: rtl;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 24px 20px 18px;
+    text-align: center;
+    border-bottom: 5px solid var(--accent);
+  }
+  header .lesson-num {
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 4px;
+  }
+  header h1 { font-size: 2rem; margin-bottom: 4px; }
+  header .subtitle { font-size: 1rem; opacity: 0.85; }
+
+  .section {
+    max-width: 860px;
+    margin: 30px auto;
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px 30px;
+    box-shadow: 0 2px 12px rgba(127,29,29,0.09);
+    border: 1px solid var(--border);
+  }
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+  }
+
+  /* Grammar concept */
+  .concept-box {
+    background: var(--light);
+    border-right: 5px solid var(--primary);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .concept-box h3 { color: var(--primary); margin-bottom: 10px; }
+  .example-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 1rem;
+  }
+  .example-table th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: right;
+  }
+  .example-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #fca5a5;
+  }
+  .example-table tr: nth-child(even) td { background: #fff0f0; }
+  .word-highlight { color: var(--primary); font-weight: bold; }
+  .meaning-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #0c4a6e;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 3px;
+  }
+
+  /* Story */
+  .story-text {
+    background: #fff7f7;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .story-text p { margin-bottom: 12px; }
+  .story-homonym {
+    background: #fef08a;
+    border-radius: 4px;
+    padding: 0 3px;
+    font-weight: bold;
+    color: #854d0e;
+  }
+
+  /* ===== COMPREHENSION GAME: Double Door ===== */
+  #comp-game { text-align: center; }
+  .comp-instruction {
+    font-size: 1rem;
+    color: #44403c;
+    margin-bottom: 20px;
+    background: #f0f9ff;
+    border-radius: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--accent);
+  }
+  .doors-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .door-wrap {
+    width: 110px;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .door-wrap:hover { transform: scale(1.05); }
+  .door-frame {
+    width: 110px;
+    height: 160px;
+    background: var(--primary);
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid #f3afaf;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+  }
+  .door-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .door-panel-l, .door-panel-r {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #9b1c1c;
+    border: 1px solid #a5defd;
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: left center;
+  }
+  .door-panel-l { right: 0; transform-origin: right center; }
+  .door-panel-r { left: 0; transform-origin: left center; }
+  .door-frame.open .door-panel-l { transform: perspective(300px) rotateY(80deg); }
+  .door-frame.open .door-panel-r { transform: perspective(300px) rotateY(-80deg); }
+  .door-num {
+    font-size: 2rem;
+    color: #937910;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+  }
+  .door-knob {
+    width: 8px;
+    height: 8px;
+    background: #fde68a;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .door-base {
+    width: 110px;
+    height: 14px;
+    background: #fce9e9;
+    border-radius: 0 0 6px 6px;
+  }
+  .door-star {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3;
+  }
+  .door-frame.answered .door-star { opacity: 1; }
+  .door-label {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: #57534e;
+    text-align: center;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .door-frame.correct-door { border-color: #16a34a; box-shadow: 0 0 10px #86efac; }
+  .door-frame.wrong-door { border-color: #dc2626; }
+
+  #comp-question-area {
+    background: #f0f9ff;
+    border: 2px solid var(--accent);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    display: none;
+  }
+  #comp-question-area.active { display: block; }
+  .comp-q-text { font-size: 1.1rem; margin-bottom: 14px; font-weight: 600; }
+  .comp-sentence {
+    background: white;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    font-size: 1.05rem;
+    border: 1px solid #bae6fd;
+  }
+  .comp-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .comp-opt {
+    background: white;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    color: #0c4a6e;
+    font-weight: 600;
+  }
+  .comp-opt:hover { background: #e0f2fe; }
+  .comp-opt.selected { background: #0ea5e9; color: white; border-color: #0ea5e9; }
+  .comp-opt.correct-ans { background: #dcfce7; border-color: #16a34a; color: #166534; }
+  .comp-opt.wrong-ans { background: #fee2e2; border-color: #dc2626; color: #991b1b; }
+
+  .comp-submit-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 12px;
+    display: none;
+  }
+  .comp-submit-btn:hover { background: #991b1b; }
+  .comp-explanation {
+    background: #fef9c3;
+    border: 1px solid #fde047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    display: none;
+    color: #713f12;
+  }
+
+  /* ===== GRAMMAR GAME: Kaleidoscope ===== */
+  #gram-game { text-align: center; }
+  .gram-instruction {
+    font-size: 1rem;
+    color: #44403c;
+    margin-bottom: 20px;
+    background: #fff0f0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+  }
+  .kaleid-scene {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto 24px;
+  }
+  .kaleid-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 6px solid var(--primary);
+    overflow: hidden;
+    background: #ecf0f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .kaleid-word {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 2;
+    position: relative;
+  }
+  .kaleid-petal {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    opacity: 0.15;
+    transition: opacity 0.5s, transform 0.5s;
+    transform-origin: center center;
+  }
+  .kaleid-petal.lit { opacity: 0.85; }
+  .petal-0 { background: #f87171; top: 10px; left: 50%; transform: translateX(-50%); }
+  .petal-1 { background: #fb923c; top: 60px; right: 20px; }
+  .petal-2 { background: #fbbf24; bottom: 60px; right: 20px; }
+  .petal-3 { background: #34d399; bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .petal-4 { background: #60a5fa; bottom: 60px; left: 20px; }
+  .petal-5 { background: #a78bfa; top: 60px; left: 20px; }
+
+  .gram-round-info {
+    font-size: 1rem;
+    color: #57534e;
+    margin-bottom: 10px;
+  }
+  .gram-sentence-box {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    min-height: 60px;
+  }
+  .gram-highlighted { background: #fef08a; border-radius: 4px; padding: 1px 4px; color: #854d0e; font-weight: bold; }
+  .gram-opts {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .gram-opt {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 22px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    transition: all 0.2s;
+  }
+  .gram-opt:hover { background: #fff0f0; transform: translateY(-2px); }
+  .gram-opt.selected { background: var(--primary); color: white; border-color: var(--primary); }
+  .gram-opt.correct-ans { background: #dcfce7; border-color: #16a34a; color: #166534; }
+  .gram-opt.wrong-ans { background: #fee2e2; border-color: #dc2626; color: #991b1b; }
+  .gram-submit-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: none;
+  }
+  .gram-submit-btn:hover { background: #991b1b; }
+  .gram-explanation {
+    background: #fef9c3;
+    border: 1px solid #fde047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    display: none;
+    color: #713f12;
+  }
+  .gram-next-btn {
+    background: var(--accent);
+    color: #0c4a6e;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 12px;
+    font-weight: 700;
+    display: none;
+  }
+  .gram-next-btn:hover { background: #0ea5e9; color: white; }
+  .gram-progress {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .gram-pip {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    border: 2px solid #d1d5db;
+    transition: all 0.3s;
+  }
+  .gram-pip.done { background: var(--primary); border-color: var(--primary); }
+  .gram-pip.current { background: var(--accent); border-color: #0ea5e9; }
+
+  /* Result banner */
+  .result-banner {
+    display: none;
+    background: linear-gradient(135deg, var(--primary), #991b1b);
+    color: white;
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    margin-top: 20px;
+  }
+  .result-banner h2 { font-size: 1.8rem; margin-bottom: 10px; }
+  .result-banner p { font-size: 1rem; opacity: 0.9; }
+  .result-stars { font-size: 2.5rem; margin-bottom: 10px; }
+
+  /* Shake animation */
+  @keyframes shake {
+    0%,100%{transform: translateX(0)}
+    20%{transform: translateX(-8px)}
+    40%{transform: translateX(8px)}
+    60%{transform: translateX(-6px)}
+    80%{transform: translateX(6px)}
+  }
+  .shake { animation: shake 0.4s ease; }
+  @keyframes fadeIn { from{opacity: 0;transform: translateY(10px)} to{opacity: 1;transform: translateY(0)} }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .section { padding: 18px 14px; }
+    .comp-options { grid-template-columns: 1fr; }
+    .doors-row { gap: 10px; }
+    .door-wrap { width: 90px; }
+    .door-frame { width: 90px; height: 130px; }
+    .door-base { width: 90px; }
+    .kaleid-scene { width: 260px; height: 260px; }
+  }
+
+  /* ── writing assignment ── */
+  .writing-line{display: flex;align-items: center;gap: 10px;background: #f8fafc;border: 2px solid #e2e8f0;border-radius: 14px;padding: 12px 16px}
+  .writing-num{width: 28px;height: 28px;border-radius: 50%;background: #475569;color: #fff;font-weight: 900;font-size: .85rem;display: flex;align-items: center;justify-content: center;flex-shrink: 0}
+  .writing-input{flex: 1;border: none;background: transparent;font-family: inherit;font-size: 1.1rem;direction: rtl;outline: none;min-width: 0}
+  .writing-input: :placeholder{color: #1e293b;font-size: .95rem}
+  .writing-line.filled{border-color: #22c55e;background: #f0fdf4}
+  .writing-submit-btn{background: #4c1d95;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+  .writing-reset-btn{background: #6b7280;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+
+</style>
+<style>
+:root{--p1:#0369a1;--p1dk:#0c4a6e;--p1md:#7dd3fc;--p1lt:#e0f2fe;--page:#f0f9ff;--p2:#dc2626;--p2lt:#fee2e2}
+/* ══ עיצוב אחיד בסגנון שיעור 35 ══ */
+body{font-family:'Heebo',sans-serif !important;background:var(--page) !important;color:#1e293b !important;font-size:17px}
+.container{background:transparent}
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header35 .header-art{margin-top:12px;line-height:0;opacity:.95}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+.section-title{font-size:1.42rem !important;font-weight:900 !important;color:#1e293b !important;border-right:none !important;border-bottom:none !important;padding:0 0 0 0 !important;margin:34px 0 14px !important;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.section,.story-box,.grammar-box,.game-box{background:#fff !important;border:none !important;border-radius:22px !important;box-shadow:0 4px 22px rgba(0,0,0,.08) !important;position:relative;overflow:hidden}
+.story-box{padding:26px 30px !important}
+.story-box::before,.grammar-box::before,.game-box::before,.section::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+.story-box,.story-box p{font-family:'Frank Ruhl Libre',serif !important;font-size:1.28rem !important;line-height:2.5 !important;color:#1e2d3d !important}
+.story-box .highlight{background:var(--p1lt) !important;color:var(--p1dk) !important;border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.vocab-card{background:var(--p1lt) !important;border:2px solid var(--p1md) !important;border-radius:16px !important;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09) !important;border-color:var(--p1) !important}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif !important;color:var(--p1dk) !important;font-size:1.2rem !important}
+.vocab-card .eng{color:#64748b !important}
+.grammar-box{padding:24px 28px !important}
+.grammar-box h3{color:var(--p1) !important;font-weight:900}
+.grammar-box p{color:#1e293b !important;font-size:1.02rem !important}
+.grammar-box .ex-chip{background:var(--p1lt) !important;border:1.5px solid var(--p1md) !important;color:var(--p1dk) !important;border-radius:10px !important;font-weight:700}
+.game-box{padding:24px 22px !important}
+.game-title{color:var(--p1dk) !important;font-size:1.25rem !important;font-weight:900 !important}
+.game-subtitle{color:#64748b !important}
+button{font-family:'Heebo',sans-serif !important}
+.topic-badge{display:none}
+header.old-header{display:none}
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🚪</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🌀</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🔁</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">💬</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">✨</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 59</div>
+    <h1>הַמִּלָּה הַמִּתְחַלֶּפֶת</h1>
+    <div class="header-sub">אוֹתָהּ מִלָּה — מַשְׁמָעוּת אַחֶרֶת בְּכָל מִשְׁפָּט</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; לָשׁוֹן: מַשְׁמָעוּת כְּפוּלָה</div>
+    <div class="header-art"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="64" viewBox="0 0 100 64" aria-hidden="true">
+  <!-- bubble 1 -->
+  <rect x="2" y="2" width="44" height="30" rx="10" fill="rgba(255,255,255,0.82)"/>
+  <polygon points="12,32 6,44 24,32" fill="rgba(255,255,255,0.82)"/>
+  <!-- lines inside bubble 1 -->
+  <rect x="10" y="10" width="28" height="4" rx="2" fill="rgba(0,0,0,0.15)"/>
+  <rect x="10" y="18" width="20" height="4" rx="2" fill="rgba(0,0,0,0.1)"/>
+  <!-- bubble 2 -->
+  <rect x="54" y="18" width="44" height="30" rx="10" fill="rgba(255,255,255,0.65)"/>
+  <polygon points="64,48 72,60 82,48" fill="rgba(255,255,255,0.65)"/>
+  <!-- lines inside bubble 2 -->
+  <rect x="62" y="26" width="28" height="4" rx="2" fill="rgba(0,0,0,0.15)"/>
+  <rect x="62" y="34" width="20" height="4" rx="2" fill="rgba(0,0,0,0.1)"/>
+  <!-- ↔ arrows -->
+  <path d="M46 20 L54 20 M50 16 L54 20 L50 24" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg></div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson55_hauga_shel_roni.html">→ 55</a>
+  <a class="nav-btn" href="lesson56_hagina_shel_savta_roza.html">→ 56</a>
+  <a class="nav-btn" href="lesson57_gan_hahayot.html">→ 57</a>
+  <a class="nav-btn" href="lesson58_hamilim_hamaftioot.html">→ 58</a>
+  <span class="nav-current">שִׁיעוּר 59 ◀</span>
+</nav>
+
+<!-- ===== GRAMMAR CONCEPT ===== -->
+<div class="section">
+  <div class="section-title">📚 מִלִּים בַּעֲלוֹת מַשְׁמָעוּת כְּפוּלָה</div>
+  <div class="concept-box">
+    <h3>מָה זֶה מִלִּים בַּעֲלוֹת מַשְׁמָעוּת כְּפוּלָה?</h3>
+    <p>יֵשׁ מִלִּים שֶׁנִּשְׁמָעוֹת אוֹ נִכְתָּבוֹת אוֹתוֹ דָּבָר, אֲבָל לָהֶן שְׁתֵּי מַשְׁמָעוּיוֹת שׁוֹנוֹת לְגַמְרֵי! כְּדֵי לָדַעַת אֵיזוֹ מַשְׁמָעוּת נְכוֹנָה — צָרִיךְ לִקְרֹא אֶת הַמִּשְׁפָּט <strong>לְפָנֶיהָ וְאַחֲרֶיהָ</strong> (הַהֶקְשֵׁר).</p>
+  </div>
+
+  <table class="example-table">
+    <thead>
+      <tr>
+        <th>הַמִּלָּה</th>
+        <th>מַשְׁמָעוּת 1</th>
+        <th>דּוּגְמָה</th>
+        <th>מַשְׁמָעוּת 2</th>
+        <th>דּוּגְמָה</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="word-highlight">יָד</td>
+        <td><span class="meaning-tag">חֵלֶק בַּגּוּף</span></td>
+        <td>אֲנִי רוֹחֵץ אֶת <strong>יָדַי</strong>.</td>
+        <td><span class="meaning-tag">יָדִית שֶׁל כְּלִי</span></td>
+        <td><strong>הַיָּד</strong> שֶׁל הַסִּיר חַמָּה.</td>
+      </tr>
+      <tr>
+        <td class="word-highlight">עַיִן</td>
+        <td><span class="meaning-tag">אֵיבַר הָרְאִיָּה</span></td>
+        <td>עָצַמְתִּי אֶת <strong>עֵינַי</strong>.</td>
+        <td><span class="meaning-tag">מַעְיָן מַיִם</span></td>
+        <td>שָׁתִינוּ מִן <strong>הָעַיִן</strong> בַּמִּדְבָּר.</td>
+      </tr>
+      <tr>
+        <td class="word-highlight">רֶגֶל</td>
+        <td><span class="meaning-tag">חֵלֶק בַּגּוּף</span></td>
+        <td>כָּאֲבָה לִי <strong>הָרֶגֶל</strong>.</td>
+        <td><span class="meaning-tag">חַג עֲלִיָּה לָרֶגֶל</span></td>
+        <td>בְּפֶסַח עָלִינוּ לָ<strong>רֶגֶל</strong> לִירוּשָׁלַיִם.</td>
+      </tr>
+      <tr>
+        <td class="word-highlight">לֵב</td>
+        <td><span class="meaning-tag">אֵיבַר בַּגּוּף</span></td>
+        <td>הַ<strong>לֵּב</strong> שֶׁלָּנוּ מַזְרִים דָּם בַּגּוּף.</td>
+        <td><span class="meaning-tag">מֶרְכָּז / אֶמְצַע</span></td>
+        <td>בְּ<strong>לֵב</strong> הָעִיר יֵשׁ גַּן גָּדוֹל.</td>
+      </tr>
+      <tr>
+        <td class="word-highlight">שֹׁרֶשׁ</td>
+        <td><span class="meaning-tag">חֵלֶק בַּצֶּמַח</span></td>
+        <td>הָעֵץ שׁוֹלֵחַ אֶת <strong>שָׁרָשָׁיו</strong> עָמֹק.</td>
+        <td><span class="meaning-tag">שֹׁרֶשׁ הַמִּלָּה</span></td>
+        <td>הַ<strong>שֹּׁרֶשׁ</strong> שָׁ-מ-ר מַשְׁמָעוֹ לִשְׁמֹר.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="concept-box" style="margin-top:18px;">
+    <h3>💡 אֵיךְ מְגַלִּים אֶת הַמַּשְׁמָעוּת הַנְּכוֹנָה?</h3>
+    <p>קוֹרְאִים אֶת כָּל הַמִּשְׁפָּט, שׁוֹאֲלִים "מָה הַנּוֹשֵׂא כָּאן?" וּמְחַפְּשִׂים <strong>מִלּוֹת רֶמֶז</strong> סְבִיב הַמִּלָּה הַמִּתְחַלֶּפֶת.</p>
+  </div>
+</div>
+
+<!-- ===== STORY ===== -->
+<div class="section">
+  <div class="section-title">📖 הַסִּיפּוּר: הַבִּשּׁוּל הַמְבֻלְבָּל</div>
+  <div class="story-text">
+    <p>סָבָא שְׁלֹמֹה אָהַב לְבַשֵּׁל. כָּל שַׁבָּת הוּא הֵכִין מָרָק טָעִים. בְּאוֹתוֹ בֹּקֶר הוּא הִסְתַּכֵּל בַּמַּתְכּוֹן וְקָרָא בְּקוֹל: "שִׂימוּ אֶת <span class="story-homonym">הָרֶגֶל</span> בַּסִּיר."</p>
+    <p>נַעֲמִי, נֶכְדָּתוֹ, שָׁמְעָה אֶת סָבָא וְשָׂמָה לֵב: "סָבָא, <span class="story-homonym">אֵיזוֹ רֶגֶל</span>?" שָׁאֲלָה בְּתִמָּהוֹן.</p>
+    <p>"רֶגֶל עֵגֶל, כְּמוּבָן!" אָמַר סָבָא וְחִיֵּךְ. "זֶה הַמַּרְכִּיב שֶׁנּוֹתֵן לַמָּרָק אֶת <span class="story-homonym">לֵב</span> הַטַּעַם שֶׁלּוֹ."</p>
+    <p>נַעֲמִי צָחֲקָה. גַּם הִיא לָמְדָה בְּבֵית הַסֵּפֶר עַל מִלִּים שֶׁיֵּשׁ לָהֶן שְׁתֵּי מַשְׁמָעוּיוֹת. "אֲנִי יוֹדַעַת!" קָרְאָה. "<span class="story-homonym">לֵב</span> יָכוֹל לְהֵאָמֵר גַּם עַל אֵיבַר בַּגּוּף וְגַם עַל הַמֶּרְכָּז שֶׁל מַשֶּׁהוּ!"</p>
+    <p>"כָּל הַכָּבוֹד!" אָמַר סָבָא. הוּא הִרְאָה לָהּ אֶת כַּף <span class="story-homonym">הַיָּד</span> שֶׁל הַסִּיר — הַיָּדִית שֶׁאוֹחֲזִים בָּהּ. "כָּךְ <span class="story-homonym">הַיָּד</span> הִיא גַּם הַחֵלֶק בַּגּוּף שֶׁלָּנוּ וְגַם הַיָּדִית שֶׁל כְּלֵי הַמִּטְבָּח!"</p>
+    <p>שְׁנֵיהֶם יָשְׁבוּ לַאֲכֹל. <span class="story-homonym">בְּלֵב</span> הָעִיר, בַּחוּץ, נָבְעָה <span class="story-homonym">עַיִן</span> קְטַנָּה שֶׁל מַיִם צְלוּלִים. מִי שֶׁרָאָה אוֹתָהּ לְרֶגַע אֶחָד חִיֵּךְ, כִּי הַמַּיִם תָּמִיד מְשַׂמְּחִים אֶת <span class="story-homonym">הָעַיִן</span>.</p>
+    <p>נַעֲמִי אָמְרָה: "סָבָא, הָעִבְרִית כָּל כָּךְ מְעַנְיֶנֶת! מִלָּה אַחַת — כָּל כָּךְ הַרְבֵּה פָּנִים!"</p>
+    <p>"בְּדִיּוּק," הֵשִׁיב סָבָא. "לָכֵן צָרִיךְ לִקְרֹא אֶת כָּל הַמִּשְׁפָּט. הַהֶקְשֵׁר הוּא הַמַּפְתֵּחַ!"</p>
+  </div>
+</div>
+
+<!-- ===== COMPREHENSION GAME: Double Door ===== -->
+<div class="section">
+  <div class="section-title">🚪 מִשְׂחַק הֲבָנַת הַנִּקְרָא: דְּלָתוֹת הַמַּשְׁמָעוּת</div>
+  <div id="comp-game">
+    <div class="comp-instruction">
+      לְחַץ עַל כָּל דֶּלֶת לְגִלּוּי שְׁאֵלָה. בַּחֲרוּ אֶת הַמַּשְׁמָעוּת הַנְּכוֹנָה שֶׁל הַמִּלָּה הַמֻּדְגֶּשֶׁת בַּמִּשְׁפָּט!
+    </div>
+    <div class="doors-row" id="doorsRow"></div>
+    <div id="comp-question-area">
+      <div class="comp-q-text" id="compQText"></div>
+      <div class="comp-sentence" id="compSentence"></div>
+      <div class="comp-options" id="compOptions"></div>
+      <button class="comp-submit-btn" id="compSubmitBtn" onclick="submitComp()">בְּדֹק ✓</button>
+      <div class="comp-explanation" id="compExplanation"></div>
+    </div>
+    <div class="result-banner" id="compResult">
+      <div class="result-stars">⭐⭐⭐⭐⭐</div>
+      <h2>כָּל הַכָּבוֹד!</h2>
+      <p>פָּתַחְתָּ אֶת כָּל הַדְּלָתוֹת וְהֵבַנְתָּ אֶת הַמִּשְׁמָעוּיּוֹת!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GRAMMAR GAME: Kaleidoscope ===== -->
+<div class="section">
+  <div class="section-title">🌀 מִשְׂחַק דִּקְדּוּק: קָלֵיידוֹסְקוֹפּ הַמִּלִּים</div>
+  <div id="gram-game">
+    <div class="gram-instruction">
+      בְּכָל סִבּוּב תּוֹפִיעַ מִלָּה מֻדְגֶּשֶׁת בְּמִשְׁפָּט. בַּחֲרוּ אֶת הַמַּשְׁמָעוּת הַנְּכוֹנָה! עַל כָּל תְּשׁוּבָה נְכוֹנָה — עָלֶה נוֹסָף בַּקָּלֵיידוֹסְקוֹפּ.
+    </div>
+    <div class="gram-progress" id="gramProgress"></div>
+    <div class="kaleid-scene">
+      <div class="kaleid-bg">
+        <div class="kaleid-petal petal-0" id="p0"></div>
+        <div class="kaleid-petal petal-1" id="p1"></div>
+        <div class="kaleid-petal petal-2" id="p2"></div>
+        <div class="kaleid-petal petal-3" id="p3"></div>
+        <div class="kaleid-petal petal-4" id="p4"></div>
+        <div class="kaleid-petal petal-5" id="p5"></div>
+        <div class="kaleid-word" id="kaleidWord">?</div>
+      </div>
+    </div>
+    <div class="gram-round-info" id="gramRoundInfo">שְׁאֵלָה 1 מִתּוֹךְ 6</div>
+    <div class="gram-sentence-box" id="gramSentence"></div>
+    <div class="gram-opts" id="gramOpts"></div>
+    <button class="gram-submit-btn" id="gramSubmitBtn" onclick="submitGram()">בְּדֹק ✓</button>
+    <div class="gram-explanation" id="gramExplanation"></div>
+    <button class="gram-next-btn" id="gramNextBtn" onclick="nextGram()">הַמִּלָּה הַבָּאָה ←</button>
+    <div class="result-banner" id="gramResult">
+      <div class="result-stars">🌟🌟🌟🌟🌟🌟</div>
+      <h2>מַמָּשׁ מְיֻמָּן!</h2>
+      <p>הַקָּלֵיידוֹסְקוֹפּ שֶׁלְּךָ מָלֵא צְבָעִים — אַתָּה שׁוֹלֵט בְּמִלִּים בַּעֲלוֹת מַשְׁמָעוּת כְּפוּלָה!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ======= COMPREHENSION GAME DATA =======
+const compQuestions = [
+  {
+    q: "מָה הַמַּשְׁמָעוּת שֶׁל הַמִּלָּה הַמֻּדְגֶּשֶׁת?",
+    sentence: "סָבָא הִרְאָה לָהּ אֶת כַּף <strong>הַיָּד</strong> שֶׁל הַסִּיר.",
+    word: "יָד",
+    options: ["חֵלֶק בַּגּוּף שֶׁאִתּוֹ אוֹחֲזִים", "יָדִית שֶׁל כְּלִי", "חֶלְקוֹ שֶׁל עֵץ", "דַּף בְּסֵפֶר"],
+    correct: 1,
+    explanation: "בַּמִּשְׁפָּט כָּתוּב 'הַיָּד שֶׁל הַסִּיר' — כְּלוֹמַר הַיָּדִית שֶׁאוֹחֲזִים בָּהּ. זֶה הֶקְשֵׁר שֶׁל מִטְבָּח, לֹא שֶׁל גּוּף אָדָם."
+  },
+  {
+    q: "אֵיזוֹ מַשְׁמָעוּת יֵשׁ לַמִּלָּה הַמֻּדְגֶּשֶׁת כָּאן?",
+    sentence: "בְּ<strong>לֵב</strong> הָעִיר יֵשׁ גַּן גָּדוֹל וְיָפֶה.",
+    word: "לֵב",
+    options: ["אֵיבַר הַגּוּף שֶׁמַּזְרִים דָּם", "מֶרְכָּז / אֶמְצַע", "רֶגֶשׁ אוֹ הַרְגָּשָׁה", "חֵלֶק בְּמִשְׁחָק"],
+    correct: 1,
+    explanation: "'בְּלֵב הָעִיר' פֵּרוּשׁוֹ בְּמֶרְכָּז הָעִיר. הַהֶקְשֵׁר הוּא מָקוֹם, לֹא גּוּף אָדָם."
+  },
+  {
+    q: "מָה פֵּרוּשׁ הַמִּלָּה הַמֻּדְגֶּשֶׁת כָּאן?",
+    sentence: "שָׁתִינוּ מַיִם קָרִים מִן <strong>הָעַיִן</strong> שֶׁנִּמְצֵאת בָּהָר.",
+    word: "עַיִן",
+    options: ["אֵיבַר הָרְאִיָּה", "מַעְיָן / מְקוֹר מַיִם", "מִלָּה בָּעִבְרִית", "חַלּוֹן קָטָן"],
+    correct: 1,
+    explanation: "'שָׁתִינוּ מַיִם מִן הָעַיִן' — כָּאן עַיִן פֵּרוּשָׁהּ מַעְיָן, מְקוֹר מַיִם טִבְעִי. הַמִּלָּה 'שָׁתִינוּ' וְ'בָּהָר' נוֹתְנוֹת לָנוּ רֶמֶז."
+  },
+  {
+    q: "אֵיזוֹ מַשְׁמָעוּת יֵשׁ לַמִּלָּה הַמֻּדְגֶּשֶׁת?",
+    sentence: "בְּפֶסַח עָלִינוּ לָ<strong>רֶגֶל</strong> לִירוּשָׁלַיִם עִם כָּל הַמִּשְׁפָּחָה.",
+    word: "רֶגֶל",
+    options: ["חֵלֶק תַּחְתּוֹן שֶׁל הַגּוּף", "חַג עֲלִיָּה לָרֶגֶל", "שֻׁלְחָן עָגוֹל", "נְסִיעָה בָּרַכֶּבֶת"],
+    correct: 1,
+    explanation: "'עָלִינוּ לָרֶגֶל לִירוּשָׁלַיִם' — 'רֶגֶל' כָּאן הִיא חַג עֲלִיָּה לָרֶגֶל, שֶׁבּוֹ עוֹלִים לִירוּשָׁלַיִם. הַהֶקְשֵׁר הוּא חַג וּמִצְוָה."
+  },
+  {
+    q: "מָה פֵּרוּשׁ הַמִּלָּה הַמֻּדְגֶּשֶׁת?",
+    sentence: "לָמַדְנוּ שֶׁהַ<strong>שֹּׁרֶשׁ</strong> שָׁ-מ-ר פֵּרוּשׁוֹ לִשְׁמֹר.",
+    word: "שֹׁרֶשׁ",
+    options: ["חֵלֶק שֶׁל צֶמַח בָּאֲדָמָה", "שֹׁרֶשׁ מִלָּה בְּדִקְדּוּק", "עֵץ גָּדוֹל", "פֶּרַח יָפֶה"],
+    correct: 1,
+    explanation: "'הַשֹּׁרֶשׁ שָׁ-מ-ר' — כָּאן מְדֻבָּר בְּשֹׁרֶשׁ דִּקְדּוּקִי, שָׁלוֹשׁ אוֹתִיּוֹת שֶׁמִּמֶּנּוּ נִבְנוֹת מִלִּים בְּעִבְרִית. הַמִּלִּים 'שָׁ-מ-ר' וְ'פֵּרוּשׁוֹ' נוֹתְנוֹת אֶת הָרֶמֶז."
+  }
+];
+
+let compDoorOpen = new Array(5).fill(false);
+let compAnswered = new Array(5).fill(false);
+let compCurrentDoor = -1;
+let compSelectedOpt = -1;
+let compSubmitted = false;
+
+function buildDoors() {
+  const row = document.getElementById('doorsRow');
+  row.innerHTML = '';
+  compQuestions.forEach((q, i) => {
+    row.innerHTML += `
+      <div class="door-wrap" onclick="openDoor(${i})">
+        <div class="door-frame" id="doorFrame${i}">
+          <div class="door-panel-l"></div>
+          <div class="door-panel-r"></div>
+          <div class="door-num" id="doorNum${i}">${i+1}</div>
+          <div class="door-star" id="doorStar${i}">⭐</div>
+        </div>
+        <div class="door-base"></div>
+        <div class="door-label" id="doorLabel${i}">${q.word}</div>
+      </div>`;
+  });
+}
+
+function openDoor(i) {
+  if (compAnswered[i]) return;
+  compCurrentDoor = i;
+  compSelectedOpt = -1;
+  compSubmitted = false;
+
+  const frame = document.getElementById(`doorFrame${i}`);
+  frame.classList.add('open');
+
+  const area = document.getElementById('comp-question-area');
+  area.classList.add('active');
+  document.getElementById('compQText').textContent = compQuestions[i].q;
+  document.getElementById('compSentence').innerHTML = compQuestions[i].sentence;
+  document.getElementById('compExplanation').style.display = 'none';
+  document.getElementById('compSubmitBtn').style.display = 'none';
+
+  const opts = document.getElementById('compOptions');
+  opts.innerHTML = '';
+  compQuestions[i].options.forEach((opt, j) => {
+    const btn = document.createElement('button');
+    btn.className = 'comp-opt';
+    btn.textContent = opt;
+    btn.onclick = () => selectCompOpt(j);
+    btn.id = `copt${j}`;
+    opts.appendChild(btn);
+  });
+}
+
+function selectCompOpt(j) {
+  if (compSubmitted) return;
+  compSelectedOpt = j;
+  document.querySelectorAll('.comp-opt').forEach((b, idx) => {
+    b.classList.toggle('selected', idx === j);
+  });
+  document.getElementById('compSubmitBtn').style.display = 'inline-block';
+}
+
+function submitComp() {
+  if (compSelectedOpt === -1 || compSubmitted) return;
+  compSubmitted = true;
+  const i = compCurrentDoor;
+  const correct = compQuestions[i].correct;
+  const frame = document.getElementById(`doorFrame${i}`);
+
+  document.querySelectorAll('.comp-opt').forEach((b, j) => {
+    if (j === correct) b.classList.add('correct-ans');
+    else if (j === compSelectedOpt) b.classList.add('wrong-ans');
+    b.onclick = null;
+  });
+
+  const expEl = document.getElementById('compExplanation');
+  expEl.textContent = compQuestions[i].explanation;
+  expEl.style.display = 'block';
+  document.getElementById('compSubmitBtn').style.display = 'none';
+
+  if (compSelectedOpt === correct) {
+    frame.classList.add('correct-door', 'answered');
+    document.getElementById(`doorStar${i}`).textContent = '⭐';
+    compAnswered[i] = true;
+    setTimeout(() => {
+      document.getElementById('comp-question-area').classList.remove('active');
+      checkCompDone();
+    }, 2200);
+  } else {
+    frame.classList.add('wrong-door');
+    frame.classList.add('shake');
+    setTimeout(() => {
+      frame.classList.remove('shake', 'open', 'wrong-door');
+      compSubmitted = false;
+      document.getElementById('comp-question-area').classList.remove('active');
+    }, 800);
+  }
+}
+
+function checkCompDone() {
+  if (compAnswered.every(Boolean)) {
+    document.getElementById('compResult').style.display = 'block';
+  }
+}
+
+buildDoors();
+
+// ======= GRAMMAR GAME DATA =======
+const gramRounds = [
+  {
+    sentence: "כָּאֲבָה לִי <span class='gram-highlighted'>הָרֶגֶל</span> אַחֲרֵי שֶׁרַצְתִּי הַרְבֵּה.",
+    word: "רֶגֶל",
+    options: ["חֵלֶק תַּחְתּוֹן שֶׁל הַגּוּף", "חַג עֲלִיָּה לָרֶגֶל"],
+    correct: 0,
+    explanation: "'כָּאֲבָה לִי הָרֶגֶל אַחֲרֵי שֶׁרַצְתִּי' — כְּאֵב בִּגְלַל רִיצָה מְעִיד שֶׁמְּדֻבָּר בְּחֵלֶק הַגּוּף."
+  },
+  {
+    sentence: "הִסְתַּכַּלְתִּי בַּ<span class='gram-highlighted'>עַיִן</span> הַגְּדוֹלָה שֶׁל הַכֶּלֶב וְהִתְרַגַּשְׁתִּי.",
+    word: "עַיִן",
+    options: ["אֵיבַר הָרְאִיָּה", "מַעְיָן / מְקוֹר מַיִם"],
+    correct: 0,
+    explanation: "כֶּלֶב יֵשׁ לוֹ עֵינַיִם — אֵיבַר הָרְאִיָּה. הַמִּלָּה 'כֶּלֶב' נוֹתֶנֶת אֶת הָרֶמֶז."
+  },
+  {
+    sentence: "הוּא נָגַע בְּ<span class='gram-highlighted'>לֵב</span> הָעִנְיָן וְלֹא בִּפְרָטִים קְטַנִּים.",
+    word: "לֵב",
+    options: ["אֵיבַר הַגּוּף", "מֶרְכָּז / עִקַּר הַדָּבָר"],
+    correct: 1,
+    explanation: "'לֵב הָעִנְיָן' פֵּרוּשׁוֹ עִקַּר הַדָּבָר, לֹא פְּרָטִים. הַמִּלָּה 'עִנְיָן' נוֹתֶנֶת אֶת הָרֶמֶז."
+  },
+  {
+    sentence: "הִנַּחְתָּ אֶת <span class='gram-highlighted'>יָדְךָ</span> עַל הַכָּתֵף שֶׁל חֲבֵרְךָ.",
+    word: "יָד",
+    options: ["חֵלֶק בַּגּוּף שֶׁאִתּוֹ אוֹחֲזִים", "יָדִית שֶׁל כְּלִי"],
+    correct: 0,
+    explanation: "'הִנַּחְתָּ אֶת יָדְךָ עַל הַכָּתֵף' — מְדֻבָּר בְּחֵלֶק הַגּוּף, הַיָּד הָאֲמִתִּית."
+  },
+  {
+    sentence: "הָעֵץ שָׁלַח אֶת <span class='gram-highlighted'>שָׁרָשָׁיו</span> עָמֹק לְתוֹךְ הָאֲדָמָה.",
+    word: "שֹׁרֶשׁ",
+    options: ["שֹׁרֶשׁ דִּקְדּוּקִי", "חֵלֶק שֶׁל צֶמַח בָּאֲדָמָה"],
+    correct: 1,
+    explanation: "עֵץ שֶׁשׁוֹלֵחַ שָׁרָשִׁים לָאֲדָמָה — זֶה שֹׁרֶשׁ הַצֶּמַח הַמַּמָּשִׁי."
+  },
+  {
+    sentence: "הַמּוֹרָה שָׁאֲלָה: 'מַה הַ<span class='gram-highlighted'>שֹּׁרֶשׁ</span> שֶׁל הַמִּלָּה שִׂמְחָה?'",
+    word: "שֹׁרֶשׁ",
+    options: ["שֹׁרֶשׁ דִּקְדּוּקִי", "חֵלֶק שֶׁל צֶמַח"],
+    correct: 0,
+    explanation: "מוֹרֶה שׁוֹאֵל עַל מִלָּה — כָּאן הַשֹּׁרֶשׁ הוּא הַשֹּׁרֶשׁ הַדִּקְדּוּקִי (שׂ-מ-ח)."
+  }
+];
+
+let gramIdx = 0;
+let gramSelectedOpt = -1;
+let gramSubmitted = false;
+
+function buildGramProgress() {
+  const el = document.getElementById('gramProgress');
+  el.innerHTML = '';
+  gramRounds.forEach((_, i) => {
+    const pip = document.createElement('div');
+    pip.className = 'gram-pip' + (i < gramIdx ? ' done' : i === gramIdx ? ' current' : '');
+    el.appendChild(pip);
+  });
+}
+
+function loadGramRound() {
+  if (gramIdx >= gramRounds.length) {
+    document.getElementById('gramResult').style.display = 'block';
+    document.getElementById('gramSubmitBtn').style.display = 'none';
+    document.getElementById('gramNextBtn').style.display = 'none';
+    document.getElementById('gramExplanation').style.display = 'none';
+    document.getElementById('gramOpts').innerHTML = '';
+    document.getElementById('gramSentence').innerHTML = '';
+    document.getElementById('gramRoundInfo').textContent = '';
+    return;
+  }
+  gramSelectedOpt = -1;
+  gramSubmitted = false;
+  const r = gramRounds[gramIdx];
+  document.getElementById('kaleidWord').textContent = r.word;
+  document.getElementById('gramRoundInfo').textContent = `שְׁאֵלָה ${gramIdx+1} מִתּוֹךְ ${gramRounds.length}`;
+  document.getElementById('gramSentence').innerHTML = r.sentence;
+  document.getElementById('gramExplanation').style.display = 'none';
+  document.getElementById('gramSubmitBtn').style.display = 'none';
+  document.getElementById('gramNextBtn').style.display = 'none';
+
+  const opts = document.getElementById('gramOpts');
+  opts.innerHTML = '';
+  r.options.forEach((opt, j) => {
+    const btn = document.createElement('button');
+    btn.className = 'gram-opt';
+    btn.textContent = opt;
+    btn.id = `gopt${j}`;
+    btn.onclick = () => selectGramOpt(j);
+    opts.appendChild(btn);
+  });
+
+  buildGramProgress();
+}
+
+function selectGramOpt(j) {
+  if (gramSubmitted) return;
+  gramSelectedOpt = j;
+  document.querySelectorAll('.gram-opt').forEach((b, idx) => {
+    b.classList.toggle('selected', idx === j);
+  });
+  document.getElementById('gramSubmitBtn').style.display = 'inline-block';
+}
+
+function submitGram() {
+  if (gramSelectedOpt === -1 || gramSubmitted) return;
+  gramSubmitted = true;
+  const r = gramRounds[gramIdx];
+
+  document.querySelectorAll('.gram-opt').forEach((b, j) => {
+    if (j === r.correct) b.classList.add('correct-ans');
+    else if (j === gramSelectedOpt) b.classList.add('wrong-ans');
+    b.onclick = null;
+  });
+
+  const expEl = document.getElementById('gramExplanation');
+  expEl.textContent = r.explanation;
+  expEl.style.display = 'block';
+  document.getElementById('gramSubmitBtn').style.display = 'none';
+
+  if (gramSelectedOpt === r.correct) {
+    // Light up a petal
+    const petal = document.getElementById(`p${gramIdx}`);
+    if (petal) petal.classList.add('lit');
+    document.getElementById('gramNextBtn').style.display = 'inline-block';
+    document.getElementById('gramNextBtn').textContent = gramIdx < gramRounds.length - 1 ? 'הַמִּלָּה הַבָּאָה ←' : 'סִיּוּם! 🎉';
+  } else {
+    const sentEl = document.getElementById('gramSentence');
+    sentEl.classList.add('shake');
+    setTimeout(() => sentEl.classList.remove('shake'), 500);
+    gramSubmitted = false;
+    document.getElementById('gramSubmitBtn').style.display = 'inline-block';
+    document.querySelectorAll('.gram-opt').forEach(b => {
+      b.classList.remove('correct-ans', 'wrong-ans', 'selected');
+      b.onclick = (e) => selectGramOpt([...document.querySelectorAll('.gram-opt')].indexOf(b));
+    });
+    document.getElementById('gramExplanation').style.display = 'none';
+  }
+}
+
+function nextGram() {
+  gramIdx++;
+  loadGramRound();
+}
+
+// Init
+loadGramRound();
+</script>
+
+
+<!-- ══ WRITING ASSIGNMENT ══ -->
+<script>
+const wP=['כְּתוֹב מִשְׁפָּט עִם "לֵב" בְּמַשְׁמָעוּת מֶרְכָּז...', 'כְּתוֹב מִשְׁפָּט עִם "עַיִן" בְּמַשְׁמָעוּת מַעְיָן...', 'כְּתוֹב מִשְׁפָּט עִם "יָד" בְּמַשְׁמָעוּת יָדִית...', 'כְּתוֹב מִשְׁפָּט עִם "שֹׁרֶשׁ" בְּמַשְׁמָעוּת דִּקְדּוּקִית...', 'כְּתוֹב מִשְׁפָּט עִם מִלָּה בַּעֲלַת מַשְׁמָעוּת כְּפוּלָה לְבַחִירָתְךָ...'];
+function initW(){const c=document.getElementById('writing-lines');if(!c)return;c.innerHTML='';wP.forEach((ph,i)=>{const d=document.createElement('div');d.className='writing-line';d.id='wline-'+i;d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';c.appendChild(d);});const r=document.getElementById('writing-result');if(r)r.style.display='none';const f=document.getElementById('writing-fb');if(f)f.textContent='';}
+window.submitWriting=function(){let n=0;for(let i=0;i<5;i++){const v=document.getElementById('winput-'+i).value.trim();const l=document.getElementById('wline-'+i);if(v.length>1){n++;l.className='writing-line filled';}else l.className='writing-line';}const fb=document.getElementById('writing-fb');const res=document.getElementById('writing-result');if(n<5){if(fb){fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.';fb.style.color='#dc2626';}if(res)res.style.display='none';return;}if(fb)fb.textContent='';if(res){res.style.display='block';res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';}}; 
+window.resetWriting=function(){initW();};
+window.addEventListener('DOMContentLoaded',initW);
+</script>
+<div style="background:#fff;border-radius:16px;padding:24px 20px;margin:18px 0;box-shadow:0 2px 12px rgba(0,0,0,.08)">
+  <div style="font-size:1.25rem;font-weight:900;color:#4c1d95;margin-bottom:14px;direction:rtl">✍️ מַטְלַת כְּתִיבָה</div>
+  <p style="margin-bottom:16px;font-size:1rem;direction:rtl">כְּתֹב 5 מִשְׁפָּטִים עִם מִלִּים בַּעֲלוֹת מַשְׁמָעוּת כְּפוּלָה. הִשְׁתַּמֵּשׁ בַּמִּלִּים שֶׁלָּמַדְתָּ — כְּגוֹן: <strong>יָד, עַיִן, לֵב, רֶגֶל, שֹׁרֶשׁ</strong>. לְדֻגְמָה: בְּלֵב הָעִיר יֵשׁ גַּן גָּדוֹל.</p>
+  <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+    <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+    <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+    <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+  </div>
+  <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+</div>
+
+</body>
+</html>

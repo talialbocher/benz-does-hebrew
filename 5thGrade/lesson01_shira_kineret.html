@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>עִבְרִית · כִּתָּה ה' · שִׁעוּר 1 — כִּנֶּרֶת</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --water:#1f7a8c; --water-deep:#0b4f63; --water-light:#bfe6ee;
+    --sand:#f3e6c4; --sand-deep:#e3cf9b;
+    --leaf:#3f8f5a; --leaf-deep:#256b3e;
+    --sun:#f2a541; --poppy:#d1495b;
+    --ink:#1c2b33; --paper:#fbf7ee; --card:#ffffff;
+    --good:#2e8b57; --bad:#c2453f;
+    --shadow:0 6px 20px rgba(11,79,99,.14);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:linear-gradient(180deg,#eaf6f9 0%, #f7f1e2 100%);
+    color:var(--ink); font-family:"Heebo",sans-serif; line-height:1.7;
+    -webkit-text-size-adjust:100%;
+  }
+  .hebtext{font-family:"Frank Ruhl Libre",serif;}
+
+  /* ---- top bar + progress ---- */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92);
+    backdrop-filter:blur(6px); box-shadow:var(--shadow);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; padding:.7rem 1rem .4rem;}
+  .brand .logo{font-size:1.6rem}
+  .brand h1{font-family:"Frank Ruhl Libre",serif; font-size:1.15rem; margin:0; font-weight:700}
+  .brand small{display:block; font-weight:500; color:var(--water-deep); font-size:.8rem}
+  .progress-wrap{height:10px; background:var(--water-light);}
+  .progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--water),var(--leaf)); transition:width .5s ease;}
+  nav.sections{display:flex; gap:.4rem; overflow-x:auto; padding:.5rem 1rem .7rem;}
+  nav.sections button{
+    flex:0 0 auto; border:none; background:var(--sand); color:var(--ink);
+    font-family:"Heebo",sans-serif; font-weight:700; font-size:.85rem;
+    padding:.45rem .8rem; border-radius:999px; cursor:pointer; white-space:nowrap;
+    min-height:40px;
+  }
+  nav.sections button.active{background:var(--water); color:#fff;}
+
+  main{max-width:760px; margin:0 auto; padding:1rem 1rem 4rem;}
+  section.lesson-sec{display:none; animation:fade .4s ease;}
+  section.lesson-sec.show{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+
+  .card{background:var(--card); border-radius:18px; padding:1.1rem 1.2rem; box-shadow:var(--shadow); margin:1rem 0;}
+  h2.sec-title{font-family:"Frank Ruhl Libre",serif; font-size:1.5rem; display:flex; align-items:center; gap:.5rem; margin:.2rem 0 .4rem;}
+  h3{font-family:"Frank Ruhl Libre",serif; color:var(--water-deep); margin:1rem 0 .3rem; font-size:1.2rem;}
+  p,li{font-size:1.05rem;}
+  .hint{background:var(--sand); border-right:6px solid var(--sun); padding:.7rem .9rem; border-radius:10px; font-size:.98rem;}
+
+  /* ---- poem ---- */
+  .poem{
+    font-family:"Frank Ruhl Libre",serif; font-size:1.4rem; line-height:2.1;
+    background:linear-gradient(180deg,#f4fbfd,#eaf4ef); border-radius:16px;
+    padding:1.2rem 1.3rem; border:1px dashed var(--water);
+  }
+  .poem .stanza{margin-bottom:1rem;}
+  .poem .stanza:last-child{margin-bottom:0;}
+  .source-note{font-size:.82rem; color:#5a6b72; margin-top:.5rem; text-align:center;}
+  .device{background:#fff5e6; border:1px solid var(--sun); border-radius:12px; padding:.8rem 1rem; margin-top:1rem;}
+  .device b{color:#b5701b;}
+
+  /* ---- vocab ---- */
+  .vocab-grid{display:grid; grid-template-columns:1fr; gap:.6rem;}
+  .vocab-item{
+    display:flex; gap:.8rem; align-items:flex-start; background:var(--paper);
+    border-radius:12px; padding:.7rem .9rem; cursor:pointer; border:1px solid #eee; min-height:48px;
+  }
+  .vocab-item .word{font-family:"Frank Ruhl Libre",serif; font-weight:700; font-size:1.3rem; color:var(--water-deep); min-width:6.5rem;}
+  .vocab-item .def{font-family:"Frank Ruhl Libre",serif; font-size:1.12rem;}
+
+  /* ---- generic multiple choice ---- */
+  .q{margin:1rem 0;}
+  .q .stem{font-family:"Frank Ruhl Libre",serif; font-size:1.2rem; font-weight:700; margin-bottom:.5rem;}
+  .opts{display:flex; flex-direction:column; gap:.5rem;}
+  .opt{
+    text-align:right; font-family:"Frank Ruhl Libre",serif; font-size:1.15rem;
+    background:var(--paper); border:2px solid #e6e0cf; border-radius:12px;
+    padding:.7rem .9rem; cursor:pointer; min-height:48px;
+  }
+  .opt.selected{border-color:var(--water); background:#e9f5f8;}
+  .opt.correct{border-color:var(--good); background:#e7f6ec;}
+  .opt.wrong{border-color:var(--bad); background:#fbeceb;}
+  .opt[disabled]{cursor:default; opacity:.85;}
+  .q-actions{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.6rem;}
+  .btn{
+    border:none; border-radius:12px; font-family:"Heebo",sans-serif; font-weight:700;
+    font-size:1rem; padding:.6rem 1.1rem; cursor:pointer; min-height:46px;
+  }
+  .btn-main{background:var(--water); color:#fff;}
+  .btn-soft{background:var(--sand-deep); color:var(--ink);}
+  .btn-ghost{background:transparent; color:var(--water-deep); text-decoration:underline;}
+  .btn:disabled{opacity:.4; cursor:default;}
+  .feedback{margin-top:.5rem; font-weight:700; font-family:"Frank Ruhl Libre",serif; font-size:1.1rem; min-height:1.4rem;}
+  .feedback.good{color:var(--good);}
+  .feedback.bad{color:var(--bad);}
+
+  /* ---- game ---- */
+  .game-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;}
+  .score{background:var(--water-deep); color:#fff; border-radius:999px; padding:.4rem 1rem; font-weight:800;}
+  .map-wrap{display:flex; justify-content:center; margin:.6rem 0;}
+  svg#kinneret{width:100%; max-width:340px; height:auto;}
+  .station-label{font-family:"Heebo",sans-serif; font-weight:700; font-size:11px; fill:var(--ink);}
+  #boat{font-size:26px; transition:transform 1.2s cubic-bezier(.45,.05,.3,1);}
+  .win{display:none; text-align:center; margin-top:.8rem;}
+  .win.show{display:block; animation:pop .5s ease;}
+  @keyframes pop{0%{transform:scale(.7); opacity:0} 100%{transform:scale(1); opacity:1}}
+
+  /* ---- speaking cards ---- */
+  .speak-card{background:var(--paper); border-radius:14px; padding:.9rem 1rem; margin:.7rem 0; border:1px solid #ece6d4;}
+  .speak-card .line{font-family:"Frank Ruhl Libre",serif; font-size:1.35rem; margin-bottom:.5rem;}
+  .speak-card .task{font-size:.95rem; color:#55636a; margin-bottom:.5rem;}
+  .speak-btns{display:flex; gap:.5rem; flex-wrap:wrap;}
+  .speak-btns button{border:2px solid #e0dac8; background:#fff; border-radius:999px; padding:.45rem .9rem; cursor:pointer; font-weight:700; font-family:"Heebo",sans-serif; min-height:44px;}
+  .speak-btns button.done{background:#e7f6ec; border-color:var(--good);}
+  .speak-btns button.retry{background:#fff5e6; border-color:var(--sun);}
+
+  /* ---- writing ---- */
+  textarea#writing{width:100%; min-height:150px; border-radius:14px; border:2px solid var(--water-light); padding:.9rem; font-family:"Frank Ruhl Libre",serif; font-size:1.2rem; line-height:1.9; resize:vertical;}
+  .write-bar{display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin-top:.6rem;}
+  .counter{color:#55636a; font-weight:700;}
+
+  .lesson-nav{display:flex; justify-content:space-between; margin-top:1.5rem; gap:.6rem;}
+  footer{text-align:center; color:#6a7980; font-size:.82rem; padding:1.5rem 1rem 2rem;}
+
+  @media (max-width:480px){
+    .vocab-item .word{min-width:5.5rem; font-size:1.2rem;}
+    .poem{font-size:1.25rem; line-height:2;}
+    h2.sec-title{font-size:1.3rem;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">🌊</span>
+    <div>
+      <h1>עִבְרִית · כִּתָּה ה'</h1>
+      <small>שִׁעוּר 1 — "כִּנֶּרֶת" מֵאֵת רָחֵל הַמְּשׁוֹרֶרֶת</small>
+    </div>
+  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <nav class="sections" id="sectionNav">
+    <button data-i="0" class="active">📖 קְרִיאָה</button>
+    <button data-i="1">🗂️ אוֹצַר מִלִּים</button>
+    <button data-i="2">🔤 דִּקְדּוּק</button>
+    <button data-i="3">🎮 מִשְׂחָק</button>
+    <button data-i="4">🗣️ דִּבּוּר</button>
+    <button data-i="5">✍️ כְּתִיבָה</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ 1. READING ============ -->
+  <section class="lesson-sec show" data-sec="0">
+    <h2 class="sec-title">📖 קְרִיאָה — הַשִּׁיר "כִּנֶּרֶת"</h2>
+    <div class="card">
+      <p class="hebtext">רָחֵל הַמְּשׁוֹרֶרֶת (רָחֵל בְּלוּבְשְׁטֵיין, 1890–1931) חָיְתָה וְעָבְדָה עַל חוֹף יָם כִּנֶּרֶת. הִיא אָהֲבָה מְאוֹד אֶת הַנּוֹף שֶׁל הָאֵזוֹר, וְכָתְבָה עָלָיו שִׁירִים רַבִּים. בַּשִּׁיר שֶׁלְּפָנֵינוּ הִיא מְתָאֶרֶת אֶת הָרֵי הַגּוֹלָן, אֶת הַר הַחֶרְמוֹן, אֶת הַדֶּקֶל שֶׁעַל הַחוֹף וְאֶת הַפְּרָחִים — וּמַבְטִיחָה שֶׁלְּעוֹלָם לֹא תִּשְׁכַּח אֶת הַמָּקוֹם הַזֶּה.</p>
+      <p class="hebtext"><b>קִרְאוּ אֶת הַשִּׁיר לְאַט, וְשִׂימוּ לֵב לַתְּמוּנוֹת שֶׁהוּא מְצַיֵּר בָּרֹאשׁ שֶׁלָּכֶם.</b></p>
+
+      <div class="poem hebtext">
+        <div class="stanza">
+          שָׁם הָרֵי גוֹלָן, הוֹשֵׁט הַיָּד וְגַע בָּם! –<br>
+          בִּדְמָמָה בּוֹטַחַת מְצַוִּים: עֲצֹר.<br>
+          בִּבְדִידוּת קוֹרֶנֶת נָם חֶרְמוֹן הַסַבָּא<br>
+          וְצִנָּה נוֹשֶׁבֶת מִפִּסְגַּת הַצְּחוֹר.
+        </div>
+        <div class="stanza">
+          שָׁם עַל חוֹף הַיָּם יֵשׁ דֶּקֶל שְׁפַל צַמֶּרֶת,<br>
+          סְתוּר שֵׂעָר הַדֶּקֶל כְּתִינוֹק שׁוֹבָב,<br>
+          שֶׁגָּלַשׁ לְמַטָּה וּבְמֵי כִּנֶּרֶת<br>
+          מְשַׁכְשֵׁךְ רַגְלָיו.
+        </div>
+        <div class="stanza">
+          מַה יִּרְבּוּ פְּרָחִים בַּחֹרֶף עַל הַכֶּרַךְּ,<br>
+          דַּם הַכַּלָנִית וְכֶתֶם הַכַּרְכֹּם,<br>
+          יֵשׁ יָמִים – פִּי שֶׁבַע אָז יָרֹק הַיֶּרֶק,<br>
+          פִּי שִׁבְעִים תְּכֻלָּה הַתְּכֵלֶת בַּמָּרוֹם.
+        </div>
+        <div class="stanza">
+          גַּם כִּי אִוָּרֵשׁ וַאֲהַלֵּךְ שְׁחוֹחַ,<br>
+          וְהָיָה הַלֵּב לְמַשׁוּאוֹת זָרִים –<br>
+          הַאוּכַל לִבְגֹּד בָּךְ, הַאוּכַל לִשְׁכֹּחַ<br>
+          חֶסֶד נְעוּרִים?
+        </div>
+      </div>
+      <p class="source-note">רָחֵל בְּלוּבְשְׁטֵיין, "כִּנֶּרֶת", תֵּל־אָבִיב תרפ"ז. הַטֶּקְסְט מִתּוֹךְ פְּרוֹיֶקְט בֶּן־יְהוּדָה (נַחֲלַת הַכְּלָל).</p>
+
+      <div class="device hebtext">
+        <p><b>🎭 אֶמְצָעִי אָמָּנוּתִי: הַאֲנָשָׁה</b><br>
+        הַאֲנָשָׁה הִיא תֵּאוּר שֶׁל דָּבָר שֶׁאֵינוֹ אָדָם — כְּאִלּוּ הוּא אָדָם. בַּשִּׁיר רָחֵל מִשְׁתַּמֶּשֶׁת בְּהַאֲנָשָׁה כְּדֵי לְהַחְיוֹת אֶת הַנּוֹף:</p>
+        <ul class="hebtext">
+          <li>"נָם חֶרְמוֹן <b>הַסַבָּא</b>" — הַהַר מְתֹאָר כְּסַבָּא זָקֵן שֶׁיָּשֵׁן.</li>
+          <li>"הַדֶּקֶל כְּתִינוֹק שׁוֹבָב... <b>מְשַׁכְשֵׁךְ רַגְלָיו</b>" — הָעֵץ מְתֹאָר כְּתִינוֹק שֶׁמְּשַׂחֵק בַּמַּיִם.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(1)">הַמְשִׁיכוּ לְאוֹצַר הַמִּלִּים ←</button></div>
+  </section>
+
+  <!-- ============ 2. VOCABULARY ============ -->
+  <section class="lesson-sec" data-sec="1">
+    <h2 class="sec-title">🗂️ אוֹצַר מִלִּים</h2>
+    <div class="card">
+      <p class="hint hebtext">קִרְאוּ אֶת הַמִּלִּים וְאֶת הַפֵּרוּשִׁים. נַסּוּ לְהַרְכִּיב מִשְׁפָּט קָצָר עִם כָּל מִלָּה.</p>
+      <div class="vocab-grid" id="vocabGrid"></div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(2)">הַמְשִׁיכוּ לַדִּקְדּוּק ←</button></div>
+  </section>
+
+  <!-- ============ 3. GRAMMAR ============ -->
+  <section class="lesson-sec" data-sec="2">
+    <h2 class="sec-title">🔤 דִּקְדּוּק — שֹׁרֶשׁ וּמִשְׁפַּחַת מִלִּים</h2>
+    <div class="card hebtext">
+      <p>לְכָל מִלָּה בְּעִבְרִית יֵשׁ <b>שֹׁרֶשׁ</b> — בְּדֶרֶךְ כְּלָל שָׁלוֹשׁ אוֹתִיּוֹת שֶׁנּוֹשְׂאוֹת אֶת הַמַּשְׁמָעוּת הָעִקָּרִית. כָּל הַמִּלִּים שֶׁנִּבְנוּ מֵאוֹתוֹ שֹׁרֶשׁ הֵן <b>מִשְׁפַּחַת מִלִּים</b>.</p>
+      <p>לְדֻגְמָה, מִן הַשֹּׁרֶשׁ <b>ג.ל.שׁ</b> נִבְנוּ: <b>גָּלַשׁ, גְּלִישָׁה, גּוֹלֵשׁ, מִגְלָשַׁיִם</b>. כֻּלָּן קְשׁוּרוֹת לִתְנוּעָה חֲלָקָה כְּלַפֵּי מַטָּה.</p>
+
+      <h3>מִשְׁפְּחוֹת מִלִּים מִתּוֹךְ הַשִּׁיר</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="word">ג.ל.שׁ</span><span class="def">גָּלַשׁ · גְּלִישָׁה · גּוֹלֵשׁ · מִגְלָשַׁיִם</span></div>
+        <div class="vocab-item"><span class="word">שׁ.כ.ח</span><span class="def">לִשְׁכֹּחַ · שִׁכְחָה · נִשְׁכָּח · שָׁכוּחַ</span></div>
+        <div class="vocab-item"><span class="word">ר.ב.ה</span><span class="def">יִרְבּוּ · הַרְבֵּה · רַבִּים · רִבּוּי</span></div>
+        <div class="vocab-item"><span class="word">צ.ו.ה</span><span class="def">מְצַוִּים · צַו · מִצְוָה · מְצֻוֶּה</span></div>
+      </div>
+
+      <h3>תַּרְגְּלוּ בְּעַצְמְכֶם</h3>
+      <div id="grammarQs"></div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(3)">הַמְשִׁיכוּ לַמִּשְׂחָק ←</button></div>
+  </section>
+
+  <!-- ============ 4. GAME ============ -->
+  <section class="lesson-sec" data-sec="3">
+    <h2 class="sec-title">🎮 מַסָּע סְבִיב הַכִּנֶּרֶת</h2>
+    <div class="card">
+      <div class="game-top">
+        <p class="hebtext" style="margin:.2rem 0">עֲנוּ נְכוֹן עַל שְׁאֵלַת הֲבָנָה, וְהַסִּירָה תַּפְלִיג אֶל הַתַּחֲנָה הַבָּאָה. הַגִּיעוּ עַד הַסּוֹף!</p>
+        <span class="score">נְקֻדּוֹת: <span id="score">0</span></span>
+      </div>
+
+      <div class="map-wrap">
+        <svg id="kinneret" viewBox="0 0 360 440" xmlns="http://www.w3.org/2000/svg">
+          <!-- water -->
+          <path d="M180 20 C250 30 305 70 300 150 C296 215 270 255 250 320 C235 375 205 420 175 420
+                   C140 420 120 380 110 330 C96 265 70 230 66 160 C62 80 115 28 180 20 Z"
+                fill="#bfe6ee" stroke="#1f7a8c" stroke-width="3"/>
+          <!-- ripples -->
+          <path d="M120 150 q20 -10 40 0 t40 0" fill="none" stroke="#9fd6e2" stroke-width="2"/>
+          <path d="M120 220 q20 -10 40 0 t40 0" fill="none" stroke="#9fd6e2" stroke-width="2"/>
+          <path d="M120 290 q20 -10 40 0 t40 0" fill="none" stroke="#9fd6e2" stroke-width="2"/>
+          <!-- stations -->
+          <g id="stations"></g>
+          <!-- boat -->
+          <text id="boat" x="0" y="0" text-anchor="middle" dominant-baseline="central">⛵</text>
+        </svg>
+      </div>
+
+      <div id="gameQ"></div>
+
+      <div class="win" id="winBox">
+        <div style="font-size:2.4rem">🏁🎉</div>
+        <p class="hebtext" style="font-size:1.3rem; font-weight:700; color:var(--good)">כָּל הַכָּבוֹד! הִקַּפְתֶּם אֶת הַכִּנֶּרֶת כֻּלָּהּ!</p>
+        <button class="btn btn-soft" onclick="resetGame()">שַׂחֲקוּ שׁוּב 🔁</button>
+      </div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(4)">הַמְשִׁיכוּ לְתִרְגּוּל הַדִּבּוּר ←</button></div>
+  </section>
+
+  <!-- ============ 5. SPEAKING ============ -->
+  <section class="lesson-sec" data-sec="4">
+    <h2 class="sec-title">🗣️ תִּרְגּוּל דִּבּוּר</h2>
+    <div class="card">
+      <p class="hint hebtext">קִרְאוּ כָּל שׁוּרָה בְּקוֹל רָם, בְּהַטְעָמָה וּבְהַבָּעָה. כְּשֶׁאַתֶּם מְרֻצִּים — סַמְּנוּ ✅. רוֹצִים לְנַסּוֹת שׁוּב? לַחֲצוּ 🔁.</p>
+      <div id="speakCards"></div>
+    </div>
+    <div style="text-align:center"><button class="btn btn-main" onclick="goTo(5)">הַמְשִׁיכוּ לַכְּתִיבָה ←</button></div>
+  </section>
+
+  <!-- ============ 6. WRITING ============ -->
+  <section class="lesson-sec" data-sec="5">
+    <h2 class="sec-title">✍️ כְּתִיבָה יוֹצֶרֶת</h2>
+    <div class="card hebtext">
+      <p><b>הַמְּשִׂימָה:</b> כִּתְבוּ פִּסְקָה אוֹ שִׁיר קָצָר (4–8 שׁוּרוֹת) עַל מָקוֹם בַּטֶּבַע שֶׁאַתֶּם אוֹהֲבִים — חוֹף, הַר, גַּן אוֹ נַחַל.</p>
+      <p>הִשְׁתַּמְּשׁוּ בְּ<b>הַאֲנָשָׁה אַחַת לְפָחוֹת</b>, כְּמוֹ שֶׁעָשְׂתָה רָחֵל. לְמָשָׁל: "הָהָר יָשֵׁן בְּשֶׁקֶט", "הַגַּלִּים רוֹקְדִים", "הָעֵץ מְחַיֵּךְ אֵלַי".</p>
+      <textarea id="writing" class="hebtext" placeholder="כִּתְבוּ כָּאן..."></textarea>
+      <div class="write-bar">
+        <span class="counter">מִסְפַּר מִלִּים: <span id="wordCount">0</span></span>
+        <button class="btn btn-main" onclick="downloadWriting()">שִׁמְרוּ אֶת הַטֶּקְסְט 💾</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('writing').value='';updateWordCount()">נַקּוּ</button>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-soft" disabled>→ אֵין שִׁעוּר קוֹדֵם</button>
+      <a href="lesson02_shem_etzem_ken_tzipor.html" style="text-decoration:none"><button class="btn btn-soft">שִׁעוּר 2: שֵׁם הָעֶצֶם ←</button></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="hebtext">סִדְרַת "עִבְרִית לְכִתָּה ה'" · שִׁעוּר 1 · הַשִּׁיר נַחֲלַת הַכְּלָל מִתּוֹךְ פְּרוֹיֶקְט בֶּן־יְהוּדָה</footer>
+
+<script>
+/* ---------------- sound (Web Audio API) ---------------- */
+let actx;
+function tone(freq, dur, type='sine', when=0){
+  try{
+    actx = actx || new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(), g=actx.createGain();
+    o.type=type; o.frequency.value=freq;
+    o.connect(g); g.connect(actx.destination);
+    const t=actx.currentTime+when;
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.exponentialRampToValueAtTime(0.25,t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.start(t); o.stop(t+dur+0.02);
+  }catch(e){}
+}
+const sGood =()=>{tone(523,.12);tone(659,.12,'sine',.1);tone(784,.2,'sine',.2);};
+const sBad  =()=>{tone(300,.18,'sawtooth');tone(220,.22,'sawtooth',.12);};
+const sClick=()=>tone(440,.06,'triangle');
+const sWin  =()=>{[523,659,784,1047].forEach((f,i)=>tone(f,.25,'sine',i*.12));};
+
+/* ---------------- section navigation + progress ---------------- */
+const TOTAL=6;
+function goTo(i){
+  document.querySelectorAll('.lesson-sec').forEach(s=>s.classList.remove('show'));
+  document.querySelector('.lesson-sec[data-sec="'+i+'"]').classList.add('show');
+  document.querySelectorAll('#sectionNav button').forEach(b=>b.classList.toggle('active', +b.dataset.i===i));
+  document.getElementById('progressBar').style.width=(((i+1)/TOTAL)*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+  sClick();
+}
+document.querySelectorAll('#sectionNav button').forEach(b=>b.onclick=()=>goTo(+b.dataset.i));
+document.getElementById('progressBar').style.width=(100/TOTAL)+'%';
+
+/* ---------------- vocabulary ---------------- */
+const VOCAB=[
+  ['הוֹשֵׁט','שְׁלַח, מָתַח אֶת הַיָּד'],
+  ['דְּמָמָה','שֶׁקֶט גָּמוּר, אֵין קוֹל'],
+  ['מְצַוִּים','נוֹתְנִים פְּקֻדָּה'],
+  ['נָם','יָשֵׁן'],
+  ['צִנָּה','קֹר'],
+  ['פִּסְגָּה','הַחֵלֶק הַגָּבוֹהַּ בְּיוֹתֵר שֶׁל הָהָר'],
+  ['צְחוֹר','לֹבֶן, צֶבַע לָבָן'],
+  ['צַמֶּרֶת','הַחֵלֶק הָעֶלְיוֹן שֶׁל הָעֵץ'],
+  ['שׁוֹבָב','יֶלֶד שׁוֹבָבִי וּמְשֻׁחְרָר'],
+  ['מְשַׁכְשֵׁךְ','מֵנִיעַ אֶת הָרַגְלַיִם בַּמַּיִם'],
+  ['כַּלָּנִית','פֶּרַח בָּר אָדֹם'],
+  ['תְּכֵלֶת','צֶבַע כָּחֹל בָּהִיר'],
+];
+const vg=document.getElementById('vocabGrid');
+VOCAB.forEach(([w,d])=>{
+  const el=document.createElement('div'); el.className='vocab-item';
+  el.innerHTML='<span class="word hebtext">'+w+'</span><span class="def hebtext">'+d+'</span>';
+  el.onclick=sClick;
+  vg.appendChild(el);
+});
+
+/* ---------------- reusable multiple-choice with change/check ---------------- */
+function buildMC(container, item, onCorrect){
+  const wrap=document.createElement('div'); wrap.className='q';
+  let chosen=null, locked=false;
+  wrap.innerHTML='<div class="stem hebtext">'+item.q+'</div>';
+  const opts=document.createElement('div'); opts.className='opts';
+  item.a.forEach((txt,idx)=>{
+    const o=document.createElement('button'); o.className='opt hebtext'; o.textContent=txt;
+    o.onclick=()=>{ if(locked) return; chosen=idx;
+      opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+      o.classList.add('selected'); checkBtn.disabled=false; sClick(); };
+    opts.appendChild(o);
+  });
+  wrap.appendChild(opts);
+
+  const actions=document.createElement('div'); actions.className='q-actions';
+  const checkBtn=document.createElement('button'); checkBtn.className='btn btn-main'; checkBtn.textContent='בִּדְקוּ תְּשׁוּבָה'; checkBtn.disabled=true;
+  const changeBtn=document.createElement('button'); changeBtn.className='btn btn-ghost'; changeBtn.textContent='שַׁנּוּ תְּשׁוּבָה';
+  changeBtn.onclick=()=>{ if(locked) return; chosen=null; opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected')); checkBtn.disabled=true; fb.textContent=''; fb.className='feedback'; };
+  actions.appendChild(checkBtn); actions.appendChild(changeBtn);
+  wrap.appendChild(actions);
+
+  const fb=document.createElement('div'); fb.className='feedback'; wrap.appendChild(fb);
+
+  checkBtn.onclick=()=>{
+    if(chosen===null||locked) return;
+    const optEls=opts.querySelectorAll('.opt');
+    if(chosen===item.c){
+      locked=true;
+      optEls[chosen].classList.add('correct');
+      optEls.forEach(x=>x.disabled=true);
+      checkBtn.disabled=true; changeBtn.disabled=true;
+      fb.textContent='כָּל הַכָּבוֹד! תְּשׁוּבָה נְכוֹנָה.'; fb.className='feedback good';
+      sGood(); if(onCorrect) onCorrect();
+    } else {
+      optEls[chosen].classList.add('wrong');
+      fb.textContent='לֹא מְדֻיָּק. קִרְאוּ שׁוּב וְנַסּוּ.'; fb.className='feedback bad';
+      sBad();
+      setTimeout(()=>{ optEls[chosen].classList.remove('wrong','selected'); chosen=null; checkBtn.disabled=true; },900);
+    }
+  };
+  container.appendChild(wrap);
+}
+
+/* ---------------- grammar questions ---------------- */
+const GRAMMAR=[
+  {q:'מַהוּ הַשֹּׁרֶשׁ שֶׁל הַמִּלָּה "גָּלַשׁ"?', a:['ג.ל.שׁ','ג.ו.שׁ','ל.ג.שׁ'], c:0},
+  {q:'אֵיזוֹ מִלָּה שַׁיֶּכֶת לְמִשְׁפַּחַת הַשֹּׁרֶשׁ שׁ.כ.ח?', a:['שָׁכֵן','שִׁכְחָה','כֹּחַ'], c:1},
+  {q:'מַהוּ הַשֹּׁרֶשׁ שֶׁל "יִרְבּוּ" (יִהְיוּ רַבִּים)?', a:['י.ר.ב','ב.ו.א','ר.ב.ה'], c:2},
+];
+const gq=document.getElementById('grammarQs');
+GRAMMAR.forEach(item=>buildMC(gq,item));
+
+/* ---------------- game: voyage around the Kinneret ---------------- */
+const STATIONS=[
+  {x:175,y:405,label:'הַמַּעֲגָן'},
+  {x:255,y:120,label:'הַגּוֹלָן'},
+  {x:285,y:200,label:'הַחֶרְמוֹן'},
+  {x:120,y:300,label:'הַדֶּקֶל'},
+  {x:90,y:200,label:'הַפְּרָחִים'},
+  {x:175,y:60,label:'הַסִּיּוּם'},
+];
+const GAME=[
+  {q:'בַּבַּיִת הָרִאשׁוֹן — מָה מַזְמִינָה הַמְּשׁוֹרֶרֶת לַעֲשׂוֹת אֶל הָרֵי הַגּוֹלָן?',
+   a:['לְהוֹשִׁיט יָד וְלָגַעַת בָּהֶם','לְטַפֵּס עֲלֵיהֶם','לִשְׂחוֹת אֲלֵיהֶם'], c:0},
+  {q:'לְמִי מְדַמָּה הַמְּשׁוֹרֶרֶת אֶת הַר הַחֶרְמוֹן?',
+   a:['לְצִפּוֹר','לְסַבָּא זָקֵן','לְתִינוֹק'], c:1},
+  {q:'כְּמִי נִרְאֶה הַדֶּקֶל שֶׁעַל חוֹף הַיָּם?',
+   a:['כְּחַיָּל גָּבוֹהַּ','כְּאִשָּׁה זְקֵנָה','כְּתִינוֹק שׁוֹבָב הַמְשַׁכְשֵׁךְ רַגְלָיו'], c:2},
+  {q:'מָה קוֹרֶה בַּחֹרֶף לְפִי הַבַּיִת הַשְּׁלִישִׁי?',
+   a:['צוֹמְחִים פְּרָחִים רַבִּים בִּצְבָעִים שׁוֹנִים','יוֹרֵד שֶׁלֶג עַל הַכִּנֶּרֶת','הָעֵצִים נוֹשְׁרִים'], c:0},
+  {q:'מָה מַבְטִיחָה הַמְּשׁוֹרֶרֶת בַּבַּיִת הָאַחֲרוֹן?',
+   a:['שֶׁתַּחֲזֹר לָגוּר בַּגּוֹלָן','שֶׁלְּעוֹלָם לֹא תִּשְׁכַּח וְלֹא תִּבְגֹּד בַּכִּנֶּרֶת','שֶׁתִּטַּע עֵצִים חֲדָשִׁים'], c:1},
+];
+let gameIdx=0, score=0;
+
+function drawStations(){
+  const g=document.getElementById('stations'); g.innerHTML='';
+  STATIONS.forEach((s,i)=>{
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx',s.x); c.setAttribute('cy',s.y); c.setAttribute('r',8);
+    c.setAttribute('fill', i===0?'#256b3e':'#f2a541'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','2');
+    g.appendChild(c);
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',s.x); t.setAttribute('y', s.y< 90 ? s.y-14 : s.y+22);
+    t.setAttribute('text-anchor','middle'); t.setAttribute('class','station-label hebtext');
+    t.textContent=s.label; g.appendChild(t);
+  });
+}
+function placeBoat(i){
+  const b=document.getElementById('boat');
+  b.style.transform='translate('+STATIONS[i].x+'px,'+(STATIONS[i].y-12)+'px)';
+}
+function renderGameQ(){
+  const box=document.getElementById('gameQ'); box.innerHTML='';
+  if(gameIdx>=GAME.length){
+    document.getElementById('winBox').classList.add('show'); sWin();
+    placeBoat(STATIONS.length-1); return;
+  }
+  buildMC(box, GAME[gameIdx], ()=>{
+    score+=10; document.getElementById('score').textContent=score;
+    gameIdx++; placeBoat(Math.min(gameIdx,STATIONS.length-1));
+    setTimeout(renderGameQ,1300);
+  });
+}
+function resetGame(){
+  gameIdx=0; score=0; document.getElementById('score').textContent='0';
+  document.getElementById('winBox').classList.remove('show');
+  placeBoat(0); renderGameQ();
+}
+drawStations(); placeBoat(0); renderGameQ();
+
+/* ---------------- speaking cards ---------------- */
+const SPEAK=[
+  {line:'שָׁם הָרֵי גוֹלָן, הוֹשֵׁט הַיָּד וְגַע בָּם!', task:'קִרְאוּ בְּהִתְלַהֲבוּת — כְּאִלּוּ הָהָר מַמָּשׁ לְיָדְכֶם.'},
+  {line:'מְשַׁכְשֵׁךְ רַגְלָיו', task:'תַּרְגְּלוּ אֶת הַצְּלִיל "שׁ" — אִמְרוּ אֶת זֶה שָׁלוֹשׁ פְּעָמִים בָּרָצוּף.'},
+  {line:'דַּם הַכַּלָנִית וְכֶתֶם הַכַּרְכֹּם', task:'קִרְאוּ לְאַט וּבָרוּר, וְשִׂימוּ לֵב לַצְּלִיל "כּ" וְ"ק".'},
+  {line:'אֲנִי אוֹהֵב/אוֹהֶבֶת אֶת הַכִּנֶּרֶת כִּי...', task:'הַשְׁלִימוּ אֶת הַמִּשְׁפָּט בְּעַצְמְכֶם וְאִמְרוּ אוֹתוֹ בְּקוֹל.'},
+];
+const sc=document.getElementById('speakCards');
+SPEAK.forEach(card=>{
+  const el=document.createElement('div'); el.className='speak-card';
+  el.innerHTML='<div class="line hebtext">'+card.line+'</div><div class="task hebtext">'+card.task+'</div>';
+  const btns=document.createElement('div'); btns.className='speak-btns';
+  const done=document.createElement('button'); done.textContent='✅ קָרָאנוּ בְּקוֹל';
+  const retry=document.createElement('button'); retry.textContent='🔁 נְנַסֶּה שׁוּב';
+  done.onclick=()=>{done.classList.add('done'); retry.classList.remove('retry'); sGood();};
+  retry.onclick=()=>{retry.classList.add('retry'); done.classList.remove('done'); sClick();};
+  btns.appendChild(done); btns.appendChild(retry);
+  el.appendChild(btns); sc.appendChild(el);
+});
+
+/* ---------------- writing ---------------- */
+const ta=document.getElementById('writing');
+function updateWordCount(){
+  const w=ta.value.trim().split(/\s+/).filter(Boolean).length;
+  document.getElementById('wordCount').textContent=w;
+}
+ta.addEventListener('input',updateWordCount);
+function downloadWriting(){
+  const text=ta.value.trim();
+  if(!text){alert('כִּתְבוּ מַשֶּׁהוּ קֹדֶם 🙂'); return;}
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='הכתיבה_שלי_כנרת.txt';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  sGood();
+}
+updateWordCount();
+</script>
+</body>
+</html>

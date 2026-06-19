@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 49 — סִימָנֵי הַפִּיסּוּק</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #064e3b;
+    --primary-light: #065f46;
+    --accent: #f97316;
+    --accent-light: #fed7aa;
+    --bg: #f0fdf4;
+    --card-bg: #ffffff;
+    --text: #1c1917;
+    --muted: #6b7280;
+    --border: #d1fae5;
+    --correct: #16a34a;
+    --wrong: #dc2626;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    direction: rtl;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    text-align: center;
+    padding: 36px 20px 28px;
+    border-bottom: 5px solid var(--accent);
+  }
+
+  header .lesson-num {
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 0.85;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+  }
+
+  header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 16px rgba(6,78,59,0.07);
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* VOCABULARY */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .vocab-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .vocab-word {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .vocab-meaning {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* STORY */
+  .story-text {
+    background: #fffbeb;
+    border: 2px solid #fde68a;
+    border-radius: 12px;
+    padding: 22px 26px;
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+
+  .story-text p { margin-bottom: 14px; }
+  .story-text p: last-child { margin-bottom: 0; }
+
+  /* PUNCTUATION TABLE */
+  .punct-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+
+  .punct-table th {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    text-align: right;
+    font-weight: 700;
+  }
+
+  .punct-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .punct-table tr: nth-child(even) td { background: #f0fdf4; }
+
+  .punct-symbol {
+    font-size: 1.8rem;
+    color: var(--accent);
+    font-weight: 900;
+    text-align: center;
+  }
+
+  /* VENDING MACHINE GAME */
+  #vending-game {
+    position: relative;
+  }
+
+  .vm-scene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .vm-machine {
+    position: relative;
+    width: 320px;
+    background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%);
+    border-radius: 24px 24px 8px 8px;
+    border: 4px solid #b4c3ef;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    padding: 16px;
+    min-height: 260px;
+    overflow: hidden;
+  }
+
+  .vm-screen {
+    background: #ecf0f8;
+    border-radius: 12px;
+    border: 3px solid #c3cfdf;
+    padding: 14px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #139040;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .vm-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .vm-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #eff2f5;
+    transition: background 0.3s;
+  }
+
+  .vm-dot.done { background: #4ade80; }
+
+  .vm-tray {
+    background: #ecf0f8;
+    border-radius: 6px;
+    height: 38px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .candy-drop {
+    position: absolute;
+    top: -60px;
+    font-size: 1.8rem;
+    animation: candyFall 0.6s ease-in forwards;
+  }
+
+  @keyframes candyFall {
+    0% { top: -60px; opacity: 1; transform: rotate(0deg); }
+    80% { top: 4px; opacity: 1; transform: rotate(360deg); }
+    100% { top: 4px; opacity: 1; }
+  }
+
+  .vm-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 320px;
+  }
+
+  .vm-btn {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+    direction: rtl;
+    box-shadow: 0 4px 10px rgba(234,88,12,0.3);
+  }
+
+  .vm-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(234,88,12,0.4);
+  }
+
+  .vm-btn:disabled { opacity: 0.5; cursor: default; }
+
+  .vm-btn.correct-choice {
+    background: linear-gradient(135deg, #16a34a 0%, #e9fbf0 100%);
+    box-shadow: 0 4px 10px rgba(22,163,74,0.4);
+  }
+
+  .vm-btn.wrong-choice {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  }
+
+  .vm-explanation {
+    background: #d1fae5;
+    border: 2px solid #86efac;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--primary);
+    display: none;
+    text-align: center;
+    width: 320px;
+  }
+
+  .vm-next-btn {
+    display: none;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s;
+  }
+
+  .vm-next-btn:hover { transform: translateY(-2px); }
+
+  .vm-result-banner {
+    display: none;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 32px;
+    text-align: center;
+    width: 320px;
+  }
+
+  .vm-result-banner h3 { font-size: 1.5rem; margin-bottom: 8px; }
+  .vm-result-banner p { font-size: 1rem; opacity: 0.9; }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+
+  .shake { animation: shake 0.4s ease; }
+
+  /* GRAMMAR GAME — PUNCTUATION SORTER */
+  #grammar-game { }
+
+  .pg-question-wrap {
+    text-align: center;
+  }
+
+  .pg-sentence {
+    background: #fffbeb;
+    border: 2px solid #fde68a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    line-height: 2;
+  }
+
+  .pg-blank {
+    display: inline-block;
+    min-width: 40px;
+    border-bottom: 3px solid var(--accent);
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 6px;
+  }
+
+  .pg-marks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .pg-mark-btn {
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary);
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .pg-mark-btn:hover:not(:disabled) {
+    background: #d1fae5;
+    transform: scale(1.08);
+  }
+
+  .pg-mark-btn:disabled { opacity: 0.4; cursor: default; }
+
+  .pg-mark-btn.correct-choice {
+    background: #d1fae5;
+    border-color: var(--correct);
+    color: var(--correct);
+  }
+
+  .pg-mark-btn.wrong-choice {
+    background: #fee2e2;
+    border-color: var(--wrong);
+    color: var(--wrong);
+  }
+
+  .pg-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .pg-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #d1d5db;
+    transition: background 0.3s;
+  }
+
+  .pg-dot.done { background: var(--correct); }
+  .pg-dot.active { background: var(--accent); }
+
+  .pg-explanation {
+    background: #d1fae5;
+    border: 2px solid #86efac;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--primary);
+    display: none;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .pg-submit-btn, .pg-next-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    margin: 0 6px;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+
+  .pg-submit-btn:disabled { opacity: 0.4; cursor: default; }
+  .pg-submit-btn:not(:disabled):hover, .pg-next-btn:hover { transform: translateY(-2px); }
+  .pg-next-btn { background: var(--primary); display: none; }
+
+  .pg-result-banner {
+    display: none;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  .pg-result-banner h3 { font-size: 1.6rem; margin-bottom: 10px; }
+  .pg-result-banner p { font-size: 1.05rem; opacity: 0.95; }
+
+  /* STARS */
+  .stars { color: #fbbf24; font-size: 1.4rem; margin-bottom: 8px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .vm-machine, .vm-options, .vm-explanation, .vm-next-btn, .vm-result-banner {
+      width: 100%;
+    }
+    header h1 { font-size: 1.8rem; }
+    .section { padding: 18px; }
+  }
+
+  /* ── writing assignment ── */
+  .writing-line{display: flex;align-items: center;gap: 10px;background: #f8fafc;border: 2px solid #e2e8f0;border-radius: 14px;padding: 12px 16px}
+  .writing-num{width: 28px;height: 28px;border-radius: 50%;background: #475569;color: #fff;font-weight: 900;font-size: .85rem;display: flex;align-items: center;justify-content: center;flex-shrink: 0}
+  .writing-input{flex: 1;border: none;background: transparent;font-family: inherit;font-size: 1.1rem;direction: rtl;outline: none;min-width: 0}
+  .writing-input: :placeholder{color: #1e293b;font-size: .95rem}
+  .writing-line.filled{border-color: #22c55e;background: #f0fdf4}
+  .writing-submit-btn{background: #4c1d95;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+  .writing-reset-btn{background: #6b7280;color: #fff;border: none;border-radius: 12px;padding: 10px 22px;font-size: 1rem;font-weight: 700;cursor: pointer;font-family: inherit}
+
+</style>
+<style>
+:root{--p1:#0d9488;--p1dk: #115e59;--p1md: #5eead4;--p1lt: #ccfbf1;--page: #f0fdfa;--p2:#f97316;--p2lt: #ffedd5}
+/* ══ עיצוב אחיד בסגנון שיעור 35 ══ */
+body{font-family: 'Heebo',sans-serif !important;background: var(--page) !important;color: #1e293b !important;font-size: 17px}
+.container{background: transparent}
+.header35{background: linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position: relative;overflow: hidden;padding-bottom: 26px}
+.header35 .header-wave{position: absolute;bottom: 0;left: 0;right: 0;height: 22px;background: rgba(0,0,0,0.01);clip-path: ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position: absolute;opacity: .22;font-size: 2rem;animation: floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform: translateY(6px) rotate(-5deg)}100%{transform: translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position: relative;z-index: 2;padding: 36px 20px 12px;text-align: center}
+.header35 .header-eyebrow{font-size: .88rem;font-weight: 700;color: var(--p1lt);letter-spacing: 1px;margin-bottom: 10px}
+.header35 h1{font-family: 'Frank Ruhl Libre',serif;font-size: clamp(2rem,6vw,3.2rem);font-weight: 700;color: #1e293b;text-shadow: 0 3px 12px rgba(0,0,0,.35);line-height: 1.2;margin-bottom: 8px}
+.header35 .header-sub{color: var(--p1lt);font-size: .97rem;font-weight: 600;margin-bottom: 14px}
+.header35 .header-badge{display: inline-flex;align-items: center;gap: 6px;background: #fff;color: var(--p1dk);font-weight: 800;font-size: .88rem;padding: 5px 18px;border-radius: 30px;box-shadow: 0 0 14px rgba(0,0,0,.18)}
+.header35 .header-art{margin-top: 12px;line-height: 0;opacity: .95}
+.header-flag-strip35{background: var(--p2);height: 6px}
+.lesson-nav35{background: var(--p1dk);padding: 8px 20px;display: flex;align-items: center;justify-content: flex-start;gap: 6px;flex-wrap: wrap}
+.lesson-nav35 .nav-btn{color: var(--p1lt);font-size: .78rem;font-weight: 700;text-decoration: none;padding: 4px 12px;border: 1.5px solid var(--p1md);border-radius: 20px;transition: background .15s}
+.lesson-nav35 .nav-btn:hover{background: var(--p1);color: #1e293b}
+.lesson-nav35 .nav-current{color: #1e293b;font-size: .78rem;font-weight: 800;margin-right: auto;opacity: .9}
+.section-title{font-size: 1.42rem !important;font-weight: 900 !important;color: #1e293b !important;border-right: none !important;border-bottom: none !important;padding: 0 0 0 0 !important;margin: 34px 0 14px !important;display: flex;align-items: center;gap: 10px}
+.section-title: :after{content: "";flex: 1;height: 3px;border-radius: 3px;background: linear-gradient(90deg,var(--p1md),transparent)}
+.section,.story-box,.grammar-box,.game-box{background: #fff !important;border: none !important;border-radius: 22px !important;box-shadow: 0 4px 22px rgba(0,0,0,.08) !important;position: relative;overflow: hidden}
+.story-box{padding: 26px 30px !important}
+.story-box: :before,.grammar-box::before,.game-box::before,.section::before{content: "";position: absolute;right: 0;top: 0;bottom: 0;width: 6px;border-radius: 0 22px 22px 0;background: linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box: :before{background: linear-gradient(180deg,var(--p2lt),var(--p2))}
+.story-box,.story-box p{font-family: 'Frank Ruhl Libre',serif !important;font-size: 1.28rem !important;line-height: 2.5 !important;color: #1e2d3d !important}
+.story-box .highlight{background: var(--p1lt) !important;color: var(--p1dk) !important;border-radius: 4px;padding: 1px 5px;font-weight: 900;border-bottom: 2px dotted var(--p1)}
+.vocab-card{background: var(--p1lt) !important;border: 2px solid var(--p1md) !important;border-radius: 16px !important;transition: transform .15s,box-shadow .15s}
+.vocab-card:hover{transform: translateY(-3px);box-shadow: 0 6px 18px rgba(0,0,0,.09) !important;border-color: var(--p1) !important}
+.vocab-card .heb{font-family: 'Frank Ruhl Libre',serif !important;color: var(--p1dk) !important;font-size: 1.2rem !important}
+.vocab-card .eng{color: #64748b !important}
+.grammar-box{padding: 24px 28px !important}
+.grammar-box h3{color: var(--p1) !important;font-weight: 900}
+.grammar-box p{color: #1e293b !important;font-size: 1.02rem !important}
+.grammar-box .ex-chip{background: var(--p1lt) !important;border: 1.5px solid var(--p1md) !important;color: var(--p1dk) !important;border-radius: 10px !important;font-weight: 700}
+.game-box{padding: 24px 22px !important}
+.game-title{color: var(--p1dk) !important;font-size: 1.25rem !important;font-weight: 900 !important}
+.game-subtitle{color: #64748b !important}
+button{font-family: 'Heebo',sans-serif !important}
+.topic-badge{display: none}
+header.old-header{display: none}
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">✏️</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">❓</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">❗</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">📖</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">✨</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 49</div>
+    <h1>סִימָנֵי הַפִּיסּוּק</h1>
+    <div class="header-sub">נְקֻדָּה · פְּסִיק · סִימַן שְׁאֵלָה · סִימַן קְרִיאָה · נְקֻדּוֹתַיִם · מַקָּף</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; לָשׁוֹן: סִימָנֵי הַפִּיסּוּק</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson45_hayadayim_shel_noam.html">→ 45</a>
+  <a class="nav-btn" href="lesson46_haglida_shel_shira.html">→ 46</a>
+  <a class="nav-btn" href="lesson47_hachanut_haktantana.html">→ 47</a>
+  <a class="nav-btn" href="lesson48_hatachrut_hagdola.html">→ 48</a>
+  <span class="nav-current">שִׁיעוּר 49 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- VOCABULARY -->
+  <div class="section">
+    <div class="section-title">📚 מִלּוֹן</div>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">פִּיסּוּק</div>
+        <div class="vocab-meaning">punctuation</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">סִימָן</div>
+        <div class="vocab-meaning">sign / mark</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">מִשְׁפָּט</div>
+        <div class="vocab-meaning">sentence</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">הַפְסָקָה</div>
+        <div class="vocab-meaning">pause / break</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">רְשִׁימָה</div>
+        <div class="vocab-meaning">list</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">הַסְבָּרָה</div>
+        <div class="vocab-meaning">explanation</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">צַלַּחַת</div>
+        <div class="vocab-meaning">plate / dish</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">מַמְתָּק</div>
+        <div class="vocab-meaning">sweet / candy</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- READING STORY -->
+  <div class="section">
+    <div class="section-title">📖 קְרִיאָה: הַסּוֹד שֶׁל הַסִּמָּנִים</div>
+    <div class="story-text">
+      <p>בְּיוֹם שִׁשִּׁי בַּבֹּקֶר, מָצְאָה תָּמָר מַחְבֶּרֶת יְשָׁנָה עַל הַשֻּׁלְחָן שֶׁל אַבָּא. עַל הַכְּרִיכָה הָיָה כָּתוּב: "סוֹד גָּדוֹל!".</p>
+      <p>תָּמָר פָּתְחָה אֶת הַמַּחְבֶּרֶת וְקָרְאָה אֶת הַדַּף הָרִאשׁוֹן: "שָׁלוֹם, תָּמָר! אֲנַחְנוּ סִימָנֵי הַפִּיסּוּק. אִי אֶפְשָׁר לִכְתֹּב בִּלְעָדֵינוּ!"</p>
+      <p>"מִי כּוֹתֵב לִי?" שָׁאֲלָה תָּמָר בְּהַפְתָּעָה. "אוּלַי אֵלּוּ הַסִּימָנִים עַצְמָם?"</p>
+      <p>בַּדַּף הַשֵּׁנִי כָּתַב הַפְּסִיק: "אֲנִי הַפְּסִיק. אֲנִי מַפְרִיד בֵּין מִלִּים בִּרְשִׁימָה, כְּמוֹ: תַּפּוּחַ, בָּנָנָה, עֲנָבִים. אֲנִי גַּם עוֹשֶׂה הַפְסָקָה קְטַנָּה בְּמִשְׁפָּט אָרוֹךְ."</p>
+      <p>בַּדַּף הַשְּׁלִישִׁי כָּתְבָה הַנְּקֻדָּה: "וַאֲנִי הַנְּקֻדָּה. אֲנִי מוֹפִיעָה בְּסוֹף כָּל מִשְׁפָּט רָגִיל. אֲנִי אוֹמֶרֶת: 'כָּאן הַמִּשְׁפָּט נִגְמָר.'"</p>
+      <p>פִּתְאוֹם קָפַץ מִן הַדַּף סִימַן הַשְּׁאֵלָה וְצָעַק: "וּמָה אֲנִי? אֲנִי בָּא בְּסוֹף שְׁאֵלָה! בִּלְעָדַי, אֵיךְ יֵדְעוּ שֶׁשּׁוֹאֲלִים?!"</p>
+      <p>אַחֲרָיו בָּא סִימַן הַקְּרִיאָה וְאָמַר בְּקוֹל רָם: "וַאֲנִי מְבַטֵּא רֶגֶשׁ חָזָק! שִׂמְחָה, הַפְתָּעָה, כַּעַס — בִּלְעָדַי הַמִּשְׁפָּט יֵרָאֶה שָׁטוּחַ מִדַּי!"</p>
+      <p>בַּדַּף הָאַחֲרוֹן כָּתְבוּ הַנְּקֻדּוֹתַיִם וְהַמַּקָּף יַחַד: "הַנְּקֻדּוֹתַיִם בָּאִים לִפְנֵי הַסְבָּרָה אוֹ רְשִׁימָה. הַמַּקָּף מַפְרִיד בֵּין שְׁנֵי חֲלָקִים שֶׁל מִשְׁפָּט."</p>
+      <p>תָּמָר סָגְרָה אֶת הַמַּחְבֶּרֶת וְחִיְּכָה. "עַכְשָׁו אֲנִי יוֹדַעַת," אָמְרָה, "כָּל סִימָן חָשׁוּב, וְיַחַד הֵם עוֹשִׂים אֶת הַקְּרִיאָה נוֹחָה וּמְהַנָּה!"</p>
+    </div>
+  </div>
+
+  <!-- READING COMPREHENSION GAME — VENDING MACHINE -->
+  <div class="section">
+    <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא: מְכוֹנַת הַמַּמְתַּקִּים</div>
+    <p style="margin-bottom:18px; color: var(--muted);">בַּחֲרוּ אֶת הַתְּשׁוּבָה הַנְּכוֹנָה — הַמַּמְתָּק יִפֹּל לַמַּגָּשׁ!</p>
+
+    <div id="vending-game">
+      <div class="vm-scene">
+        <!-- Machine -->
+        <div class="vm-machine" id="vmMachine">
+          <div class="vm-progress" id="vmProgress"></div>
+          <div class="vm-screen" id="vmScreen">
+            לַחֲצוּ "הַתְחֵל" כְּדֵי לְהַתְחִיל!
+          </div>
+          <div class="vm-tray" id="vmTray">
+            <span id="vmTrayText">📦 כָּאן יִפֹּל הַמַּמְתָּק</span>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="vm-options" id="vmOptions" style="display:none;"></div>
+
+        <!-- Explanation -->
+        <div class="vm-explanation" id="vmExplanation"></div>
+
+        <!-- Next button -->
+        <button class="vm-next-btn" id="vmNextBtn" onclick="vmNext()">הַשְּׁאֵלָה הַבָּאָה ←</button>
+
+        <!-- Start button -->
+        <button class="vm-next-btn" id="vmStartBtn" style="display:block;" onclick="vmStart()">הַתְחֵל! 🍬</button>
+
+        <!-- Result -->
+        <div class="vm-result-banner" id="vmResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR EXPLANATION -->
+  <div class="section">
+    <div class="section-title">📝 דִּקְדּוּק: סִימָנֵי הַפִּיסּוּק</div>
+
+    <p style="margin-bottom: 20px;">סִימָנֵי הַפִּיסּוּק עוֹזְרִים לָנוּ לִקְרֹא וְלִכְתֹּב נָכוֹן. הֵם מַרְאִים לָנוּ הֵיכָן לַעֲצֹר, הֵיכָן לִשְׁאֹל, וְהֵיכָן לְהַבִּיעַ רֶגֶשׁ.</p>
+
+    <table class="punct-table">
+      <thead>
+        <tr>
+          <th style="width:80px; text-align:center;">סִימָן</th>
+          <th>שֵׁם</th>
+          <th>מָתַי מִשְׁתַּמְּשִׁים?</th>
+          <th>דֻּגְמָה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="punct-symbol">.</td>
+          <td>נְקֻדָּה</td>
+          <td>בְּסוֹף מִשְׁפָּט רָגִיל</td>
+          <td>אֲנִי אוֹהֵב לִקְרֹא סְפָרִים.</td>
+        </tr>
+        <tr>
+          <td class="punct-symbol">,</td>
+          <td>פְּסִיק</td>
+          <td>לְהַפְרִיד בֵּין מִלִּים בִּרְשִׁימָה, אוֹ לַעֲשׂוֹת הַפְסָקָה קְטַנָּה</td>
+          <td>קָנִינוּ לֶחֶם, חָלָב וּגְבִינָה.</td>
+        </tr>
+        <tr>
+          <td class="punct-symbol">?</td>
+          <td>סִימַן שְׁאֵלָה</td>
+          <td>בְּסוֹף מִשְׁפָּט שֶׁשּׁוֹאֵל שְׁאֵלָה</td>
+          <td>מַה שִּׁמְךָ?</td>
+        </tr>
+        <tr>
+          <td class="punct-symbol">!</td>
+          <td>סִימַן קְרִיאָה</td>
+          <td>לְהַבִּיעַ רֶגֶשׁ חָזָק: שִׂמְחָה, הַפְתָּעָה, כַּעַס</td>
+          <td>כַּמָּה יָפֶה!</td>
+        </tr>
+        <tr>
+          <td class="punct-symbol">:</td>
+          <td>נְקֻדּוֹתַיִם</td>
+          <td>לִפְנֵי הַסְבָּרָה אוֹ רְשִׁימָה</td>
+          <td>יֵשׁ לִי שָׁלוֹשׁ חַיּוֹת: כֶּלֶב, חָתוּל וְדָג.</td>
+        </tr>
+        <tr>
+          <td class="punct-symbol">—</td>
+          <td>מַקָּף</td>
+          <td>לְהַפְרִיד בֵּין שְׁנֵי חֲלָקִים שֶׁל מִשְׁפָּט, אוֹ לְפָרֵט</td>
+          <td>הָיָה לָהּ חֲלוֹם — חֲלוֹם גָּדוֹל וְיָפֶה.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 20px; padding: 16px; background: #ecfdf5; border-radius: 12px; border: 2px solid var(--border);">
+      <p style="font-weight: 700; color: var(--primary); margin-bottom: 8px;">💡 כְּלָלִים חֲשׁוּבִים:</p>
+      <ul style="padding-right: 20px; line-height: 2.2;">
+        <li>אַחֲרֵי נְקֻדָּה, פְּסִיק וְסִימַן שְׁאֵלָה — רֶוַח אֶחָד לִפְנֵי הַמִּלָּה הַבָּאָה.</li>
+        <li>אֵין רֶוַח בֵּין הַמִּלָּה הָאַחֲרוֹנָה לְבֵין הַסִּימָן.</li>
+        <li>אַחֲרֵי סִימַן קְרִיאָה — מַתְחִילִים שׁוּרָה חֲדָשָׁה אוֹ מוֹסִיפִים רֶוַח.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GRAMMAR GAME — PUNCTUATION SORTER -->
+  <div class="section">
+    <div class="section-title">✏️ תִּרְגּוּל: מַיֵּן אֶת הַפִּיסּוּק</div>
+    <p style="margin-bottom: 18px; color: var(--muted);">בַּחֲרוּ אֶת סִימַן הַפִּיסּוּק הַמַּתְאִים לַמָּקוֹם הַמְּסֻמָּן.</p>
+
+    <div id="grammar-game">
+      <div class="pg-progress" id="pgProgress"></div>
+      <div class="pg-question-wrap" id="pgQuestionWrap">
+        <div class="pg-sentence" id="pgSentence"></div>
+        <div class="pg-marks" id="pgMarks"></div>
+        <div class="pg-explanation" id="pgExplanation"></div>
+        <div>
+          <button class="pg-submit-btn" id="pgSubmitBtn" onclick="pgSubmit()" disabled>בְּדֹק ✓</button>
+          <button class="pg-next-btn" id="pgNextBtn" onclick="pgNext()">הַמִּשְׁפָּט הַבָּא ←</button>
+        </div>
+      </div>
+      <div class="pg-result-banner" id="pgResult"></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ==================== VENDING MACHINE GAME ====================
+const vmQuestions = [
+  {
+    q: "מִי מָצָא אֶת הַמַּחְבֶּרֶת?",
+    options: ["תָּמָר", "אִמָּא", "הַמּוֹרָה", "אָחִיהָ"],
+    correct: 0,
+    candy: "🍬",
+    explanation: "תָּמָר מָצְאָה אֶת הַמַּחְבֶּרֶת עַל שֻׁלְחַן אַבָּא."
+  },
+  {
+    q: "מַה הָיָה כָּתוּב עַל כִּסּוּי הַמַּחְבֶּרֶת?",
+    options: ["שָׁלוֹם, תָּמָר!", "סוֹד גָּדוֹל!", "שִׁמְרִי אוֹתִי", "דַּף רִאשׁוֹן"],
+    correct: 1,
+    candy: "🍭",
+    explanation: "עַל הַכִּסּוּי כָּתוּב: 'סוֹד גָּדוֹל!'"
+  },
+  {
+    q: "מָה עוֹשֶׂה הַפְּסִיק בִּרְשִׁימָה?",
+    options: ["מְסַיֵּם אֶת הַמִּשְׁפָּט", "מַרְאֶה שְׁאֵלָה", "מַפְרִיד בֵּין מִלִּים", "מְבַטֵּא רֶגֶשׁ"],
+    correct: 2,
+    candy: "🍫",
+    explanation: "הַפְּסִיק מַפְרִיד בֵּין מִלִּים בִּרְשִׁימָה, לְמָשָׁל: תַּפּוּחַ, בָּנָנָה, עֲנָבִים."
+  },
+  {
+    q: "מִי בָּא בְּסוֹף שְׁאֵלָה?",
+    options: ["הַנְּקֻדָּה", "הַפְּסִיק", "סִימַן הַקְּרִיאָה", "סִימַן הַשְּׁאֵלָה"],
+    correct: 3,
+    candy: "🍩",
+    explanation: "סִימַן הַשְּׁאֵלָה (?) בָּא בְּסוֹף כָּל מִשְׁפָּט שֶׁשּׁוֹאֵל שְׁאֵלָה."
+  },
+  {
+    q: "מַה אָמְרָה תָּמָר בְּסוֹף הַסִּיפּוּר?",
+    options: [
+      "כָּל סִימָן חָשׁוּב, וְיַחַד הֵם עוֹשִׂים אֶת הַקְּרִיאָה נוֹחָה",
+      "אֲנִי לֹא אוֹהֶבֶת פִּיסּוּק",
+      "הַמַּחְבֶּרֶת לֹא מְעַנְיֶנֶת",
+      "אֲנִי לֹא מֵבִינָה כְּלוּם"
+    ],
+    correct: 0,
+    candy: "🍪",
+    explanation: "תָּמָר הֵבִינָה שֶׁכָּל סִימָן חָשׁוּב וְיַחַד הֵם עוֹשִׂים אֶת הַקְּרִיאָה נוֹחָה וּמְהַנָּה."
+  }
+];
+
+let vmCurrent = 0;
+let vmSelected = null;
+let vmSubmitted = false;
+let vmScore = 0;
+
+function vmBuildProgress() {
+  const wrap = document.getElementById('vmProgress');
+  wrap.innerHTML = '';
+  for (let i = 0; i < vmQuestions.length; i++) {
+    const d = document.createElement('div');
+    d.className = 'vm-dot' + (i < vmCurrent ? ' done' : '');
+    wrap.appendChild(d);
+  }
+}
+
+function vmStart() {
+  document.getElementById('vmStartBtn').style.display = 'none';
+  document.getElementById('vmOptions').style.display = 'grid';
+  vmShowQuestion();
+}
+
+function vmShowQuestion() {
+  vmSelected = null;
+  vmSubmitted = false;
+  const q = vmQuestions[vmCurrent];
+  document.getElementById('vmScreen').innerHTML = '<span style="font-size:0.9rem; color:#94a3b8; display:block; margin-bottom:6px;">שְׁאֵלָה ' + (vmCurrent+1) + ' מִתּוֹךְ ' + vmQuestions.length + '</span>' + q.q;
+  document.getElementById('vmTray').innerHTML = '<span id="vmTrayText">📦 כָּאן יִפֹּל הַמַּמְתָּק</span>';
+  document.getElementById('vmExplanation').style.display = 'none';
+  document.getElementById('vmNextBtn').style.display = 'none';
+
+  const wrap = document.getElementById('vmOptions');
+  wrap.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'vm-btn';
+    btn.textContent = opt;
+    btn.onclick = () => vmSelect(i, btn);
+    wrap.appendChild(btn);
+  });
+
+  vmBuildProgress();
+}
+
+function vmSelect(idx, btn) {
+  if (vmSubmitted) return;
+  const q = vmQuestions[vmCurrent];
+  vmSubmitted = true;
+
+  const allBtns = document.querySelectorAll('.vm-btn');
+  allBtns.forEach(b => b.disabled = true);
+
+  if (idx === q.correct) {
+    btn.classList.add('correct-choice');
+    vmScore++;
+    // Drop candy
+    const tray = document.getElementById('vmTray');
+    tray.innerHTML = '';
+    const candy = document.createElement('div');
+    candy.className = 'candy-drop';
+    candy.textContent = q.candy;
+    tray.appendChild(candy);
+    setTimeout(() => {
+      document.getElementById('vmTrayText') && (document.getElementById('vmTray').innerHTML = '<span>' + q.candy + ' נָפַל!</span>');
+    }, 700);
+  } else {
+    btn.classList.add('wrong-choice');
+    allBtns[q.correct].classList.add('correct-choice');
+    document.getElementById('vmMachine').classList.add('shake');
+    setTimeout(() => document.getElementById('vmMachine').classList.remove('shake'), 400);
+  }
+
+  const expEl = document.getElementById('vmExplanation');
+  expEl.textContent = '💡 ' + q.explanation;
+  expEl.style.display = 'block';
+
+  if (vmCurrent < vmQuestions.length - 1) {
+    document.getElementById('vmNextBtn').style.display = 'block';
+  } else {
+    setTimeout(vmShowResult, 1200);
+  }
+}
+
+function vmNext() {
+  vmCurrent++;
+  document.getElementById('vmNextBtn').style.display = 'none';
+  vmShowQuestion();
+}
+
+function vmShowResult() {
+  document.getElementById('vmOptions').style.display = 'none';
+  document.getElementById('vmExplanation').style.display = 'none';
+  document.getElementById('vmNextBtn').style.display = 'none';
+  document.getElementById('vmScreen').textContent = '🎉 סִיַּמְתָּ!';
+
+  const res = document.getElementById('vmResult');
+  const stars = vmScore >= 5 ? '⭐⭐⭐' : vmScore >= 3 ? '⭐⭐' : '⭐';
+  res.innerHTML = '<div class="stars">' + stars + '</div><h3>כָּל הַכָּבוֹד! 🍬</h3><p>עָנִיתָ נְכוֹן עַל ' + vmScore + ' מִתּוֹךְ ' + vmQuestions.length + ' שְׁאֵלוֹת.</p>';
+  res.style.display = 'block';
+}
+
+// ==================== GRAMMAR GAME — PUNCTUATION SORTER ====================
+const pgQuestions = [
+  {
+    sentence: "אֲנִי אוֹהֵב לֶאֱכֹל גְּלִידָה בַּקַּיִץ",
+    hint: "(מִשְׁפָּט רָגִיל)",
+    correct: ".",
+    explanation: "מִשְׁפָּט רָגִיל מִסְתַּיֵּם בִּנְקֻדָּה (.)."
+  },
+  {
+    sentence: "אֵיפֹה הַמַּפְתֵּחַ שֶׁלִּי",
+    hint: "(שְׁאֵלָה)",
+    correct: "?",
+    explanation: "מִשְׁפָּט שֶׁשּׁוֹאֵל מִסְתַּיֵּם בְּסִימַן שְׁאֵלָה (?)."
+  },
+  {
+    sentence: "כַּמָּה יָפָה הַקֶּשֶׁת",
+    hint: "(רֶגֶשׁ חָזָק)",
+    correct: "!",
+    explanation: "מִשְׁפָּט שֶׁמַּבִּיעַ רֶגֶשׁ חָזָק מִסְתַּיֵּם בְּסִימַן קְרִיאָה (!)."
+  },
+  {
+    sentence: "קָנִינוּ בַּשּׁוּק תַּפּוּחִים",
+    hint: "(הָרְשִׁימָה מַמְשִׁיכָה: אֲגָסִים וּבָנָנוֹת)",
+    correct: ",",
+    explanation: "בֵּין פְּרִיטִים בִּרְשִׁימָה מַפְרִידִים בִּפְסִיק (,): קָנִינוּ בַּשּׁוּק תַּפּוּחִים, אֲגָסִים וּבָנָנוֹת."
+  },
+  {
+    sentence: "הָיָה לוֹ חֲלוֹם — חֲלוֹם גָּדוֹל",
+    hint: "(פֵּרוּט / הַפְרָדָה)",
+    correct: ".",
+    explanation: "הַמִּשְׁפָּט מִסְתַּיֵּם בִּנְקֻדָּה (.) אַחֲרֵי הַמַּקָּף וְהַפֵּרוּט."
+  },
+  {
+    sentence: "יֵשׁ לִי שְׁלוֹשָׁה חֲבֵרִים טוֹבִים",
+    hint: "(מִשְׁפָּט רָגִיל)",
+    correct: ".",
+    explanation: "מִשְׁפָּט רָגִיל מִסְתַּיֵּם תָּמִיד בִּנְקֻדָּה (.)."
+  }
+];
+
+let pgCurrent = 0;
+let pgSelected = null;
+let pgSubmitted = false;
+let pgScore = 0;
+const pgMarks = [".", ",", "?", "!"];
+
+function pgInit() {
+  const prog = document.getElementById('pgProgress');
+  prog.innerHTML = '';
+  pgQuestions.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'pg-dot' + (i === 0 ? ' active' : '');
+    prog.appendChild(d);
+  });
+  pgShowQuestion();
+}
+
+function pgShowQuestion() {
+  pgSelected = null;
+  pgSubmitted = false;
+  const q = pgQuestions[pgCurrent];
+
+  document.getElementById('pgSentence').innerHTML =
+    '<span style="color: var(--muted); font-size:0.85rem; display:block; margin-bottom:6px;">' + q.hint + '</span>' +
+    q.sentence + ' <span class="pg-blank" id="pgBlankDisplay">__</span>';
+
+  // Mark buttons
+  const marksWrap = document.getElementById('pgMarks');
+  marksWrap.innerHTML = '';
+  pgMarks.forEach(m => {
+    const btn = document.createElement('button');
+    btn.className = 'pg-mark-btn';
+    btn.textContent = m;
+    btn.onclick = () => pgSelect(m, btn);
+    marksWrap.appendChild(btn);
+  });
+
+  document.getElementById('pgExplanation').style.display = 'none';
+  document.getElementById('pgSubmitBtn').disabled = true;
+  document.getElementById('pgNextBtn').style.display = 'none';
+
+  // Update progress dots
+  const dots = document.querySelectorAll('.pg-dot');
+  dots.forEach((d, i) => {
+    d.className = 'pg-dot';
+    if (i < pgCurrent) d.classList.add('done');
+    else if (i === pgCurrent) d.classList.add('active');
+  });
+}
+
+function pgSelect(mark, btn) {
+  if (pgSubmitted) return;
+  pgSelected = mark;
+  document.querySelectorAll('.pg-mark-btn').forEach(b => b.classList.remove('correct-choice', 'wrong-choice'));
+  btn.classList.add('correct-choice');
+  document.getElementById('pgBlankDisplay').textContent = mark;
+  document.getElementById('pgSubmitBtn').disabled = false;
+}
+
+function pgSubmit() {
+  if (!pgSelected || pgSubmitted) return;
+  pgSubmitted = true;
+  document.getElementById('pgSubmitBtn').disabled = true;
+
+  const q = pgQuestions[pgCurrent];
+  const allBtns = document.querySelectorAll('.pg-mark-btn');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.textContent === q.correct) {
+      b.classList.remove('wrong-choice');
+      b.classList.add('correct-choice');
+    } else if (b.classList.contains('correct-choice') && b.textContent !== q.correct) {
+      b.classList.remove('correct-choice');
+      b.classList.add('wrong-choice');
+    }
+  });
+
+  if (pgSelected === q.correct) {
+    pgScore++;
+    document.getElementById('pgBlankDisplay').textContent = q.correct;
+    document.getElementById('pgBlankDisplay').style.color = 'var(--correct)';
+  } else {
+    document.getElementById('pgBlankDisplay').textContent = q.correct;
+    document.getElementById('pgBlankDisplay').style.color = 'var(--correct)';
+    document.getElementById('pgQuestionWrap').classList.add('shake');
+    setTimeout(() => document.getElementById('pgQuestionWrap').classList.remove('shake'), 400);
+  }
+
+  const expEl = document.getElementById('pgExplanation');
+  expEl.textContent = '💡 ' + q.explanation;
+  expEl.style.display = 'block';
+
+  if (pgCurrent < pgQuestions.length - 1) {
+    document.getElementById('pgNextBtn').style.display = 'inline-block';
+  } else {
+    setTimeout(pgShowResult, 1200);
+  }
+}
+
+function pgNext() {
+  pgCurrent++;
+  pgShowQuestion();
+}
+
+function pgShowResult() {
+  document.getElementById('pgQuestionWrap').style.display = 'none';
+  const res = document.getElementById('pgResult');
+  const stars = pgScore >= 6 ? '⭐⭐⭐' : pgScore >= 4 ? '⭐⭐' : '⭐';
+  res.innerHTML = '<div class="stars">' + stars + '</div><h3>עָשִׂיתָ עֲבוֹדָה נִפְלָאָה! ✏️</h3><p>עָנִיתָ נְכוֹן עַל ' + pgScore + ' מִתּוֹךְ ' + pgQuestions.length + ' מִשְׁפָּטִים.</p>';
+  res.style.display = 'block';
+}
+
+// Init grammar game
+pgInit();
+</script>
+
+
+<!-- ══ WRITING ASSIGNMENT ══ -->
+<script>
+const wP=['כְּתוֹב מִשְׁפָּט שֶׁמִּסְתַּיֵּם בִּנְקֻדָּה...', 'כְּתוֹב שְׁאֵלָה שֶׁמִּסְתַּיֶּמֶת בְּסִימַן שְׁאֵלָה...', 'כְּתוֹב מִשְׁפָּט עִם סִימַן קְרִיאָה...', 'כְּתוֹב מִשְׁפָּט עִם פְּסִיק בְּאֶמְצַע...', 'כְּתוֹב מִשְׁפָּט עִם נְקֻדּוֹתַיִם וּרְשִׁימָה...'];
+function initW(){const c=document.getElementById('writing-lines');if(!c)return;c.innerHTML='';wP.forEach((ph,i)=>{const d=document.createElement('div');d.className='writing-line';d.id='wline-'+i;d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';c.appendChild(d);});const r=document.getElementById('writing-result');if(r)r.style.display='none';const f=document.getElementById('writing-fb');if(f)f.textContent='';}
+window.submitWriting=function(){let n=0;for(let i=0;i<5;i++){const v=document.getElementById('winput-'+i).value.trim();const l=document.getElementById('wline-'+i);if(v.length>1){n++;l.className='writing-line filled';}else l.className='writing-line';}const fb=document.getElementById('writing-fb');const res=document.getElementById('writing-result');if(n<5){if(fb){fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.';fb.style.color='#dc2626';}if(res)res.style.display='none';return;}if(fb)fb.textContent='';if(res){res.style.display='block';res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';}}; 
+window.resetWriting=function(){initW();};
+window.addEventListener('DOMContentLoaded',initW);
+</script>
+<div style="background:#fff;border-radius:16px;padding:24px 20px;margin:18px 0;box-shadow:0 2px 12px rgba(0,0,0,.08)">
+  <div style="font-size:1.25rem;font-weight:900;color:#4c1d95;margin-bottom:14px;direction:rtl">✍️ מַטְלַת כְּתִיבָה</div>
+  <p style="margin-bottom:16px;font-size:1rem;direction:rtl">כְּתֹב 5 מִשְׁפָּטִים עִם סִימָנֵי פִּיסּוּק שׁוֹנִים. הִשְׁתַּמֵּשׁ בְּ<strong>נְקֻדָּה, פְּסִיק, סִימַן שְׁאֵלָה</strong> וְ<strong>סִימַן קְרִיאָה</strong>. לְדֻגְמָה: אֲנִי אוֹהֵב גְּלִידָה, עוּגָה וְסוּכָּרִיּוֹת!</p>
+  <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+    <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+    <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+    <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+  </div>
+  <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+</div>
+
+</body>
+</html>

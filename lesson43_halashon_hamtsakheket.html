@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הַלָּשׁוֹן הַמְּצַחֶקֶת — שִׁיעוּר עִבְרִית כִּיתָה ד׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --plum:#a21caf; --plum-dk:#86198f; --plum-md:#e879f9; --plum-lt:#fae8ff; --plum-pal:#fdf4ff; --plum-2:#f5d0fe;
+  --rose:#e11d48; --rose-dk:#be123c; --rose-md:#fb7185; --rose-lt:#ffe4e6; --rose-pal:#fff1f2; --rose-2:#fecdd3;
+  --ok:#16a34a; --ok-lt:#dcfce7; --red-lt:#fee2e2;
+  --ink:#1a0020; --muted:#64748b; --white:#fff;
+  --primary:#a21caf; --primary-light:#c026d3; --primary-pale:#fdf4ff;
+  --accent:#e11d48; --accent-light:#fb7185;
+  --correct:#16a34a; --wrong:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--plum-pal);color:var(--ink);direction:rtl;min-height:100vh}
+
+.header{background:linear-gradient(160deg,#4a044e 0%,#a21caf 55%,#e879f9 100%);position:relative;overflow:hidden;padding-bottom:28px}
+.header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header-inner{position:relative;z-index:2;padding:36px 20px 16px;text-align:center}
+.header-eyebrow{font-size:.88rem;font-weight:700;color:#f5d0fe;letter-spacing:1px;margin-bottom:10px}
+.header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.4rem);font-weight:700;color:#fff;text-shadow:0 0 30px rgba(232,121,249,.5),0 3px 12px rgba(0,0,0,.4);line-height:1.2;margin-bottom:8px}
+.header-sub{color:#f5d0fe;font-size:.95rem;font-weight:600;margin-bottom:14px}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#4a044e;font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(162,28,175,.35)}
+.header-flag-strip{background:var(--rose);height:6px}
+
+.lesson-nav{background:#4a044e;padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-btn{color:#f5d0fe;font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--plum-md);border-radius:20px;transition:background .15s}
+.nav-btn:hover{background:#a21caf;color:#fff}
+.nav-current{color:#f0abfc;font-size:.78rem;font-weight:800;margin-right:auto}
+
+.progress-strip{background:#4a044e;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.prog-label{color:#f5d0fe;font-size:.83rem;font-weight:700;white-space:nowrap}
+.prog-track{flex:1;background:var(--plum-md);border-radius:100px;height:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#f5d0fe,var(--rose));border-radius:100px;width:0%;transition:width .7s ease}
+.prog-stars{color:#fde68a;font-size:1rem;letter-spacing:2px}
+
+.page{max-width:900px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:26px}
+.card{background:var(--white);border-radius:22px;padding:28px 28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.card-stripe{position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0}
+.cs-plum{background:linear-gradient(180deg,#f5d0fe,#a21caf)}
+.cs-rose{background:linear-gradient(180deg,#fecdd3,#e11d48)}
+.cs-grn{background:linear-gradient(180deg,#bbf7d0,#16a34a)}
+.sec-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.si-plum{background:var(--plum-pal);border:1.5px solid var(--plum-2)}
+.si-rose{background:var(--rose-pal);border:1.5px solid var(--rose-2)}
+.si-grn{background:#f0fdf4;border:1.5px solid #bbf7d0}
+.sec-num{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:1px}
+.sec-title{font-size:1.42rem;font-weight:900;color:var(--ink)}
+
+.story-wrap{background:var(--plum-pal);border:2px solid var(--plum-2);border-radius:18px;padding:24px 26px}
+.story-title{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:700;color:var(--plum-dk);text-align:center;margin-bottom:18px}
+.story-p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.7;color:#1e2d3d;margin-bottom:10px}
+.idiom-highlight{color:var(--plum-dk);font-weight:800;background:var(--plum-lt);padding:.05em .3em;border-radius:4px}
+.story-legend{font-size:.85rem;color:var(--muted);margin-top:12px;text-align:center}
+
+.gram-intro{background:var(--plum-pal);border:2px dashed var(--plum-md);border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:.97rem;font-weight:600;color:var(--plum-dk);line-height:1.9}
+.gram-intro strong{color:var(--plum)}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.vocab-item{background:var(--rose-pal);border:2px solid var(--rose-2);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vword{font-family:'Frank Ruhl Libre',serif;font-weight:700;color:var(--rose-dk);font-size:1.1rem}
+.vdef{color:var(--muted);font-size:.82rem;text-align:left;direction:ltr}
+
+.mc-q{background:var(--plum-pal);border:2px solid var(--plum-2);border-radius:16px;padding:14px 18px;margin-bottom:12px}
+.mc-q-text{font-size:1.06rem;font-weight:700;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;font-family:'Frank Ruhl Libre',serif}
+.mc-q-text .n{width:26px;height:26px;border-radius:50%;background:var(--plum);color:#fff;font-weight:900;font-size:.82rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.mc-opts{display:flex;flex-wrap:wrap;gap:8px}
+.mc-opt{background:#fff;border:2px solid var(--plum-2);border-radius:10px;padding:8px 14px;font-size:1rem;cursor:pointer;font-family:'Frank Ruhl Libre',serif;transition:all .18s}
+.mc-opt:hover:not(:disabled):not(.correct):not(.wrong){border-color:var(--plum);background:var(--plum-lt)}
+.mc-opt.correct{background:var(--ok-lt);border-color:var(--ok);color:#14532d;font-weight:600}
+.mc-opt.wrong{background:var(--red-lt);border-color:var(--wrong);color:#7f1d1d}
+.mc-fb{font-size:.9rem;margin-top:8px;min-height:1.1rem;font-weight:700}
+.mc-fb.ok{color:var(--ok)}.mc-fb.no{color:var(--wrong)}
+
+/* idioms table */
+.idioms-table{width:100%;border-collapse:collapse;margin:.4rem 0;font-size:1rem;border-radius:14px;overflow:hidden}
+.idioms-table th{background:var(--plum);color:#fff;padding:.6rem .8rem;font-size:.95rem}
+.idioms-table td{padding:.6rem .8rem;border-bottom:1px solid var(--plum-2);line-height:1.8;vertical-align:top;font-family:'Frank Ruhl Libre',serif}
+.idioms-table tr:nth-child(even) td{background:var(--plum-pal)}
+.idioms-table td:first-child{font-weight:800;color:var(--plum-dk);white-space:nowrap}
+.grammar-note{background:var(--rose-pal);border:2px solid var(--rose-2);border-radius:12px;padding:.75rem 1rem;margin:.8rem 0 0;font-size:.97rem;line-height:1.8;color:var(--rose-dk)}
+.grammar-note strong{color:var(--rose-dk)}
+
+/* cloud game */
+#cloud-game .pips{display:flex;gap:.45rem;justify-content:center;margin-bottom:.9rem}
+.pip{width:14px;height:14px;border-radius:50%;background:var(--plum-2);transition:background .3s,transform .2s}
+.pip.done{background:var(--rose)}.pip.current{background:var(--plum);transform:scale(1.15)}
+.sky-scene{position:relative;width:100%;height:220px;background:linear-gradient(to bottom,#7dd3fc 0%,#bae6fd 45%,#e0f2fe 80%,#f0f9ff 100%);border-radius:14px;overflow:hidden;margin-bottom:1rem;border:2px solid #93c5fd}
+.sun{position:absolute;top:18px;left:22px;width:48px;height:48px;background:radial-gradient(circle,#fef08a 40%,#fde047 70%,transparent 100%);border-radius:50%;box-shadow:0 0 18px 8px rgba(253,224,71,.45);animation:sun-pulse 4s ease-in-out infinite}
+@keyframes sun-pulse{0%,100%{box-shadow:0 0 18px 8px rgba(253,224,71,.45)}50%{box-shadow:0 0 28px 14px rgba(253,224,71,.6)}}
+.cloud-score{position:absolute;top:12px;right:14px;background:rgba(74,4,78,.75);color:var(--rose-md);padding:.3rem .7rem;border-radius:20px;font-size:.85rem;font-weight:700}
+.bg-cloud{position:absolute;background:rgba(255,255,255,.55);border-radius:50px;pointer-events:none}
+.game-cloud-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:opacity .45s,transform .45s}
+.game-cloud-wrap.fly-away{opacity:0;transform:translate(calc(-50% - 120px),calc(-50% - 30px))}
+.game-cloud-wrap.fade-in{opacity:0;animation:cloud-appear .5s ease forwards}
+@keyframes cloud-appear{from{opacity:0;transform:translate(-50%,calc(-50% + 20px))}to{opacity:1;transform:translate(-50%,-50%)}}
+.game-cloud{position:relative;background:#fff;border-radius:60px;padding:.75rem 1.6rem;min-width:220px;max-width:280px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.13);font-size:1.2rem;font-weight:700;color:var(--plum-dk);line-height:1.5;animation:float-cloud 3.5s ease-in-out infinite;font-family:'Frank Ruhl Libre',serif}
+@keyframes float-cloud{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.game-cloud::before{content:'';position:absolute;top:-22px;right:40px;width:58px;height:50px;border-radius:50%;background:#fff;box-shadow:0 -3px 8px rgba(0,0,0,.07)}
+.game-cloud::after{content:'';position:absolute;top:-14px;left:38px;width:42px;height:40px;border-radius:50%;background:#fff;box-shadow:0 -2px 6px rgba(0,0,0,.06)}
+@keyframes cloud-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(8px)}40%{transform:translateX(-8px)}60%{transform:translateX(5px)}80%{transform:translateX(-5px)}}
+.game-cloud.shake{animation:cloud-shake .45s ease}
+.rain-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.rain-drop{position:absolute;width:2.5px;background:linear-gradient(to bottom,rgba(147,197,253,.9),rgba(59,130,246,.7));border-radius:0 0 3px 3px;animation:rain-fall .7s linear forwards}
+@keyframes rain-fall{from{transform:translateY(-10px);opacity:1}to{transform:translateY(230px);opacity:0}}
+.raindrop-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.7rem}
+.drop-btn{background:#e0f2fe;border:2.5px solid #7dd3fc;border-radius:16px 16px 24px 24px;padding:.6rem .75rem;font-size:1rem;font-weight:600;cursor:pointer;font-family:'Frank Ruhl Libre',serif;transition:all .18s;color:#0c4a6e;text-align:center}
+.drop-btn::before{content:'💧';font-size:.8rem;margin-left:.3rem}
+.drop-btn:hover:not(:disabled):not(.correct-ans):not(.wrong-ans){border-color:#3b82f6;background:#bae6fd}
+.drop-btn.chosen{border-color:var(--plum);background:var(--plum-pal);color:var(--plum)}
+.drop-btn.correct-ans{background:var(--ok-lt)!important;border-color:var(--correct)!important;color:#14532d!important;font-weight:700}
+.drop-btn.wrong-ans{background:var(--red-lt)!important;border-color:var(--wrong)!important;color:#7f1d1d!important}
+@keyframes drop-bounce{0%{transform:translateY(0)}30%{transform:translateY(-8px)}55%{transform:translateY(4px)}75%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+.drop-btn.bounce{animation:drop-bounce .45s ease}
+.confirm-btn{display:none;width:100%;max-width:220px;margin:0 auto .7rem;padding:.6rem 1rem;border:none;border-radius:12px;background:var(--plum);color:#fff;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.confirm-btn.show{display:block}
+.explain-box{display:none;background:#e0f2fe;border:2px solid #7dd3fc;border-radius:12px;padding:.75rem 1rem;font-size:.97rem;color:#0c4a6e;line-height:1.8;margin-bottom:.8rem;font-weight:600}
+.explain-box.show{display:block}
+.next-btn{display:none;width:100%;max-width:180px;margin:0 auto;padding:.55rem 1rem;border:none;border-radius:12px;background:var(--rose);color:#fff;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.next-btn.show{display:block}
+.game-q-card{background:var(--plum-pal);border:2px solid var(--plum-2);border-radius:12px;padding:.75rem 1.1rem;margin-bottom:.9rem;text-align:center}
+.game-q-label{font-size:.88rem;color:var(--muted)}
+.result-banner{display:none;text-align:center;padding:1.4rem 1rem;background:linear-gradient(135deg,#a21caf,#4a044e);color:#fff;border-radius:14px;margin-top:.8rem}
+.result-banner.show{display:block}
+.result-banner h2{font-size:1.5rem;margin-bottom:.4rem}
+.result-banner p{font-size:1rem;opacity:.9;line-height:1.6}
+.score-big{font-size:2.5rem;font-weight:bold;color:var(--rose-md)}
+
+/* writing */
+.writing-intro{background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:14px 18px;margin-bottom:16px;font-size:.97rem;font-weight:600;color:#166534;line-height:1.9}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.9rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-submit-btn{background:var(--plum);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-reset-btn{background:#6b7280;color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif}
+
+.score-panel{background:#fff;border:3px solid var(--plum-2);border-radius:22px;padding:24px 28px;text-align:center}
+.score-title{font-size:1.1rem;font-weight:900;color:var(--plum-dk);margin-bottom:10px}
+.score-emojis{font-size:2rem;letter-spacing:6px;margin-bottom:10px}
+.score-bar{background:var(--plum-2);border-radius:100px;height:12px;overflow:hidden;margin-bottom:12px}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--plum-md),var(--rose));border-radius:100px;width:0%;transition:width .7s ease}
+.score-msg{font-size:.97rem;font-weight:600;color:var(--ink)}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:24px 16px 40px}
+@media(max-width:520px){.vocab-grid{grid-template-columns:1fr}.raindrop-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">☁️</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">😂</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:55%">💬</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:74%">🌧️</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:40%">🧠</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">☁️ סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 43</div>
+    <h1>הַלָּשׁוֹן הַמְּצַחֶקֶת</h1>
+    <div class="header-sub">בִּטּוּיִים נְהוּגִים — Hebrew Idioms</div>
+    <div class="header-badge">🎯 כִּיתָה ד׳ &nbsp;|&nbsp; בִּטּוּיִים נְהוּגִים</div>
+  </div>
+</div>
+<div class="header-flag-strip"></div>
+
+<nav class="lesson-nav">
+  <a class="nav-btn" href="lesson41_hatsollelet_hameyuhedet.html">→ 41</a>
+  <a class="nav-btn" href="lesson42_hayom_harishon.html">→ 42</a>
+  <a class="nav-btn" href="lesson44_hayalda_hameshoreretm.html">→ 44</a>
+  <span class="nav-current">שִׁיעוּר 43 ◀</span>
+</nav>
+
+<div class="progress-strip">
+  <span class="prog-label">הַתְקַדְּמוּת:</span>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  <span class="prog-stars" id="prog-stars">☆☆☆☆☆</span>
+</div>
+
+<div class="page">
+
+  <!-- STORY -->
+  <div class="card">
+    <div class="card-stripe cs-plum"></div>
+    <div class="sec-header"><div class="sec-icon si-plum">📖</div><div><span class="sec-num">חֵלֶק א׳</span><div class="sec-title">קְרִיאָה</div></div></div>
+    <div class="story-wrap">
+      <div class="story-title">הַלָּשׁוֹן הַמְּצַחֶקֶת</div>
+      <p class="story-p">דָּן עָלָה אַרְצָה עִם מִשְׁפַּחְתּוֹ לִפְנֵי חוֹדֶשׁ. בַּבַּיִת דִּיבְּרוּ רוּסִּית, וְאֶת הָעִבְרִית דָּן עֲדַיִן לָמַד. בַּיּוֹם הָרִאשׁוֹן בַּכִּיתָה אָמְרָה הַמּוֹרָה: "הַתַּרְגִּיל הַזֶּה קָשֶׁה — <span class="idiom-highlight">תִּשְׁבְּרוּ עָלָיו אֶת הָרֹאשׁ!</span>" דָּן הִסְתַּכֵּל בְּפַחַד: לִשְׁבֹּר אֶת הָרֹאשׁ?! זֶה כּוֹאֵב!</p>
+      <p class="story-p">נוֹעָה יָשְׁבָה לְיַד דָּן וְרָאֲתָה אֶת פָּנָיו הַמְּבֹהָלִים. "מָה קָרָה?" שָׁאֲלָה. "הַמּוֹרָה אוֹמֶרֶת לִשְׁבֹּר אֶת הָרֹאשׁ!" לָחַשׁ דָּן בִּדְאָגָה. נוֹעָה חִיְּכָה: "זֶה בִּטּוּי! פֵּרוּשׁוֹ — לַחְשֹׁב קָשֶׁה מְאוֹד." דָּן נָשַׁם לִרְוָחָה.</p>
+      <p class="story-p">בַּהַפְסָקָה אָמַר חֲבֵר: "הַמּוֹרָה שֶׁלָּנוּ <span class="idiom-highlight">אוֹכֶלֶת אֶת הַתַּלְמִידִים חַיִּים</span> אִם לֹא עוֹשִׂים שִׁיעוּרֵי בַּיִת!" דָּן נִרְתַּע: "הִיא... אוֹכֶלֶת?!" נוֹעָה מִיָּד הִסְבִּירָה: "עוֹד בִּטּוּי — פֵּרוּשׁוֹ שֶׁהִיא כּוֹעֶסֶת מְאוֹד."</p>
+      <p class="story-p">בְּשִׁיעוּר הַמָּתֶמָטִיקָה הֵרִים אוֹרֶן יָדַיִם וְאָמַר: "וִיתַּרְתִּי! <span class="idiom-highlight">הֵרַמְתִּי יָדַיִם!</span>" דָּן הִסְתַּכֵּל עַל הַיָּד הַמּוּרֶמֶת: "אֲבָל הוּא בֶּאֱמֶת מֵרִים יָד..." נוֹעָה לָחֲשָׁה: "בִּטּוּי שֶׁל הִתְיָאֲשׁוּת — הוּא לֹא רוֹצֶה לְנַסּוֹת יוֹתֵר."</p>
+      <p class="story-p">בְּסוֹף הַיּוֹם, <span class="idiom-highlight">יָצָא לְדָן שֵׁם</span> כְּיֶלֶד מְיֻחָד שֶׁלּוֹמֵד עִבְרִית מַהֵר. כְּשֶׁשָּׁמַע זֹאת, <span class="idiom-highlight">נָפַל לוֹ הַפֶּה</span> מֵהַהַפְתָּעָה — אֲבָל הַפַּעַם הֵבִין לְבַד שֶׁזֶּה בִּטּוּי! "עַכְשָׁיו אֲנִי מֵבִין," אָמַר דָּן לְנוֹעָה בְּחִיּוּךְ, "הַלָּשׁוֹן הָעִבְרִית מְצַחֶקֶת — אֲבָל גַּם מְרַגֶּשֶׁת!"</p>
+      <div class="story-legend"><span style="color:var(--plum-dk);font-weight:700;background:var(--plum-lt);padding:.1em .4em;border-radius:4px">צֶבַע סָגֹל</span> = בִּטּוּי נָהוּג בַּסִּיפּוּר</div>
+    </div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="card">
+    <div class="card-stripe cs-rose"></div>
+    <div class="sec-header"><div class="sec-icon si-rose">📝</div><div><span class="sec-num">חֵלֶק ב׳</span><div class="sec-title">אוֹצַר מִילִּים</div></div></div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="vword">עָלָה אַרְצָה</span><span class="vdef">immigrated to Israel</span></div>
+      <div class="vocab-item"><span class="vword">בִּטּוּי נָהוּג</span><span class="vdef">common idiom</span></div>
+      <div class="vocab-item"><span class="vword">מְבֹהָל</span><span class="vdef">alarmed, panicked (m.)</span></div>
+      <div class="vocab-item"><span class="vword">נִרְתַּע</span><span class="vdef">recoiled, startled</span></div>
+      <div class="vocab-item"><span class="vword">הִסְבִּיר</span><span class="vdef">explained</span></div>
+      <div class="vocab-item"><span class="vword">מוֹנִיטִין</span><span class="vdef">reputation, good name</span></div>
+    </div>
+  </div>
+
+  <!-- COMPREHENSION -->
+  <div class="card">
+    <div class="card-stripe cs-plum"></div>
+    <div class="sec-header"><div class="sec-icon si-plum">💬</div><div><span class="sec-num">חֵלֶק ג׳</span><div class="sec-title">שְׁאֵלוֹת הֲבָנָה</div></div></div>
+    <div id="comprehension"></div>
+  </div>
+
+  <!-- GRAMMAR -->
+  <div class="card">
+    <div class="card-stripe cs-rose"></div>
+    <div class="sec-header"><div class="sec-icon si-rose">📚</div><div><span class="sec-num">חֵלֶק ד׳</span><div class="sec-title">בִּטּוּיִים נְהוּגִים</div></div></div>
+    <div class="gram-intro"><strong>בִּטּוּי נָהוּג</strong> הוּא צֵרוּף מִילִּים שֶׁפֵּרוּשׁוֹ <strong>שׁוֹנֶה</strong> מִן הַמַּשְׁמָעוּת הַפְּשׁוּטָה שֶׁל כָּל מִילָּה בְּנִפְרָד. בְּעִבְרִית יֵשׁ הַרְבֵּה בִּטּוּיִים כָּאֵלֶּה שֶׁמִּשְׁתַּמְּשִׁים בָּהֶם בַּשִּׂיחָה הַיּוֹמְיוֹמִית.</div>
+    <table class="idioms-table">
+      <thead><tr><th>הַבִּטּוּי</th><th>הַמַּשְׁמָעוּת הַפְּשׁוּטָה</th><th>הַמַּשְׁמָעוּת הָאֲמִיתִּית</th></tr></thead>
+      <tbody>
+        <tr><td>שָׁבַר אֶת הָרֹאשׁ</td><td>שָׁבַר (broke) + רֹאשׁ (head)</td><td>חָשַׁב קָשֶׁה מְאוֹד כְּדֵי לִמְצֹא פִּתְרוֹן</td></tr>
+        <tr><td>דִּיבֵּר אֶל הַקִּיר</td><td>דִּיבֵּר (spoke) + קִיר (wall)</td><td>אַף אֶחָד לֹא הִקְשִׁיב לְמַה שֶׁאָמַר</td></tr>
+        <tr><td>הֵרִים יָדַיִם</td><td>הֵרִים (raised) + יָדַיִם (hands)</td><td>הִתְיָאֵשׁ לְגַמְרֵי וְוִיתֵּר</td></tr>
+        <tr><td>יָצָא לוֹ שֵׁם</td><td>יָצָא (came out) + שֵׁם (name)</td><td>נַעֲשָׂה מְפֻרְסָם, קִיבֵּל מוֹנִיטִין</td></tr>
+        <tr><td>אָכַל אוֹתוֹ חַי</td><td>אָכַל (ate) + חַי (alive)</td><td>כָּעַס עָלָיו מְאוֹד וְגָעַר בּוֹ</td></tr>
+        <tr><td>נָפַל לוֹ הַפֶּה</td><td>נָפַל (fell) + פֶּה (mouth)</td><td>הִתְפַּעֵל מְאוֹד וְהִשְׁתּוֹמֵם</td></tr>
+      </tbody>
+    </table>
+    <div class="grammar-note">💡 <strong>שִׂים לֵב:</strong> בִּטּוּיִים נְהוּגִים <strong>לֹא מְתַרְגְּמִים מִילָּה בְּמִילָּה</strong> — צָרִיךְ לִלְמֹד אֶת הַמַּשְׁמָעוּת שֶׁלָּהֶם כְּמוֹ שֶׁלּוֹמְדִים מִילָּה חֲדָשָׁה! הֵם מוֹסִיפִים צֶבַע וְחִיּוּת לַשִּׂיחָה.</div>
+  </div>
+
+  <!-- EXERCISES -->
+  <div class="card">
+    <div class="card-stripe cs-plum"></div>
+    <div class="sec-header"><div class="sec-icon si-plum">✏️</div><div><span class="sec-num">חֵלֶק ה׳</span><div class="sec-title">תַּרְגִּיל — בְּחַר אֶת הַבִּטּוּי הַמַּתְאִים</div></div></div>
+    <div class="gram-intro">קְרָא כָּל מִשְׁפָּט וּבְחַר אֶת הַבִּטּוּי הַנָּכוֹן לְמַלֵּא אֶת הֶחָסֵר.</div>
+    <div id="exercises"></div>
+  </div>
+
+  <!-- GAME -->
+  <div class="card" id="cloud-game">
+    <div class="card-stripe cs-rose"></div>
+    <div class="sec-header"><div class="sec-icon si-rose">🎮</div><div><span class="sec-num">חֵלֶק ו׳ — מִשְׂחָק</span><div class="sec-title">לוֹכֵד הָעֲנָנִים</div></div></div>
+    <div class="gram-intro" style="text-align:center">בְּכָל עָנָן — בִּטּוּי. בְּחַר אֶת הַטִּיפָּה שֶׁמַּסְבִּירָה אֶת פֵּרוּשׁוֹ הָאֲמִיתִּי! ☁️💧</div>
+    <div class="pips" id="pips"><div class="pip current" id="pip0"></div><div class="pip" id="pip1"></div><div class="pip" id="pip2"></div><div class="pip" id="pip3"></div><div class="pip" id="pip4"></div><div class="pip" id="pip5"></div></div>
+    <div class="sky-scene" id="sky-scene">
+      <div class="sun"></div>
+      <div class="cloud-score" id="cloud-score">0 / 6</div>
+      <div class="bg-cloud" style="width:70px;height:24px;top:28px;right:80px;border-radius:30px;"></div>
+      <div class="bg-cloud" style="width:50px;height:18px;top:18px;right:170px;border-radius:25px;"></div>
+      <div class="bg-cloud" style="width:55px;height:20px;bottom:40px;left:30px;border-radius:25px;opacity:0.4;"></div>
+      <div class="rain-container" id="rain-container"></div>
+      <div class="game-cloud-wrap" id="cloud-wrap"><div class="game-cloud" id="game-cloud"><span id="game-idiom"></span></div></div>
+    </div>
+    <div id="game-area">
+      <div class="game-q-card"><div class="game-q-label">בְּחַר אֶת הַטִּיפָּה עִם הַפֵּרוּשׁ הַנָּכוֹן לַבִּטּוּי:</div></div>
+      <div class="raindrop-grid" id="drop-grid"></div>
+      <button class="confirm-btn" id="confirm-btn" onclick="confirmAnswer()">אֲשֵׁר תְּשׁוּבָה ▶</button>
+      <div class="explain-box" id="explain-box"></div>
+      <button class="next-btn" id="next-btn" onclick="nextRound()">הַמְשֵׁךְ ←</button>
+    </div>
+    <div class="result-banner" id="result-banner">
+      <div class="score-big" id="final-score"></div>
+      <h2>☁️ כָּל הַכָּבוֹד!</h2>
+      <p>תָּפַסְתָּ אֶת כָּל הָעֲנָנִים! 🌈<br>אַתֶּם מְבִינִים אֶת הַבִּטּוּיִים הַנְּהוּגִים מְצֻיָּן!</p>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="card">
+    <div class="card-stripe cs-grn"></div>
+    <div class="sec-header"><div class="sec-icon si-grn">✍️</div><div><span class="sec-num">חֵלֶק ז׳</span><div class="sec-title">מַטְלַת כְּתִיבָה</div></div></div>
+    <div class="writing-intro">כְּתֹב 5 מִשְׁפָּטִים עִם בִּטּוּיִים נְהוּגִים. אֶפְשָׁר לִכְתֹּב אֶת הַבִּטּוּי וְאֶת פֵּרוּשׁוֹ. לְדֻגְמָה: <strong>שָׁבַרְתִּי אֶת הָרֹאשׁ</strong> — חָשַׁבְתִּי קָשֶׁה מְאוֹד.</div>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px">
+      <button class="writing-submit-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-reset-btn" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9;direction:rtl"></div>
+  </div>
+
+  <!-- SCORE -->
+  <div class="score-panel" id="score-panel">
+    <div class="score-title">📊 תּוֹצְאוֹת הַשִּׁיעוּר</div>
+    <div class="score-emojis" id="score-emojis">☆☆☆☆☆</div>
+    <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill"></div></div>
+    <div class="score-msg" id="score-msg">עֲנֵה עַל הַשְּׁאֵלוֹת וְשַׂחֵק כְּדֵי לִרְאוֹת אֶת הַתּוֹצָאָה!</div>
+  </div>
+
+</div>
+
+<footer>שִׁיעוּר 43 מִתּוֹךְ סִדְרַת "סִיפּוּרִים בְּעִבְרִית" · כָּל הַזְּכֻיּוֹת שְׁמוּרוֹת</footer>
+
+<script>
+let correct = 0;
+const TOTAL = 4 + 5 + 6;
+function updateProgress() {
+  const pct = Math.round((correct / TOTAL) * 100);
+  const s = Math.round((correct / TOTAL) * 5);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-stars').textContent = '★'.repeat(s) + '☆'.repeat(5 - s);
+  document.getElementById('score-emojis').textContent = '★'.repeat(s) + '☆'.repeat(5 - s);
+  document.getElementById('score-bar-fill').style.width = pct + '%';
+  const msg = document.getElementById('score-msg');
+  if (correct >= TOTAL) msg.textContent = '🏆 מֻשְׁלָם! עָנִיתָ נָכוֹן עַל הַכֹּל!';
+  else msg.textContent = correct + ' מִתּוֹךְ ' + TOTAL + ' נְכוֹנִים — כָּל הַכָּבוֹד!';
+}
+
+// COMPREHENSION
+const COMP = [
+  { q:'מַדּוּעַ נִבְהַל דָּן כְּשֶׁשָּׁמַע "תִּשְׁבְּרוּ אֶת הָרֹאשׁ"?', options:['הוּא לֹא הֵבִין שֶׁזֶּה בִּטּוּי וְחָשַׁב שֶׁזֶּה כּוֹאֵב','כָּאַב לוֹ הָרֹאשׁ בֶּאֱמֶת','הוּא לֹא רָצָה לַעֲשׂוֹת אֶת הַתַּרְגִּיל'], answer:0 },
+  { q:'מִי עָזַר לְדָן לְהָבִין אֶת הַבִּטּוּיִים?', options:['הַמּוֹרָה','נוֹעָה הַיַּלְדָּה שֶׁיָּשְׁבָה לְיָדוֹ','אוֹרֶן'], answer:1 },
+  { q:'מָה פֵּרוּשׁ "הֵרִים יָדַיִם" בַּסִּיפּוּר?', options:['הִצְבִּיעַ בַּשִּׁיעוּר','הִמְרִיד אֶת הַכִּיתָה','הִתְיָאֵשׁ וְוִיתֵּר'], answer:2 },
+  { q:'מַה גִּילָּה דָּן בְּסוֹף הַיּוֹם?', options:['שֶׁהוּא לֹא רוֹצֶה לִלְמֹד עִבְרִית','שֶׁיָּצָא לוֹ שֵׁם טוֹב וְשֶׁהַלָּשׁוֹן הָעִבְרִית מְרַגֶּשֶׁת','שֶׁנּוֹעָה טָעֲתָה בַּהֶסְבֵּר'], answer:1 }
+];
+const compDone = {};
+function buildComp() {
+  const w = document.getElementById('comprehension');
+  COMP.forEach((c, i) => {
+    const d = document.createElement('div'); d.className = 'mc-q';
+    d.innerHTML = '<div class="mc-q-text"><span class="n">' + (i + 1) + '</span>' + c.q + '</div>';
+    const opts = document.createElement('div'); opts.className = 'mc-opts';
+    c.options.forEach((opt, j) => {
+      const b = document.createElement('button'); b.className = 'mc-opt'; b.textContent = opt;
+      b.onclick = () => ansComp(i, b, j); opts.appendChild(b);
+    });
+    d.appendChild(opts);
+    const fb = document.createElement('div'); fb.className = 'mc-fb'; fb.id = 'cf' + i; d.appendChild(fb);
+    w.appendChild(d);
+  });
+}
+function ansComp(i, btn, j) {
+  const c = COMP[i], fb = document.getElementById('cf' + i);
+  if (j === c.answer) {
+    if (compDone[i]) return; compDone[i] = true;
+    document.querySelectorAll('#comprehension .mc-q')[i].querySelectorAll('.mc-opt').forEach((b, k) => { b.disabled = true; if (k === c.answer) b.classList.add('correct'); });
+    fb.textContent = '✔ נְכוֹן!'; fb.className = 'mc-fb ok'; correct++; updateProgress();
+  } else {
+    btn.classList.add('wrong'); fb.textContent = '✘ נַסֵּה שׁוּב.'; fb.className = 'mc-fb no';
+    setTimeout(() => btn.classList.remove('wrong'), 700);
+  }
+}
+
+// EXERCISES
+const EX = [
+  { text:'הַסְּטוּדֶנְטִית לָמְדָה קָשֶׁה לִפְנֵי הַבְּחִינָה — הִיא __________ כָּל הַלַּיְלָה.', options:['שָׁבְרָה אֶת הָרֹאשׁ','הֵרִימָה יָדַיִם','יָצָא לָהּ שֵׁם','דִּיבְּרָה אֶל הַקִּיר'], answer:'שָׁבְרָה אֶת הָרֹאשׁ' },
+  { text:'הַמּוֹרָה הִסְבִּירָה שָׁלֹשׁ פְּעָמִים, אֲבָל נִדְמֶה שֶׁהִיא __________.', options:['שָׁבְרָה אֶת הָרֹאשׁ','הֵרִימָה יָדַיִם','יָצָא לָהּ שֵׁם','דִּיבְּרָה אֶל הַקִּיר'], answer:'דִּיבְּרָה אֶל הַקִּיר' },
+  { text:'אַחֲרֵי הַנִּצָּחוֹן הַגָּדוֹל, __________ לְדָוִד כְּשַׂחְקָן מְצֻיָּן.', options:['שָׁבַר אֶת הָרֹאשׁ','הֵרִים יָדַיִם','יָצָא לוֹ שֵׁם','נָפַל לוֹ הַפֶּה'], answer:'יָצָא לוֹ שֵׁם' },
+  { text:'אֵין לִי כֹּחַ לְנַסּוֹת שׁוּב — __________.', options:['יָצָא לִי שֵׁם','הֵרַמְתִּי יָדַיִם','שָׁבַרְתִּי אֶת הָרֹאשׁ','נָפַל לִי הַפֶּה'], answer:'הֵרַמְתִּי יָדַיִם' },
+  { text:'כְּשֶׁנּוֹעָה רָאֲתָה אֶת הַהַפְתָּעָה שֶׁהֵכִינוּ לָהּ חֲבֵרֶיהָ — __________.', options:['שָׁבְרָה אֶת הָרֹאשׁ','הֵרִימָה יָדַיִם','יָצָא לָהּ שֵׁם','נָפַל לָהּ הַפֶּה'], answer:'נָפַל לָהּ הַפֶּה' }
+];
+const exDone = {};
+function buildEx() {
+  const w = document.getElementById('exercises');
+  EX.forEach((ex, i) => {
+    const d = document.createElement('div'); d.className = 'mc-q';
+    d.innerHTML = '<div class="mc-q-text"><span class="n">' + (i + 1) + '</span>' + ex.text + '</div>';
+    const opts = document.createElement('div'); opts.className = 'mc-opts';
+    ex.options.forEach(opt => {
+      const b = document.createElement('button'); b.className = 'mc-opt'; b.textContent = opt;
+      b.onclick = () => ansEx(i, b, opt); opts.appendChild(b);
+    });
+    d.appendChild(opts);
+    const fb = document.createElement('div'); fb.className = 'mc-fb'; fb.id = 'ef' + i; d.appendChild(fb);
+    w.appendChild(d);
+  });
+}
+function ansEx(i, btn, chosen) {
+  const ex = EX[i], fb = document.getElementById('ef' + i);
+  if (chosen === ex.answer) {
+    if (exDone[i]) return; exDone[i] = true;
+    document.querySelectorAll('#exercises .mc-q')[i].querySelectorAll('.mc-opt').forEach(b => { b.disabled = true; if (b.textContent === ex.answer) b.classList.add('correct'); });
+    fb.textContent = '✔ נָכוֹן!'; fb.className = 'mc-fb ok'; correct++; updateProgress();
+  } else {
+    btn.classList.add('wrong'); fb.textContent = '✘ לֹא מְדֻיָּק — נַסֵּה שׁוּב.'; fb.className = 'mc-fb no';
+    setTimeout(() => btn.classList.remove('wrong'), 700);
+  }
+}
+
+// CLOUD GAME
+const rounds = [
+  { idiom:'שָׁבַר אֶת הָרֹאשׁ', options:['חָשַׁב קָשֶׁה מְאוֹד','כָּאַב לוֹ הָרֹאשׁ','הֶחְלִיט לִלְמֹד','שִׂיחֵק עִם חֲבֵרִים'], correct:'חָשַׁב קָשֶׁה מְאוֹד', explain:'"שָׁבַר אֶת הָרֹאשׁ" — פֵּרוּשׁוֹ שֶׁמִּישֶׁהוּ חָשַׁב בְּמֶרֶץ רַב כְּדֵי לִמְצֹא פִּתְרוֹן. לֹא שָׁבַר רֹאשׁ אֲמִיתִּי!' },
+  { idiom:'דִּיבֵּר אֶל הַקִּיר', options:['בָּנָה קִיר חָדָשׁ','שׂוֹחֵחַ עִם הַמּוֹרָה','אַף אֶחָד לֹא הִקְשִׁיב לוֹ','כָּעַס עַל כֻּלָּם'], correct:'אַף אֶחָד לֹא הִקְשִׁיב לוֹ', explain:'"דִּיבֵּר אֶל הַקִּיר" — פֵּרוּשׁוֹ שֶׁאִישׁ לֹא שָׂם לֵב לְמַה שֶׁאָמַר. קִיר לֹא שׁוֹמֵעַ, וְגַם הַמַּאֲזִינִים לֹא שָׁמְעוּ!' },
+  { idiom:'הֵרִים יָדַיִם', options:['הִצְבִּיעַ בַּשִּׁיעוּר','נֶחְבַּל בְּיָדוֹ','הִתְיָאֵשׁ וְוִיתֵּר','שִׂיחֵק כַּדּוּרְסַל'], correct:'הִתְיָאֵשׁ וְוִיתֵּר', explain:'"הֵרִים יָדַיִם" — פֵּרוּשׁוֹ שֶׁמִּישֶׁהוּ הִתְיָאֵשׁ לְגַמְרֵי. זֶה סֵמֶל שֶׁל כְּנִיעָה.' },
+  { idiom:'יָצָא לוֹ שֵׁם', options:['שָׁכַח אֶת שְׁמוֹ','יָצָא מִן הַכִּיתָה','חָזַר הַבַּיְתָה','נַעֲשָׂה מְפֻרְסָם'], correct:'נַעֲשָׂה מְפֻרְסָם', explain:'"יָצָא לוֹ שֵׁם" — פֵּרוּשׁוֹ שֶׁהָאָדָם הִתְפַּרְסֵם וְקִיבֵּל מוֹנִיטִין. "שֵׁם" כָּאן הוּא מוֹנִיטִין, לֹא שֵׁם פְּרָטִי!' },
+  { idiom:'אָכַל אוֹתוֹ חַי', options:['הִזְמִין אוֹתוֹ לַאֲרוּחָה','בִּישֵּׁל לְבַד','עָשָׂה אִתּוֹ שָׁלוֹם','כָּעַס עָלָיו מְאוֹד'], correct:'כָּעַס עָלָיו מְאוֹד', explain:'"אָכַל אוֹתוֹ חַי" — פֵּרוּשׁוֹ שֶׁמִּישֶׁהוּ כָּעַס מְאוֹד וְגָעַר בְּאַחֵר. אֵין כָּאן אֲכִילָה אֲמִיתִּית!' },
+  { idiom:'נָפַל לוֹ הַפֶּה', options:['נֶחְבַּל בְּפָנָיו','שָׁכַח מַה לְּדַבֵּר','בָּכָה מֵרֹב עֶצֶב','הִתְפַּעֵל מְאוֹד וְהִשְׁתּוֹמֵם'], correct:'הִתְפַּעֵל מְאוֹד וְהִשְׁתּוֹמֵם', explain:'"נָפַל לוֹ הַפֶּה" — פֵּרוּשׁוֹ שֶׁמִּישֶׁהוּ הִשְׁתּוֹמֵם כָּל כָּךְ עַד שֶׁלֹּא יָכוֹל לְדַבֵּר!' }
+];
+let gs = { round:0, score:0, chosen:null, confirmed:false };
+function shuffle(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function initGame() { gs = { round:0, score:0, chosen:null, confirmed:false }; showRound(); }
+function showRound() {
+  if (gs.round >= rounds.length) { endGame(); return; }
+  const r = rounds[gs.round];
+  document.getElementById('game-idiom').textContent = r.idiom;
+  const cloudWrap = document.getElementById('cloud-wrap');
+  cloudWrap.classList.remove('fly-away'); cloudWrap.style.opacity = '';
+  document.getElementById('confirm-btn').classList.remove('show');
+  document.getElementById('explain-box').classList.remove('show');
+  document.getElementById('next-btn').classList.remove('show');
+  document.getElementById('explain-box').textContent = '';
+  const grid = document.getElementById('drop-grid');
+  grid.innerHTML = '';
+  shuffle(r.options).forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'drop-btn'; btn.textContent = opt; btn.dataset.val = opt;
+    btn.onclick = () => chooseDrop(btn, opt);
+    grid.appendChild(btn);
+  });
+  gs.chosen = null; gs.confirmed = false;
+  updatePips();
+}
+function chooseDrop(btn, val) {
+  if (gs.confirmed) return;
+  gs.chosen = val;
+  document.querySelectorAll('.drop-btn').forEach(b => b.classList.remove('chosen'));
+  btn.classList.add('chosen');
+  document.getElementById('confirm-btn').classList.add('show');
+}
+function confirmAnswer() {
+  if (!gs.chosen || gs.confirmed) return;
+  gs.confirmed = true;
+  const r = rounds[gs.round];
+  const isOK = gs.chosen === r.correct;
+  document.querySelectorAll('.drop-btn').forEach(b => b.disabled = true);
+  document.getElementById('confirm-btn').classList.remove('show');
+  document.querySelectorAll('.drop-btn').forEach(b => {
+    if (b.dataset.val === r.correct) b.classList.add('correct-ans');
+    else if (b.dataset.val === gs.chosen && !isOK) b.classList.add('wrong-ans');
+  });
+  if (isOK) {
+    gs.score++; correct++; updateProgress();
+    document.getElementById('cloud-score').textContent = gs.score + ' / 6';
+    triggerRain();
+    setTimeout(flyCloudAway, 400);
+  } else {
+    const cloud = document.getElementById('game-cloud');
+    cloud.style.animation = 'none'; cloud.classList.add('shake');
+    setTimeout(() => { cloud.classList.remove('shake'); cloud.style.animation = ''; }, 500);
+    document.querySelectorAll('.drop-btn').forEach(b => { if (b.classList.contains('wrong-ans')) { b.classList.add('bounce'); setTimeout(() => b.classList.remove('bounce'), 500); } });
+  }
+  const eb = document.getElementById('explain-box');
+  eb.textContent = (isOK ? '✔ ' : '✘ ') + r.explain; eb.classList.add('show');
+  document.getElementById('next-btn').classList.add('show');
+}
+function triggerRain() {
+  const container = document.getElementById('rain-container');
+  const scene = document.getElementById('sky-scene');
+  const sceneRect = scene.getBoundingClientRect();
+  const cloudRect = document.getElementById('cloud-wrap').getBoundingClientRect();
+  const relLeft = cloudRect.left - sceneRect.left, relWidth = cloudRect.width;
+  for (let i = 0; i < 18; i++) {
+    const drop = document.createElement('div');
+    drop.className = 'rain-drop';
+    const x = relLeft + Math.random() * relWidth;
+    const h = 10 + Math.random() * 16;
+    drop.style.cssText = 'left:' + x + 'px;top:' + (cloudRect.bottom - sceneRect.top - 5) + 'px;height:' + h + 'px;animation-delay:' + (Math.random() * 0.3) + 's;';
+    container.appendChild(drop);
+    setTimeout(() => drop.remove(), 1100);
+  }
+}
+function flyCloudAway() { document.getElementById('cloud-wrap').classList.add('fly-away'); }
+function nextRound() {
+  const donePip = document.getElementById('pip' + gs.round);
+  if (donePip) donePip.className = 'pip done';
+  gs.round++;
+  if (gs.round >= rounds.length) { endGame(); return; }
+  const cloudWrap = document.getElementById('cloud-wrap');
+  cloudWrap.classList.remove('fly-away'); cloudWrap.classList.add('fade-in');
+  setTimeout(() => cloudWrap.classList.remove('fade-in'), 600);
+  showRound();
+}
+function updatePips() {
+  for (let i = 0; i < 6; i++) {
+    const p = document.getElementById('pip' + i);
+    if (!p) continue;
+    p.className = 'pip' + (i < gs.round ? ' done' : (i === gs.round ? ' current' : ''));
+  }
+}
+function endGame() {
+  document.getElementById('game-area').style.display = 'none';
+  document.getElementById('final-score').textContent = gs.score + '/6';
+  document.getElementById('result-banner').classList.add('show');
+  for (let i = 0; i < 6; i++) { const p = document.getElementById('pip' + i); if (p) p.className = 'pip done'; }
+}
+
+// WRITING
+const wP = ['בִּטּוּי 1 — פֵּרוּשׁ ...', 'בִּטּוּי 2 — פֵּרוּשׁ ...', 'בִּטּוּי 3 — פֵּרוּשׁ ...', 'בִּטּוּי 4 — פֵּרוּשׁ ...', 'בִּטּוּי 5 — פֵּרוּשׁ ...'];
+function initW() {
+  const c = document.getElementById('writing-lines'); if (!c) return;
+  c.innerHTML = '';
+  wP.forEach((ph, i) => {
+    const d = document.createElement('div'); d.className = 'writing-line'; d.id = 'wline-' + i;
+    d.innerHTML = '<div class="writing-num">' + (i + 1) + '</div><input class="writing-input" id="winput-' + i + '" type="text" placeholder="' + ph + '" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d);
+  });
+  const r = document.getElementById('writing-result'); if (r) r.style.display = 'none';
+  const f = document.getElementById('writing-fb'); if (f) f.textContent = '';
+}
+function submitWriting() {
+  let n = 0;
+  for (let i = 0; i < 5; i++) {
+    const v = document.getElementById('winput-' + i).value.trim();
+    const l = document.getElementById('wline-' + i);
+    if (v.length > 1) { n++; l.className = 'writing-line filled'; } else l.className = 'writing-line';
+  }
+  const fb = document.getElementById('writing-fb'), res = document.getElementById('writing-result');
+  if (n < 5) { if (fb) { fb.textContent = '⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.'; fb.style.color = '#dc2626'; } if (res) res.style.display = 'none'; return; }
+  if (fb) fb.textContent = '';
+  if (res) { res.style.display = 'block'; res.innerHTML = '🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!'; }
+}
+function resetWriting() { initW(); }
+
+buildComp();
+buildEx();
+initGame();
+initW();
+</script>
+</body>
+</html>
