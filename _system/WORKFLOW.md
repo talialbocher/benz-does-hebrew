@@ -62,6 +62,17 @@ python3 "_system/verify_lesson.py" lessonNN_*.html
 2. אחרי שבן עושה את השיעור — עדכנו את `ben_progress.md`:
    ענה נכון ברוב השאלות לבד → ✅ · התקשה → 🔁 + הערה ביומן.
 
+### שלב 6 — שמירה ב-GitHub (חובה!)
+לאחר ✅ בשלב 4 ועדכון הרישומים בשלב 5, יש לשמור את השיעור בריפו:
+```
+git add lessonNN_*.html _system/curriculum.md _system/ben_progress.md
+git commit -m "Add lessonNN: [נושא]"
+git push
+```
+אין לסיים את תהליך יצירת השיעור בלי commit + push. אם ה-push נכשל
+(למשל נעילת .git/index.lock מ-GitHub Desktop פתוח) — לבדוק אם יש תהליך git
+פעיל בפועל לפני הסרת הנעילה, ולנסות שוב.
+
 ## עקרונות פדגוגיים קבועים
 
 - שפה ברמת כיתה ה׳: משפטים קצרים, מילים מוכרות + 6–10 מילים חדשות לשיעור.
