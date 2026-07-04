@@ -1034,7 +1034,7 @@ pgInit();
 
 <!-- ══ WRITING ASSIGNMENT ══ -->
 <script>
-const wP=['כְּתוֹב מִשְׁפָּט שֶׁמִּסְתַּיֵּם בִּנְקֻדָּה...', 'כְּתוֹב שְׁאֵלָה שֶׁמִּסְתַּיֶּמֶת בְּסִימַן שְׁאֵלָה...', 'כְּתוֹב מִשְׁפָּט עִם סִימַן קְרִיאָה...', 'כְּתוֹב מִשְׁפָּט עִם פְּסִיק בְּאֶמְצַע...', 'כְּתוֹב מִשְׁפָּט עִם נְקֻדּוֹתַיִם וּרְשִׁימָה...'];
+const wP=['אֲנִי אוֹהֵב ...', 'לְאָן ...?', 'אֵיזֶה כֵּיף ...!', 'קָנִיתִי ..., וְגַם ...', 'בַּתִּיק שֶׁלִּי יֵשׁ: ...'];
 function initW(){const c=document.getElementById('writing-lines');if(!c)return;c.innerHTML='';wP.forEach((ph,i)=>{const d=document.createElement('div');d.className='writing-line';d.id='wline-'+i;d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';c.appendChild(d);});const r=document.getElementById('writing-result');if(r)r.style.display='none';const f=document.getElementById('writing-fb');if(f)f.textContent='';}
 window.submitWriting=function(){let n=0;for(let i=0;i<5;i++){const v=document.getElementById('winput-'+i).value.trim();const l=document.getElementById('wline-'+i);if(v.length>1){n++;l.className='writing-line filled';}else l.className='writing-line';}const fb=document.getElementById('writing-fb');const res=document.getElementById('writing-result');if(n<5){if(fb){fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל 5 הַשּׁוּרוֹת.';fb.style.color='#dc2626';}if(res)res.style.display='none';return;}if(fb)fb.textContent='';if(res){res.style.display='block';res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ 5 מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';}}; 
 window.resetWriting=function(){initW();};
