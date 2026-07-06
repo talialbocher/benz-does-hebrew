@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 8 — מִשְׁפַּט שְׁלֹמֹה</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p1:#7c3aed;
+  --p1dk:#4c1d95;
+  --p1md:#c4b5fd;
+  --p1lt:#f3e8ff;
+  --page:#faf5ff;
+  --p2:#ca8a04;
+  --p2lt:#fef3c7;
+  --ink:#1e293b; --muted:#64748b; --ok:#16a34a; --bad:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);direction:rtl;min-height:100vh;font-size:17px}
+
+/* ── כותרת ── */
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+
+.container{max-width:860px;margin:0 auto;padding:24px 16px 70px}
+
+/* ── כותרות מקטעים וכרטיסים ── */
+.section-title{font-size:1.42rem;font-weight:900;color:var(--ink);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.story-box,.grammar-box,.game-box{background:#fff;border-radius:22px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:24px 26px}
+.story-box::before,.grammar-box::before,.game-box::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+
+/* ── קריאה ── */
+.story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
+.story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-box .bible-quote{font-family:'Frank Ruhl Libre',serif;font-size:1.22rem;color:var(--p1dk);background:var(--p1lt);border-right:4px solid var(--p1);border-radius:8px;padding:10px 16px;margin:.6em 0}
+.story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+
+/* ── אוצר מילים ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.vocab-card{background:var(--p1lt);border:2px solid var(--p1md);border-radius:16px;padding:14px 12px;text-align:center;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--p1)}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;color:var(--p1dk);font-weight:700}
+.vocab-card .eng{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ── דקדוק ── */
+.grammar-box h3{color:var(--p1);font-size:1.2rem;font-weight:900;margin-bottom:12px}
+.grammar-box p{line-height:1.9;font-size:1.02rem;margin-bottom:.5em}
+.gram-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--p1);color:#fff;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;border-bottom:1px solid var(--p1lt);text-align:right}
+.gram-table tr:nth-child(even) td{background:var(--page)}
+.ex-chip{display:inline-block;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:6px 14px;font-size:1.05rem;color:var(--p1dk);font-weight:700;margin:4px 2px;white-space:nowrap}
+
+/* ── משחקים (מנוע MC גנרי) ── */
+.game-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);text-align:center;margin-bottom:4px}
+.game-subtitle{font-size:.9rem;color:var(--muted);text-align:center;margin-bottom:18px}
+.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:14px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--p1lt);border:2px solid var(--p1md);transition:background .3s}
+.dot.done{background:var(--p1);border-color:var(--p1)}
+.game-scene{background:var(--page);border:2px solid var(--p1lt);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center;min-height:70px}
+.q-text{font-size:1.1rem;font-weight:700;line-height:1.8;text-align:center;margin-bottom:14px}
+.q-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.opt-btn{background:#fff;border:2px solid var(--p1md);border-radius:12px;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.opt-btn:hover:not(:disabled){border-color:var(--p1);background:var(--p1lt)}
+.opt-btn.selected{border-color:var(--p1);background:var(--p1lt);box-shadow:0 0 0 3px var(--p1lt)}
+.opt-btn.correct-ans{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.opt-btn.wrong-ans{background:#fee2e2;border-color:var(--bad);color:#b91c1c;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.submit-btn,.next-btn{display:block;margin:14px auto 0;background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 28px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+.submit-btn:hover:not(:disabled){background:var(--p1dk)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.next-btn{display:none;background:var(--p2)}
+.explanation{display:none;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:10px 14px;font-size:.95rem;color:var(--p1dk);font-weight:600;margin-top:12px;line-height:1.8;text-align:center}
+.result-banner{display:none;background:linear-gradient(135deg,var(--p1md),var(--p1));color:#fff;border-radius:14px;padding:20px;text-align:center;font-size:1.25rem;font-weight:800;margin-top:16px}
+
+/* ── סצנת כתר החוכמה (משחק הבנה) ── */
+.crown-scene{display:flex;flex-direction:column;align-items:center;gap:10px}
+.crown-emoji{font-size:3.4rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25))}
+.crown-gems{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:480px;min-height:1.6rem}
+.crown-gem{font-size:1.3rem;animation:gemPop .4s ease}
+@keyframes gemPop{0%{transform:scale(0)}70%{transform:scale(1.3)}100%{transform:scale(1)}}
+.crown-label{font-size:1.05rem;font-weight:800;color:var(--p1dk)}
+
+/* ── סצנת סולם ההשוואה (משחק דקדוק) ── */
+.ladder-scene{display:flex;flex-direction:column;align-items:center;gap:10px}
+.ladder-wrap{position:relative;display:flex;flex-direction:column-reverse;gap:6px;height:150px;justify-content:flex-start;width:220px}
+.ladder-rung{height:14px;border-radius:6px;background:var(--p1lt);border:2px solid var(--p1md);width:0%;transition:width .5s ease}
+.ladder-rung.on{background:var(--p2lt);border-color:var(--p2)}
+.ladder-climber{position:absolute;left:50%;transform:translateX(-50%);bottom:0;font-size:1.6rem;transition:bottom .5s ease}
+.ladder-label{font-size:1.05rem;font-weight:800;color:var(--p1dk)}
+
+/* ── מטלת כתיבה ── */
+.writing-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.writing-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,#bbf7d0,var(--ok))}
+.writing-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);margin-bottom:14px}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-btn{background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-btn.gray{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ══ כותרת ══ -->
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">👑</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🏛️</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">⚖️</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">📜</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">🕊️</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 8</div>
+    <h1>מִשְׁפַּט שְׁלֹמֹה</h1>
+    <div class="header-sub">איך גילה שלמה המלך מי האם האמיתית?</div>
+    <div class="header-badge">🎯 כִּיתָה ה׳ &nbsp;|&nbsp; שם התואר - השוואה והפלגה</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson01_shira_kineret.html">→ 1</a>
+  <a class="nav-btn" href="lesson02_shem_etzem_ken_tzipor.html">→ 2</a>
+  <a class="nav-btn" href="lesson03_choni_hameagel.html">→ 3</a>
+  <a class="nav-btn" href="lesson04_rabbi_akiva_vehaeven.html">→ 4</a>
+  <a class="nav-btn" href="lesson05_hillel_vehager.html">→ 5</a>
+  <a class="nav-btn" href="lesson06_shnei_haachim.html">→ 6</a>
+  <a class="nav-btn" href="lesson07_luach_hashana_haivri.html">→ 7</a>
+  <span class="nav-current">שִׁיעוּר 8 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- ══ חלק א: קריאה ══ -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>לפני כשלושת אלפים שנה מלך בישראל מלך חכם מאוד, ושמו שלמה - בנו של דוד המלך. כל העם ידע שהמלך שלמה שופט את העם באמת ובצדק, ושה' נתן לו חוכמה גדולה מכל אדם אחר.</p>
+    <p>יום אחד הגיעו אל שלמה שתי נשים, וכל אחת מהן החזיקה בזרועותיה תינוק. אלא שתינוק אחד היה חי, והשני - מת.</p>
+    <p>האישה הראשונה טענה לפני המלך: "אדוני, אני והאישה הזאת גרות באותו הבית, וילדנו כמעט באותו הזמן. בלילה, בעודי ישנה, מת בנה של האישה הזאת - והיא לקחה את בני החי במקומו, בזמן שלא הרגשתי בכך!"</p>
+    <p>מיד ענתה האישה השנייה: "לא נכון! הבן החי הוא בני, והמת - בנה שלה!" וכך חזרו השתיים על <span class="highlight">הַטְּעָנוֹת</span> שלהן שוב ושוב, זו מול זו, בלי שאיש יוכל להכריע ביניהן.</p>
+    <p>שלמה המלך הקשיב בשקט. הוא ידע שקשה מאוד <span class="highlight">לְהַכְרִיעַ</span> בין שתי הנשים - הרי שתיהן טענו בדיוק אותו דבר, ואיש לא ראה מה קרה בלילה, בתוך הבית החשוך.</p>
+    <p>אז חשב שלמה על רעיון <span class="highlight">נוֹעָז</span>. הוא ביקש מהמשרתים חרב, ואמר בקול רם:</p>
+    <div class="bible-quote">"גִּזְרוּ אֶת הַיֶּלֶד הַחַי לִשְׁנָיִם, וּתְנוּ אֶת הַחֲצִי לְאַחַת וְאֶת הַחֲצִי לְאֶחָת."</div>
+    <p>כששמעה זאת האם האמיתית, נבהלה, ולבה נמלא <span class="highlight">רַחֲמִים</span> על בנה הקטן. היא קראה אל המלך:</p>
+    <div class="bible-quote">"בִּי אֲדֹנִי! תְּנוּ לָהּ אֶת הַיָּלוּד הַחַי, וְהָמֵת אַל תְּמִיתֻהוּ."</div>
+    <p>היא הייתה מוכנה <span class="highlight">לְוַתֵּר</span> על בנה, ובלבד שיישאר בחיים - גם אם יגדל אצל אישה אחרת. אבל האישה השנייה אמרה <span class="highlight">בְּקוֹר רוּחַ</span>: "גם לי גם לך לא יהיה - גזרו!"</p>
+    <p>ברגע ההוא ידע שלמה בדיוק מי האם האמיתית. הוא הצביע על האישה הראשונה ואמר למשרתיו:</p>
+    <div class="bible-quote">"תְּנוּ לָהּ אֶת הַיָּלוּד הַחַי, וְהָמֵת לֹא תְמִיתֻהוּ - הִיא אִמּוֹ."</div>
+    <p>כל העם ב<span class="highlight">מַּמְלָכָה</span> שמע על המשפט הזה, ופחד מפני המלך - כי ראו שיש בו חוכמה גדולה כל כך, לעשות <span class="highlight">מִשְׁפַּט צֶדֶק</span>.</p>
+    <div class="source-line">על-פי מלכים א, פרק ג - סיפור מקראי, נחלת הכלל. הציטוטים המנוקדים לקוחים מהמקור.</div>
+  </div>
+
+  <!-- ══ חלק ב: אוצר מילים ══ -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">טַעֲנָה</div><div class="eng">claim, argument</div></div>
+    <div class="vocab-card"><div class="heb">לְהַכְרִיעַ</div><div class="eng">to decide, to rule</div></div>
+    <div class="vocab-card"><div class="heb">נוֹעָז</div><div class="eng">daring, bold</div></div>
+    <div class="vocab-card"><div class="heb">רַחֲמִים</div><div class="eng">compassion, mercy</div></div>
+    <div class="vocab-card"><div class="heb">לְוַתֵּר</div><div class="eng">to give up, concede</div></div>
+    <div class="vocab-card"><div class="heb">בְּקוֹר רוּחַ</div><div class="eng">coldly, coolly</div></div>
+    <div class="vocab-card"><div class="heb">מַמְלָכָה</div><div class="eng">kingdom</div></div>
+    <div class="vocab-card"><div class="heb">מִשְׁפַּט צֶדֶק</div><div class="eng">a just judgment</div></div>
+  </div>
+
+  <!-- ══ חלק ג: משחק הבנת הנקרא ══ -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — כֶּתֶר הַחָכְמָה</div>
+  <div class="game-box">
+    <div class="game-title">👑💎 כֶּתֶר הַחָכְמָה נִבְנֶה</div>
+    <div class="game-subtitle">ענו נכון על שאלות ההבנה כדי להוסיף אבן חן לכתר החוכמה של שלמה!</div>
+    <div class="progress-dots" id="comp-dots"></div>
+    <div class="game-scene" id="comp-scene">
+      <div class="crown-scene">
+        <div class="crown-emoji">👑</div>
+        <div class="crown-gems" id="crown-gems"></div>
+        <div class="crown-label" id="crown-label">0 אבני חן בכתר...</div>
+      </div>
+    </div>
+    <div class="q-text" id="comp-q"></div>
+    <div class="opts" id="comp-opts"></div>
+    <div class="explanation" id="comp-exp"></div>
+    <button class="submit-btn" id="comp-submit" disabled onclick="mcSubmit(COMP)">בְּדֹק ✓</button>
+    <button class="next-btn" id="comp-next" onclick="mcNext(COMP)">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    <div class="result-banner" id="comp-result"></div>
+  </div>
+
+  <!-- ══ חלק ד: דקדוק ══ -->
+  <div class="section-title">📚 דִּקְדּוּק — שם התואר: השוואה והפלגה</div>
+  <div class="grammar-box">
+    <h3>מהי השוואה? מהי הפלגה?</h3>
+    <p>שם תואר יכול לתאר משהו במידה רגילה (חכם), במידה גדולה יותר בהשוואה למישהו אחר - וזו נקראת "השוואה" (חכם יותר) - או במידה הגבוהה ביותר מכולם - וזו נקראת "הפלגה" (הכי חכם, או: החכם ביותר).</p>
+    <table class="gram-table">
+      <tr><th>תואר רגיל</th><th>השוואה (יותר)</th><th>הפלגה (הכי / ביותר)</th></tr>
+      <tr><td>חכם</td><td>חכם יותר</td><td>הכי חכם / החכם ביותר</td></tr>
+      <tr><td>גדול</td><td>גדול יותר</td><td>הכי גדול / הגדול ביותר</td></tr>
+      <tr><td>קטן</td><td>קטן יותר</td><td>הכי קטן / הקטן ביותר</td></tr>
+      <tr><td>יפה</td><td>יפה יותר</td><td>הכי יפה / היפה ביותר</td></tr>
+      <tr><td>טוב</td><td>טוב יותר</td><td>הכי טוב / הטוב ביותר</td></tr>
+    </table>
+    <h3>שימו לב לסדר המילים!</h3>
+    <p>המילה "הכי" באה תמיד <strong>לפני</strong> שם התואר (הכי גדול, הכי חכם), ואילו הסיומת "ביותר" באה תמיד <strong>אחרי</strong> שם התואר, עם ה"א הידיעה (הגדול ביותר, החכם ביותר). אסור לערבב ביניהן באותו הצירוף (למשל: לא נכון לומר "הכי גדול ביותר").</p>
+    <h3>יוצא דופן: המילה "טוב"</h3>
+    <p>בעברית מדוברת נהוג לפעמים לומר "יותר טוב", אבל בכתיבה מסודרת עדיף לומר "טוב יותר" - בדיוק כמו "חכם יותר" או "גדול יותר".</p>
+    <div style="margin-top:14px">
+      <span class="ex-chip">חכם יותר</span>
+      <span class="ex-chip">הכי חכם</span>
+      <span class="ex-chip">הגדול ביותר</span>
+      <span class="ex-chip">קטן יותר</span>
+      <span class="ex-chip">הכי יפה</span>
+    </div>
+  </div>
+
+  <!-- ══ חלק ה: משחק דקדוק ══ -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — סֻלַּם הַהַשְׁוָאָה</div>
+  <div class="game-box">
+    <div class="game-title">🪜📏 סֻלַּם הַהַשְׁוָאָה עוֹלֶה</div>
+    <div class="game-subtitle">כל תשובה נכונה מטפסת עוד שלב אחד במעלה הסולם!</div>
+    <div class="progress-dots" id="gram-dots"></div>
+    <div class="game-scene" id="gram-scene">
+      <div class="ladder-scene">
+        <div class="ladder-wrap" id="ladder-wrap">
+          <span class="ladder-climber" id="ladder-climber" style="bottom:0%">🧗</span>
+        </div>
+        <div class="ladder-label" id="ladder-label">0 מתוך 8 שלבים בסולם...</div>
+      </div>
+    </div>
+    <div class="q-text" id="gram-q"></div>
+    <div class="opts" id="gram-opts"></div>
+    <div class="explanation" id="gram-exp"></div>
+    <button class="submit-btn" id="gram-submit" disabled onclick="mcSubmit(GRAM)">בְּדֹק ✓</button>
+    <button class="next-btn" id="gram-next" onclick="mcNext(GRAM)">הַבָּא ←</button>
+    <div class="result-banner" id="gram-result"></div>
+  </div>
+
+  <!-- ══ חלק ו: מטלת כתיבה (אחת בלבד!) ══ -->
+  <div class="section-title">✍️ כְּתִיבָה</div>
+  <div class="writing-card">
+    <div class="writing-title">✍️ מַטְלַת כְּתִיבָה</div>
+    <p style="margin-bottom:16px">כתבו חמישה משפטים העוסקים בהשוואה ובהפלגה, בהשראת סיפור המשפט של שלמה המלך. בשלושה משפטים לפחות השתמשו במילים "יותר", "הכי" או "ביותר". לדוגמה: "האם האמיתית אהבה את הילד יותר מהאישה השנייה, ולכן היא הייתה מוכנה לוותר עליו."</p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button class="writing-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-btn gray" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ═══ נתוני המשחקים ═══ */
+const compQuestions = [
+  { q:"מי הגיעו אל שלמה המלך בתחילת הסיפור?", opts:["שתי נשים, כל אחת מהן עם תינוק","שני מלכים משכנים","שני שופטים מירושלים","אישה אחת עם שני תינוקות"], ans:0,
+    exp:"בתחילת הסיפור הגיעו אל שלמה שתי נשים, וכל אחת מהן החזיקה תינוק - אחד חי ואחד מת." },
+  { q:"מה קרה לתינוק של אחת הנשים בלילה, לפי הטענה של האישה הראשונה?", opts:["הוא נרדם ולא התעורר בבוקר","הוא מת, והאישה השנייה החליפה אותו בתינוק החי של האישה הראשונה","הוא נעלם מהבית","הוא בכה כל הלילה"], ans:1,
+    exp:"האישה הראשונה טענה שבנה של האישה השנייה מת בלילה, ושהאישה השנייה לקחה במקומו את בנה החי של הראשונה." },
+  { q:"מה הציע שלמה לעשות כדי לפתור את הוויכוח בין הנשים?", opts:["לשאול את שכני הנשים מה ראו","לחכות שנה ולראות למי הילד דומה","לגזור את הילד החי לשניים ולתת חצי לכל אחת","לתת את הילד לאיש אחר לגמרי"], ans:2,
+    exp:"שלמה ביקש חרב ואמר: \"גזרו את הילד החי לשניים\" - כדי לבחון איך תגיב כל אחת מהנשים." },
+  { q:"איך הגיבה האם האמיתית להצעה של שלמה?", opts:["היא שמחה על ההצעה","היא ביקשה לתת את הילד החי לאישה השנייה, ובלבד שיישאר בחיים","היא ברחה מהארמון","היא לא אמרה כלום"], ans:1,
+    exp:"האם האמיתית נבהלה, ולבה נמלא רחמים - היא הייתה מוכנה לוותר על בנה ובלבד שיישאר בחיים." },
+  { q:"איך בדיוק ידע שלמה מי האם האמיתית של הילד?", opts:["האמיתית הייתה מוכנה לוותר על הילד כדי להציל את חייו, מרוב אהבה ורחמים","הוא שאל את הילד עצמו","האמיתית הייתה לבושה יפה יותר","הוא הטיל גורל בין שתי הנשים"], ans:0,
+    exp:"רק אם אמיתית תוותר על זכותה כדי שילדה יישאר בחיים - וזה בדיוק מה שקרה, ולכן שלמה ידע מי היא." },
+  { q:"למה כל העם בממלכה פחד מפני המלך אחרי המשפט הזה, לפי הסיפור?", opts:["כי הוא ענש את שתי הנשים","כי ראו שיש בו חוכמה גדולה כל כך, לעשות משפט צדק","כי הוא הרים את קולו בכעס","כי הוא היה המלך העשיר ביותר"], ans:1,
+    exp:"העם ראה שיש בשלמה חוכמה גדולה לעשות משפט צדק אמיתי, ולכן פחד וכיבד אותו מאוד." }
+];
+const gramQuestions = [
+  { q:"בחרו את צורת ההשוואה הנכונה: \"הבית שלנו ___ מהבית של השכנים\"", opts:["גדול","גדול יותר","הכי גדול","גדול הכי"], ans:1,
+    exp:"בהשוואה בין שני דברים משתמשים ב\"יותר\" - \"גדול יותר\".", label:"גדול יותר" },
+  { q:"בחרו את צורת ההפלגה הנכונה: \"דני הוא התלמיד ___ בכיתה\"", opts:["הכי חכם","חכם יותר","חכם מדי","חכם מאוד יותר"], ans:0,
+    exp:"בהפלגה, כשמדובר על הכי גבוה מבין כולם, אפשר להשתמש ב\"הכי\" - \"הכי חכם\".", label:"הכי חכם" },
+  { q:"איזה משפט נכון מבחינת מקום המילה \"ביותר\"?", opts:["הוא הילד ביותר החכם בכיתה","הוא הילד החכם ביותר בכיתה","הוא ביותר הילד החכם בכיתה","הוא החכם הילד ביותר בכיתה"], ans:1,
+    exp:"המילה \"ביותר\" באה תמיד אחרי שם התואר: \"הילד החכם ביותר\".", label:"החכם ביותר" },
+  { q:"השלימו לפי סדר ההפלגה הנכון: \"שלמה היה ___ מכל מלכי ישראל\"", opts:["החכם ביותר","ביותר החכם","הכי ביותר חכם","חכם הכי"], ans:0,
+    exp:"בהפלגה עם \"ביותר\", התואר בא לפני המילה \"ביותר\": \"החכם ביותר\".", label:"החכם ביותר" },
+  { q:"מה הצורה המועדפת בכתיבה מסודרת לתואר \"טוב\" בהשוואה?", opts:["יותר טוב","טוב יותר","טוב הכי","הכי יותר טוב"], ans:1,
+    exp:"בכתיבה מסודרת עדיף \"טוב יותר\", אף שבשפה המדוברת נהוג גם \"יותר טוב\".", label:"טוב יותר" },
+  { q:"איפה מקומה של המילה \"הכי\" ביחס לשם התואר?", opts:["אחרי שם התואר","לפני שם התואר","באמצע המילה","זה לא משנה"], ans:1,
+    exp:"המילה \"הכי\" באה תמיד לפני שם התואר: \"הכי גדול\", \"הכי יפה\".", label:"הכי לפני התואר" },
+  { q:"איפה מקומה של הסיומת \"ביותר\" ביחס לשם התואר?", opts:["לפני שם התואר","אחרי שם התואר","בתוך שם התואר","זה לא משנה"], ans:1,
+    exp:"הסיומת \"ביותר\" באה תמיד אחרי שם התואר, עם ה\"א הידיעה: \"הגדול ביותר\".", label:"ביותר אחרי התואר" },
+  { q:"איזה משפט נכון לפי סיפור משפט שלמה?", opts:["האם האמיתית אהבה את הילד יותר מהאישה השנייה","האישה השנייה אהבה את הילד יותר מהאם האמיתית","שתי הנשים ויתרו על הילד באותה מידה","המלך שלמה לא הצליח להכריע בין הנשים"], ans:0,
+    exp:"מתוך נכונותה של האם האמיתית לוותר על הילד כדי להציל את חייו, אנחנו למדים שהיא אהבה אותו יותר מהאישה השנייה.", label:"אהבה יותר" }
+];
+
+/* ═══ ווים לסצנה הוויזואלית ═══ */
+function onCorrectComp(i, total){
+  const gems = document.getElementById('crown-gems');
+  const label = document.getElementById('crown-label');
+  const gem = document.createElement('span'); gem.className = 'crown-gem'; gem.textContent = '💎';
+  gems.appendChild(gem);
+  label.textContent = (i+1) + ' אבני חן בכתר...' + (i===total-1 ? ' הכתר הושלם! 🎉' : '');
+}
+function onCorrectGram(i, total){
+  const wrap = document.getElementById('ladder-wrap');
+  const climber = document.getElementById('ladder-climber');
+  const label = document.getElementById('ladder-label');
+  const rung = document.createElement('div'); rung.className = 'ladder-rung on'; rung.style.width = '100%';
+  wrap.insertBefore(rung, climber);
+  const pct = Math.round(((i+1)/total)*85);
+  climber.style.bottom = pct + '%';
+  label.textContent = (i+1) + ' מתוך ' + total + ' שלבים בסולם...' + (i===total-1 ? ' הגעתם לפסגה! 🎉' : '');
+}
+
+/* ═══ מנוע MC גנרי — לא לשנות ═══ */
+function makeGame(prefix, questions, onCorrect, resultText){
+  return {prefix, questions, onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+}
+const COMP = makeGame('comp', compQuestions, onCorrectComp,
+  s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
+const GRAM = makeGame('gram', gramQuestions, onCorrectGram,
+  s => `🏆 עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${gramQuestions.length}!`);
+
+function el(g,part){ return document.getElementById(g.prefix+'-'+part); }
+function mcInit(g){
+  const dots = el(g,'dots'); dots.innerHTML='';
+  g.questions.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id=g.prefix+'-dot-'+i; dots.appendChild(d); });
+  mcShow(g);
+}
+function mcShow(g){
+  g.sel=null;
+  const q=g.questions[g.idx];
+  el(g,'q').innerHTML = (q.sentence? '<div class="q-sentence">'+q.sentence+'</div>' : '') +
+    'שְׁאֵלָה '+(g.idx+1)+' מִתּוֹךְ '+g.questions.length+': '+q.q;
+  const opts=el(g,'opts'); opts.innerHTML='';
+  q.opts.forEach((o,i)=>{ const b=document.createElement('button'); b.className='opt-btn'; b.textContent=o;
+    b.onclick=()=>{ if(g.done)return; g.sel=i;
+      opts.querySelectorAll('.opt-btn').forEach((x,j)=>x.classList.toggle('selected',j===i));
+      el(g,'submit').disabled=false; };
+    opts.appendChild(b); });
+  el(g,'exp').style.display='none';
+  el(g,'submit').style.display='block'; el(g,'submit').disabled=true;
+  el(g,'next').style.display='none';
+}
+function mcSubmit(g){
+  if(g.sel===null) return;
+  const q=g.questions[g.idx], btns=el(g,'opts').querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{ b.disabled=true;
+    if(i===q.ans) b.classList.add('correct-ans');
+    else if(i===g.sel) b.classList.add('wrong-ans'); });
+  if(g.sel===q.ans){ g.score++;
+    document.getElementById(g.prefix+'-dot-'+g.idx).classList.add('done');
+    g.onCorrect(g.idx, g.questions.length); }
+  const ex=el(g,'exp'); ex.textContent=q.exp; ex.style.display='block';
+  el(g,'submit').style.display='none';
+  if(g.idx < g.questions.length-1){ el(g,'next').style.display='block'; }
+  else { const r=el(g,'result'); r.textContent=g.resultText(g.score); r.style.display='block'; }
+}
+function mcNext(g){ g.idx++; mcShow(g); }
+mcInit(COMP); mcInit(GRAM);
+
+/* ═══ מטלת כתיבה — סטנדרטי, לא לשנות (רק את ה-placeholders) ═══ */
+const wP = [
+  'כתבו משפט שמשווה בין שני אנשים או שני דברים בעזרת המילה "יותר"',
+  'כתבו משפט עם המילה "הכי" (למשל: מי הכי... בכיתה שלכם?)',
+  'כתבו משפט עם תואר וסיומת "ביותר" (למשל: הספר המעניין ביותר שקראתי)',
+  'כתבו משפט שמסביר איך שלמה המלך גילה מי הייתה האם האמיתית של התינוק',
+  'כתבו משפט סיום שמסביר מה למדתם מהסיפור על חוכמתו של שלמה המלך'
+];
+function initW(){
+  const c=document.getElementById('writing-lines'); c.innerHTML='';
+  wP.forEach((ph,i)=>{ const d=document.createElement('div'); d.className='writing-line'; d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d); });
+  document.getElementById('writing-result').style.display='none';
+  document.getElementById('writing-fb').textContent='';
+}
+function submitWriting(){
+  let n=0;
+  for(let i=0;i<wP.length;i++){
+    const v=document.getElementById('winput-'+i).value.trim(), l=document.getElementById('wline-'+i);
+    if(v.length>1){ n++; l.className='writing-line filled'; } else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb'), res=document.getElementById('writing-result');
+  if(n<wP.length){ fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל הַשּׁוּרוֹת.'; fb.style.color='#dc2626'; res.style.display='none'; return; }
+  fb.textContent='';
+  res.style.display='block';
+  res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ '+wP.length+' מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+}
+function resetWriting(){ initW(); }
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>
