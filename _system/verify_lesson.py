@@ -17,6 +17,92 @@ KNOWN_BAD = [
     'אֲנִי גָּרִים', 'הַעֲגוֹרָן', 'עֲגוֹרַן',
 ]
 
+# ── תפזורת/תשבץ: בדיקות אופציונליות (ראו _system/games_reference.md) ──
+# רצות רק אם השיעור מכריז על wsGrid/wsWords או cwEntries בפורמט המתועד;
+# שיעורים שלא משתמשים במשחקים האלה לא מושפעים כלל.
+NIKUD_RE = re.compile(r'[֑-ׇ]')
+HEB_FINALS = set('םןךףץ')
+
+def _mid_word_final_letters(word):
+    return [ch for ch in word[:-1] if ch in HEB_FINALS]
+
+def check_word_search(body):
+    issues = []
+    m_grid = re.search(r'const\s+wsGrid\s*=\s*\[(.*?)\]\s*;', body, re.S)
+    m_words = re.search(r'const\s+wsWords\s*=\s*\[(.*?)\]\s*;', body, re.S)
+    if not m_grid and not m_words:
+        return issues
+    if not (m_grid and m_words):
+        issues.append('תפזורת: נמצא wsGrid בלי wsWords (או להפך) — צריך את שניהם')
+        return issues
+    grid = re.findall(r'''['"]([^'"]*)['"]''', m_grid.group(1))
+    words = re.findall(r'''['"]([^'"]*)['"]''', m_words.group(1))
+    if not grid or not words:
+        issues.append('תפזורת: wsGrid או wsWords ריקים')
+        return issues
+    rowlen = len(grid[0])
+    if any(len(r) != rowlen for r in grid):
+        issues.append('תפזורת: שורות הרשת (wsGrid) לא באותו אורך')
+    if NIKUD_RE.search(''.join(grid)):
+        issues.append('תפזורת: הרשת (wsGrid) מכילה ניקוד — האותיות ברשת צריכות להיות בלי ניקוד')
+    for w in words:
+        if NIKUD_RE.search(w):
+            issues.append('תפזורת: המילה "%s" ב-wsWords מכילה ניקוד' % w)
+        bad = _mid_word_final_letters(w)
+        if bad:
+            issues.append('תפזורת: המילה "%s" — אות סופית (%s) לא בסוף המילה' % (w, ','.join(bad)))
+    R, C = len(grid), rowlen
+    dirs = [(0,1),(0,-1),(1,0),(-1,0),(1,1),(1,-1),(-1,1),(-1,-1)]
+    for w in words:
+        found = False
+        for r in range(R):
+            for c in range(C):
+                for dr, dc in dirs:
+                    ok = True
+                    for k, ch in enumerate(w):
+                        rr, cc = r + dr*k, c + dc*k
+                        if not (0 <= rr < R and 0 <= cc < C) or grid[rr][cc] != ch:
+                            ok = False; break
+                    if ok:
+                        found = True; break
+                if found: break
+            if found: break
+        if not found:
+            issues.append('תפזורת: המילה "%s" לא נמצאת ברשת (wsGrid) באף כיוון ישר' % w)
+    return issues
+
+def check_crossword(body):
+    issues = []
+    m = re.search(r'const\s+cwEntries\s*=\s*\[(.*?)\]\s*;', body, re.S)
+    if not m:
+        return issues
+    entry_re = re.compile(
+        r"\{\s*num\s*:\s*(\d+)\s*,\s*dir\s*:\s*'(across|down)'\s*,\s*row\s*:\s*(\d+)\s*,\s*col\s*:\s*(\d+)\s*,"
+        r"\s*answer\s*:\s*'([^']*)'\s*,\s*clue\s*:\s*'([^']*)'\s*\}"
+    )
+    entries = entry_re.findall(m.group(1))
+    if not entries:
+        issues.append('תשבץ: נמצא cwEntries אבל לא הצלחתי לפרסר אף רשומה — ודאו פורמט '
+                       '{num:N, dir:\'across\'|\'down\', row:R, col:C, answer:\'...\', clue:\'...\'} '
+                       'בדיוק בסדר הזה, עם מרכאות בודדות')
+        return issues
+    cells = {}
+    for num, dir_, row, col, answer, clue in entries:
+        row, col = int(row), int(col)
+        if NIKUD_RE.search(answer):
+            issues.append('תשבץ: התשובה "%s" (מספר %s) מכילה ניקוד' % (answer, num))
+        bad = _mid_word_final_letters(answer)
+        if bad:
+            issues.append('תשבץ: התשובה "%s" (מספר %s) — אות סופית (%s) לא בסוף המילה' % (answer, num, ','.join(bad)))
+        for k, ch in enumerate(answer):
+            r = row + k if dir_ == 'down' else row
+            c = col + k if dir_ == 'across' else col
+            key = (r, c)
+            if key in cells and cells[key] != ch:
+                issues.append('תשבץ: התנגשות בתא (%d,%d) בין מילים שונות — "%s" מול "%s"' % (r, c, cells[key], ch))
+            cells[key] = ch
+    return issues
+
 class TagChecker(HTMLParser):
     VOID = {'meta','link','br','img','input','hr','circle','rect','path',
             'ellipse','polygon','line','polyline','use','stop'}
@@ -102,6 +188,10 @@ def check(path):
 
     # 9. אין placeholders של התבנית
     if '{{' in html: issues.append('נשארו placeholders של התבנית ({{...}})')
+
+    # 10. תפזורת/תשבץ (אופציונלי — רק אם השיעור מכריז wsGrid/wsWords או cwEntries)
+    issues += check_word_search(body)
+    issues += check_crossword(body)
 
     return issues
 
