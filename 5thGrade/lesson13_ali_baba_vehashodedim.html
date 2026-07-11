@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 13 — עלי באבא וארבעים השודדים</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p1:#0f766e;
+  --p1dk:#0c4a44;
+  --p1md:#2dd4bf;
+  --p1lt:#ccfbf1;
+  --page:#f0fdfa;
+  --p2:#b45309;
+  --p2lt:#fde68a;
+  --ink:#1e293b; --muted:#64748b; --ok:#16a34a; --bad:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);direction:rtl;min-height:100vh;font-size:17px}
+
+/* ── כותרת ── */
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+
+.container{max-width:860px;margin:0 auto;padding:24px 16px 70px}
+
+/* ── כותרות מקטעים וכרטיסים ── */
+.section-title{font-size:1.42rem;font-weight:900;color:var(--ink);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.story-box,.grammar-box,.game-box{background:#fff;border-radius:22px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:24px 26px}
+.story-box::before,.grammar-box::before,.game-box::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+
+/* ── קריאה ── */
+.story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
+.story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-box .magic-words{color:var(--p2);font-weight:900}
+.story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+
+/* ── אוצר מילים ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.vocab-card{background:var(--p1lt);border:2px solid var(--p1md);border-radius:16px;padding:14px 12px;text-align:center;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--p1)}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;color:var(--p1dk);font-weight:700}
+.vocab-card .eng{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ── דקדוק ── */
+.grammar-box h3{color:var(--p1);font-size:1.2rem;font-weight:900;margin-bottom:12px;margin-top:18px}
+.grammar-box h3:first-child{margin-top:0}
+.grammar-box p{line-height:1.9;font-size:1.02rem;margin-bottom:.5em}
+.gram-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--p1);color:#fff;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;border-bottom:1px solid var(--p1lt);text-align:right}
+.gram-table tr:nth-child(even) td{background:var(--page)}
+.ex-chip{display:inline-block;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:6px 14px;font-size:1.05rem;color:var(--p1dk);font-weight:700;margin:4px 2px;white-space:nowrap}
+
+/* ── משחקים (מנוע MC גנרי) ── */
+.game-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);text-align:center;margin-bottom:4px}
+.game-subtitle{font-size:.9rem;color:var(--muted);text-align:center;margin-bottom:18px}
+.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:14px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--p1lt);border:2px solid var(--p1md);transition:background .3s}
+.dot.done{background:var(--p1);border-color:var(--p1)}
+.game-scene{background:var(--page);border:2px solid var(--p1lt);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center;min-height:70px}
+.q-text{font-size:1.1rem;font-weight:700;line-height:1.8;text-align:center;margin-bottom:14px}
+.q-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.opt-btn{background:#fff;border:2px solid var(--p1md);border-radius:12px;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.opt-btn:hover:not(:disabled){border-color:var(--p1);background:var(--p1lt)}
+.opt-btn.selected{border-color:var(--p1);background:var(--p1lt);box-shadow:0 0 0 3px var(--p1lt)}
+.opt-btn.correct-ans{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.opt-btn.wrong-ans{background:#fee2e2;border-color:var(--bad);color:#b91c1c;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.submit-btn,.next-btn{display:block;margin:14px auto 0;background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 28px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+.submit-btn:hover:not(:disabled){background:var(--p1dk)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.next-btn{display:none;background:var(--p2)}
+.explanation{display:none;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:10px 14px;font-size:.95rem;color:var(--p1dk);font-weight:600;margin-top:12px;line-height:1.8;text-align:center}
+.result-banner{display:none;background:linear-gradient(135deg,var(--p1md),var(--p1));color:#fff;border-radius:14px;padding:20px;text-align:center;font-size:1.25rem;font-weight:800;margin-top:16px}
+
+/* ── סצנת פתיחת המערה (משחק הבנה) ── */
+.cave-scene{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+.door-row{display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+.door-half{transition:transform .4s}
+.door-half.left{transform:translateX(0)}
+.door-half.right{transform:translateX(0)}
+.door-half.left.open{transform:translateX(-22px) rotate(-8deg)}
+.door-half.right.open{transform:translateX(22px) rotate(8deg)}
+.door-gap{width:10px;font-size:1.6rem}
+.coins-row{display:flex;gap:4px;font-size:1.5rem;min-height:1.8rem;justify-content:center}
+.cave-label{font-size:1.05rem;font-weight:800;color:var(--p1dk)}
+
+/* ── סצנת בריחתו של קאסים (משחק דקדוק) ── */
+.escape-scene{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.escape-row{display:flex;align-items:center;gap:8px;font-size:1.5rem}
+.foot{opacity:.15;transition:opacity .4s,transform .4s}
+.foot.on{opacity:1;transform:scale(1.15)}
+.escape-label{font-size:1.05rem;font-weight:800;color:var(--p1dk)}
+
+/* ── מטלת כתיבה ── */
+.writing-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.writing-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,#bbf7d0,var(--ok))}
+.writing-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);margin-bottom:14px}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-btn{background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-btn.gray{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ══ כותרת ══ -->
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🗝️</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">💰</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🏺</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">🐫</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">⛰️</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 13</div>
+    <h1>עלי באבא וארבעים השודדים</h1>
+    <div class="header-sub">מילות קסם, מערה נסתרת, ואוצר של זהב</div>
+    <div class="header-badge">🎯 כִּיתָה ה׳ &nbsp;|&nbsp; בניין נפעל</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson01_shira_kineret.html">→ 1</a>
+  <a class="nav-btn" href="lesson02_shem_etzem_ken_tzipor.html">→ 2</a>
+  <a class="nav-btn" href="lesson03_choni_hameagel.html">→ 3</a>
+  <a class="nav-btn" href="lesson04_rabbi_akiva_vehaeven.html">→ 4</a>
+  <a class="nav-btn" href="lesson05_hillel_vehager.html">→ 5</a>
+  <a class="nav-btn" href="lesson06_shnei_haachim.html">→ 6</a>
+  <a class="nav-btn" href="lesson07_luach_hashana_haivri.html">→ 7</a>
+  <a class="nav-btn" href="lesson08_mishpat_shlomo.html">→ 8</a>
+  <a class="nav-btn" href="lesson09_mishpat_pashut_umurkav.html">→ 9</a>
+  <a class="nav-btn" href="lesson10_ananse_vehachevel.html">→ 10</a>
+  <a class="nav-btn" href="lesson11_hatzav_vehaarnav.html">→ 11</a>
+  <a class="nav-btn" href="lesson12_haarye_vehaachbar.html">→ 12</a>
+  <span class="nav-current">שִׁיעוּר 13 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- ══ חלק א: קריאה ══ -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>בעיר רחוקה חיו פעם שני אחים: עלי באבא, חוטב עצים עני שעבד קשה כל יום, וקאסים אחיו הגדול, סוחר עשיר ו<span class="highlight">קמצן</span> שכמעט לא עזר לאף אחד.</p>
+    <p>יום אחד, כשעלי באבא חטב עצים ביער, הוא ראה מרחוק ארבעים פרשים רוכבים על סוסים, כל אחד עם שקים כבדים על הגב. הוא הבין מיד שאלה <span class="highlight">שודדים</span>, ומיהר להתחבא מאחורי סלע גדול.</p>
+    <p>השודדים עצרו ליד צוק גבוה. ראש השודדים ירד מהסוס, פנה אל הסלע ואמר בקול רם: "<span class="magic-words">פְּתַח שׁוּמְשׁוּם!</span>" לתדהמתו של עלי באבא, פתח סתום בסלע נפתח לרווחה, וגילה כניסה ל<span class="highlight">מערה</span> חשוכה.</p>
+    <p>הארבעים השודדים נכנסו למערה עם השקים שלהם, ואחרי כמה דקות יצאו בלעדיהם - כנראה השאירו שם את מה שגנבו. ראש השודדים אמר "<span class="magic-words">סְגֹר שׁוּמְשׁוּם!</span>" והפתח נסגר מיד, כאילו לא היה שם כלום. השודדים רכבו והתרחקו.</p>
+    <p>עלי באבא חיכה עד שהשודדים נעלמו לגמרי, ואז יצא מהמחבוא שלו וניגש אל הסלע בלב פועם. הוא לקח נשימה עמוקה ואמר: "פְּתַח שׁוּמְשׁוּם!" ומיד הפתח נפתח שוב.</p>
+    <p>בפנים, לעיניו הנדהמות של עלי באבא, נגלתה מערה ענקית מלאה ב<span class="highlight">אוצר</span>: שקים של מטבעות זהב, תכשיטים נוצצים ובדי משי יקרים. אוצר כזה הוא לא ראה מעולם בחייו.</p>
+    <p>עלי באבא לא היה חמדן. הוא לקח רק כמה שקים קטנים של זהב, בדיוק כמה שהחמור שלו יכול היה לשאת, ויצא מהמערה. הוא אמר "סְגֹר שׁוּמְשׁוּם!", והפתח נסגר מאחוריו. הוא חזר הביתה, ולראשונה בחייו לא היה צריך לדאוג מכסף.</p>
+    <p>קאסים שמע על העושר הפתאומי של אחיו, והתעקש שעלי באבא יגלה לו את הסוד. עלי באבא, טוב לב כרגיל, סיפר לו הכל: על השודדים, על הסלע ועל מילות הקסם.</p>
+    <p>קאסים מיהר אל המערה עם עשרה חמורים, אמר "פְּתַח שׁוּמְשׁוּם!" ונכנס פנימה. הוא היה כל כך <span class="highlight">חמדן</span>, שמילא שק אחרי שק בזהב ובתכשיטים, עד שכמעט שכח איפה הוא נמצא. וכשרצה לצאת, הוא פתאום לא זכר את המילה הנכונה. "פתח שעורה?" ניסה. "פתח חיטה?" הפתח לא נפתח.</p>
+    <p>קאסים <span class="highlight">נלכד</span> במערה, מפוחד ולבד, וכשלפתע שמע קולות מבחוץ - השודדים חזרו! הוא <span class="highlight">נחבא</span> מהר מאחורי אחת מערמות הזהב, בלב הולם.</p>
+    <p>ראש השודדים ניגש אל הסלע ואמר בקול רם: "פְּתַח שׁוּמְשׁוּם!" הפתח נפתח, וקאסים, שהיה עדיין נחבא, הבין שזאת ההזדמנות היחידה שלו. ברגע שהשודדים נכנסו, הוא החליק החוצה בזהירות רבה, בלי שאף אחד ישים לב, ורץ הביתה הכי מהר שיכול.</p>
+    <p>מאותו יום, קאסים למד לקח חשוב: לא לקחת יותר משצריך, ולזכור טוב טוב כל דבר חשוב לפני שנכנסים להרפתקה. עלי באבא, לעומתו, המשיך להיות איש טוב לב ו<span class="highlight">נדיב</span>, וחלק מהאוצר שלו עם השכנים העניים בעיר.</p>
+    <div class="source-line">עיבוד לסיפור עם מוכר מתוך "אלף לילה ולילה" (עולם ערבי) — נחלת הכלל</div>
+  </div>
+
+  <!-- ══ חלק ב: אוצר מילים ══ -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">שודדים</div><div class="eng">robbers</div></div>
+    <div class="vocab-card"><div class="heb">מערה</div><div class="eng">cave</div></div>
+    <div class="vocab-card"><div class="heb">אוצר</div><div class="eng">treasure</div></div>
+    <div class="vocab-card"><div class="heb">חמדן</div><div class="eng">greedy</div></div>
+    <div class="vocab-card"><div class="heb">קמצן</div><div class="eng">stingy</div></div>
+    <div class="vocab-card"><div class="heb">נלכד</div><div class="eng">got trapped</div></div>
+    <div class="vocab-card"><div class="heb">נחבא</div><div class="eng">hid himself</div></div>
+    <div class="vocab-card"><div class="heb">נדיב</div><div class="eng">generous</div></div>
+  </div>
+
+  <!-- ══ חלק ג: משחק הבנת הנקרא ══ -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — פּוֹתְחִים אֶת הַמְּעָרָה</div>
+  <div class="game-box">
+    <div class="game-title">🪨 פּוֹתְחִים אֶת הַמְּעָרָה</div>
+    <div class="game-subtitle">ענו נכון על שאלות ההבנה כדי לפתוח את הסלע ולגלות את האוצר!</div>
+    <div class="progress-dots" id="comp-dots"></div>
+    <div class="game-scene" id="comp-scene">
+      <div class="cave-scene">
+        <div class="door-row" id="door-row">
+          <span class="door-half left" id="door-left">🪨</span>
+          <span class="door-gap" id="door-gap"></span>
+          <span class="door-half right" id="door-right">🪨</span>
+        </div>
+        <div class="coins-row" id="coins-row"></div>
+        <div class="cave-label" id="cave-label">0 מתוך 6 שאלות נענו...</div>
+      </div>
+    </div>
+    <div class="q-text" id="comp-q"></div>
+    <div class="opts" id="comp-opts"></div>
+    <div class="explanation" id="comp-exp"></div>
+    <button class="submit-btn" id="comp-submit" disabled onclick="mcSubmit(COMP)">בְּדֹק ✓</button>
+    <button class="next-btn" id="comp-next" onclick="mcNext(COMP)">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    <div class="result-banner" id="comp-result"></div>
+  </div>
+
+  <!-- ══ חלק ד: דקדוק ══ -->
+  <div class="section-title">📚 דִּקְדּוּק — בניין נפעל</div>
+  <div class="grammar-box">
+    <h3>מה זה בניין נפעל?</h3>
+    <p>בשיעורים 10 ו-12 בסדרת כיתה ה' הכרנו את בניין הפעיל (יצא ← הוציא) ואת בניין פיעל (בקש, שחרר). היום נכיר בניין שלישי: בניין נפעל. בבניין נפעל, בזמן עבר, מוסיפים את האות נ' בתחילת המילה. הבניין הזה לרוב מתאר משהו שקורה מעצמו, או פעולה שנעשית למישהו - כמו הפועל הסביל שלמדנו בשיעור 41 (הצוללת המיוחדת).</p>
+    <table class="gram-table">
+      <tr><th>שורש</th><th>פועל פעיל (מישהו עושה משהו)</th><th>נפעל (זה קורה מעצמו)</th></tr>
+      <tr><td>פ-ת-ח</td><td>הוא פתח את הדלת</td><td>הדלת נפתחה</td></tr>
+      <tr><td>ס-ג-ר</td><td>הוא סגר את הפתח</td><td>הפתח נסגר</td></tr>
+      <tr><td>ל-כ-ד</td><td>מישהו לכד אותו</td><td>הוא נלכד במערה</td></tr>
+      <tr><td>ח-ב-א</td><td>מישהו החביא אותו</td><td>הוא נחבא מאחורי הערמה</td></tr>
+    </table>
+    <h3>שלושת הזמנים של הפועל "נכנס"</h3>
+    <p>שימו לב: בזמן עתיד, הנ' של בניין נפעל נעלמת, והאות הראשונה של השורש מתחזקת (בכתיב, המילה פשוט מתחילה ב-י').</p>
+    <table class="gram-table">
+      <tr><th>זמן</th><th>צורה</th><th>דוגמה</th></tr>
+      <tr><td>עבר</td><td>הוא נכנס</td><td>קאסים נכנס למערה עם עשרה חמורים</td></tr>
+      <tr><td>הווה</td><td>הוא נכנס</td><td>עכשיו הוא נכנס פנימה</td></tr>
+      <tr><td>עתיד</td><td>הוא יכנס</td><td>מחר הוא יכנס שוב</td></tr>
+    </table>
+    <div style="margin-top:14px">
+      <span class="ex-chip">נפעל ← נ+שורש בעבר</span>
+      <span class="ex-chip">עתיד ← י+שורש (בלי נ')</span>
+      <span class="ex-chip">נפתח, נסגר, נלכד, נחבא</span>
+    </div>
+  </div>
+
+  <!-- ══ חלק ה: משחק דקדוק ══ -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — בְּרִיחָתוֹ שֶׁל קָאסִים</div>
+  <div class="game-box">
+    <div class="game-title">👣 בְּרִיחָתוֹ שֶׁל קָאסִים</div>
+    <div class="game-subtitle">ענו נכון על שאלות בניין נפעל כדי לעזור לקאסים לברוח מהמערה עד הביתה!</div>
+    <div class="progress-dots" id="gram-dots"></div>
+    <div class="game-scene" id="gram-scene">
+      <div class="escape-scene">
+        <div class="escape-row" id="escape-row">
+          <span>🕳️</span>
+          <span class="foot" id="foot-0">👣</span>
+          <span class="foot" id="foot-1">👣</span>
+          <span class="foot" id="foot-2">👣</span>
+          <span class="foot" id="foot-3">👣</span>
+          <span class="foot" id="foot-4">👣</span>
+          <span class="foot" id="foot-5">👣</span>
+          <span class="foot" id="foot-6">👣</span>
+          <span>🏠</span>
+        </div>
+        <div class="escape-label" id="escape-label">0 מתוך 7 צעדים אל הבית...</div>
+      </div>
+    </div>
+    <div class="q-text" id="gram-q"></div>
+    <div class="opts" id="gram-opts"></div>
+    <div class="explanation" id="gram-exp"></div>
+    <button class="submit-btn" id="gram-submit" disabled onclick="mcSubmit(GRAM)">בְּדֹק ✓</button>
+    <button class="next-btn" id="gram-next" onclick="mcNext(GRAM)">הַבָּא ←</button>
+    <div class="result-banner" id="gram-result"></div>
+  </div>
+
+  <!-- ══ חלק ו: מטלת כתיבה (אחת בלבד!) ══ -->
+  <div class="section-title">✍️ כְּתִיבָה</div>
+  <div class="writing-card">
+    <div class="writing-title">✍️ מַטְלַת כְּתִיבָה</div>
+    <p style="margin-bottom:16px">כתבו חמישה משפטים בבניין נפעל, כל אחד עם פועל אחר מהרשימה: נפתח, נסגר, נלכד, נחבא, נכנס. אפשר להתבסס על הסיפור על עלי באבא, או על דברים שקרו לכם. לדוגמה: "הפתח נפתח כשאמרו את מילות הקסם."</p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button class="writing-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-btn gray" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ═══ נתוני משחק ההבנה ═══ */
+const compQuestions = [
+  { q:"מי היו שני האחים בסיפור?", opts:["עלי באבא וקאסים","עלי באבא וראש השודדים","קאסים ואחד השודדים","שני חוטבי עצים בלי שם"], ans:0,
+    exp:"הסיפור מספר על שני אחים: עלי באבא, חוטב העצים העני, וקאסים, הסוחר העשיר והקמצן." },
+  { q:"איך פתחו השודדים את הפתח בסלע?", opts:["בעזרת מפתח מיוחד","במילות קסם - 'פתח שומשום'","בעזרת גרזן","בכוח, בעזרת דחיפה"], ans:1,
+    exp:"ראש השודדים אמר את מילות הקסם 'פתח שומשום', והפתח בסלע נפתח לרווחה." },
+  { q:"למה עלי באבא לקח רק מעט זהב מהמערה?", opts:["כי הוא לא היה חמדן ולקח רק כמה שהחמור שלו יכול לשאת","כי לא היה שם הרבה זהב","כי השודדים תפסו אותו","כי הוא שכח את מילות הקסם"], ans:0,
+    exp:"עלי באבא לא היה חמדן, ולקח רק כמה שקים קטנים - בדיוק כמה שהחמור שלו יכול היה לשאת." },
+  { q:"מה קרה לקאסים כשרצה לצאת מהמערה?", opts:["הוא שכח את המילה הנכונה לפתיחת הפתח","הוא איבד את כל הכסף שלו","הוא נפגש עם עלי באבא בפנים","הוא נרדם בין ערמות הזהב"], ans:0,
+    exp:"קאסים היה כל כך עסוק במילוי השקים שלו בזהב, שכשרצה לצאת הוא לא זכר את המילה הנכונה - 'פתח שומשום'." },
+  { q:"איך הצליח קאסים בסוף לצאת מהמערה בבטחה?", opts:["הוא זכר לבד את המילה הנכונה","הוא התחבא, וכשהשודדים חזרו ופתחו את הפתח שוב הוא הצליח לברוח החוצה","השודדים שחררו אותו כי ריחמו עליו","עלי באבא הגיע להציל אותו"], ans:1,
+    exp:"קאסים נחבא מאחורי ערמת הזהב, וכשהשודדים חזרו ואמרו שוב 'פתח שומשום', הוא ניצל את ההזדמנות והחליק החוצה." },
+  { q:"מה הלקח שקאסים למד מההרפתקה שלו?", opts:["לא לקחת יותר משצריך, ולזכור טוב דברים חשובים לפני הרפתקה","להיות עשיר יותר מעלי באבא","לא לעזור לאף אחד לעולם","לרכוב על חמורים בכל מקום"], ans:0,
+    exp:"קאסים למד שאסור להיות חמדן מדי ולקחת יותר משצריך, ושחשוב לזכור היטב דברים חשובים לפני שיוצאים להרפתקה." }
+];
+
+/* ═══ נתוני משחק הדקדוק ═══ */
+const gramQuestions = [
+  { q:"איזה משפט מכיל פועל בבניין נפעל?", opts:["הדלת נפתחה בקול חזק","הוא פתח את הדלת בעדינות","הם פותחים דלתות רבות בכל יום","היא תפתח את הדלת מחר"], ans:0,
+    exp:"'נפתחה' מתחיל באות נ' ומתאר משהו שקורה מעצמו, בלי לומר מי עשה את זה - זה בניין נפעל." },
+  { q:"השלימו: \"הפתח בסלע ____ אחרי שהשודדים יצאו ממנו.\"", opts:["פתח","נלכד","נסגר","פותח"], ans:2,
+    exp:"'נסגר' הוא הצורה הנכונה בבניין נפעל, בזמן עבר: הפתח נסגר מעצמו אחרי שאמרו את מילות הקסם." },
+  { q:"מה קרה לקאסים כשלא זכר את מילת הקסם?", opts:["הוא נכנס למערה","הוא נלכד בתוך המערה","הוא נסגר בבית","הוא נדיב מאוד"], ans:1,
+    exp:"קאסים נלכד במערה - הוא לא הצליח לצאת ממנה, כי לא זכר את המילה הנכונה." },
+  { q:"מה עשה קאסים כששמע שהשודדים חוזרים?", opts:["הוא נחבא מאחורי ערמת הזהב","הוא החביא את השודדים","הוא נלכד ליד הפתח","הוא סגר את הפתח בעצמו"], ans:0,
+    exp:"'נחבא' בבניין נפעל: קאסים הסתתר בעצמו - לא מישהו אחר הסתיר אותו." },
+  { q:"השלימו בזמן עתיד: \"מחר קאסים ____ (נכנס) שוב ליער, בזהירות רבה יותר.\"", opts:["נכנס","יכנס","נכנסים","להיכנס"], ans:1,
+    exp:"בזמן עתיד, בבניין נפעל, הנ' נעלמת והמילה מתחילה ב-י': 'יכנס' - כמו 'נכנס' בעבר, 'יכנס' בעתיד." },
+  { q:"איזו מהמילים הבאות היא פועל בבניין נפעל?", opts:["חטב","נמצא","קמצן","שודד (שם עצם)"], ans:1,
+    exp:"'נמצא' מתחיל באות נ' - כמו נפתח, נסגר, נלכד ונחבא, גם היא פועל בבניין נפעל." },
+  { q:"מה ההבדל העיקרי בין 'פתח' ל'נפתח'?", opts:["אין שום הבדל, זו אותה מילה בדיוק","'פתח' מתאר מישהו שעושה פעולה, ו'נפתח' מתאר שזה קורה מעצמו","'נפתח' הוא שם עצם, לא פועל","'פתח' הוא זמן עתיד ו'נפתח' זמן עבר"], ans:1,
+    exp:"'פתח' (בניין פעל) מתאר מישהו שפועל באופן פעיל, ו'נפתח' (בניין נפעל) מתאר שהדבר קורה מעצמו או נעשה למישהו - בדיוק כמו הפועל הסביל שלמדנו בשיעור 41." }
+];
+
+/* ═══ ווים לסצנה הוויזואלית ═══ */
+function onCorrectComp(i, total){
+  const label = document.getElementById('cave-label');
+  const coins = document.getElementById('coins-row');
+  const c = document.createElement('span'); c.textContent = '🪙'; coins.appendChild(c);
+  label.textContent = (i+1) + ' מתוך ' + total + ' שאלות נענו...' + (i===total-1 ? ' המערה נפתחה כולה! 🎉' : '');
+  if(i===total-1){
+    document.getElementById('door-left').classList.add('open');
+    document.getElementById('door-right').classList.add('open');
+  }
+}
+function onCorrectGram(i, total){
+  const foot = document.getElementById('foot-'+i);
+  if(foot) foot.classList.add('on');
+  const label = document.getElementById('escape-label');
+  label.textContent = (i+1) + ' מתוך ' + total + ' צעדים אל הבית...' + (i===total-1 ? ' קאסים הגיע הביתה בשלום! 🎉' : '');
+}
+
+/* ═══ מנוע MC גנרי — לא לשנות ═══ */
+function makeGame(prefix, questions, onCorrect, resultText){
+  return {prefix, questions, onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+}
+const COMP = makeGame('comp', compQuestions, onCorrectComp,
+  s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
+const GRAM = makeGame('gram', gramQuestions, onCorrectGram,
+  s => `🏆 עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${gramQuestions.length}!`);
+
+function el(g,part){ return document.getElementById(g.prefix+'-'+part); }
+function mcInit(g){
+  const dots = el(g,'dots'); dots.innerHTML='';
+  g.questions.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id=g.prefix+'-dot-'+i; dots.appendChild(d); });
+  mcShow(g);
+}
+function mcShow(g){
+  g.sel=null;
+  const q=g.questions[g.idx];
+  el(g,'q').innerHTML = (q.sentence? '<div class="q-sentence">'+q.sentence+'</div>' : '') +
+    'שְׁאֵלָה '+(g.idx+1)+' מִתּוֹךְ '+g.questions.length+': '+q.q;
+  const opts=el(g,'opts'); opts.innerHTML='';
+  q.opts.forEach((o,i)=>{ const b=document.createElement('button'); b.className='opt-btn'; b.textContent=o;
+    b.onclick=()=>{ if(g.done)return; g.sel=i;
+      opts.querySelectorAll('.opt-btn').forEach((x,j)=>x.classList.toggle('selected',j===i));
+      el(g,'submit').disabled=false; };
+    opts.appendChild(b); });
+  el(g,'exp').style.display='none';
+  el(g,'submit').style.display='block'; el(g,'submit').disabled=true;
+  el(g,'next').style.display='none';
+}
+function mcSubmit(g){
+  if(g.sel===null) return;
+  const q=g.questions[g.idx], btns=el(g,'opts').querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{ b.disabled=true;
+    if(i===q.ans) b.classList.add('correct-ans');
+    else if(i===g.sel) b.classList.add('wrong-ans'); });
+  if(g.sel===q.ans){ g.score++;
+    document.getElementById(g.prefix+'-dot-'+g.idx).classList.add('done');
+    g.onCorrect(g.idx, g.questions.length); }
+  const ex=el(g,'exp'); ex.textContent=q.exp; ex.style.display='block';
+  el(g,'submit').style.display='none';
+  if(g.idx < g.questions.length-1){ el(g,'next').style.display='block'; }
+  else { const r=el(g,'result'); r.textContent=g.resultText(g.score); r.style.display='block'; }
+}
+function mcNext(g){ g.idx++; mcShow(g); }
+mcInit(COMP); mcInit(GRAM);
+
+/* ═══ מטלת כתיבה — סטנדרטי, לא לשנות (רק את ה-placeholders) ═══ */
+const wP = [
+  'כתבו משפט עם הפועל "נפתח" (למשל בהשראת הסיפור)',
+  'כתבו משפט עם הפועל "נסגר"',
+  'כתבו משפט עם הפועל "נלכד"',
+  'כתבו משפט עם הפועל "נחבא"',
+  'כתבו משפט עם הפועל "נכנס"'
+];
+function initW(){
+  const c=document.getElementById('writing-lines'); c.innerHTML='';
+  wP.forEach((ph,i)=>{ const d=document.createElement('div'); d.className='writing-line'; d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d); });
+  document.getElementById('writing-result').style.display='none';
+  document.getElementById('writing-fb').textContent='';
+}
+function submitWriting(){
+  let n=0;
+  for(let i=0;i<wP.length;i++){
+    const v=document.getElementById('winput-'+i).value.trim(), l=document.getElementById('wline-'+i);
+    if(v.length>1){ n++; l.className='writing-line filled'; } else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb'), res=document.getElementById('writing-result');
+  if(n<wP.length){ fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל הַשּׁוּרוֹת.'; fb.style.color='#dc2626'; res.style.display='none'; return; }
+  fb.textContent='';
+  res.style.display='block';
+  res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ '+wP.length+' מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+}
+function resetWriting(){ initW(); }
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>
