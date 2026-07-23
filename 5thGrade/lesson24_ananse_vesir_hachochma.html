@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 24 — אננסי וסיר החכמה</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p1:#c2410c;
+  --p1dk:#7c2d12;
+  --p1md:#fdba74;
+  --p1lt:#ffedd5;
+  --page:#fff7ed;
+  --p2:#0369a1;
+  --p2lt:#e0f2fe;
+  --ink:#1e293b; --muted:#64748b; --ok:#16a34a; --bad:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);direction:rtl;min-height:100vh;font-size:17px}
+
+/* ── כותרת ── */
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+
+.container{max-width:860px;margin:0 auto;padding:24px 16px 70px}
+
+/* ── כותרות מקטעים וכרטיסים ── */
+.section-title{font-size:1.42rem;font-weight:900;color:var(--ink);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.story-box,.grammar-box,.game-box{background:#fff;border-radius:22px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:24px 26px}
+.story-box::before,.grammar-box::before,.game-box::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+
+/* ── קריאה ── */
+.story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
+.story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+
+/* ── אוצר מילים ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.vocab-card{background:var(--p1lt);border:2px solid var(--p1md);border-radius:16px;padding:14px 12px;text-align:center;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--p1)}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;color:var(--p1dk);font-weight:700}
+.vocab-card .eng{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ── דקדוק ── */
+.grammar-box h3{color:var(--p1);font-size:1.2rem;font-weight:900;margin-bottom:12px}
+.grammar-box p{line-height:1.9;font-size:1.02rem;margin-bottom:.5em}
+.gram-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--p1);color:#fff;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;border-bottom:1px solid var(--p1lt);text-align:right}
+.gram-table tr:nth-child(even) td{background:var(--page)}
+.ex-chip{display:inline-block;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:6px 14px;font-size:1.05rem;color:var(--p1dk);font-weight:700;margin:4px 2px;white-space:nowrap}
+
+/* ── משחקים (מנוע MC גנרי) ── */
+.game-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);text-align:center;margin-bottom:4px}
+.game-subtitle{font-size:.9rem;color:var(--muted);text-align:center;margin-bottom:18px}
+.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--p1lt);border:2px solid var(--p1md);transition:background .3s}
+.dot.done{background:var(--p1);border-color:var(--p1)}
+.game-scene{background:var(--page);border:2px solid var(--p1lt);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center;min-height:70px}
+.q-text{font-size:1.1rem;font-weight:700;line-height:1.8;text-align:center;margin-bottom:14px}
+.q-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.opt-btn{background:#fff;border:2px solid var(--p1md);border-radius:12px;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.opt-btn:hover:not(:disabled){border-color:var(--p1);background:var(--p1lt)}
+.opt-btn.selected{border-color:var(--p1);background:var(--p1lt);box-shadow:0 0 0 3px var(--p1lt)}
+.opt-btn.correct-ans{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.opt-btn.wrong-ans{background:#fee2e2;border-color:var(--bad);color:#b91c1c;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.submit-btn,.next-btn{display:block;margin:14px auto 0;background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 28px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+.submit-btn:hover:not(:disabled){background:var(--p1dk)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.next-btn{display:none;background:var(--p2)}
+.explanation{display:none;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:10px 14px;font-size:.95rem;color:var(--p1dk);font-weight:600;margin-top:12px;line-height:1.8;text-align:center}
+.result-banner{display:none;background:linear-gradient(135deg,var(--p1md),var(--p1));color:#fff;border-radius:14px;padding:20px;text-align:center;font-size:1.25rem;font-weight:800;margin-top:16px}
+
+/* ── סצנת הטיפוס אל ראש העץ (משחק הבנה) ── */
+.climb-scene{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.climb-row{display:flex;align-items:center;gap:6px;justify-content:center;font-size:1.9rem;flex-wrap:wrap}
+.climb-mark{opacity:.18;transition:opacity .4s,transform .4s}
+.climb-mark.on{opacity:1;transform:scale(1.25) translateY(-3px)}
+.scene-label{font-size:1.05rem;font-weight:800;color:var(--p1dk);text-align:center}
+
+/* ── סצנת קורי העכביש (משחק דקדוק) ── */
+.web-scene{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.web-row{display:flex;align-items:center;gap:6px;justify-content:center;font-size:1.7rem;flex-wrap:wrap}
+.web-strand{opacity:.15;transition:opacity .4s,transform .4s}
+.web-strand.on{opacity:1;transform:scale(1.2) rotate(-4deg)}
+
+/* ── מטלת כתיבה ── */
+.writing-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.writing-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,#bbf7d0,var(--ok))}
+.writing-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);margin-bottom:14px}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-btn{background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-btn.gray{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ══ כותרת ══ -->
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🕷️</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🏺</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🌳</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">💧</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">🕸️</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 24</div>
+    <h1>אננסי וסיר החכמה</h1>
+    <div class="header-sub">עכביש חכם רוצה לשמור את כל חכמת העולם לעצמו - וזה שיעור חדש על ה' הידיעה</div>
+    <div class="header-badge">🎯 כִּיתָה ה׳ &nbsp;|&nbsp; נושא חדש: ה' הידיעה</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson01_shira_kineret.html">→ 1</a>
+  <a class="nav-btn" href="lesson02_shem_etzem_ken_tzipor.html">→ 2</a>
+  <a class="nav-btn" href="lesson03_choni_hameagel.html">→ 3</a>
+  <a class="nav-btn" href="lesson04_rabbi_akiva_vehaeven.html">→ 4</a>
+  <a class="nav-btn" href="lesson05_hillel_vehager.html">→ 5</a>
+  <a class="nav-btn" href="lesson06_shnei_haachim.html">→ 6</a>
+  <a class="nav-btn" href="lesson07_luach_hashana_haivri.html">→ 7</a>
+  <a class="nav-btn" href="lesson08_mishpat_shlomo.html">→ 8</a>
+  <a class="nav-btn" href="lesson09_mishpat_pashut_umurkav.html">→ 9</a>
+  <a class="nav-btn" href="lesson10_ananse_vehachevel.html">→ 10</a>
+  <a class="nav-btn" href="lesson11_hatzav_vehaarnav.html">→ 11</a>
+  <a class="nav-btn" href="lesson12_haarye_vehaachbar.html">→ 12</a>
+  <a class="nav-btn" href="lesson13_ali_baba_vehashodedim.html">→ 13</a>
+  <a class="nav-btn" href="lesson14_kipa_aduma.html">→ 14</a>
+  <a class="nav-btn" href="lesson15_bigdei_hakeisar.html">→ 15</a>
+  <a class="nav-btn" href="lesson16_hanzel_vegartel.html">→ 16</a>
+  <a class="nav-btn" href="lesson17_chachmei_chelm.html">→ 17</a>
+  <a class="nav-btn" href="lesson18_momotaro.html">→ 18</a>
+  <a class="nav-btn" href="lesson19_kirpada_vehanachash.html">→ 19</a>
+  <a class="nav-btn" href="lesson20_hanaar_shetzaak_zeev.html">→ 20</a>
+  <a class="nav-btn" href="lesson21_zehava_ushloshet_hadubim.html">→ 21</a>
+  <a class="nav-btn" href="lesson22_habarvazon_hamechoar.html">→ 22</a>
+  <a class="nav-btn" href="lesson23_hazeev_veshivat_hagdaim.html">→ 23</a>
+  <span class="nav-current">שִׁיעוּר 24 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- ══ חלק א: קריאה ══ -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>אננסי היה <span class="highlight">עכביש</span> קטן שחשב שהוא הכי חכם ביער, אבל פחד מאוד שיום אחד מישהו אחר יהיה חכם ממנו.</p>
+    <p>אז הוא החליט לאסוף את כל ה<span class="highlight">חכמה</span> שיש בעולם לתוך <span class="highlight">סיר</span> חרס גדול, כדי לשמור אותה כולה רק לעצמו.</p>
+    <p>אננסי הלך בין כל בעלי החיים ביער, ואסף מכל אחד מהם טיפה קטנה של חכמה, עד שהסיר התמלא עד למעלה ממש.</p>
+    <p>עכשיו הוא רצה להחביא את הסיר במקום גבוה וסודי, כדי שאף אחד לא יגיע אליו לעולם - בראש העץ הגבוה ביותר ביער.</p>
+    <p>הוא קשר את הסיר בחוט חזק לבטן שלו, מלפנים, וניסה לטפס על ה<span class="highlight">עץ</span> הגבוה.</p>
+    <p>אבל הסיר הכבד היה תלוי בדיוק מול הבטן שלו, ובכל פעם שניסה לטפס, הסיר נתקל ב<span class="highlight">גזע</span> העץ ומנע ממנו להתקדם אפילו טיפה.</p>
+    <p>אננסי ניסה שוב ושוב, מזיע ומתוסכל, בלי להצליח לעלות ולו צעד אחד קדימה.</p>
+    <p>בנו הקטן של אננסי ישב למטה וצפה בו זמן רב, ואז אמר: "אבא, למה אתה לא קושר את הסיר לגב שלך, במקום לבטן? ככה הוא לא יפריע לך לטפס."</p>
+    <p>אננסי הביט בבנו ב<span class="highlight">הפתעה</span> גדולה, ואז הבין משהו חשוב: הוא עוד לא אסף את כל החכמה שבעולם, כי גם לילד הקטן שלו יש חכמה משלו!</p>
+    <p>הוא כעס כל כך על עצמו, שברגע של תסכול זרק את הסיר בכעס אל הקרקע - והסיר נשבר לאלף רסיסים קטנים.</p>
+    <p>כל טיפות החכמה שהיו בתוך הסיר <span class="highlight">התפזרו</span> לכל רוחות היער, וחזרו אל כל בעלי החיים ואל כל האנשים בעולם - טיפה קטנה לכל אחד.</p>
+    <p>מאז אותו יום, אף אחד לא מחזיק בכל החכמה שבעולם לבדו - אלא כל אחד מקבל טיפה קטנה משלו, ולומד עוד ועוד לאורך כל חייו.</p>
+    <div class="source-line">סיפור עם מוכר על אננסי העכביש הפיקח וסיר החכמה, מסורת אפריקאית-קריבית - מעובד</div>
+  </div>
+
+  <!-- ══ חלק ב: אוצר מילים ══ -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">עכביש</div><div class="eng">spider</div></div>
+    <div class="vocab-card"><div class="heb">חכמה</div><div class="eng">wisdom</div></div>
+    <div class="vocab-card"><div class="heb">סיר</div><div class="eng">pot</div></div>
+    <div class="vocab-card"><div class="heb">עץ</div><div class="eng">tree</div></div>
+    <div class="vocab-card"><div class="heb">גזע</div><div class="eng">tree trunk</div></div>
+    <div class="vocab-card"><div class="heb">הפתעה</div><div class="eng">surprise</div></div>
+    <div class="vocab-card"><div class="heb">התפזרו</div><div class="eng">scattered</div></div>
+    <div class="vocab-card"><div class="heb">כעס</div><div class="eng">got angry</div></div>
+  </div>
+
+  <!-- ══ חלק ג: משחק הבנת הנקרא ══ -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — טִפּוּס אֶל רֹאשׁ הָעֵץ</div>
+  <div class="game-box">
+    <div class="game-title">🏺 יַעֲלֶה אֶנָנְסִי עִם הַסִּיר עַד לְרֹאשׁ הָעֵץ?</div>
+    <div class="game-subtitle">ענו נכון על שאלות ההבנה, וכל תשובה נכונה מקדמת את אננסי צעד נוסף במעלה העץ!</div>
+    <div class="progress-dots" id="comp-dots"></div>
+    <div class="game-scene" id="comp-scene">
+      <div class="climb-scene">
+        <div class="climb-row" id="climb-row">
+          <span>🕷️</span>
+          <span class="climb-mark" id="climb-0">🍃</span>
+          <span class="climb-mark" id="climb-1">🍃</span>
+          <span class="climb-mark" id="climb-2">🍃</span>
+          <span class="climb-mark" id="climb-3">🍃</span>
+          <span class="climb-mark" id="climb-4">🍃</span>
+          <span class="climb-mark" id="climb-5">🍃</span>
+          <span>🌳</span>
+        </div>
+        <div class="scene-label" id="climb-label">0 מתוך 6 - אננסי עוד למטה עם הסיר...</div>
+      </div>
+    </div>
+    <div class="q-text" id="comp-q"></div>
+    <div class="opts" id="comp-opts"></div>
+    <div class="explanation" id="comp-exp"></div>
+    <button class="submit-btn" id="comp-submit" disabled onclick="mcSubmit(COMP)">בְּדֹק ✓</button>
+    <button class="next-btn" id="comp-next" onclick="mcNext(COMP)">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    <div class="result-banner" id="comp-result"></div>
+  </div>
+
+  <!-- ══ חלק ד: דקדוק ══ -->
+  <div class="section-title">📚 דִּקְדּוּק — ה' הַיְדִיעָה</div>
+  <div class="grammar-box">
+    <h3>ה' הידיעה - מה זה?</h3>
+    <p>ה' הידיעה היא האות ה' שמתווספת בתחילת שם עצם, כדי לסמן דבר מסוים וידוע (באנגלית: "the"). לדוגמה: סיר (a pot) לעומת הסיר (the pot) - הסיר הספציפי מהסיפור.</p>
+    <h3>איך ה' הידיעה "נבלעת" אחרי ב, כ, ל?</h3>
+    <p>כשמצרפים למילה עם ה' הידיעה את אחת ממילות היחס ב (בתוך), כ (כמו), או ל (אל) - ה' הידיעה "נבלעת": היא לא נכתבת יותר, אבל משאירה סימן - האות שאחריה מקבלת דגש. לדוגמה: הסיר + ב = בסיר (לא בהסיר), הסיר + ל = לסיר, הסיר + כ = כסיר.</p>
+    <h3>מה קורה עם מ (מן)?</h3>
+    <p>לעומת זאת, אחרי מילת היחס מ (מן) - ה' הידיעה נשארת ונראית במילה, ולא נבלעת. לדוגמה: היער + מ = מהיער (לא מיער) - ה' נשארת בכתיב.</p>
+    <h3>מתי לא מוסיפים ה' הידיעה?</h3>
+    <p>ה' הידיעה לא מתווספת לשמות פרטיים (שמות של אנשים, ערים, מדינות) - כי הם כבר מסוימים וידועים מעצמם. לדוגמה: אננסי, אפריקה - בלי ה' בהתחלה.</p>
+    <table class="gram-table">
+      <tr><th>מילה</th><th>+ ה' הידיעה</th><th>+ ב</th><th>+ כ</th><th>+ ל</th><th>+ מ</th></tr>
+      <tr><td>סיר</td><td>הסיר</td><td>בסיר</td><td>כסיר</td><td>לסיר</td><td>מהסיר</td></tr>
+      <tr><td>עץ</td><td>העץ</td><td>בעץ</td><td>כעץ</td><td>לעץ</td><td>מהעץ</td></tr>
+      <tr><td>יער</td><td>היער</td><td>ביער</td><td>כיער</td><td>ליער</td><td>מהיער</td></tr>
+    </table>
+    <div style="margin-top:14px">
+      <span class="ex-chip">ה' הידיעה = "the"</span>
+      <span class="ex-chip">ב/כ/ל בולעות את ה' הידיעה</span>
+      <span class="ex-chip">מ (מן) לא בולעת - ה' נשארת</span>
+      <span class="ex-chip">אין ה' הידיעה לפני שם פרטי</span>
+    </div>
+  </div>
+
+  <!-- ══ חלק ה: משחק דקדוק ══ -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — אוֹרְגִים קוּרֵי דִּקְדּוּק</div>
+  <div class="game-box">
+    <div class="game-title">🕸️ אננסי אוֹרֵג קוּרֵי חָכְמָה עַל ה' הַיְדִיעָה</div>
+    <div class="game-subtitle">ענו נכון על שאלות הדקדוק על ה' הידיעה, וכל תשובה נכונה מוסיפה עוד חוט לקורי העכביש!</div>
+    <div class="progress-dots" id="gram-dots"></div>
+    <div class="game-scene" id="gram-scene">
+      <div class="web-scene">
+        <div class="web-row" id="web-row">
+          <span class="web-strand" id="web-0">🧵</span>
+          <span class="web-strand" id="web-1">🧵</span>
+          <span class="web-strand" id="web-2">🧵</span>
+          <span class="web-strand" id="web-3">🧵</span>
+          <span class="web-strand" id="web-4">🧵</span>
+          <span class="web-strand" id="web-5">🧵</span>
+          <span class="web-strand" id="web-6">🧵</span>
+          <span class="web-strand" id="web-7">🧵</span>
+          <span>🕷️</span>
+        </div>
+        <div class="scene-label" id="web-label">0 מתוך 8 חוטים נארגו...</div>
+      </div>
+    </div>
+    <div class="q-text" id="gram-q"></div>
+    <div class="opts" id="gram-opts"></div>
+    <div class="explanation" id="gram-exp"></div>
+    <button class="submit-btn" id="gram-submit" disabled onclick="mcSubmit(GRAM)">בְּדֹק ✓</button>
+    <button class="next-btn" id="gram-next" onclick="mcNext(GRAM)">הַבָּא ←</button>
+    <div class="result-banner" id="gram-result"></div>
+  </div>
+
+  <!-- ══ חלק ו: מטלת כתיבה (אחת בלבד!) ══ -->
+  <div class="section-title">✍️ כְּתִיבָה</div>
+  <div class="writing-card">
+    <div class="writing-title">✍️ מַטְלַת כְּתִיבָה</div>
+    <p style="margin-bottom:16px">כתבו חמישה משפטים משלכם, שבהם אתם מתרגלים שימוש נכון בה' הידיעה - כולל צירופים עם ב/כ/ל (כמו "בסיר", "לעץ") וגם עם מ (כמו "מהיער"), לפי ההנחיות שליד כל שורה.</p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button class="writing-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-btn gray" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ═══ נתוני משחק ההבנה ═══ */
+const compQuestions = [
+  { q:"מה אננסי רצה לעשות עם כל החכמה שבעולם?", opts:["לאסוף אותה לתוך סיר ולהחביא אותה רק לעצמו","לחלק אותה לכל בעלי החיים","למכור אותה בשוק","לשכוח אותה"], ans:0,
+    exp:"כתוב שאננסי החליט לאסוף את כל החכמה שבעולם לתוך סיר חרס גדול, כדי לשמור אותה כולה רק לעצמו." },
+  { q:"איפה אננסי רצה להחביא את הסיר?", opts:["בראש העץ הגבוה ביותר ביער","בתוך מערה","מתחת לאדמה","בבית שלו"], ans:0,
+    exp:"כתוב שאננסי רצה להחביא את הסיר במקום גבוה וסודי - בראש העץ הגבוה ביותר ביער." },
+  { q:"למה אננסי לא הצליח לטפס על העץ?", opts:["הסיר הכבד היה קשור לבטן שלו ונתקל בגזע העץ","העץ היה חלקלק מדי","ירד גשם חזק","הוא היה עייף מדי"], ans:0,
+    exp:"הסיר היה תלוי מול הבטן שלו, ובכל פעם שניסה לטפס, הסיר נתקל בגזע העץ ומנע ממנו להתקדם." },
+  { q:"מה בנו הקטן של אננסי הציע לו?", opts:["לקשור את הסיר לגב, במקום לבטן","לשבור את הסיר מיד","לוותר על הטיפוס","לבקש עזרה מחיה אחרת"], ans:0,
+    exp:"בנו של אננסי אמר לו: \"למה אתה לא קושר את הסיר לגב שלך, במקום לבטן? ככה הוא לא יפריע לך לטפס.\"" },
+  { q:"למה אננסי כעס וזרק את הסיר בסוף הסיפור?", opts:["הוא הבין שגם לבנו הקטן יש חכמה משלו, ושהוא לא באמת אסף את כל החכמה שבעולם","הסיר היה ריק","הבן שבר את הסיר קודם","הוא רצה עוד מקום בסיר"], ans:0,
+    exp:"אננסי הבין שגם לילד הקטן שלו יש חכמה משלו - כלומר אי אפשר לאסוף את כל חכמת העולם לתוך סיר אחד ולשמור אותה רק לעצמו." },
+  { q:"לדעתכם, מה הלקח המרכזי של הסיפור?", opts:["לאף אחד אין את כל החכמה לבד - לכל אחד, גם לילדים, יש חכמה משלו","עדיף להחביא דברים בראש עץ גבוה","אסור לטפס על עצים","חשוב תמיד לשמור סודות"], ans:0,
+    exp:"טיפות החכמה התפזרו לכל בעלי החיים ולכל האנשים בעולם - כדי שאף אחד לא יחזיק בכל החכמה לבדו, וכל אחד ימשיך ללמוד כל חייו." }
+];
+
+/* ═══ ווים לסצנה הוויזואלית ═══ */
+function onCorrectComp(i, total){
+  const step = document.getElementById('climb-'+i);
+  if(step) step.classList.add('on');
+  const label = document.getElementById('climb-label');
+  label.textContent = (i+1) + ' מתוך ' + total + ' - אננסי מטפס גבוה יותר!' + (i===total-1 ? ' הוא הגיע לראש העץ! 🎉' : '');
+}
+
+/* ═══ מנוע MC גנרי — לא לשנות ═══ */
+function makeGame(prefix, questions, onCorrect, resultText){
+  return {prefix, questions, onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+}
+const COMP = makeGame('comp', compQuestions, onCorrectComp,
+  s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
+
+const gramQuestions = [
+  { q:"מה תפקידה של ה' הידיעה?", opts:["לסמן דבר מסוים וידוע (כמו \"the\" באנגלית)","לסמן רבים","לסמן זמן עתיד","לסמן שאלה"], ans:0,
+    exp:"ה' הידיעה מתווספת בתחילת שם עצם כדי לסמן דבר מסוים וידוע - למשל \"הסיר\" הספציפי מהסיפור." },
+  { q:"איך כותבים נכון: \"ב\" + \"הסיר\" (=בתוך הסיר)?", opts:["בסיר","בהסיר","הסיר","סיר"], ans:0,
+    exp:"אחרי מילת היחס ב, ה' הידיעה נבלעת - כותבים \"בסיר\" ולא \"בהסיר\"." },
+  { q:"איך כותבים נכון: \"ל\" + \"העץ\" (=אל העץ)?", opts:["לעץ","להעץ","לעאץ","לעצץ"], ans:0,
+    exp:"אחרי מילת היחס ל, ה' הידיעה נבלעת - כותבים \"לעץ\" ולא \"להעץ\"." },
+  { q:"איך כותבים נכון: \"מ\" + \"היער\" (=מתוך היער)?", opts:["מהיער","מיער","מהיערה","מיערה"], ans:0,
+    exp:"בניגוד ל-ב/כ/ל, אחרי מילת היחס מ (מן) ה' הידיעה לא נבלעת - היא נשארת ונכתבת: \"מהיער\"." },
+  { q:"באיזו מילה ה' הידיעה \"נבלעה\" ונשאר רק דגש?", opts:["כסיר","הסיר","מהעץ","עכביש"], ans:0,
+    exp:"\"כסיר\" הוא \"כ\" + \"הסיר\" - ה' הידיעה נבלעה, והכ״ף קיבלה דגש במקומה." },
+  { q:"האם מוסיפים ה' הידיעה לפני שם פרטי כמו \"אננסי\"?", opts:["לא, כי שם פרטי כבר מסוים וידוע מעצמו","כן, תמיד","רק בסיפורים","רק אם השם ארוך"], ans:0,
+    exp:"ה' הידיעה לא מתווספת לשמות פרטיים (כמו אננסי, אפריקה) - הם כבר מסוימים וידועים בלי צורך בה' נוספת." },
+  { q:"השלימו: אננסי טיפס _____ (אל ה)עץ הגבוה.", opts:["לעץ","להעץ","בעץ","מהעץ"], ans:0,
+    exp:"\"אל ה\" + \"עץ\" = \"לעץ\" (ה' הידיעה נבלעת אחרי ל)." },
+  { q:"השלימו: טיפות החכמה יצאו _____ (מתוך ה)סיר השבור.", opts:["מהסיר","מסיר","בסיר","לסיר"], ans:0,
+    exp:"\"מתוך ה\" + \"סיר\" = \"מהסיר\" - אחרי מ, ה' הידיעה נשארת ונכתבת." }
+];
+
+/* ═══ ווים לסצנה הוויזואלית ═══ */
+function onCorrectGram(i, total){
+  const step = document.getElementById('web-'+i);
+  if(step) step.classList.add('on');
+  const label = document.getElementById('web-label');
+  label.textContent = (i+1) + ' מתוך ' + total + ' חוטים נארגו...' + (i===total-1 ? ' הקורים מוכנים! 🎉' : '');
+}
+const GRAM = makeGame('gram', gramQuestions, onCorrectGram,
+  s => `🏆 עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${gramQuestions.length}!`);
+
+function el(g,part){ return document.getElementById(g.prefix+'-'+part); }
+function mcInit(g){
+  const dots = el(g,'dots'); dots.innerHTML='';
+  g.questions.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id=g.prefix+'-dot-'+i; dots.appendChild(d); });
+  mcShow(g);
+}
+function mcShow(g){
+  g.sel=null;
+  const q=g.questions[g.idx];
+  el(g,'q').innerHTML = (q.sentence? '<div class="q-sentence">'+q.sentence+'</div>' : '') +
+    'שְׁאֵלָה '+(g.idx+1)+' מִתּוֹךְ '+g.questions.length+': '+q.q;
+  const opts=el(g,'opts'); opts.innerHTML='';
+  q.opts.forEach((o,i)=>{ const b=document.createElement('button'); b.className='opt-btn'; b.textContent=o;
+    b.onclick=()=>{ if(g.done)return; g.sel=i;
+      opts.querySelectorAll('.opt-btn').forEach((x,j)=>x.classList.toggle('selected',j===i));
+      el(g,'submit').disabled=false; };
+    opts.appendChild(b); });
+  el(g,'exp').style.display='none';
+  el(g,'submit').style.display='block'; el(g,'submit').disabled=true;
+  el(g,'next').style.display='none';
+}
+function mcSubmit(g){
+  if(g.sel===null) return;
+  const q=g.questions[g.idx], btns=el(g,'opts').querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{ b.disabled=true;
+    if(i===q.ans) b.classList.add('correct-ans');
+    else if(i===g.sel) b.classList.add('wrong-ans'); });
+  if(g.sel===q.ans){ g.score++;
+    document.getElementById(g.prefix+'-dot-'+g.idx).classList.add('done');
+    g.onCorrect(g.idx, g.questions.length); }
+  const ex=el(g,'exp'); ex.textContent=q.exp; ex.style.display='block';
+  el(g,'submit').style.display='none';
+  if(g.idx < g.questions.length-1){ el(g,'next').style.display='block'; }
+  else { const r=el(g,'result'); r.textContent=g.resultText(g.score); r.style.display='block'; }
+}
+function mcNext(g){ g.idx++; mcShow(g); }
+mcInit(COMP); mcInit(GRAM);
+
+/* ═══ מטלת כתיבה — סטנדרטי, לא לשנות (רק את ה-placeholders) ═══ */
+const wP = [
+  'כתבו משפט עם מילה + ה\' הידיעה + ב (למשל: "הילדים שיחקו בגן")',
+  'כתבו משפט עם מילה + ה\' הידיעה + ל (למשל: "הלכנו לחנות החדשה")',
+  'כתבו משפט עם מילה + ה\' הידיעה + מ, כך שה\' נשארת בכתיב (למשל: "יצאנו מהבית מוקדם")',
+  'כתבו משפט מהסיפור על אננסי, עם ה\' הידיעה על אחד מהחפצים בסיפור (הסיר או העץ)',
+  'כתבו משפט משלכם עם שם פרטי (כמו שם של חבר), בלי ה\' הידיעה לפניו'
+];
+function initW(){
+  const c=document.getElementById('writing-lines'); c.innerHTML='';
+  wP.forEach((ph,i)=>{ const d=document.createElement('div'); d.className='writing-line'; d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d); });
+  document.getElementById('writing-result').style.display='none';
+  document.getElementById('writing-fb').textContent='';
+}
+function submitWriting(){
+  let n=0;
+  for(let i=0;i<wP.length;i++){
+    const v=document.getElementById('winput-'+i).value.trim(), l=document.getElementById('wline-'+i);
+    if(v.length>1){ n++; l.className='writing-line filled'; } else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb'), res=document.getElementById('writing-result');
+  if(n<wP.length){ fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל הַשּׁוּרוֹת.'; fb.style.color='#dc2626'; res.style.display='none'; return; }
+  fb.textContent='';
+  res.style.display='block';
+  res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ '+wP.length+' מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+}
+function resetWriting(){ initW(); }
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>
