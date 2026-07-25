@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 26 — הרוח והשמש</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p1:#0369a1;
+  --p1dk:#0c4a6e;
+  --p1md:#38bdf8;
+  --p1lt:#e0f2fe;
+  --page:#f0f9ff;
+  --p2:#ea580c;
+  --p2lt:#ffedd5;
+  --ink:#1e293b; --muted:#64748b; --ok:#16a34a; --bad:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);direction:rtl;min-height:100vh;font-size:17px}
+
+/* ── כותרת ── */
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+
+.container{max-width:860px;margin:0 auto;padding:24px 16px 70px}
+
+/* ── כותרות מקטעים וכרטיסים ── */
+.section-title{font-size:1.42rem;font-weight:900;color:var(--ink);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.story-box,.grammar-box,.game-box{background:#fff;border-radius:22px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:24px 26px}
+.story-box::before,.grammar-box::before,.game-box::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+
+/* ── קריאה ── */
+.story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
+.story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+
+/* ── אוצר מילים ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.vocab-card{background:var(--p1lt);border:2px solid var(--p1md);border-radius:16px;padding:14px 12px;text-align:center;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--p1)}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;color:var(--p1dk);font-weight:700}
+.vocab-card .eng{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ── דקדוק ── */
+.grammar-box h3{color:var(--p1);font-size:1.2rem;font-weight:900;margin-bottom:12px}
+.grammar-box p{line-height:1.9;font-size:1.02rem;margin-bottom:.5em}
+.gram-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--p1);color:#fff;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;border-bottom:1px solid var(--p1lt);text-align:right}
+.gram-table tr:nth-child(even) td{background:var(--page)}
+.ex-chip{display:inline-block;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:6px 14px;font-size:1.05rem;color:var(--p1dk);font-weight:700;margin:4px 2px;white-space:nowrap}
+
+/* ── משחקים (מנוע MC גנרי) ── */
+.game-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);text-align:center;margin-bottom:4px}
+.game-subtitle{font-size:.9rem;color:var(--muted);text-align:center;margin-bottom:18px}
+.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--p1lt);border:2px solid var(--p1md);transition:background .3s}
+.dot.done{background:var(--p1);border-color:var(--p1)}
+.game-scene{background:var(--page);border:2px solid var(--p1lt);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center;min-height:70px}
+.q-text{font-size:1.1rem;font-weight:700;line-height:1.8;text-align:center;margin-bottom:14px}
+.q-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.opt-btn{background:#fff;border:2px solid var(--p1md);border-radius:12px;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.opt-btn:hover:not(:disabled){border-color:var(--p1);background:var(--p1lt)}
+.opt-btn.selected{border-color:var(--p1);background:var(--p1lt);box-shadow:0 0 0 3px var(--p1lt)}
+.opt-btn.correct-ans{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.opt-btn.wrong-ans{background:#fee2e2;border-color:var(--bad);color:#b91c1c;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.submit-btn,.next-btn{display:block;margin:14px auto 0;background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 28px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+.submit-btn:hover:not(:disabled){background:var(--p1dk)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.next-btn{display:none;background:var(--p2)}
+.explanation{display:none;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:10px 14px;font-size:.95rem;color:var(--p1dk);font-weight:600;margin-top:12px;line-height:1.8;text-align:center}
+.result-banner{display:none;background:linear-gradient(135deg,var(--p1md),var(--p1));color:#fff;border-radius:14px;padding:20px;text-align:center;font-size:1.25rem;font-weight:800;margin-top:16px}
+
+/* ── סצנת השמש והמעיל (משחק הבנה) ── */
+.sun-scene{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.sun-row{display:flex;align-items:center;gap:6px;justify-content:center;font-size:1.9rem;flex-wrap:wrap}
+.sun-mark{opacity:.18;transition:opacity .4s,transform .4s}
+.sun-mark.on{opacity:1;transform:scale(1.25) translateY(-3px)}
+.scene-label{font-size:1.05rem;font-weight:800;color:var(--p1dk);text-align:center}
+
+/* ── סצנת האותיות מש"ה וכל"ב (משחק דקדוק) ── */
+.letters-scene{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+.letters-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.letter-tile{width:42px;height:42px;border-radius:10px;background:var(--p1lt);border:2px solid var(--p1md);display:flex;align-items:center;justify-content:center;font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;font-weight:900;color:var(--p1md);transition:background .3s,color .3s,transform .3s}
+.letter-tile.revealed{background:var(--p1);color:#fff;border-color:var(--p1dk);transform:scale(1.15)}
+
+/* ── מטלת כתיבה ── */
+.writing-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.writing-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,#bbf7d0,var(--ok))}
+.writing-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);margin-bottom:14px}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-btn{background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-btn.gray{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ══ כותרת ══ -->
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🌬️</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">☀️</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🧥</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">🚶</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">🌤️</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 26</div>
+    <h1>הרוח והשמש</h1>
+    <div class="header-sub">תחרות בין הרוח לשמש - ומילה אחת שעוזרת לזכור שבע אותיות קטנות: מש"ה וכל"ב</div>
+    <div class="header-badge">🎯 כִּיתָה ה׳ &nbsp;|&nbsp; אותיות השימוש - מש"ה וכל"ב</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson01_shira_kineret.html">→ 1</a>
+  <a class="nav-btn" href="lesson02_shem_etzem_ken_tzipor.html">→ 2</a>
+  <a class="nav-btn" href="lesson03_choni_hameagel.html">→ 3</a>
+  <a class="nav-btn" href="lesson04_rabbi_akiva_vehaeven.html">→ 4</a>
+  <a class="nav-btn" href="lesson05_hillel_vehager.html">→ 5</a>
+  <a class="nav-btn" href="lesson06_shnei_haachim.html">→ 6</a>
+  <a class="nav-btn" href="lesson07_luach_hashana_haivri.html">→ 7</a>
+  <a class="nav-btn" href="lesson08_mishpat_shlomo.html">→ 8</a>
+  <a class="nav-btn" href="lesson09_mishpat_pashut_umurkav.html">→ 9</a>
+  <a class="nav-btn" href="lesson10_ananse_vehachevel.html">→ 10</a>
+  <a class="nav-btn" href="lesson11_hatzav_vehaarnav.html">→ 11</a>
+  <a class="nav-btn" href="lesson12_haarye_vehaachbar.html">→ 12</a>
+  <a class="nav-btn" href="lesson13_ali_baba_vehashodedim.html">→ 13</a>
+  <a class="nav-btn" href="lesson14_kipa_aduma.html">→ 14</a>
+  <a class="nav-btn" href="lesson15_bigdei_hakeisar.html">→ 15</a>
+  <a class="nav-btn" href="lesson16_hanzel_vegartel.html">→ 16</a>
+  <a class="nav-btn" href="lesson17_chachmei_chelm.html">→ 17</a>
+  <a class="nav-btn" href="lesson18_momotaro.html">→ 18</a>
+  <a class="nav-btn" href="lesson19_kirpada_vehanachash.html">→ 19</a>
+  <a class="nav-btn" href="lesson20_hanaar_shetzaak_zeev.html">→ 20</a>
+  <a class="nav-btn" href="lesson21_zehava_ushloshet_hadubim.html">→ 21</a>
+  <a class="nav-btn" href="lesson22_habarvazon_hamechoar.html">→ 22</a>
+  <a class="nav-btn" href="lesson23_hazeev_veshivat_hagdaim.html">→ 23</a>
+  <a class="nav-btn" href="lesson24_ananse_vesir_hachochma.html">→ 24</a>
+  <a class="nav-btn" href="lesson25_hanemala_vehachagav.html">→ 25</a>
+  <span class="nav-current">שִׁיעוּר 26 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- ══ חלק א: קריאה ══ -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>יום אחד <span class="highlight">התווכחו</span> הרוח והשמש - מי מהן חזקה יותר. הרוח טענה שהיא הכי חזקה בעולם, כי היא יכולה להפיל עצים ולהזיז עננים ממקום למקום בלי מאמץ.</p>
+    <p>ה<span class="highlight">שמש</span> לא הסכימה. היא אמרה שהחום שלה יכול לשנות הכול, בלי צורך לנשוב או לצעוק.</p>
+    <p>כדי להכריע מי צודקת, השתיים קבעו <span class="highlight">תחרות</span>. בדיוק באותו רגע הלך איש לבוש <span class="highlight">מעיל</span> חם בדרך הראשית. מי שיצליח לגרום לו להוריד את המעיל - היא המנצחת.</p>
+    <p>ה<span class="highlight">רוח</span> התחילה ראשונה. היא נשבה עליו <span class="highlight">בכוח</span> רב, ישר לתוך המעיל, כדי לתלוש אותו מעליו.</p>
+    <p>אבל ככל שהרוח נשבה חזק יותר, כך האיש עטף את עצמו במעיל בחוזקה רבה יותר, כדי לא לקפוא מקור.</p>
+    <p>הרוח לא ויתרה בקלות. היא ניסתה שוב ושוב, מכל כיוון אפשרי - אבל האיש רק החזיק את המעיל קרוב אליו יותר ויותר.</p>
+    <p>לבסוף, אחרי מאמץ רב, הרוח <span class="highlight">ויתרה</span>. היא הבינה שבכוח לבד היא לא תצליח לנצח בתחרות הזאת.</p>
+    <p>עכשיו הגיע תורה של השמש. היא לא נלחמה באיש כלל - היא רק זרחה <span class="highlight">בעדינות</span>, וחיממה את האוויר לאט לאט, בלי חיפזון.</p>
+    <p>האיש הרגיש את החום הנעים על הכתפיים שלו. אחרי כמה רגעים הוא הוריד את המעיל בעצמו, כי כבר לא היה לו קר.</p>
+    <p>השמש ניצחה בתחרות. הרוח הבינה שלפעמים דרך עדינה מצליחה במקום שבו כוח נכשל.</p>
+    <div class="source-line">משל מפורסם מאת איזופוס (יוון העתיקה) - "הרוח והשמש" - מעובד</div>
+  </div>
+
+  <!-- ══ חלק ב: אוצר מילים ══ -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">רוח</div><div class="eng">wind</div></div>
+    <div class="vocab-card"><div class="heb">שמש</div><div class="eng">sun</div></div>
+    <div class="vocab-card"><div class="heb">התווכחו</div><div class="eng">argued</div></div>
+    <div class="vocab-card"><div class="heb">תחרות</div><div class="eng">competition</div></div>
+    <div class="vocab-card"><div class="heb">מעיל</div><div class="eng">coat</div></div>
+    <div class="vocab-card"><div class="heb">בכוח</div><div class="eng">forcefully</div></div>
+    <div class="vocab-card"><div class="heb">בעדינות</div><div class="eng">gently</div></div>
+    <div class="vocab-card"><div class="heb">ויתרה</div><div class="eng">gave up (f.)</div></div>
+  </div>
+
+  <!-- ══ חלק ג: משחק הבנת הנקרא ══ -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — הַשֶּׁמֶשׁ מְנַצַּחַת</div>
+  <div class="game-box">
+    <div class="game-title">☀️ הַאִם הַשֶּׁמֶשׁ תַּצְלִיחַ לְשַׁכְנֵעַ אֶת הָאִישׁ לְהוֹרִיד אֶת הַמְּעִיל?</div>
+    <div class="game-subtitle">ענו נכון על שאלות ההבנה, וכל תשובה נכונה מוסיפה קרן שמש נוספת!</div>
+    <div class="progress-dots" id="comp-dots"></div>
+    <div class="game-scene" id="comp-scene">
+      <div class="sun-scene">
+        <div class="sun-row" id="sun-row">
+          <span>🌬️</span>
+          <span class="sun-mark" id="sun-0">☀️</span>
+          <span class="sun-mark" id="sun-1">☀️</span>
+          <span class="sun-mark" id="sun-2">☀️</span>
+          <span class="sun-mark" id="sun-3">☀️</span>
+          <span class="sun-mark" id="sun-4">☀️</span>
+          <span class="sun-mark" id="sun-5">☀️</span>
+          <span>🧥</span>
+        </div>
+        <div class="scene-label" id="sun-label">0 מתוך 6 - הרוח עדיין מנסה בכוח...</div>
+      </div>
+    </div>
+    <div class="q-text" id="comp-q"></div>
+    <div class="opts" id="comp-opts"></div>
+    <div class="explanation" id="comp-exp"></div>
+    <button class="submit-btn" id="comp-submit" disabled onclick="mcSubmit(COMP)">בְּדֹק ✓</button>
+    <button class="next-btn" id="comp-next" onclick="mcNext(COMP)">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    <div class="result-banner" id="comp-result"></div>
+  </div>
+
+  <!-- ══ חלק ד: דקדוק ══ -->
+  <div class="section-title">📚 דִּקְדּוּק — אותיות השימוש: מש"ה וכל"ב</div>
+  <div class="grammar-box">
+    <h3>מה זה אות שימוש?</h3>
+    <p>לפעמים אות אחת מתחברת ישר להתחלת מילה, בלי רווח, ומקבלת משמעות משלה - כמו מילה קטנה בפני עצמה. שבע אותיות כאלה נקראות "אותיות השימוש", ואפשר לזכור את כולן בקלות במילה אחת: מש"ה וכל"ב - בדיוק כמו משה וכלב, שני שמות מוכרים מהתנ"ך!</p>
+    <h3>שבע האותיות ומה כל אחת אומרת</h3>
+    <table class="gram-table">
+      <tr><th>אות</th><th>פירוש</th><th>דוגמה</th><th>במשפט</th></tr>
+      <tr><td>מ</td><td>מן (from)</td><td>מהעיר</td><td>היא באה מהעיר.</td></tr>
+      <tr><td>ש</td><td>אשר (that / which)</td><td>שרץ</td><td>ראיתי את הכלב שרץ בפארק.</td></tr>
+      <tr><td>ה</td><td>ה' הידיעה, או שאלה (the / question)</td><td>הבית</td><td>הבית שלנו גדול.</td></tr>
+      <tr><td>ו</td><td>מילת חיבור (and)</td><td>ותפוז</td><td>קניתי תפוח ותפוז.</td></tr>
+      <tr><td>כ</td><td>כמו (like / as)</td><td>כמלך</td><td>הוא הרגיש כמלך.</td></tr>
+      <tr><td>ל</td><td>אל, בשביל (to / for)</td><td>לילד</td><td>נתנו מתנה לילד.</td></tr>
+      <tr><td>ב</td><td>בתוך, עם (in / at / with)</td><td>בעדינות</td><td>השמש זרחה בעדינות.</td></tr>
+    </table>
+    <h3>טיפ לזיהוי</h3>
+    <p>כשרואים מילה שמתחילה באחת מהאותיות מש"ה וכל"ב, ואחריה עוד מילה שלמה - יכול להיות שזאת אות שימוש שמחוברת למילה, ולא חלק מהשורש שלה. כדי לבדוק, אפשר להוריד את האות הראשונה ולראות אם נשארת מילה מוכרת: בעדינות בלי ב = עדינות (מילה מוכרת - כן, זאת אות שימוש!).</p>
+    <div style="margin-top:14px">
+      <span class="ex-chip">מ = מן</span>
+      <span class="ex-chip">ש = אשר</span>
+      <span class="ex-chip">ה = ה' הידיעה / שאלה</span>
+      <span class="ex-chip">ו = וְ</span>
+      <span class="ex-chip">כ = כמו</span>
+      <span class="ex-chip">ל = אל</span>
+      <span class="ex-chip">ב = בתוך</span>
+      <span class="ex-chip">מש"ה וכל"ב</span>
+    </div>
+  </div>
+
+  <!-- ══ חלק ה: משחק דקדוק ══ -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — שְׁבַע הָאוֹתִיּוֹת הַנִּסְתָּרוֹת</div>
+  <div class="game-box">
+    <div class="game-title">🔤 גַּלּוּ אֶת שֶׁבַע אוֹתִיּוֹת הַשִּׁמּוּשׁ, אַחַת אַחַר אַחַת</div>
+    <div class="game-subtitle">כל תשובה נכונה חושפת אות נוספת - נסו לנחש איזו מילה ידועה מתגלה בסוף!</div>
+    <div class="progress-dots" id="gram-dots"></div>
+    <div class="game-scene" id="gram-scene">
+      <div class="letters-scene">
+        <div class="letters-row" id="letters-row">
+          <span class="letter-tile" id="ltile-0">?</span>
+          <span class="letter-tile" id="ltile-1">?</span>
+          <span class="letter-tile" id="ltile-2">?</span>
+          <span class="letter-tile" id="ltile-3">?</span>
+          <span class="letter-tile" id="ltile-4">?</span>
+          <span class="letter-tile" id="ltile-5">?</span>
+          <span class="letter-tile" id="ltile-6">?</span>
+        </div>
+        <div class="scene-label" id="letters-label">0 מתוך 7 אותיות התגלו...</div>
+      </div>
+    </div>
+    <div class="q-text" id="gram-q"></div>
+    <div class="opts" id="gram-opts"></div>
+    <div class="explanation" id="gram-exp"></div>
+    <button class="submit-btn" id="gram-submit" disabled onclick="mcSubmit(GRAM)">בְּדֹק ✓</button>
+    <button class="next-btn" id="gram-next" onclick="mcNext(GRAM)">הַבָּא ←</button>
+    <div class="result-banner" id="gram-result"></div>
+  </div>
+
+  <!-- ══ חלק ו: מטלת כתיבה (אחת בלבד!) ══ -->
+  <div class="section-title">✍️ כְּתִיבָה</div>
+  <div class="writing-card">
+    <div class="writing-title">✍️ מַטְלַת כְּתִיבָה</div>
+    <p style="margin-bottom:16px">כתבו חמישה משפטים משלכם, בכל משפט תשתמשו במילה אחת שמתחילה באות שימוש (ב/כ/ל/מ/ש/ו/ה) - לפי ההנחיות שליד כל שורה.</p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button class="writing-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-btn gray" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ═══ נתוני משחק ההבנה ═══ */
+const compQuestions = [
+  { q:"על מה התווכחו הרוח והשמש?", opts:["מי מהן חזקה יותר","מי מהן יפה יותר","מי מהן תגיע ראשונה לים","מי מהן ילדים אוהבים יותר"], ans:0,
+    exp:"כתוב שיום אחד התווכחו הרוח והשמש - מי מהן חזקה יותר." },
+  { q:"מה היה תנאי הניצחון בתחרות שקבעו?", opts:["מי שיגרום לאיש בדרך להוריד את המעיל שלו","מי שתרוץ הכי מהר","מי שתגיע לשמיים קודם","מי שתצליח להפיל עץ"], ans:0,
+    exp:"כתוב שהתחרות הייתה: מי שיצליח לגרום לאיש שהלך בדרך להוריד את המעיל שלו." },
+  { q:"מה עשה האיש כשהרוח נשבה עליו בכוח?", opts:["עטף את עצמו במעיל בחוזקה רבה יותר","הוריד את המעיל מיד","ברח הביתה","לא שם לב לרוח בכלל"], ans:0,
+    exp:"כתוב שככל שהרוח נשבה חזק יותר, כך האיש עטף את עצמו במעיל בחוזקה רבה יותר, כדי לא לקפוא מקור." },
+  { q:"איך השמש גרמה בסוף לאיש להוריד את המעיל?", opts:["זרחה בעדינות וחיממה את האוויר לאט לאט","נשבה עליו בכוח רב","קראה לו בקול חזק","שלחה רוח קרה"], ans:0,
+    exp:"כתוב שהשמש לא נלחמה באיש - היא רק זרחה בעדינות, וחיממה את האוויר לאט לאט, עד שהאיש הוריד את המעיל בעצמו." },
+  { q:"מדוע אפשר לומר שניסיון הרוח הביא לתוצאה הפוכה ממה שרצתה?", opts:["כי ככל שניסתה בכוח רב יותר, האיש התעטף חזק יותר במעיל, במקום להוריד אותו","כי הרוח לא ניסתה בכלל","כי האיש ראה את הרוח ופחד ממנה","כי הרוח הפכה להיות השמש"], ans:0,
+    exp:"הרוח רצתה שהאיש יוריד את המעיל, אבל דווקא הכוח שלה גרם לו להיאחז בו חזק יותר - כלומר, הניסיון שלה הביא לתוצאה הפוכה מכוונתה." },
+  { q:"מה הלקח המרכזי של הסיפור?", opts:["לפעמים דרך עדינה מצליחה במקום שבו כוח נכשל","חשוב תמיד לנשוב הכי חזק שאפשר","השמש תמיד מנצחת את הרוח בכל דבר","אסור ללבוש מעיל בחורף"], ans:0,
+    exp:"הסיפור מלמד שהשמש ניצחה לא כי הייתה חזקה יותר, אלא כי בחרה בדרך עדינה - לפעמים עדינות מצליחה יותר מכוח." }
+];
+const gramQuestions = [
+  { q:"איזו אות שימוש משלימה את המשפט, במשמעות 'מן' (from)?", sentence:"הִיא הִגִּיעָה ___ הָעִיר, וְרָצְתָה לַחֲזֹר מַהֵר.", opts:["מ","ל","כ","ש"], ans:0,
+    exp:"האות מ (מן) פירושה from - מהעיר = מן העיר." },
+  { q:"איזו אות שימוש משלימה את המשפט, במשמעות 'אשר' (that / which)?", sentence:"רָאִיתִי אֶת הַכֶּלֶב ___ רָץ בַּפַּארְק.", opts:["ש","ו","ה","ב"], ans:0,
+    exp:"האות ש מחליפה את המילה אשר - הכלב שרץ = הכלב אשר רץ." },
+  { q:"איזו אות שימוש משלימה את המשפט, כדי לומר 'the house'?", sentence:"___ בַּיִת שֶׁלָּנוּ נִמְצָא לְיַד הַיָּם.", opts:["ה","כ","ל","ו"], ans:0,
+    exp:"האות ה (ה' הידיעה) פירושה the - הבית = the house. (למדנו על זה גם בשיעור 24)." },
+  { q:"איזו אות שימוש משלימה את המשפט, במשמעות 'and'?", sentence:"קָנִיתִי תַּפּוּחַ ___ תַּפּוּז בַּשּׁוּק.", opts:["ו","מ","ש","כ"], ans:0,
+    exp:"האות ו (ו' החיבור) פירושה and - תפוח ותפוז." },
+  { q:"איזו אות שימוש משלימה את המשפט, במשמעות 'כמו' (like / as)?", sentence:"אַחֲרֵי שֶׁהִתְאַמֵּן הַרְבֵּה, הוּא שִׂחֵק ___ שַׂחְקָן מִקְצוֹעִי.", opts:["כ","ל","ב","ה"], ans:0,
+    exp:"האות כ פירושה כמו - כשחקן מקצועי = כמו שחקן מקצועי." },
+  { q:"איזו אות שימוש משלימה את המשפט, במשמעות 'to / for'?", sentence:"הַמּוֹרָה נָתְנָה מַחְבֶּרֶת חֲדָשָׁה ___ יַלְדָּה.", opts:["ל","ש","ו","מ"], ans:0,
+    exp:"האות ל פירושה to / for - לילדה = נתנה לילדה, בשביל הילדה." },
+  { q:"איזו אות שימוש משלימה את המשפט, במשמעות 'בתוך / עם' (in / at / with)?", sentence:"הַשֶּׁמֶשׁ זָרְחָה ___ עֲדִינוּת רַבָּה, וְלֹא בְּכֹחַ.", opts:["ב","כ","ה","ש"], ans:0,
+    exp:"האות ב פירושה in / at / with - בעדינות = with gentleness. וכך מתגלות כל שבע האותיות של מש\"ה וכל\"ב, אחת אחרי השנייה!" }
+];
+
+/* ═══ ווים לסצנה הוויזואלית ═══ */
+function onCorrectComp(i, total){
+  const step = document.getElementById('sun-'+i);
+  if(step) step.classList.add('on');
+  const label = document.getElementById('sun-label');
+  label.textContent = (i+1) + ' מתוך ' + total + ' - עוד קרן שמש חמה!' + (i===total-1 ? ' האיש הוריד את המעיל! השמש ניצחה! 🎉' : '');
+}
+const shimshLetters = ['מ','ש','ה','ו','כ','ל','ב'];
+function onCorrectGram(i, total){
+  const tile = document.getElementById('ltile-'+i);
+  if(tile){ tile.textContent = shimshLetters[i]; tile.classList.add('revealed'); }
+  const label = document.getElementById('letters-label');
+  label.textContent = (i+1) + ' מתוך ' + total + ' אותיות התגלו...' + (i===total-1 ? ' מש"ה וכל"ב - כמו משה וכלב מהתנ"ך! 🎉' : '');
+}
+
+/* ═══ מנוע MC גנרי — לא לשנות ═══ */
+function makeGame(prefix, questions, onCorrect, resultText){
+  return {prefix, questions, onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+}
+const COMP = makeGame('comp', compQuestions, onCorrectComp,
+  s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
+const GRAM = makeGame('gram', gramQuestions, onCorrectGram,
+  s => `🏆 עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${gramQuestions.length}!`);
+
+function el(g,part){ return document.getElementById(g.prefix+'-'+part); }
+function mcInit(g){
+  const dots = el(g,'dots'); dots.innerHTML='';
+  g.questions.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id=g.prefix+'-dot-'+i; dots.appendChild(d); });
+  mcShow(g);
+}
+function mcShow(g){
+  g.sel=null;
+  const q=g.questions[g.idx];
+  el(g,'q').innerHTML = (q.sentence? '<div class="q-sentence">'+q.sentence+'</div>' : '') +
+    'שְׁאֵלָה '+(g.idx+1)+' מִתּוֹךְ '+g.questions.length+': '+q.q;
+  const opts=el(g,'opts'); opts.innerHTML='';
+  q.opts.forEach((o,i)=>{ const b=document.createElement('button'); b.className='opt-btn'; b.textContent=o;
+    b.onclick=()=>{ if(g.done)return; g.sel=i;
+      opts.querySelectorAll('.opt-btn').forEach((x,j)=>x.classList.toggle('selected',j===i));
+      el(g,'submit').disabled=false; };
+    opts.appendChild(b); });
+  el(g,'exp').style.display='none';
+  el(g,'submit').style.display='block'; el(g,'submit').disabled=true;
+  el(g,'next').style.display='none';
+}
+function mcSubmit(g){
+  if(g.sel===null) return;
+  const q=g.questions[g.idx], btns=el(g,'opts').querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{ b.disabled=true;
+    if(i===q.ans) b.classList.add('correct-ans');
+    else if(i===g.sel) b.classList.add('wrong-ans'); });
+  if(g.sel===q.ans){ g.score++;
+    document.getElementById(g.prefix+'-dot-'+g.idx).classList.add('done');
+    g.onCorrect(g.idx, g.questions.length); }
+  const ex=el(g,'exp'); ex.textContent=q.exp; ex.style.display='block';
+  el(g,'submit').style.display='none';
+  if(g.idx < g.questions.length-1){ el(g,'next').style.display='block'; }
+  else { const r=el(g,'result'); r.textContent=g.resultText(g.score); r.style.display='block'; }
+}
+function mcNext(g){ g.idx++; mcShow(g); }
+mcInit(COMP); mcInit(GRAM);
+
+/* ═══ מטלת כתיבה — סטנדרטי, לא לשנות (רק את ה-placeholders) ═══ */
+const wP = [
+  'כתבו משפט עם מילה שמתחילה באות ב (למשל: "הילד ישב בגן")',
+  'כתבו משפט עם מילה שמתחילה באות כ (למשל: "היא רצה כמו ציפור")',
+  'כתבו משפט עם מילה שמתחילה באות ל (למשל: "נתתי ספר לחברה שלי")',
+  'כתבו משפט עם מילה שמתחילה באות ש (למשל: "זה הכלב שרץ בפארק")',
+  'כתבו משפט משלכם על הרוח או על השמש, עם מילה אחת שמתחילה באות שימוש לבחירתכם'
+];
+function initW(){
+  const c=document.getElementById('writing-lines'); c.innerHTML='';
+  wP.forEach((ph,i)=>{ const d=document.createElement('div'); d.className='writing-line'; d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d); });
+  document.getElementById('writing-result').style.display='none';
+  document.getElementById('writing-fb').textContent='';
+}
+function submitWriting(){
+  let n=0;
+  for(let i=0;i<wP.length;i++){
+    const v=document.getElementById('winput-'+i).value.trim(), l=document.getElementById('wline-'+i);
+    if(v.length>1){ n++; l.className='writing-line filled'; } else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb'), res=document.getElementById('writing-result');
+  if(n<wP.length){ fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל הַשּׁוּרוֹת.'; fb.style.color='#dc2626'; res.style.display='none'; return; }
+  fb.textContent='';
+  res.style.display='block';
+  res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ '+wP.length+' מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+}
+function resetWriting(){ initW(); }
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>
