@@ -103,6 +103,100 @@ def check_crossword(body):
             cells[key] = ch
     return issues
 
+# ── שאלות רב-ברירה: התשובה הנכונה לא צריכה "לבלוט" ──
+# הבעיה הנפוצה: בהבנת הנקרא התשובה הנכונה היא המפורטת והארוכה ביותר,
+# ולכן אפשר לזהות אותה בלי לקרוא את הסיפור.
+LEN_RATIO = 1.4   # התשובה הנכונה ארוכה פי-כמה מהמסיח הארוך ביותר
+LEN_GAP   = 8     # ובנוסף — הפרש מוחלט בתווים (בלי ניקוד)
+LONGEST_SHARE = 0.6  # שיעור השאלות שבהן הנכונה היא הארוכה ביותר
+
+def _js_strings(s):
+    """מפרק גוף של מערך JS למחרוזות — תומך ב-' וב-" ובתווי בריחה."""
+    out, i, n = [], 0, len(s)
+    while i < n:
+        if s[i] in '"\'':
+            q, i, buf = s[i], i + 1, []
+            while i < n:
+                if s[i] == '\\' and i + 1 < n:
+                    buf.append(s[i+1]); i += 2; continue
+                if s[i] == q: break
+                buf.append(s[i]); i += 1
+            out.append(''.join(buf))
+        i += 1
+    return out
+
+def _scan_to_close(s, i, open_ch='[', close_ch=']'):
+    """מחזיר את המיקום שאחרי הסוגר הסוגר, בהתעלם מסוגריים בתוך מחרוזות."""
+    depth = 1
+    while i < len(s) and depth:
+        c = s[i]
+        if c in '"\'':
+            q = c; i += 1
+            while i < len(s):
+                if s[i] == '\\': i += 2; continue
+                if s[i] == q: break
+                i += 1
+        elif c == open_ch: depth += 1
+        elif c == close_ch: depth -= 1
+        i += 1
+    return i
+
+def _js_array(body, varname):
+    m = re.search(r'\b(?:const|let|var)\s+%s\s*=\s*\[' % re.escape(varname), body)
+    if not m: return None
+    end = _scan_to_close(body, m.end())
+    return body[m.end():end-1]
+
+def _mc_questions(block):
+    """מחזיר רשימת (opts, ans) לכל שאלה בבלוק."""
+    qs = []
+    for m in re.finditer(r'opts\s*:\s*\[', block):
+        end = _scan_to_close(block, m.end())
+        opts = _js_strings(block[m.end():end-1])
+        ma = re.search(r'ans\s*:\s*(\d+)', block[end:end+150])
+        if opts and ma:
+            a = int(ma.group(1))
+            if 0 <= a < len(opts):
+                qs.append((opts, a))
+    return qs
+
+def check_mc_options(body, html):
+    issues = []
+    shuffles = 'shuffleOptions' in html
+    for varname, label in (('compQuestions', 'הבנת הנקרא'), ('gramQuestions', 'דקדוק')):
+        block = _js_array(body, varname)
+        if block is None: continue
+        qs = _mc_questions(block)
+        if not qs: continue
+
+        longest = 0
+        for n, (opts, a) in enumerate(qs, 1):
+            plain = [NIKUD_RE.sub('', o) for o in opts]
+            if len(plain) < 2: continue
+            c = len(plain[a])
+            other = max(len(o) for i, o in enumerate(plain) if i != a)
+            if not other: continue
+            if c > other: longest += 1
+            if c >= LEN_RATIO * other and c - other >= LEN_GAP:
+                issues.append(
+                    '%s, שאלה %d: התשובה הנכונה ארוכה בהרבה מכל המסיחים '
+                    '(%d תווים מול %d) — אפשר לזהות אותה בלי לקרוא. '
+                    'קצרו אותה או הרחיבו את המסיחים לאותו אורך.' % (label, n, c, other))
+
+        if len(qs) >= 4 and longest / len(qs) >= LONGEST_SHARE:
+            issues.append(
+                '%s: ב-%d מתוך %d שאלות התשובה הנכונה היא האפשרות הארוכה ביותר — '
+                'דפוס שמאפשר לנחש לפי אורך. אזנו את אורכי האפשרויות.'
+                % (label, longest, len(qs)))
+
+        if not shuffles and len(qs) >= 4 and len(set(a for _, a in qs)) == 1:
+            issues.append(
+                '%s: התשובה הנכונה נמצאת באותו מיקום (ans:%d) בכל %d השאלות. '
+                'פזרו את המיקומים, או השתמשו במנוע מהתבנית שמערבב את האפשרויות '
+                '(shuffleOptions ב-_system/lesson_template.html).'
+                % (label, qs[0][1], len(qs)))
+    return issues
+
 class TagChecker(HTMLParser):
     VOID = {'meta','link','br','img','input','hr','circle','rect','path',
             'ellipse','polygon','line','polyline','use','stop'}
@@ -192,6 +286,9 @@ def check(path):
     # 10. תפזורת/תשבץ (אופציונלי — רק אם השיעור מכריז wsGrid/wsWords או cwEntries)
     issues += check_word_search(body)
     issues += check_crossword(body)
+
+    # 11. שאלות רב-ברירה: התשובה הנכונה לא בולטת באורך או במיקום
+    issues += check_mc_options(body, html)
 
     return issues
 

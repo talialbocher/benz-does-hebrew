@@ -209,7 +209,15 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
 <script>
 /* ═══ נתוני המשחקים — להחליף בתוכן השיעור ═══
    q: שאלה (מנוקדת). sentence: משפט להצגה (אופציונלי). opts: 4 אפשרויות. ans: אינדקס הנכונה.
-   exp: הסבר קצר (מנוקד) שמתייחס לסיפור/לכלל. */
+   exp: הסבר קצר (מנוקד) שמתייחס לסיפור/לכלל.
+
+   ⚠️ כלל אורך המסיחים (חשוב במיוחד בהבנת הנקרא):
+   ארבע האפשרויות חייבות להיות באותו אורך בערך — הפרש של עד ~3 מילים בין
+   הקצרה לארוכה. אסור שהתשובה הנכונה תהיה המפורטת/הארוכה ביותר, אחרת אפשר
+   לזהות אותה בלי לקרוא את הסיפור. אם התשובה הנכונה יצאה ארוכה — או לקצר
+   אותה, או להאריך את שלושת המסיחים באותה מידה של פירוט.
+   מסיח טוב הוא טענה מלאה ומפורטת שנשמעת סבירה למי שלא קרא (למשל פרט אמיתי
+   מהסיפור בהקשר שגוי), ולא "לא" קצר וברור מאליו. */
 const compQuestions = {{COMP_QUESTIONS_JSON}};
 /* דוגמה:
 [ { q:"מִי הַגִּבּוֹר שֶׁל הַסִּיפּוּר?", opts:["דָּנִי","רוֹנִי","תָּמָר","יוֹסִי"], ans:0,
@@ -221,8 +229,21 @@ function onCorrectComp(i, total){ {{COMP_SCENE_JS}} }
 function onCorrectGram(i, total){ {{GRAM_SCENE_JS}} }
 
 /* ═══ מנוע MC גנרי — לא לשנות ═══ */
+/* ערבוב האפשרויות בכל טעינה של הדף, כדי שהתשובה הנכונה לא תהיה תמיד
+   באותו מקום. ans מתעדכן אוטומטית למיקום החדש. */
+function shuffleOptions(questions){
+  return questions.map(q=>{
+    if(!Array.isArray(q.opts) || q.opts.length < 2 || typeof q.ans !== 'number') return q;
+    const order = q.opts.map((_,i)=>i);
+    for(let i=order.length-1; i>0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return Object.assign({}, q, {opts: order.map(i=>q.opts[i]), ans: order.indexOf(q.ans)});
+  });
+}
 function makeGame(prefix, questions, onCorrect, resultText){
-  return {prefix, questions, onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+  return {prefix, questions:shuffleOptions(questions), onCorrect, resultText, idx:0, sel:null, score:0, done:false};
 }
 const COMP = makeGame('comp', compQuestions, onCorrectComp,
   s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
