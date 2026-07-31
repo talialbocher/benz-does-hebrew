@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 32 — האווז וביצת הזהב</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p1:#b45309;
+  --p1dk:#78350f;
+  --p1md:#fbbf24;
+  --p1lt:#fef3c7;
+  --page:#fffbeb;
+  --p2:#15803d;
+  --p2lt:#dcfce7;
+  --ink:#1e293b; --muted:#64748b; --ok:#16a34a; --bad:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);direction:rtl;min-height:100vh;font-size:17px}
+
+/* ── כותרת ── */
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+
+.container{max-width:860px;margin:0 auto;padding:24px 16px 70px}
+
+/* ── כותרות מקטעים וכרטיסים ── */
+.section-title{font-size:1.42rem;font-weight:900;color:var(--ink);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.story-box,.grammar-box,.game-box{background:#fff;border-radius:22px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:24px 26px}
+.story-box::before,.grammar-box::before,.game-box::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+
+/* ── קריאה ── */
+.story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
+.story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+
+/* ── אוצר מילים ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.vocab-card{background:var(--p1lt);border:2px solid var(--p1md);border-radius:16px;padding:14px 12px;text-align:center;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--p1)}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;color:var(--p1dk);font-weight:700}
+.vocab-card .eng{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ── דקדוק ── */
+.grammar-box h3{color:var(--p1);font-size:1.2rem;font-weight:900;margin-bottom:12px}
+.grammar-box p{line-height:1.9;font-size:1.02rem;margin-bottom:.5em}
+.gram-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--p1);color:#fff;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.02rem;border-bottom:1px solid var(--p1lt);text-align:right}
+.gram-table tr:nth-child(even) td{background:var(--page)}
+.ex-chip{display:inline-block;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:6px 14px;font-size:1.05rem;color:var(--p1dk);font-weight:700;margin:4px 2px;white-space:nowrap}
+
+/* ── משחקים (מנוע MC גנרי) ── */
+.game-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);text-align:center;margin-bottom:4px}
+.game-subtitle{font-size:.9rem;color:var(--muted);text-align:center;margin-bottom:18px}
+.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--p1lt);border:2px solid var(--p1md);transition:background .3s}
+.dot.done{background:var(--p1);border-color:var(--p1)}
+.game-scene{background:var(--page);border:2px solid var(--p1lt);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center;min-height:70px}
+.q-text{font-size:1.1rem;font-weight:700;line-height:1.8;text-align:center;margin-bottom:14px}
+.q-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.opt-btn{background:#fff;border:2px solid var(--p1md);border-radius:12px;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.opt-btn:hover:not(:disabled){border-color:var(--p1);background:var(--p1lt)}
+.opt-btn.selected{border-color:var(--p1);background:var(--p1lt);box-shadow:0 0 0 3px var(--p1lt)}
+.opt-btn.correct-ans{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.opt-btn.wrong-ans{background:#fee2e2;border-color:var(--bad);color:#b91c1c;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.submit-btn,.next-btn{display:block;margin:14px auto 0;background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 28px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+.submit-btn:hover:not(:disabled){background:var(--p1dk)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.next-btn{display:none;background:var(--p2)}
+.explanation{display:none;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:10px 14px;font-size:.95rem;color:var(--p1dk);font-weight:600;margin-top:12px;line-height:1.8;text-align:center}
+.result-banner{display:none;background:linear-gradient(135deg,var(--p1md),var(--p1));color:#fff;border-radius:14px;padding:20px;text-align:center;font-size:1.25rem;font-weight:800;margin-top:16px}
+
+/* ── סצנת קן ביצי הזהב (משחק הבנה) ── */
+.scene-label{font-size:1.05rem;font-weight:800;color:var(--p1dk);text-align:center}
+.nest-scene{display:flex;flex-direction:column;align-items:center;gap:12px}
+.nest-icon{font-size:3.2rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.2))}
+.egg-row{display:flex;align-items:center;gap:10px;justify-content:center;font-size:2rem;flex-wrap:wrap}
+.egg-piece{opacity:.18;transition:opacity .4s,transform .4s}
+.egg-piece.on{opacity:1;transform:scale(1.3) translateY(-4px)}
+
+/* ── סצנת אוצר המטבעות (משחק דקדוק - תפזורת) ── */
+.coin-scene{display:flex;flex-direction:column;align-items:center;gap:12px}
+.coin-icon{font-size:3.2rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.2))}
+.coin-row{display:flex;align-items:center;gap:10px;justify-content:center;font-size:2rem;flex-wrap:wrap}
+.coin-piece{opacity:.18;transition:opacity .4s,transform .4s}
+.coin-piece.on{opacity:1;transform:scale(1.3) rotate(-6deg)}
+
+/* ── תפזורת ── */
+.ws-grid{display:grid;direction:rtl;gap:3px;justify-content:center;margin:14px auto;width:max-content}
+.ws-cell{width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:700;color:var(--ink);
+  background:#fff;border:2px solid var(--p1lt);border-radius:8px;cursor:pointer;user-select:none}
+.ws-cell:hover{border-color:var(--p1)}
+.ws-cell.picked{background:var(--p1lt);border-color:var(--p1)}
+.ws-cell.found{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.ws-wordlist{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.ws-word-chip{background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:20px;padding:5px 14px;
+  font-family:'Frank Ruhl Libre',serif;font-size:1rem;font-weight:700;color:var(--p1dk)}
+.ws-word-chip.found{background:#dcfce7;border-color:var(--ok);color:#15803d;text-decoration:line-through}
+
+/* ── מטלת כתיבה ── */
+.writing-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.writing-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,#bbf7d0,var(--ok))}
+.writing-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);margin-bottom:14px}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-btn{background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-btn.gray{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ══ כותרת ══ -->
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🪿</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🥚</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">✨</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">🌾</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">💰</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 32</div>
+    <h1>האווז וביצת הזהב</h1>
+    <div class="header-sub">איכר עני מצא ביצת זהב בקן של האווז שלו - אבל התשוקה לקבל הכול מיד עלתה לו ביוקר</div>
+    <div class="header-badge">🎯 כִּיתָה ה׳ &nbsp;|&nbsp; זמן עבר - כל הגופים</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson01_shira_kineret.html">→ 1</a>
+  <a class="nav-btn" href="lesson02_shem_etzem_ken_tzipor.html">→ 2</a>
+  <a class="nav-btn" href="lesson03_choni_hameagel.html">→ 3</a>
+  <a class="nav-btn" href="lesson04_rabbi_akiva_vehaeven.html">→ 4</a>
+  <a class="nav-btn" href="lesson05_hillel_vehager.html">→ 5</a>
+  <a class="nav-btn" href="lesson06_shnei_haachim.html">→ 6</a>
+  <a class="nav-btn" href="lesson07_luach_hashana_haivri.html">→ 7</a>
+  <a class="nav-btn" href="lesson08_mishpat_shlomo.html">→ 8</a>
+  <a class="nav-btn" href="lesson09_mishpat_pashut_umurkav.html">→ 9</a>
+  <a class="nav-btn" href="lesson10_ananse_vehachevel.html">→ 10</a>
+  <a class="nav-btn" href="lesson11_hatzav_vehaarnav.html">→ 11</a>
+  <a class="nav-btn" href="lesson12_haarye_vehaachbar.html">→ 12</a>
+  <a class="nav-btn" href="lesson13_ali_baba_vehashodedim.html">→ 13</a>
+  <a class="nav-btn" href="lesson14_kipa_aduma.html">→ 14</a>
+  <a class="nav-btn" href="lesson15_bigdei_hakeisar.html">→ 15</a>
+  <a class="nav-btn" href="lesson16_hanzel_vegartel.html">→ 16</a>
+  <a class="nav-btn" href="lesson17_chachmei_chelm.html">→ 17</a>
+  <a class="nav-btn" href="lesson18_momotaro.html">→ 18</a>
+  <a class="nav-btn" href="lesson19_kirpada_vehanachash.html">→ 19</a>
+  <a class="nav-btn" href="lesson20_hanaar_shetzaak_zeev.html">→ 20</a>
+  <a class="nav-btn" href="lesson21_zehava_ushloshet_hadubim.html">→ 21</a>
+  <a class="nav-btn" href="lesson22_habarvazon_hamechoar.html">→ 22</a>
+  <a class="nav-btn" href="lesson23_hazeev_veshivat_hagdaim.html">→ 23</a>
+  <a class="nav-btn" href="lesson24_ananse_vesir_hachochma.html">→ 24</a>
+  <a class="nav-btn" href="lesson25_hanemala_vehachagav.html">→ 25</a>
+  <a class="nav-btn" href="lesson26_haruach_vehashemesh.html">→ 26</a>
+  <a class="nav-btn" href="lesson27_mulan.html">→ 27</a>
+  <a class="nav-btn" href="lesson28_haorev_vehashual.html">→ 28</a>
+  <a class="nav-btn" href="lesson29_haotzar_bakerem.html">→ 29</a>
+  <a class="nav-btn" href="lesson30_hakelev_vehaetzem.html">→ 30</a>
+  <a class="nav-btn" href="lesson31_hazeev_vehakeves.html">→ 31</a>
+  <span class="nav-current">שִׁיעוּר 32 ◀</span>
+</nav>
+
+<div class="container">
+
+  <!-- ══ חלק א: קריאה ══ -->
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>לפני שנים רבות גר <span class="highlight">איכר</span> עני בכפר קטן, יחד עם אשתו. לאיכר ולאשתו הייתה <span class="highlight">אווז</span> לבנה ושקטה, שגדלה בחצר הבית שלהם כמו כל אווז רגילה.</p>
+    <p>יום אחד, כשהאיכר בא להאכיל את האווז בבוקר, הוא מצא ב<span class="highlight">קן</span> שלה ביצה מוזרה. הביצה <span class="highlight">נצצה</span> באור השמש - היא הייתה עשויה זהב טהור, כבדה וקרה למגע.</p>
+    <p>האיכר רץ הביתה בהתרגשות וקרא לאשתו: "בואי מהר! מצאתי משהו מדהים בקן של האווז!" אשתו יצאה, הביטה בביצה הנוצצת, ואמרה: "לא ייתכן! האם באמת האווז שלנו הטילה ביצת זהב?"</p>
+    <p>האיכר לקח את הביצה לשוק הגדול בעיר, ומכר אותה תמורת סכום כסף גדול. הוא ואשתו קנו בגדים חדשים, אוכל טוב, ואפילו תיקנו את גג הבית הישן שלהם.</p>
+    <p>למחרת בבוקר מצא האיכר ביצת זהב נוספת בקן, וגם למחרת מצא עוד אחת. כל בוקר, בדיוק כמו ביום הראשון, הטילה האווז ביצת זהב אחת - לא יותר ולא פחות.</p>
+    <p>במשך חודשים רבים <span class="highlight">התעשרו</span> האיכר ואשתו לאט לאט. הם בנו בית גדול יותר, קנו שדה נוסף, ואפילו העסיקו פועלים שיעזרו להם בעבודה. אבל האיכר לא היה <span class="highlight">מרוצה</span>.</p>
+    <p>לילה אחד אמר האיכר לאשתו: "חשבתי על זה הרבה. אם האווז שלנו מטילה כל בוקר ביצת זהב אחת, בטח יש בתוכה <span class="highlight">אוצר</span> גדול של זהב! למה לחכות עוד יום, כשאפשר לקבל הכול עכשיו?"</p>
+    <p>אשתו ניסתה לשכנע אותו לא לעשות זאת: "אנחנו כבר עשירים מספיק. צריך רק עוד קצת <span class="highlight">סבלנות</span> - אל תפגע באווז שנותנת לנו כל כך הרבה!" אבל האיכר לא הקשיב לה.</p>
+    <p>למחרת בבוקר, בלי לחכות עוד, <span class="highlight">שחט</span> האיכר את האווז ופתח אותה - אבל בפנים לא מצא שום דבר מיוחד. היא הייתה בדיוק כמו כל אווז אחרת.</p>
+    <p>האיכר ואשתו הבינו מיד את הטעות הנוראה שעשו: הם לא רק שלא מצאו אוצר גדול בפנים, אלא גם איבדו לתמיד את ביצת הזהב שהייתה יכולה להגיע כל בוקר מחדש.</p>
+    <p>הסיפור מלמד אותנו: מי שרוצה לקבל הכול מיד, בלי סבלנות, עלול לאבד אפילו את מה שכבר יש לו.</p>
+    <div class="source-line">משל מפורסם מאת איזופוס (יוון העתיקה) - "האווז שהטילה ביצי הזהב", מעובד</div>
+  </div>
+
+  <!-- ══ חלק ב: אוצר מילים ══ -->
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">איכר</div><div class="eng">farmer</div></div>
+    <div class="vocab-card"><div class="heb">אווז</div><div class="eng">goose</div></div>
+    <div class="vocab-card"><div class="heb">קן</div><div class="eng">nest</div></div>
+    <div class="vocab-card"><div class="heb">נצצה</div><div class="eng">glistened</div></div>
+    <div class="vocab-card"><div class="heb">אוצר</div><div class="eng">treasure</div></div>
+    <div class="vocab-card"><div class="heb">התעשרו</div><div class="eng">grew rich</div></div>
+    <div class="vocab-card"><div class="heb">מרוצה</div><div class="eng">satisfied</div></div>
+    <div class="vocab-card"><div class="heb">סבלנות</div><div class="eng">patience</div></div>
+    <div class="vocab-card"><div class="heb">שחט</div><div class="eng">slaughtered</div></div>
+  </div>
+
+  <!-- ══ חלק ג: משחק הבנת הנקרא ══ -->
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — קֵן בֵּיצֵי הַזָּהָב</div>
+  <div class="game-box">
+    <div class="game-title">🥚✨ קֵן בֵּיצֵי הַזָּהָב</div>
+    <div class="game-subtitle">ענו נכון על שאלות ההבנה, וכל תשובה נכונה מוסיפה עוד ביצת זהב לקן!</div>
+    <div class="progress-dots" id="comp-dots"></div>
+    <div class="game-scene" id="comp-scene">
+      <div class="nest-scene">
+        <div class="nest-icon">🪺</div>
+        <div class="egg-row" id="egg-row">
+          <span class="egg-piece" id="egg-0">🥚</span>
+          <span class="egg-piece" id="egg-1">🥚</span>
+          <span class="egg-piece" id="egg-2">🥚</span>
+          <span class="egg-piece" id="egg-3">🥚</span>
+          <span class="egg-piece" id="egg-4">🥚</span>
+          <span class="egg-piece" id="egg-5">🥚</span>
+        </div>
+        <div class="scene-label" id="egg-label">0 מתוך 6 - הקן עוד ריק...</div>
+      </div>
+    </div>
+    <div class="q-text" id="comp-q"></div>
+    <div class="opts" id="comp-opts"></div>
+    <div class="explanation" id="comp-exp"></div>
+    <button class="submit-btn" id="comp-submit" disabled onclick="mcSubmit(COMP)">בְּדֹק ✓</button>
+    <button class="next-btn" id="comp-next" onclick="mcNext(COMP)">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    <div class="result-banner" id="comp-result"></div>
+  </div>
+
+  <!-- ══ חלק ד: דקדוק ══ -->
+  <div class="section-title">📚 דִּקְדּוּק — זמן עבר, כל הגופים</div>
+  <div class="grammar-box">
+    <h3>איך משתנה הפועל בזמן עבר, לפי מי עשה את הפעולה?</h3>
+    <p>בזמן עבר, סוף המילה של הפועל משתנה לפי הגוף - מי שעשה את הפעולה. הבסיס של הפועל נשאר כמעט זהה, ומשתנה רק הסיומת שבסוף. כך, למשל, הפועל "מצא" הופך ל"מצאתי" כשאני מדבר על עצמי, ול"מצאו" כשמדובר בהם.</p>
+    <table class="gram-table">
+      <tr><th>גוף</th><th>מצא</th><th>אמר</th></tr>
+      <tr><td>אני</td><td>מצאתי</td><td>אמרתי</td></tr>
+      <tr><td>אתה / את</td><td>מצאת</td><td>אמרת</td></tr>
+      <tr><td>הוא</td><td>מצא</td><td>אמר</td></tr>
+      <tr><td>היא</td><td>מצאה</td><td>אמרה</td></tr>
+      <tr><td>אנחנו</td><td>מצאנו</td><td>אמרנו</td></tr>
+      <tr><td>אתם / אתן</td><td>מצאתם / מצאתן</td><td>אמרתם / אמרתן</td></tr>
+      <tr><td>הם / הן</td><td>מצאו</td><td>אמרו</td></tr>
+    </table>
+    <p>שימו לב: בלי ניקוד, אתה ואת נכתבים בדיוק אותו הדבר - מצאת. אי אפשר להבדיל ביניהם רק לפי האותיות; ההבדל נשמע בקריאה בקול, ומובן מההקשר של המשפט.</p>
+    <p>אותן סיומות בדיוק עובדות כמעט על כל הפעלים בעברית בזמן עבר: תי לגוף אני, ת לגוף אתה/את, בלי סיומת לגוף הוא, ה לגוף היא, נו לגוף אנחנו, תם/תן לגוף אתם/אתן, ו לגוף הם/הן.</p>
+    <div style="margin-top:14px">
+      <span class="ex-chip">מצאתי</span>
+      <span class="ex-chip">מצאת</span>
+      <span class="ex-chip">מצא</span>
+      <span class="ex-chip">מצאה</span>
+      <span class="ex-chip">מצאנו</span>
+      <span class="ex-chip">מצאו</span>
+    </div>
+  </div>
+
+  <!-- ══ חלק ה: משחק דקדוק (תפזורת) ══ -->
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — תַּפְזֹרֶת: אוֹצַר הַמַּטְבְּעוֹת</div>
+  <div class="game-box">
+    <div class="game-title">🪙 אוֹצַר הַמַּטְבְּעוֹת</div>
+    <div class="game-subtitle">מצאו בתפזורת שש צורות עבר של הפועל "מצא" - כל מילה שנמצאת מוסיפה עוד מטבע זהב לאוצר!</div>
+    <div class="progress-dots" id="ws-dots"></div>
+    <div class="game-scene">
+      <div class="coin-scene">
+        <div class="coin-icon">💰</div>
+        <div class="coin-row" id="coin-row">
+          <span class="coin-piece" id="coin-0">🪙</span>
+          <span class="coin-piece" id="coin-1">🪙</span>
+          <span class="coin-piece" id="coin-2">🪙</span>
+          <span class="coin-piece" id="coin-3">🪙</span>
+          <span class="coin-piece" id="coin-4">🪙</span>
+          <span class="coin-piece" id="coin-5">🪙</span>
+        </div>
+        <div class="scene-label" id="coin-label">0 מתוך 6 - האוצר עוד ריק...</div>
+      </div>
+    </div>
+    <div id="ws-grid" class="ws-grid" dir="rtl"></div>
+    <div id="ws-wordlist" class="ws-wordlist"></div>
+    <div class="result-banner" id="ws-result"></div>
+  </div>
+
+  <!-- ══ חלק ו: מטלת כתיבה (אחת בלבד!) ══ -->
+  <div class="section-title">✍️ כְּתִיבָה</div>
+  <div class="writing-card">
+    <div class="writing-title">✍️ מַטְלַת כְּתִיבָה</div>
+    <p style="margin-bottom:16px">בסיפור של היום כל הפעלים כתובים בזמן עבר. עכשיו תורכם: כתבו חמישה משפטים בזמן עבר על משהו שקרה לכם, לחבר שלכם, או למישהו מהמשפחה - כל משפט בגוף אחר, לפי ההנחיה שליד כל שורה. לדוגמה: "אתמול מצאתי מטבע ישן בחצר של סבא."</p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button class="writing-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-btn gray" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9"></div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ═══ נתוני משחק ההבנה ═══ */
+const compQuestions = [
+  { q:"מה מצא האיכר בקן של האווז, בבוקר הראשון?", opts:["ביצה נוצצת ועשויה זהב טהור וכבד","ביצה רגילה שהתקלקלה בתוך הקן החם","קן ריק, כי האווז עפה משם","נוצה זהובה שנפלה מכנף האווז"], ans:0,
+    exp:"האיכר מצא בקן ביצה שנצצה באור השמש - היא הייתה עשויה זהב טהור, כבדה וקרה למגע." },
+  { q:"מה עשה האיכר עם ביצת הזהב הראשונה שמצא?", opts:["מכר אותה בשוק הגדול בעיר","שמר אותה בבית בלי לספר לאיש","נתן אותה במתנה לשכן הטוב שלו","זרק אותה בטעות לתוך הנהר הקרוב"], ans:0,
+    exp:"האיכר לקח את הביצה לשוק הגדול בעיר, ומכר אותה תמורת סכום כסף גדול." },
+  { q:"לפי הסיפור, למה החליט האיכר לשחוט את האווז?", opts:["רצה לקבל בבת אחת את כל הזהב","האווז הפסיקה לגמרי להטיל ביצי זהב","שכן רצה לגנוב ממנו את האווז","האווז הייתה חולה מאוד וסבלה קשות"], ans:0,
+    exp:"האיכר חשב שבתוך האווז יש אוצר גדול של זהב, ולא רצה לחכות עוד יום כדי לקבל הכול מיד." },
+  { q:"מה גילה האיכר כשפתח את האווז?", opts:["לא מצא בפנים שום דבר מיוחד","מצא בפנים אוצר ענק של זהב","מצא בפנים עוד ביצת זהב אחת","גילה שהאווז בכלל לא הייתה אמיתית"], ans:0,
+    exp:"כשהאיכר פתח את האווז הוא לא מצא בפנים שום דבר מיוחד - היא הייתה בדיוק כמו כל אווז אחרת." },
+  { q:"מה הרעיון המרכזי (הלקח) שהסיפור מלמד אותנו?", opts:["מי שרוצה הכול מיד עלול לאבד הכול","כדאי תמיד לגדל אווזים בחצר הבית","אסור למכור ביצי זהב בשוק הגדול","עדיף לגור בכפר קטן ולא בעיר"], ans:0,
+    exp:"הלקח: מי שרוצה לקבל הכול מיד, בלי סבלנות, עלול לאבד אפילו את מה שכבר יש לו." },
+  { q:"מה ניסתה אשתו של האיכר לעשות, לפני שהוא שחט את האווז?", opts:["לשכנע אותו לא לפגוע באווז שלהם","למכור את האווז בעצמה בשוק הקרוב","להסתיר את האווז כדי להגן עליה","לבקש מהשכנים עצה איך לנהוג"], ans:0,
+    exp:"אשתו ניסתה לשכנע אותו: \"צריך רק עוד קצת סבלנות - אל תפגע באווז שנותנת לנו כל כך הרבה!\"" }
+];
+
+/* ═══ וו לסצנה הוויזואלית ═══ */
+function onCorrectComp(i, total){
+  const egg = document.getElementById('egg-'+i);
+  if(egg) egg.classList.add('on');
+  const label = document.getElementById('egg-label');
+  label.textContent = (i+1) + ' מתוך ' + total + ' - עוד ביצת זהב בקן...' + (i===total-1 ? ' הקן מלא בביצי זהב! 🎉' : '');
+}
+
+/* ═══ מנוע MC גנרי — לא לשנות ═══ */
+function shuffleOptions(questions){
+  return questions.map(q=>{
+    if(!Array.isArray(q.opts) || q.opts.length < 2 || typeof q.ans !== 'number') return q;
+    const order = q.opts.map((_,i)=>i);
+    for(let i=order.length-1; i>0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return Object.assign({}, q, {opts: order.map(i=>q.opts[i]), ans: order.indexOf(q.ans)});
+  });
+}
+function makeGame(prefix, questions, onCorrect, resultText){
+  return {prefix, questions:shuffleOptions(questions), onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+}
+const COMP = makeGame('comp', compQuestions, onCorrectComp,
+  s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
+
+function el(g,part){ return document.getElementById(g.prefix+'-'+part); }
+function mcInit(g){
+  const dots = el(g,'dots'); dots.innerHTML='';
+  g.questions.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id=g.prefix+'-dot-'+i; dots.appendChild(d); });
+  mcShow(g);
+}
+function mcShow(g){
+  g.sel=null;
+  const q=g.questions[g.idx];
+  el(g,'q').innerHTML = (q.sentence? '<div class="q-sentence">'+q.sentence+'</div>' : '') +
+    'שְׁאֵלָה '+(g.idx+1)+' מִתּוֹךְ '+g.questions.length+': '+q.q;
+  const opts=el(g,'opts'); opts.innerHTML='';
+  q.opts.forEach((o,i)=>{ const b=document.createElement('button'); b.className='opt-btn'; b.textContent=o;
+    b.onclick=()=>{ if(g.done)return; g.sel=i;
+      opts.querySelectorAll('.opt-btn').forEach((x,j)=>x.classList.toggle('selected',j===i));
+      el(g,'submit').disabled=false; };
+    opts.appendChild(b); });
+  el(g,'exp').style.display='none';
+  el(g,'submit').style.display='block'; el(g,'submit').disabled=true;
+  el(g,'next').style.display='none';
+}
+function mcSubmit(g){
+  if(g.sel===null) return;
+  const q=g.questions[g.idx], btns=el(g,'opts').querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{ b.disabled=true;
+    if(i===q.ans) b.classList.add('correct-ans');
+    else if(i===g.sel) b.classList.add('wrong-ans'); });
+  if(g.sel===q.ans){ g.score++;
+    document.getElementById(g.prefix+'-dot-'+g.idx).classList.add('done');
+    g.onCorrect(g.idx, g.questions.length); }
+  const ex=el(g,'exp'); ex.textContent=q.exp; ex.style.display='block';
+  el(g,'submit').style.display='none';
+  if(g.idx < g.questions.length-1){ el(g,'next').style.display='block'; }
+  else { const r=el(g,'result'); r.textContent=g.resultText(g.score); r.style.display='block'; }
+}
+function mcNext(g){ g.idx++; mcShow(g); }
+mcInit(COMP);
+
+/* ═══ נתוני משחק התפזורת (חלק ה - דקדוק) ═══ */
+const wsGrid = [
+  'מצאגרתנס',
+  'במצאתלדח',
+  'רמצאהטשד',
+  'למצאוגנח',
+  'במצאנוגד',
+  'רמצאתיסע'
+];
+const wsWords = ['מצא','מצאת','מצאה','מצאו','מצאנו','מצאתי'];
+
+function onWordFound(word, foundCount, total){
+  const coin = document.getElementById('coin-'+(foundCount-1));
+  if(coin) coin.classList.add('on');
+  const label = document.getElementById('coin-label');
+  label.textContent = foundCount + ' מתוך ' + total + ' - עוד מטבע זהב באוצר...' + (foundCount===total ? ' האוצר מלא! 🎉' : '');
+}
+
+/* ═══ מנוע תפזורת גנרי — לא לשנות ═══ */
+const WS_DIRS = [[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+function wsLocate(grid, word){
+  const R=grid.length, C=grid[0].length;
+  for(let r=0;r<R;r++) for(let c=0;c<C;c++) for(const [dr,dc] of WS_DIRS){
+    let ok=true;
+    for(let k=0;k<word.length;k++){
+      const rr=r+dr*k, cc=c+dc*k;
+      if(rr<0||rr>=R||cc<0||cc>=C||grid[rr][cc]!==word[k]){ ok=false; break; }
+    }
+    if(ok) return {r,c,dr,dc,len:word.length};
+  }
+  return null;
+}
+let wsPlacements={}, wsFound=new Set(), wsPick=null;
+function wsInit(){
+  const gridEl=document.getElementById('ws-grid');
+  gridEl.style.gridTemplateColumns='repeat('+wsGrid[0].length+',1fr)';
+  gridEl.innerHTML='';
+  wsGrid.forEach((row,r)=>{
+    [...row].forEach((ch,c)=>{
+      const cell=document.createElement('div'); cell.className='ws-cell';
+      cell.textContent=ch; cell.dataset.r=r; cell.dataset.c=c;
+      cell.onclick=()=>wsClick(r,c,cell);
+      gridEl.appendChild(cell);
+    });
+  });
+  wsWords.forEach(w=>{ const p=wsLocate(wsGrid,w); if(p) wsPlacements[w]=p; });
+  const list=document.getElementById('ws-wordlist'); list.innerHTML='';
+  wsWords.forEach(w=>{ const chip=document.createElement('span'); chip.className='ws-word-chip'; chip.id='ws-chip-'+w; chip.textContent=w; list.appendChild(chip); });
+  const dots=document.getElementById('ws-dots'); dots.innerHTML='';
+  wsWords.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id='ws-dot-'+i; dots.appendChild(d); });
+}
+function wsClick(r,c,cell){
+  if(cell.classList.contains('found')) return;
+  if(!wsPick){ wsPick={r,c}; cell.classList.add('picked'); return; }
+  document.querySelectorAll('.ws-cell.picked').forEach(x=>x.classList.remove('picked'));
+  const start=wsPick, end={r,c}; wsPick=null;
+  for(const w of wsWords){
+    if(wsFound.has(w)) continue;
+    const p=wsPlacements[w]; if(!p) continue;
+    const er=p.r+p.dr*(p.len-1), ec=p.c+p.dc*(p.len-1);
+    const matchFwd = start.r===p.r&&start.c===p.c&&end.r===er&&end.c===ec;
+    const matchBack = start.r===er&&start.c===ec&&end.r===p.r&&end.c===p.c;
+    if(matchFwd||matchBack){
+      wsFound.add(w);
+      for(let k=0;k<p.len;k++){
+        const rr=p.r+p.dr*k, cc=p.c+p.dc*k;
+        document.querySelector('.ws-cell[data-r="'+rr+'"][data-c="'+cc+'"]').classList.add('found');
+      }
+      document.getElementById('ws-chip-'+w).classList.add('found');
+      document.getElementById('ws-dot-'+wsWords.indexOf(w)).classList.add('done');
+      onWordFound(w, wsFound.size, wsWords.length);
+      if(wsFound.size===wsWords.length){
+        const res=document.getElementById('ws-result');
+        res.textContent='🌟 כָּל הַכָּבוֹד! מָצָאתָ אֶת כָּל '+wsWords.length+' הַמִּלִּים!';
+        res.style.display='block';
+      }
+      return;
+    }
+  }
+}
+wsInit();
+
+/* ═══ מטלת כתיבה — סטנדרטי, לא לשנות (רק את ה-placeholders) ═══ */
+const wP = [
+  'כתבו משפט בגוף אני, למשל: אתמול מצאתי...',
+  'כתבו משפט בגוף אתה או את, למשל: אתמול מצאת...',
+  'כתבו משפט בגוף הוא או היא, למשל: הוא מצא / היא מצאה...',
+  'כתבו משפט בגוף אנחנו, למשל: אנחנו מצאנו...',
+  'כתבו משפט בגוף הם או הן, למשל: הם מצאו...'
+];
+function initW(){
+  const c=document.getElementById('writing-lines'); c.innerHTML='';
+  wP.forEach((ph,i)=>{ const d=document.createElement('div'); d.className='writing-line'; d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d); });
+  document.getElementById('writing-result').style.display='none';
+  document.getElementById('writing-fb').textContent='';
+}
+function submitWriting(){
+  let n=0;
+  for(let i=0;i<wP.length;i++){
+    const v=document.getElementById('winput-'+i).value.trim(), l=document.getElementById('wline-'+i);
+    if(v.length>1){ n++; l.className='writing-line filled'; } else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb'), res=document.getElementById('writing-result');
+  if(n<wP.length){ fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל הַשּׁוּרוֹת.'; fb.style.color='#dc2626'; res.style.display='none'; return; }
+  fb.textContent='';
+  res.style.display='block';
+  res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ '+wP.length+' מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+}
+function resetWriting(){ initW(); }
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>
