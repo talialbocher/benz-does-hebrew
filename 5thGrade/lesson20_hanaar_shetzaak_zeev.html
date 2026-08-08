@@ -48,6 +48,10 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
 .story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
 .story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
 .story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+/* ── איורים בסיפור ── */
+.story-illus{margin:22px 0;text-align:center}
+.story-illus svg{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
+.story-illus figcaption{font-family:'Heebo',sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
 
 /* ── אוצר מילים ── */
 .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
@@ -161,12 +165,110 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
   <div class="section-title">📖 קְרִיאָה</div>
   <div class="story-box">
     <p>בִּכְפָר קָטָן לְמַרְגְּלוֹת הַר גָּבוֹהַּ גָּר נַעַר בְּשֵׁם עוֹמֶר. כָּל בּוֹקֶר יָצָא עוֹמֶר עִם עֵדֶר הַכְּבָשִׂים שֶׁל אָבִיו אֶל מִדְרוֹן הָהָר, וְשָׁמַר עָלָיו לְבַדּוֹ עַד הָעֶרֶב. זוֹ הָיְיתָה עֲבוֹדָה חֲשׁוּבָה - אֲבָל גַּם מְשַׁעֲמֶמֶת מְאוֹד, שָׁעוֹת אֲרוּכּוֹת לְבַד מוּל הַכְּבָשִׂים הַשְּׁקֵטוֹת וְהַשָּׁמַיִם הָרֵיקִים.</p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="עוֹמֶר שׁוֹמֵר עַל עֵדֶר הַכְּבָשִׂים בְּמִדְרוֹן הָהָר">
+        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
+        <circle cx="512" cy="46" r="26" fill="var(--p2)" opacity=".85"/>
+        <g fill="var(--p1md)" opacity=".8">
+          <polygon points="0,120 90,36 180,120"/><polygon points="140,120 236,28 332,120"/>
+        </g>
+        <polygon points="90,36 118,72 62,72" fill="#fff" opacity=".75"/>
+        <polygon points="236,28 268,68 204,68" fill="#fff" opacity=".75"/>
+        <path d="M0 118 Q160 104 300 122 Q450 142 600 118 L600 200 L0 200 Z" fill="var(--p2lt)"/>
+        <path d="M0 150 Q160 138 300 154 Q450 172 600 150 L600 200 L0 200 Z" fill="var(--p2)" opacity=".28"/>
+        <g transform="translate(190,150) scale(0.85)">
+      <ellipse cx="0" cy="0" rx="22" ry="15" fill="#fff"/>
+      <circle cx="-14" cy="-8" r="8" fill="#fff"/><circle cx="0" cy="-12" r="9" fill="#fff"/><circle cx="14" cy="-8" r="8" fill="#fff"/>
+      <rect x="-12" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/><rect x="8" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/>
+      <ellipse cx="20" cy="-4" rx="9" ry="8" fill="var(--p1dk)"/>
+      <circle cx="23" cy="-6" r="1.8" fill="#fff"/>
+      <path d="M14 -11 q-3 -6 3 -7" stroke="var(--p1dk)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(285,166) scale(0.95)">
+      <ellipse cx="0" cy="0" rx="22" ry="15" fill="#fff"/>
+      <circle cx="-14" cy="-8" r="8" fill="#fff"/><circle cx="0" cy="-12" r="9" fill="#fff"/><circle cx="14" cy="-8" r="8" fill="#fff"/>
+      <rect x="-12" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/><rect x="8" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/>
+      <ellipse cx="20" cy="-4" rx="9" ry="8" fill="var(--p1dk)"/>
+      <circle cx="23" cy="-6" r="1.8" fill="#fff"/>
+      <path d="M14 -11 q-3 -6 3 -7" stroke="var(--p1dk)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(392,148) scale(0.8)">
+      <ellipse cx="0" cy="0" rx="22" ry="15" fill="#fff"/>
+      <circle cx="-14" cy="-8" r="8" fill="#fff"/><circle cx="0" cy="-12" r="9" fill="#fff"/><circle cx="14" cy="-8" r="8" fill="#fff"/>
+      <rect x="-12" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/><rect x="8" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/>
+      <ellipse cx="20" cy="-4" rx="9" ry="8" fill="var(--p1dk)"/>
+      <circle cx="23" cy="-6" r="1.8" fill="#fff"/>
+      <path d="M14 -11 q-3 -6 3 -7" stroke="var(--p1dk)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(96,128)">
+          <rect x="-9" y="-2" width="18" height="30" rx="8" fill="var(--p1)"/>
+          <circle cx="0" cy="-14" r="11" fill="var(--p1dk)"/>
+          <circle cx="0" cy="-14" r="8" fill="#f5d0a9"/>
+          <path d="M-9 -19 q9 -8 18 0 q-9 -3 -18 0" fill="var(--p1dk)"/>
+          <rect x="-13" y="26" width="5" height="16" rx="2" fill="var(--p1dk)"/><rect x="8" y="26" width="5" height="16" rx="2" fill="var(--p1dk)"/>
+          <path d="M14 -20 q7 26 2 60" stroke="var(--p2)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M14 -20 q10 -8 16 2" stroke="var(--p2)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <figcaption>עוֹמֶר וְעֵדֶר הַכְּבָשִׂים בְּמִדְרוֹן הָהָר</figcaption>
+    </figure>
     <p>יוֹם אֶחָד, אַחֲרֵי שָׁעוֹת שֶׁל שִׁעֲמוּם, עָלָה בְּמוֹחוֹ שֶׁל עוֹמֶר רַעְיוֹן "מְשַׁעֲשֵׁעַ". הוּא רָץ בְּמוֹרַד הָהָר אֶל הַכְּפָר, וְצָעַק בְּקוֹל רָם וּמְבוֹהָל: <span class="highlight">"זְאֵב! זְאֵב! זְאֵב תּוֹקֵף אֶת הַכְּבָשִׂים! בּוֹאוּ מַהֵר!"</span></p>
     <p>הַכַּפְרִיִּים נִבְהֲלוּ. הֵם עָזְבוּ אֶת הָעֲבוֹדָה שֶׁלָּהֶם, תָּפְסוּ מַקְלוֹת וַאֲבָנִים, וְרָצוּ בְּמַעֲלֵה הָהָר כְּדֵי לְהַצִּיל אֶת הָעֵדֶר. אֲבָל כְּשֶׁהִגִּיעוּ, הֵם מָצְאוּ רַק אֶת עוֹמֶר, יוֹשֵׁב עַל אֶבֶן וְצוֹחֵק בְּכָל פֶּה. לֹא הָיָה שׁוּם זְאֵב.</p>
     <p>"אַתָּה לֹא יָכוֹל לִצְחוֹק עָלֵינוּ כָּכָה!" אָמַר אֶחָד הַכּוֹרְמִים בְּכַעַס, כְּשֶׁהוּא מְנַגֵּב אֶת הַזֵּיעָה מִמִּצְחוֹ. עוֹמֶר רַק הִמְשִׁיךְ לִצְחוֹק, וְאָמַר שֶׁזּוֹ הָיְיתָה בְּדִיחָה קְטַנָּה, בְּלִי כַּוָּונָה רָעָה.</p>
     <p>כַּמָּה יָמִים אַחַר כָּךְ, עוֹמֶר הִשְׁתַּעֲמֵם שׁוּב - וְחָזַר עַל אוֹתוֹ תַּעֲלוּל בְּדִיּוּק. הוּא צָעַק שׁוּב: <span class="highlight">"זְאֵב! זְאֵב!"</span> וְהַכַּפְרִיִּים, שֶׁעֲדַיִין לֹא שָׁכְחוּ לְגַמְרֵי, רָצוּ שׁוּב בְּמַעֲלֵה הָהָר, מַזִּיעִים וּמוּדְאָגִים. שׁוּב לֹא הָיָה זְאֵב, וְשׁוּב עוֹמֶר צָחַק.</p>
     <p>הַפַּעַם הַכַּפְרִיִּים כְּבָר לֹא צָחֲקוּ. "עוֹמֶר," אָמַר לוֹ הַזָּקֵן שֶׁבַּכְּפָר בְּקוֹל חָמוּר, "אִם תַּעֲשֶׂה אֶת זֶה שׁוּב, אִישׁ מֵאִיתָּנוּ לֹא יָבוֹא, גַּם אִם תִּצְעַק בְּכָל הַכּוֹחַ שֶׁלְּךָ." עוֹמֶר הִנְהֵן, אֲבָל בְּלִבּוֹ לֹא מַמָּשׁ הֶאֱמִין שֶׁזֶּה יִקְרֶה.</p>
     <p>וְאָז, יוֹם אֶחָד, זְאֵב אֲמִיתִּי - גָּדוֹל, אָפוֹר וְרָעֵב - יָצָא פִּתְאוֹם מִבֵּין הָעֵצִים וְהִתְקָרֵב אֶל הָעֵדֶר. עוֹמֶר נִבְהַל מְאוֹד, וְצָעַק בְּכָל כּוֹחוֹ: <span class="highlight">"זְאֵב! זְאֵב! הַפַּעַם זֶה אֲמִיתִּי, תַּאֲמִינוּ לִי!"</span></p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="זְאֵב אֲמִיתִּי יוֹצֵא מִבֵּין הָעֵצִים וּמִתְקָרֵב אֶל הָעֵדֶר">
+        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1dk)"/>
+        <circle cx="98" cy="44" r="20" fill="var(--p1lt)" opacity=".9"/>
+        <circle cx="90" cy="40" r="17" fill="var(--p1dk)"/>
+        <g fill="var(--p1lt)" opacity=".55">
+          <circle cx="200" cy="34" r="2"/><circle cx="270" cy="56" r="1.6"/><circle cx="356" cy="30" r="2.2"/><circle cx="430" cy="58" r="1.6"/><circle cx="520" cy="36" r="2"/>
+        </g>
+        <g fill="var(--p1)" opacity=".85">
+          <polygon points="330,140 366,52 402,140"/><polygon points="392,140 432,44 472,140"/><polygon points="456,140 496,58 536,140"/><polygon points="516,140 552,50 588,140"/>
+        </g>
+        <path d="M0 136 Q150 126 300 138 Q450 150 600 134 L600 200 L0 200 Z" fill="var(--p1)" opacity=".55"/>
+        <g transform="translate(404,148)">
+          <path d="M-30 -6 q-26 -16 -34 4" stroke="var(--p1md)" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <ellipse cx="0" cy="0" rx="35" ry="18" fill="var(--p1md)"/>
+          <rect x="-21" y="14" width="7" height="18" rx="3" fill="var(--p1md)"/><rect x="13" y="14" width="7" height="18" rx="3" fill="var(--p1md)"/>
+          <polygon points="26,-11 68,-13 58,6" fill="var(--p1md)"/>
+          <polygon points="45,-13 51,-30 58,-12" fill="var(--p1md)"/>
+          <polygon points="31,-16 35,-31 43,-15" fill="var(--p1md)"/>
+          <circle cx="47" cy="-9" r="3.2" fill="var(--p2)"/>
+          <circle cx="66" cy="-11" r="3.4" fill="var(--p1dk)"/>
+          <path d="M44 1 l18 -6" stroke="var(--p1dk)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </g>
+        <g transform="translate(150,158) scale(0.72)">
+      <ellipse cx="0" cy="0" rx="22" ry="15" fill="#fff"/>
+      <circle cx="-14" cy="-8" r="8" fill="#fff"/><circle cx="0" cy="-12" r="9" fill="#fff"/><circle cx="14" cy="-8" r="8" fill="#fff"/>
+      <rect x="-12" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/><rect x="8" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/>
+      <ellipse cx="20" cy="-4" rx="9" ry="8" fill="var(--p1dk)"/>
+      <circle cx="23" cy="-6" r="1.8" fill="#fff"/>
+      <path d="M14 -11 q-3 -6 3 -7" stroke="var(--p1dk)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(232,166) scale(0.66)">
+      <ellipse cx="0" cy="0" rx="22" ry="15" fill="#fff"/>
+      <circle cx="-14" cy="-8" r="8" fill="#fff"/><circle cx="0" cy="-12" r="9" fill="#fff"/><circle cx="14" cy="-8" r="8" fill="#fff"/>
+      <rect x="-12" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/><rect x="8" y="12" width="4" height="11" rx="2" fill="var(--p1dk)"/>
+      <ellipse cx="20" cy="-4" rx="9" ry="8" fill="var(--p1dk)"/>
+      <circle cx="23" cy="-6" r="1.8" fill="#fff"/>
+      <path d="M14 -11 q-3 -6 3 -7" stroke="var(--p1dk)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(74,140) scale(.82)">
+          <rect x="-9" y="-2" width="18" height="30" rx="8" fill="var(--p2)"/>
+          <circle cx="0" cy="-14" r="11" fill="#f5d0a9"/>
+          <path d="M-11 -15 a11 11 0 0 1 22 0 z" fill="var(--p1dk)"/>
+          <circle cx="-4" cy="-11" r="1.7" fill="var(--p1dk)"/><circle cx="4" cy="-11" r="1.7" fill="var(--p1dk)"/>
+          <ellipse cx="0" cy="-5" rx="3" ry="4" fill="var(--p1dk)"/>
+          <rect x="-13" y="26" width="5" height="16" rx="2" fill="var(--p1dk)"/><rect x="8" y="26" width="5" height="16" rx="2" fill="var(--p1dk)"/>
+          <path d="M14 -20 q7 26 2 60" stroke="var(--p2lt)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <figcaption>הַפַּעַם הַזְּאֵב אֲמִיתִּי - אֲבָל אִישׁ אֵינוֹ בָּא</figcaption>
+    </figure>
     <p>אֲבָל בַּכְּפָר, כְּשֶׁשָּׁמְעוּ אֶת הַצְּעָקָה, אִישׁ לֹא זָז מִמְּקוֹמוֹ. "זֶה עוֹמֶר שׁוּב," אָמַר אֶחָד הַשְּׁכֵנִים בַּעֲיֵיפוּת, "בּוֹאוּ נִתְעַלֵּם, זוֹ בֶּטַח עוֹד בְּדִיחָה." כּוּלָּם הִמְשִׁיכוּ בַּעֲבוֹדָתָם, וְאַף אֶחָד לֹא טָרַח לַעֲלוֹת אֶל הָהָר.</p>
     <p>עוֹמֶר נִשְׁאַר לְבַדּוֹ מוּל הַזְּאֵב. הוּא רָץ בֵּין הַכְּבָשִׂים, צָעַק וְנִיפְנֵף בְּמַקְלוֹ בְּכָל הַכּוֹחַ, עַד שֶׁהַזְּאֵב, שֶׁנִּבְהַל מֵהָרַעַשׁ, בָּרַח בַּחֲזָרָה אֶל הַיַּעַר. הַכְּבָשִׂים נִבְהֲלוּ וְנִמְלְטוּ לְכָל עֵבֶר, וְעוֹמֶר בִּילָּה אֶת כָּל הָעֶרֶב לְבַדּוֹ, רוֹעֵד וּמְפוּחָד, כְּשֶׁהוּא מְחַפֵּשׂ אוֹתָן אַחַת-אַחַת בֵּין הַסְּלָעִים.</p>
     <p>רַק בַּלַּיְלָה, כְּשֶׁרָאוּ אֶת עוֹמֶר לֹא חוֹזֵר, כַּמָּה כַּפְרִיִּים עָלוּ לָהָר לִבְדּוֹק מָה קָרָה - וּמָצְאוּ אוֹתוֹ יוֹשֵׁב, עָיֵיף וּמְפוּחָד, אוֹסֵף אֶת הַכְּבָשִׂים הָאַחֲרוֹנוֹת לְבַדּוֹ. "טָעִיתִי," הוֹדָה עוֹמֶר בְּשֶׁקֶט. "שִׁיקַּרְתִּי לָכֶם פַּעֲמַיִים, וְלָכֵן בַּפַּעַם הַשְּׁלִישִׁית, כְּשֶׁאָמַרְתִּי אֶת הָאֱמֶת, אַף אֶחָד לֹא הֶאֱמִין לִי."</p>

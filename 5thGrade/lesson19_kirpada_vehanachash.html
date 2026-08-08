@@ -48,6 +48,10 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
 .story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
 .story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
 .story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+/* ── איורים בסיפור ── */
+.story-illus{margin:22px 0;text-align:center}
+.story-illus svg{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
+.story-illus figcaption{font-family:'Heebo',sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
 
 /* ── אוצר מילים ── */
 .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
@@ -173,6 +177,58 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
   <div class="story-box">
     <p>בִּבְרֵיכָה גְּדוֹלָה וִירוּקָּה, בִּקְצֵה יַעַר עָבוֹת בְּהוֹדּוּ, חַיָּה קְהִילַּת צְפַרְדְּעִים שְׁלֵמָה, בְּרֹאשׁוּת מֶלֶךְ זָקֵן וְטוֹב לֵב. יוֹם אֶחָד הִגִּיעַ לִשְׂפַת הַבְּרֵיכָה נָחָשׁ אָרוֹךְ וְכָחוּשׁ, שֶׁנִּרְאָה עָיֵיף מְאוֹד.</p>
     <p>צִיפּוֹר עֲנָקִית <span class="highlight">שָׁבְרָה</span> אֶת שִׁינָּיו שֶׁל הַנָּחָשׁ בִּקְרָב קָשֶׁה בַּגָּ'וּנְגֶל, וּמֵאָז שִׁינָּיו <span class="highlight">נִשְׁבְּרוּ</span> הוּא לֹא הִצְלִיחַ לָצוּד לְבַד. "אֲנִי מְבַקֵּשׁ רַק פִּינָּה שְׁקֵטָה לָנוּחַ לְיַדְכֶם," אָמַר לַצְּפַרְדְּעִים בְּקוֹל חַלָּשׁ.</p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="בְּרֵיכָה בַּיַּעַר, צְפַרְדְּעִים עַל עֲלֵי נוּפָר וְנָחָשׁ כָּחוּשׁ מִתְקָרֵב">
+        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
+        <g fill="var(--p1dk)" opacity=".28">
+          <ellipse cx="58" cy="62" rx="48" ry="34"/><ellipse cx="116" cy="50" rx="36" ry="26"/>
+          <ellipse cx="545" cy="60" rx="50" ry="34"/><ellipse cx="488" cy="48" rx="34" ry="24"/>
+        </g>
+        <g fill="var(--p1dk)" opacity=".45">
+          <rect x="66" y="62" width="9" height="76"/><rect x="533" y="60" width="9" height="78"/>
+        </g>
+        <path d="M0 130 Q150 116 300 128 Q450 140 600 124 L600 200 L0 200 Z" fill="var(--p1md)" opacity=".75"/>
+        <ellipse cx="300" cy="164" rx="232" ry="32" fill="var(--p2lt)"/>
+        <ellipse cx="300" cy="162" rx="208" ry="25" fill="var(--p2)" opacity=".22"/>
+        <g stroke="var(--p2)" stroke-width="2" fill="none" opacity=".4" stroke-linecap="round">
+          <path d="M150 158 q14 -6 28 0"/><path d="M392 172 q14 -6 28 0"/>
+        </g>
+        <g fill="var(--p1md)">
+          <ellipse cx="196" cy="160" rx="31" ry="12"/><ellipse cx="322" cy="174" rx="27" ry="10"/><ellipse cx="404" cy="156" rx="25" ry="9"/>
+        </g>
+        <g transform="translate(196,147) scale(1.0)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(322,163) scale(0.82)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(404,144) scale(0.7)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g fill="none" stroke="var(--p2)" stroke-width="7" stroke-linecap="round">
+          <path d="M598 112 q-44 30 -92 14 q-48 -16 -84 16"/>
+        </g>
+        <ellipse cx="470" cy="127" rx="13" ry="8" fill="var(--p2)"/>
+        <circle cx="464" cy="124" r="2.4" fill="#fff"/>
+        <path d="M458 129 l-13 4" stroke="var(--bad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <figcaption>הַנָּחָשׁ הָאָרוֹךְ וְהַכָּחוּשׁ מַגִּיעַ אֶל שְׂפַת הַבְּרֵיכָה</figcaption>
+    </figure>
     <p>הַצְּפַרְדְּעִים נִבְהֲלוּ לְמַרְאֵה הַנָּחָשׁ, אֲבָל מֶלֶךְ הַבְּרֵיכָה רִיחֵם עָלָיו וְהִסְכִּים שֶׁיִּישָּׁאֵר. בִּתְמוּרָה הִצִּיעַ הַנָּחָשׁ טוֹבָה: הוּא יִישָּׂא עַל גַּבּוֹ צְפַרְדְּעִים עֲיֵיפוֹת אוֹ זְקֵנוֹת, מִבְּרֵיכָה לִבְרֵיכָה, בְּלִי לִפְגּוֹעַ בָּהֶן.</p>
     <p>בַּהַתְחָלָה כּוּלָּם הָיוּ מְרוּצִּים. צְפַרְדְּעִים זְקֵנוֹת וְחַלָּשׁוֹת <span class="highlight">הוּבְאוּ</span> עַל גַּב הַנָּחָשׁ לִמְקוֹמוֹת רְחוֹקִים, בְּלִי שֶׁיִּצְטָרְכוּ לִקְפּוֹץ כִּבְרַת דֶּרֶךְ אֲרוּכָּה בְּעַצְמָן. סִיפּוּרִים עַל "הַנָּחָשׁ הַטּוֹב" <span class="highlight">סוּפְּרוּ</span> מִבְּרֵיכָה לִבְרֵיכָה בַּיַּעַר כּוּלּוֹ. מִפַּעַם לְפַעַם הוּא גַּם <span class="highlight">הֵבִיא</span> לַצְּפַרְדְּעִים עֲלֵי אוֹכֶל טְרִיִּים מֵהַיַּעַר, כְּמֶחֱוָוה שֶׁל יְדִידוּת.</p>
     <p>רַק צְפַרְדְּעָה קְטַנָּה אַחַת, וּשְׁמָהּ קַרְפָּדָה, לֹא הִצְטָרְפָה לַשִּׂמְחָה הַכְּלָלִית. הִיא שָׂמָה לֵב שֶׁמִּדֵּי כַּמָּה יָמִים נֶעֱלֶמֶת צְפַרְדְּעָה אַחַת - וְאַף אֶחָד לֹא זוֹכֵר בְּדִיּוּק לְאָן.</p>
@@ -180,6 +236,74 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
     <p>קַרְפָּדָה רָצָה בְּבֶהָלָה אֶל מֶלֶךְ הַבְּרֵיכָה וְ<span class="highlight">סִיפְּרָה</span> לוֹ אֶת מָה שֶׁרָאֲתָה. בַּהַתְחָלָה הַמֶּלֶךְ לֹא רָצָה לְהַאֲמִין: "הוּא כָּל כָּךְ אָדִיב אֵלֵינוּ!" אָמַר. אֲבָל קַרְפָּדָה עָמְדָה עַל שֶׁלָּהּ, וּבַסּוֹף שִׁכְנְעָה אוֹתוֹ.</p>
     <p>יַחַד הֵם קָבְעוּ תּוֹכְנִית: מֶלֶךְ הַבְּרֵיכָה בִּיקֵּשׁ מֵהַנָּחָשׁ שֶׁיִּישָּׂא אוֹתוֹ הַפַּעַם בְּעַצְמוֹ, "כְּדֵי לִבְדּוֹק דֶּרֶךְ חֲדָשָׁה וּקְצָרָה לַבְּרֵיכָה הַגְּדוֹלָה". הַנָּחָשׁ, שֶׁלֹּא יָדַע שֶׁהִתְגַּלָּה, הִסְכִּים בְּשִׂמְחָה.</p>
     <p>בְּאֶמְצַע הַדֶּרֶךְ, כְּשֶׁהַנָּחָשׁ פָּתַח אֶת פִּיו כְּדֵי לִתְפּוֹס אֶת הַמֶּלֶךְ, כָּל שְׁאָר הַצְּפַרְדְּעִים - שֶׁקַּרְפָּדָה כְּבָר הִזְהִירָה מֵרֹאשׁ - קָפְצוּ יַחַד מִכָּל עֵבֶר וְהִרְעִישׁוּ כָּל כָּךְ, שֶׁהַנָּחָשׁ נִבְהַל וּבָרַח מֵהַיַּעַר לְתָמִיד.</p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="הַצְּפַרְדְּעִים קוֹפְצוֹת וּמַרְעִישׁוֹת יַחַד וְהַנָּחָשׁ בּוֹרֵחַ מֵהַיַּעַר">
+        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
+        <g fill="var(--p1dk)" opacity=".45">
+          <rect x="78" y="56" width="9" height="80"/><rect x="526" y="58" width="9" height="76"/>
+        </g>
+        <g fill="var(--p1dk)" opacity=".28">
+          <ellipse cx="72" cy="56" rx="52" ry="34"/><ellipse cx="520" cy="58" rx="46" ry="32"/>
+        </g>
+        <path d="M0 132 Q150 120 300 130 Q450 140 600 128 L600 200 L0 200 Z" fill="var(--p1md)" opacity=".75"/>
+        <ellipse cx="300" cy="166" rx="232" ry="30" fill="var(--p2lt)"/>
+        <g stroke="var(--p1dk)" stroke-width="2.4" fill="none" opacity=".5" stroke-linecap="round">
+          <path d="M150 118 q16 -20 32 0"/><path d="M262 96 q16 -20 32 0"/><path d="M378 112 q16 -20 32 0"/>
+        </g>
+        <g transform="translate(168,132) scale(0.9)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(280,110) scale(1.0)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(396,126) scale(0.85)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(228,160) scale(0.72)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g transform="translate(470,158) scale(0.66)">
+      <ellipse cx="0" cy="0" rx="19" ry="13" fill="var(--p1)"/>
+      <ellipse cx="0" cy="6" rx="13" ry="6" fill="var(--p1md)"/>
+      <ellipse cx="-17" cy="7" rx="7" ry="4" fill="var(--p1)"/><ellipse cx="17" cy="7" rx="7" ry="4" fill="var(--p1)"/>
+      <circle cx="-8" cy="-11" r="7" fill="#fff"/><circle cx="8" cy="-11" r="7" fill="#fff"/>
+      <circle cx="-8" cy="-10" r="3.2" fill="var(--p1dk)"/><circle cx="8" cy="-10" r="3.2" fill="var(--p1dk)"/>
+      <path d="M-7 3 q7 5 14 0" stroke="var(--p1dk)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+        <g fill="var(--p1dk)" font-family="Heebo, sans-serif" font-weight="900" font-size="26" opacity=".75">
+          <text x="120" y="60">!</text><text x="205" y="46">!</text><text x="330" y="52">!</text><text x="430" y="62">!</text>
+        </g>
+        <g fill="none" stroke="var(--p2)" stroke-width="7" stroke-linecap="round" opacity=".85">
+          <path d="M116 148 q-30 -20 -66 -4"/>
+        </g>
+        <ellipse cx="44" cy="145" rx="12" ry="7" fill="var(--p2)"/>
+        <circle cx="38" cy="142" r="2.2" fill="#fff"/>
+        <g stroke="var(--p2)" stroke-width="2.4" opacity=".5" stroke-linecap="round">
+          <path d="M140 140 l26 -6"/><path d="M148 154 l26 -4"/>
+        </g>
+      </svg>
+      <figcaption>כָּל הַצְּפַרְדְּעִים קוֹפְצוֹת וּמַרְעִישׁוֹת יַחַד - וְהַנָּחָשׁ בּוֹרֵחַ</figcaption>
+    </figure>
     <p>מֵאוֹתוֹ יוֹם נִקְרְאָה הַבְּרֵיכָה "בְּרֵיכַת קַרְפָּדָה הַחֲכָמָה", וְקַרְפָּדָה עַצְמָהּ זָכְתָה לְכָבוֹד רַב מִכָּל תּוֹשָׁבֵי הַבְּרֵיכָה. הַצְּפַרְדְּעִים לָמְדוּ שִׁיעוּר חָשׁוּב: מִי שֶׁמַּצִּיעַ עֶזְרָה גְּדוֹלָה מִדַּי, בְּלִי שֶׁמְּבַקְשִׁים מִמֶּנּוּ, כְּדַאי לִבְדּוֹק הֵיטֵב לִפְנֵי שֶׁסּוֹמְכִים עָלָיו - וְלִפְעָמִים תְּבוּנָה קְטַנָּה מְנַצַּחַת כּוֹחַ גָּדוֹל.</p>
     <div class="source-line">מָשָׁל בְּהַשְׁרָאַת אוֹסֶף הַפַּנְצָ'טַנְטְרָה הַהוֹדִּי (Panchatantra) - עִיבּוּד חוֹפְשִׁי</div>
   </div>
