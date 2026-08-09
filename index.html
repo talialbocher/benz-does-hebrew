@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּרֵי עִבְרִית — כִּתָּה ה׳</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="שיעורי עברית">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#2563eb">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Heebo',sans-serif;background:#f8fafc;color:#1e293b;direction:rtl;min-height:100vh;padding-bottom:40px}
+  header{background:linear-gradient(160deg,#1d4ed8 0%,#2563eb 55%,#60a5fa 130%);padding:40px 20px 26px;text-align:center;color:#fff}
+  header h1{font-family:'Frank Ruhl Libre',serif;font-size:1.9rem;font-weight:700;margin-bottom:6px}
+  header p{font-size:.95rem;opacity:.9}
+  .list{max-width:640px;margin:22px auto 0;padding:0 16px;display:flex;flex-direction:column;gap:10px}
+  a.lesson-card{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid #dbeafe;border-radius:16px;
+    padding:14px 16px;text-decoration:none;color:#1e293b;box-shadow:0 2px 10px rgba(0,0,0,.05);
+    transition:border-color .15s,transform .1s}
+  a.lesson-card:active{border-color:#2563eb;transform:scale(.98);background:#eff6ff}
+  .num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:#2563eb;color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .title{font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:700}
+  .arrow{margin-right:auto;color:#93c5fd;font-size:1.2rem}
+  footer{text-align:center;color:#94a3b8;font-size:.85rem;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+  <h1>📚 שִׁיעוּרֵי עִבְרִית</h1>
+  <p>סִדְרַת כִּתָּה ה׳ — לְחַצְ/י עַל שִׁעוּר כְּדֵי לִפְתֹּחַ אוֹתוֹ</p>
+</header>
+<div class="list" id="list"></div>
+<footer>עֵץ הַשִּׁיעוּרִים מִתְעַדְכֵּן — הוֹסִיפוּ אֶת הָעַמּוּד הַזֶּה לְמָסָךְ הַבַּיִת 📱</footer>
+
+<script>
+const BASE = 'https://htmlpreview.github.io/?https://raw.githubusercontent.com/talialbocher/benz-does-hebrew/master/5thGrade/';
+const lessons = [
+  ['lesson01_shira_kineret.html', 'כִּנֶּרֶת'],
+  ['lesson02_shem_etzem_ken_tzipor.html', 'שֵׁם הָעֶצֶם'],
+  ['lesson03_choni_hameagel.html', 'חוני המעגל'],
+  ['lesson04_rabbi_akiva_vehaeven.html', 'רַבִּי עֲקִיבָא וְהָאֶבֶן'],
+  ['lesson05_hillel_vehager.html', 'הִלֵּל הַזָּקֵן וְהַגֵּר'],
+  ['lesson06_shnei_haachim.html', 'שְׁנֵי הָאַחִים'],
+  ['lesson07_luach_hashana_haivri.html', 'לוּחַ הַשָּׁנָה הָעִבְרִי'],
+  ['lesson08_mishpat_shlomo.html', 'מִשְׁפַּט שְׁלֹמֹה'],
+  ['lesson09_mishpat_pashut_umurkav.html', 'רַבִּי חֲנִינָא בֶּן דּוֹסָא וְהֶעָרוֹד'],
+  ['lesson10_ananse_vehachevel.html', 'אֲנַנְסִי וְהַחֶבֶל הָאָרֹךְ'],
+  ['lesson11_hatzav_vehaarnav.html', 'הַצָּב וְהָאַרְנָב'],
+  ['lesson12_haarye_vehaachbar.html', 'הָאַרְיֵה וְהָעַכְבָּר'],
+  ['lesson13_ali_baba_vehashodedim.html', 'עלי באבא וארבעים השודדים'],
+  ['lesson14_kipa_aduma.html', 'כיפה אדומה'],
+  ['lesson15_bigdei_hakeisar.html', 'הבגדים החדשים של הקיסר'],
+  ['lesson16_hanzel_vegartel.html', 'הנזל וגרטל'],
+  ['lesson17_chachmei_chelm.html', 'חכמי חלם ופתרון החורף'],
+  ['lesson18_momotaro.html', 'מומוטארו: ילד האפרסק'],
+  ['lesson19_kirpada_vehanachash.html', 'קרפדה והנחש הערמומי'],
+  ['lesson20_hanaar_shetzaak_zeev.html', 'הנער שצעק זאב!'],
+  ['lesson21_zehava_ushloshet_hadubim.html', 'זהבה ושלושת הדובים'],
+  ['lesson22_habarvazon_hamechoar.html', 'הברווזון המכוער'],
+  ['lesson23_hazeev_veshivat_hagdaim.html', 'הזאב ושבעת הגדיים'],
+  ['lesson24_ananse_vesir_hachochma.html', 'אננסי וסיר החכמה'],
+  ['lesson25_hanemala_vehachagav.html', 'הנמלה והחגב'],
+  ['lesson26_haruach_vehashemesh.html', 'הרוח והשמש'],
+  ['lesson27_mulan.html', 'מולאן - הלוחמת האמיצה'],
+  ['lesson28_haorev_vehashual.html', 'העורב והשועל'],
+  ['lesson29_haotzar_bakerem.html', 'האוצר בכרם'],
+  ['lesson30_hakelev_vehaetzem.html', 'הכלב והעצם'],
+  ['lesson31_hazeev_vehakeves.html', 'הזאב והכבש'],
+  ['lesson32_hechatul_bamagafayim.html', 'החתול במגפיים'],
+  ['lesson33_lechluchit.html', 'לכלוכית'],
+  ['lesson34_shloshet_hachazirim.html', 'שלושת החזירים הקטנים'],
+  ['lesson35_merek_haeven.html', 'מרק האבן'],
+  ['lesson36_kaved_haarnav.html', 'כבד הארנב'],
+  ['lesson37_jack_vehasheuit_hapele.html', 'ג\'ק ושעועית הפלא'],
+  ['lesson38_vasilisa_hayafeifiya.html', 'וסיליסה היפהפייה']
+];
+const list = document.getElementById('list');
+lessons.forEach((item, i) => {
+  const [file, title] = item;
+  const a = document.createElement('a');
+  a.className = 'lesson-card';
+  a.href = BASE + file;
+  a.innerHTML = '<div class="num">' + (i + 1) + '</div><div class="title">' + title + '</div><div class="arrow">‹</div>';
+  list.appendChild(a);
+});
+</script>
+</body>
+</html>
