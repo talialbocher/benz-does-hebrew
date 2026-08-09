@@ -48,6 +48,9 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
 .story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
 .story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
 .story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
+.story-illus{margin:22px 0;text-align:center}
+.story-illus svg{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
+.story-illus figcaption{font-family:'Heebo',sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
 
 /* ── אוצר מילים ── */
 .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
@@ -164,18 +167,53 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
   <!-- ══ חלק א: קריאה ══ -->
   <div class="section-title">📖 קְרִיאָה</div>
   <div class="story-box">
-    <p>באחו ירוק ליד <span class="highlight">אגם</span> שקט ישבה <span class="highlight">ברווזה</span> אמא על קן מלא ביצים, וחיכתה בסבלנות שהאפרוחים שלה יבקעו.</p>
-    <p>יום אחד בקעו הביצים אחת אחרי השנייה, ומתוכן יצאו <span class="highlight">אפרוחים</span> צהובים וחמודים - חוץ מ<span class="highlight">ביצה</span> אחת גדולה ומוזרה, שנשארה סגורה עוד זמן מה.</p>
-    <p>לבסוף בקעה גם הביצה הגדולה, ומתוכה יצא אפרוח אפור, גדול ומכוער, שלא דמה בכלל לאחיו הצהובים.</p>
-    <p>שאר האפרוחים והאווזים בחצר צחקו על ה<span class="highlight">ברווזון</span> המכוער ו<span class="highlight">לעגו</span> לו, ואפילו אחיו דחפו אותו הצידה כל הזמן.</p>
-    <p>הברווזון היה עצוב ו<span class="highlight">בודד</span> מאוד, אבל לא הבין למה כולם כל כך לא אוהבים אותו.</p>
-    <p>יום אחד, כשכבר לא יכול היה לסבול את הלעג, ברח הברווזון מהחצר ונדד לבדו אל היער.</p>
-    <p>עבר עליו חורף קר וקשה ביער, והברווזון היה רעב, קפוא ובודד מתמיד, אבל הוא לא ויתר והמשיך לחפש מקום חם.</p>
-    <p>כשהגיע האביב, שחה הברווזון אל אגם גדול ומצא בו <span class="highlight">ברבורים</span> לבנים ויפהפיים, והתבייש להתקרב אליהם כי חשב שגם הם ילעגו לו.</p>
-    <p>אבל כשהתקרב בכל זאת, הוא הביט במים ולא האמין למה שראה: השתקפות של ברבור צעיר ומרהיב - הוא בעצמו!</p>
-    <p>התברר שהברווזון המכוער כלל לא היה ברווז, אלא ביצת ברבור שהתגלגלה בטעות אל קן הברווזים.</p>
-    <p>מאז חי הברבור היפה בשמחה בין הברבורים האחרים, ולמד שלפעמים מי שנראה שונה - רק עדיין לא גדל להיות מי שהוא באמת.</p>
-    <div class="source-line">מעשייה מוכרת מאת הנס כריסטיאן אנדרסן (דנמרק) - מעובדת</div>
+    <p>בְּאָחוּ יָרֹק לְיַד <span class="highlight">אֲגַם</span> שָׁקֵט יָשְׁבָה <span class="highlight">בַּרְוָזָה</span> אִמָּא עַל קֵן מָלֵא בֵּיצִים, וְחִכְּתָה בְּסַבְלָנוּת שֶׁהָאֶפְרוֹחִים שֶׁלָּה יִבְקְעוּ.</p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="בַּרְוָזָה אִמָּא יוֹשֶׁבֶת עַל קֵן מָלֵא בֵּיצִים">
+        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
+        <rect x="0" y="140" width="600" height="60" fill="#d9f99d" opacity=".5"/>
+        <ellipse cx="300" cy="150" rx="110" ry="30" fill="#a16207"/>
+        <ellipse cx="300" cy="145" rx="95" ry="22" fill="#ca8a04"/>
+        <ellipse cx="220" cy="148" rx="14" ry="18" fill="#fef9c3"/>
+        <ellipse cx="252" cy="153" rx="14" ry="18" fill="#fef9c3"/>
+        <ellipse cx="348" cy="153" rx="14" ry="18" fill="#fef9c3"/>
+        <ellipse cx="380" cy="148" rx="14" ry="18" fill="#fef9c3"/>
+        <ellipse cx="300" cy="152" rx="20" ry="25" fill="#fefce8"/>
+        <ellipse cx="280" cy="105" rx="70" ry="45" fill="#fff"/>
+        <circle cx="335" cy="80" r="26" fill="#fff"/>
+        <path d="M358 82 L378 78 L358 90 Z" fill="#f59e0b"/>
+        <circle cx="342" cy="74" r="3" fill="var(--ink)"/>
+      </svg>
+      <figcaption>בַּרְוָזָה אִמָּא עַל הַקֵּן - שִׂימוּ לֵב לַבֵּיצָה הַגְּדוֹלָה וְהַמּוּזָרָה בָּאֶמְצַע</figcaption>
+    </figure>
+    <p>יוֹם אֶחָד בָּקְעוּ הַבֵּיצִים אַחַת אַחֲרֵי הַשְּׁנִיָּה, וּמִתּוֹכָן יָצְאוּ <span class="highlight">אֶפְרוֹחִים</span> צְהֻבִּים וַחֲמוּדִים - חוּץ מִ<span class="highlight">בֵּיצָה</span> אַחַת גְּדוֹלָה וּמוּזָרָה, שֶׁנִּשְׁאֲרָה סְגוּרָה עוֹד זְמַן מָה.</p>
+    <p>לְבַסּוֹף בָּקְעָה גַּם הַבֵּיצָה הַגְּדוֹלָה, וּמִתּוֹכָהּ יָצָא אֶפְרוֹחַ אָפֹר, גָּדוֹל וּמְכֹעָר, שֶׁלֹּא דָּמָה בִּכְלָל לְאֶחָיו הַצְּהֻבִּים.</p>
+    <p>שְׁאָר הָאֶפְרוֹחִים וְהָאַוָּזִים בֶּחָצֵר צָחֲקוּ עַל הַ<span class="highlight">בַּרְוָזוֹן</span> הַמְּכֹעָר וְ<span class="highlight">לָעֲגוּ</span> לוֹ, וַאֲפִלּוּ אֶחָיו דָּחֲפוּ אוֹתוֹ הַצִּדָּה כָּל הַזְּמַן.</p>
+    <p>הַבַּרְוָזוֹן הָיָה עָצוּב וּ<span class="highlight">בוֹדֵד</span> מְאֹד, אֲבָל לֹא הֵבִין לָמָּה כֻּלָּם כָּל כָּךְ לֹא אוֹהֲבִים אוֹתוֹ.</p>
+    <p>יוֹם אֶחָד, כְּשֶׁכְּבָר לֹא יָכוֹל הָיָה לִסְבֹּל אֶת הַלַּעַג, בָּרַח הַבַּרְוָזוֹן מֵהֶחָצֵר וְנָדַד לְבַדּוֹ אֶל הַיַּעַר.</p>
+    <p>עָבַר עָלָיו חֹרֶף קַר וְקָשֶׁה בַּיַּעַר, וְהַבַּרְוָזוֹן הָיָה רָעֵב, קָפוּא וּבוֹדֵד מִתָּמִיד, אֲבָל הוּא לֹא וִיתֵּר וְהִמְשִׁיךְ לְחַפֵּשׂ מָקוֹם חַם.</p>
+    <p>כְּשֶׁהִגִּיעַ הָאָבִיב, שָׂחָה הַבַּרְוָזוֹן אֶל אֲגַם גָּדוֹל וּמָצָא בּוֹ <span class="highlight">בַּרְבּוּרִים</span> לְבָנִים וִיפֵהפִיִּים, וְהִתְבַּיֵּשׁ לְהִתְקָרֵב אֲלֵיהֶם כִּי חָשַׁב שֶׁגַּם הֵם יִלְעֲגוּ לוֹ.</p>
+    <p>אֲבָל כְּשֶׁהִתְקָרֵב בְּכָל זֹאת, הוּא הִבִּיט בַּמַּיִם וְלֹא הֶאֱמִין לְמָה שֶׁרָאָה: הִשְׁתַּקְּפוּת שֶׁל בַּרְבּוּר צָעִיר וּמַרְהִיב - הוּא בְּעַצְמוֹ!</p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="הַבַּרְוָזוֹן מַבִּיט בַּמַּיִם וְרוֹאֶה הִשְׁתַּקְּפוּת שֶׁל בַּרְבּוּר">
+        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
+        <rect x="0" y="110" width="600" height="90" fill="var(--p1md)" opacity=".6"/>
+        <ellipse cx="300" cy="112" rx="280" ry="10" fill="var(--p1)" opacity=".3"/>
+        <ellipse cx="220" cy="97" rx="26" ry="20" fill="#9ca3af"/>
+        <circle cx="252" cy="76" r="16" fill="#9ca3af"/>
+        <path d="M264 77 L280 73 L264 83 Z" fill="#f59e0b"/>
+        <circle cx="257" cy="72" r="2.2" fill="var(--ink)"/>
+        <g transform="translate(220,155) scale(1,-1)">
+          <ellipse cx="0" cy="10" rx="34" ry="20" fill="#fff" opacity=".75"/>
+          <path d="M22 0 Q48 -22 36 -48" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".75"/>
+          <path d="M36 -48 L52 -50 L38 -38 Z" fill="#f59e0b" opacity=".75"/>
+        </g>
+      </svg>
+      <figcaption>הַבַּרְוָזוֹן הָאָפֹר מַבִּיט בַּמַּיִם - וְרוֹאֶה הִשְׁתַּקְּפוּת שֶׁל בַּרְבּוּר יָפֶה</figcaption>
+    </figure>
+    <p>הִתְבָּרֵר שֶׁהַבַּרְוָזוֹן הַמְּכֹעָר כְּלָל לֹא הָיָה בַּרְוָז, אֶלָּא בֵּיצַת בַּרְבּוּר שֶׁהִתְגַּלְגְּלָה בְּטָעוּת אֶל קֵן הַבַּרְוָזִים.</p>
+    <p>מֵאָז חַי הַבַּרְבּוּר הַיָּפֶה בְּשִׂמְחָה בֵּין הַבַּרְבּוּרִים הָאֲחֵרִים, וְלָמַד שֶׁלִּפְעָמִים מִי שֶׁנִּרְאֶה שׁוֹנֶה - רַק עֲדַיִן לֹא גָּדַל לִהְיוֹת מִי שֶׁהוּא בֶּאֱמֶת.</p>
+    <div class="source-line">מַעֲשִׂיָּה מֻכֶּרֶת מֵאֵת הַנְס כְּרִיסְטְיָאן אַנְדֶּרְסֶן (דֶּנְמַרְק) - מְעֻבֶּדֶת</div>
   </div>
 
   <!-- ══ חלק ב: אוצר מילים ══ -->
