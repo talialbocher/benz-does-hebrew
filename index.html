@@ -37,55 +37,81 @@
 
 <script>
 const BASE = 'https://htmlpreview.github.io/?https://raw.githubusercontent.com/talialbocher/benz-does-hebrew/master/5thGrade/';
-const lessons = [
-  ['lesson01_shira_kineret.html', 'כִּנֶּרֶת'],
-  ['lesson02_shem_etzem_ken_tzipor.html', 'שֵׁם הָעֶצֶם'],
-  ['lesson03_choni_hameagel.html', 'חוני המעגל'],
-  ['lesson04_rabbi_akiva_vehaeven.html', 'רַבִּי עֲקִיבָא וְהָאֶבֶן'],
-  ['lesson05_hillel_vehager.html', 'הִלֵּל הַזָּקֵן וְהַגֵּר'],
-  ['lesson06_shnei_haachim.html', 'שְׁנֵי הָאַחִים'],
-  ['lesson07_luach_hashana_haivri.html', 'לוּחַ הַשָּׁנָה הָעִבְרִי'],
-  ['lesson08_mishpat_shlomo.html', 'מִשְׁפַּט שְׁלֹמֹה'],
-  ['lesson09_mishpat_pashut_umurkav.html', 'רַבִּי חֲנִינָא בֶּן דּוֹסָא וְהֶעָרוֹד'],
-  ['lesson10_ananse_vehachevel.html', 'אֲנַנְסִי וְהַחֶבֶל הָאָרֹךְ'],
-  ['lesson11_hatzav_vehaarnav.html', 'הַצָּב וְהָאַרְנָב'],
-  ['lesson12_haarye_vehaachbar.html', 'הָאַרְיֵה וְהָעַכְבָּר'],
-  ['lesson13_ali_baba_vehashodedim.html', 'עלי באבא וארבעים השודדים'],
-  ['lesson14_kipa_aduma.html', 'כיפה אדומה'],
-  ['lesson15_bigdei_hakeisar.html', 'הבגדים החדשים של הקיסר'],
-  ['lesson16_hanzel_vegartel.html', 'הנזל וגרטל'],
-  ['lesson17_chachmei_chelm.html', 'חכמי חלם ופתרון החורף'],
-  ['lesson18_momotaro.html', 'מומוטארו: ילד האפרסק'],
-  ['lesson19_kirpada_vehanachash.html', 'קרפדה והנחש הערמומי'],
-  ['lesson20_hanaar_shetzaak_zeev.html', 'הנער שצעק זאב!'],
-  ['lesson21_zehava_ushloshet_hadubim.html', 'זהבה ושלושת הדובים'],
-  ['lesson22_habarvazon_hamechoar.html', 'הברווזון המכוער'],
-  ['lesson23_hazeev_veshivat_hagdaim.html', 'הזאב ושבעת הגדיים'],
-  ['lesson24_ananse_vesir_hachochma.html', 'אננסי וסיר החכמה'],
-  ['lesson25_hanemala_vehachagav.html', 'הנמלה והחגב'],
-  ['lesson26_haruach_vehashemesh.html', 'הרוח והשמש'],
-  ['lesson27_mulan.html', 'מולאן - הלוחמת האמיצה'],
-  ['lesson28_haorev_vehashual.html', 'העורב והשועל'],
-  ['lesson29_haotzar_bakerem.html', 'האוצר בכרם'],
-  ['lesson30_hakelev_vehaetzem.html', 'הכלב והעצם'],
-  ['lesson31_hazeev_vehakeves.html', 'הזאב והכבש'],
-  ['lesson32_hechatul_bamagafayim.html', 'החתול במגפיים'],
-  ['lesson33_lechluchit.html', 'לכלוכית'],
-  ['lesson34_shloshet_hachazirim.html', 'שלושת החזירים הקטנים'],
-  ['lesson35_merek_haeven.html', 'מרק האבן'],
-  ['lesson36_kaved_haarnav.html', 'כבד הארנב'],
-  ['lesson37_jack_vehasheuit_hapele.html', 'ג\'ק ושעועית הפלא'],
-  ['lesson38_vasilisa_hayafeifiya.html', 'וסיליסה היפהפייה']
-];
-const list = document.getElementById('list');
-lessons.forEach((item, i) => {
-  const [file, title] = item;
-  const a = document.createElement('a');
-  a.className = 'lesson-card';
-  a.href = BASE + file;
-  a.innerHTML = '<div class="num">' + (i + 1) + '</div><div class="title">' + title + '</div><div class="arrow">‹</div>';
-  list.appendChild(a);
-});
+const API_URL = 'https://api.github.com/repos/talialbocher/benz-does-hebrew/contents/5thGrade';
+
+/* כותרות מוכרות — לשיעורים חדשים שעדיין לא נוספו לכאן, הכותרת נגזרת אוטומטית משם הקובץ */
+const titleMap = {
+  'lesson01_shira_kineret.html': 'כִּנֶּרֶת',
+  'lesson02_shem_etzem_ken_tzipor.html': 'שֵׁם הָעֶצֶם',
+  'lesson03_choni_hameagel.html': 'חוני המעגל',
+  'lesson04_rabbi_akiva_vehaeven.html': 'רַבִּי עֲקִיבָא וְהָאֶבֶן',
+  'lesson05_hillel_vehager.html': 'הִלֵּל הַזָּקֵן וְהַגֵּר',
+  'lesson06_shnei_haachim.html': 'שְׁנֵי הָאַחִים',
+  'lesson07_luach_hashana_haivri.html': 'לוּחַ הַשָּׁנָה הָעִבְרִי',
+  'lesson08_mishpat_shlomo.html': 'מִשְׁפַּט שְׁלֹמֹה',
+  'lesson09_mishpat_pashut_umurkav.html': 'רַבִּי חֲנִינָא בֶּן דּוֹסָא וְהֶעָרוֹד',
+  'lesson10_ananse_vehachevel.html': 'אֲנַנְסִי וְהַחֶבֶל הָאָרֹךְ',
+  'lesson11_hatzav_vehaarnav.html': 'הַצָּב וְהָאַרְנָב',
+  'lesson12_haarye_vehaachbar.html': 'הָאַרְיֵה וְהָעַכְבָּר',
+  'lesson13_ali_baba_vehashodedim.html': 'עלי באבא וארבעים השודדים',
+  'lesson14_kipa_aduma.html': 'כיפה אדומה',
+  'lesson15_bigdei_hakeisar.html': 'הבגדים החדשים של הקיסר',
+  'lesson16_hanzel_vegartel.html': 'הנזל וגרטל',
+  'lesson17_chachmei_chelm.html': 'חכמי חלם ופתרון החורף',
+  'lesson18_momotaro.html': 'מומוטארו: ילד האפרסק',
+  'lesson19_kirpada_vehanachash.html': 'קרפדה והנחש הערמומי',
+  'lesson20_hanaar_shetzaak_zeev.html': 'הנער שצעק זאב!',
+  'lesson21_zehava_ushloshet_hadubim.html': 'זהבה ושלושת הדובים',
+  'lesson22_habarvazon_hamechoar.html': 'הברווזון המכוער',
+  'lesson23_hazeev_veshivat_hagdaim.html': 'הזאב ושבעת הגדיים',
+  'lesson24_ananse_vesir_hachochma.html': 'אננסי וסיר החכמה',
+  'lesson25_hanemala_vehachagav.html': 'הנמלה והחגב',
+  'lesson26_haruach_vehashemesh.html': 'הרוח והשמש',
+  'lesson27_mulan.html': 'מולאן - הלוחמת האמיצה',
+  'lesson28_haorev_vehashual.html': 'העורב והשועל',
+  'lesson29_haotzar_bakerem.html': 'האוצר בכרם',
+  'lesson30_hakelev_vehaetzem.html': 'הכלב והעצם',
+  'lesson31_hazeev_vehakeves.html': 'הזאב והכבש',
+  'lesson32_hechatul_bamagafayim.html': 'החתול במגפיים',
+  'lesson33_lechluchit.html': 'לכלוכית',
+  'lesson34_shloshet_hachazirim.html': 'שלושת החזירים הקטנים',
+  'lesson35_merek_haeven.html': 'מרק האבן',
+  'lesson36_kaved_haarnav.html': 'כבד הארנב',
+  'lesson37_jack_vehasheuit_hapele.html': 'ג\'ק ושעועית הפלא',
+  'lesson38_vasilisa_hayafeifiya.html': 'וסיליסה היפהפייה'
+};
+
+function lessonNum(file){
+  const m = file.match(/^lesson(\d+)_/);
+  return m ? parseInt(m[1], 10) : 0;
+}
+function titleFor(file){
+  if (titleMap[file]) return titleMap[file];
+  const m = file.match(/^lesson\d+_(.+)\.html$/);
+  return m ? m[1].replace(/_/g, ' ') : file;
+}
+function render(files){
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  files
+    .filter(f => /^lesson\d+_.*\.html$/.test(f))
+    .sort((a, b) => lessonNum(a) - lessonNum(b))
+    .forEach(file => {
+      const a = document.createElement('a');
+      a.className = 'lesson-card';
+      a.href = BASE + file;
+      a.innerHTML = '<div class="num">' + lessonNum(file) + '</div><div class="title">' + titleFor(file) + '</div><div class="arrow">‹</div>';
+      list.appendChild(a);
+    });
+}
+
+render(Object.keys(titleMap)); /* מציג מיד את הרשימה הידועה, בלי לחכות לרשת */
+fetch(API_URL)
+  .then(r => r.json())
+  .then(items => {
+    if (Array.isArray(items)) render(items.map(i => i.name));
+  })
+  .catch(() => { /* אין רשת/הגבלת קצב — נשארים עם הרשימה הידועה שכבר מוצגת */ });
 </script>
 </body>
 </html>
