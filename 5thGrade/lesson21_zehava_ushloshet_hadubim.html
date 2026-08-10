@@ -49,8 +49,9 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
 .story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
 .story-box .source-line{font-size:.85rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Heebo',sans-serif}
 .story-illus{margin:22px 0;text-align:center}
-.story-illus svg{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
+.story-illus svg,.story-illus img{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
 .story-illus figcaption{font-family:'Heebo',sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
+.story-illus .credit{font-size:.75rem;color:#94a3b8;margin-top:2px}
 
 /* ── אוצר מילים ── */
 .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
@@ -170,66 +171,18 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
     <p>בְּאוֹתוֹ בֹּקֶר בְּדִיּוּק, טִיְּלָה יַלְדָּה קְטַנָּה בְּשֵׁם זָהָבָה לְבַדָּהּ בַּיַּעַר, וְהִתְרַחֲקָה יוֹתֵר מִדַּי מֵהַבַּיִת שֶׁלָּהּ. פִּתְאוֹם רָאֲתָה בַּיִת קָטָן בֵּין הָעֵצִים, וּמִכֵּיוָן שֶׁהַדֶּלֶת הָיְתָה פְּתוּחָה, נִכְנְסָה פְּנִימָה בְּלִי לַחְשֹׁב פַּעֲמַיִם.</p>
     <p>עַל הַשֻּׁלְחָן רָאֲתָה זָהָבָה אֶת שָׁלוֹשׁ הַקְּעָרוֹת. הִיא טָעֲמָה מֵהַקְּעָרָה הַגְּדוֹלָה - חַם מִדַּי! טָעֲמָה מֵהַקְּעָרָה הַבֵּינוֹנִית - קַר מִדַּי! וְאָז טָעֲמָה מֵהַקְּעָרָה הַקְּטַנָּה - בְּדִיּוּק כְּמוֹ שֶׁצָּרִיךְ - וְגָמְרָה אֶת כָּל הַדַּיְסָה שֶׁבָּהּ.</p>
     <figure class="story-illus">
-      <svg viewBox="0 0 600 200" role="img" aria-label="זָהָבָה יוֹשֶׁבֶת לְיַד הַשֻּׁלְחָן וְטוֹעֶמֶת מִן הַקְּעָרָה הַקְּטַנָּה שֶׁל דֻּבּוֹן">
-        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
-        <rect x="0" y="150" width="600" height="50" fill="var(--p2lt)" opacity=".5"/>
-        <rect x="150" y="118" width="300" height="14" rx="4" fill="var(--p1dk)"/>
-        <rect x="168" y="132" width="10" height="48" fill="var(--p1dk)"/>
-        <rect x="422" y="132" width="10" height="48" fill="var(--p1dk)"/>
-        <ellipse cx="205" cy="112" rx="34" ry="10" fill="var(--p1)"/>
-        <ellipse cx="205" cy="109" rx="28" ry="7" fill="#fde68a"/>
-        <ellipse cx="300" cy="115" rx="27" ry="8" fill="var(--p1)"/>
-        <ellipse cx="300" cy="113" rx="22" ry="5.5" fill="#fde68a"/>
-        <ellipse cx="380" cy="117" rx="18" ry="6" fill="var(--p1)"/>
-        <ellipse cx="380" cy="115.5" rx="14" ry="4" fill="#fde68a"/>
-        <rect x="368" y="150" width="30" height="8" rx="2" fill="var(--p1dk)"/>
-        <rect x="372" y="158" width="6" height="20" fill="var(--p1dk)"/>
-        <rect x="390" y="158" width="6" height="20" fill="var(--p1dk)"/>
-        <ellipse cx="384" cy="145" rx="18" ry="20" fill="#86efac"/>
-        <path d="M384 130 Q378 122 380 116" stroke="#fbcfe8" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <circle cx="384" cy="108" r="17" fill="#fde68a"/>
-        <circle cx="384" cy="112" r="13" fill="#fbcfe8"/>
-        <circle cx="366" cy="118" r="7" fill="#fde68a"/>
-        <circle cx="402" cy="118" r="7" fill="#fde68a"/>
-        <circle cx="380" cy="111" r="1.6" fill="var(--ink)"/>
-        <circle cx="388" cy="111" r="1.6" fill="var(--ink)"/>
-        <path d="M379 117 q5 4 10 0" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-      </svg>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Goldilocks_1912.jpg" alt="זָהָבָה טוֹעֶמֶת מֵהַקְּעָרָה הַקְּטַנָּה שֶׁל דֻּבּוֹן" loading="lazy">
       <figcaption>זָהָבָה טוֹעֶמֶת מֵהַקְּעָרָה הַקְּטַנָּה שֶׁל דֻּבּוֹן</figcaption>
+      <div class="credit">אִיּוּר מִמַּהֲדוּרָה מְאֻיֶּרֶת מִשְּׁנַת 1912, נַחֲלַת הַכְּלָל (Wikimedia Commons)</div>
     </figure>
     <p>אַחַר כָּךְ רָאֲתָה בַּסָּלוֹן <span class="highlight">שְׁלוֹשָׁה כִּסְאוֹת</span>. הִיא יָשְׁבָה עַל הַכִּסֵּא הַגָּדוֹל - גָּבֹהַּ מִדַּי! יָשְׁבָה עַל הַכִּסֵּא הַבֵּינוֹנִי - קָשֶׁה מִדַּי! וְאָז יָשְׁבָה עַל הַכִּסֵּא הַקָּטָן, שֶׁהָיָה נוֹחַ בְּדִיּוּק - אֲבָל הַכִּסֵּא הַקָּטָן הָיָה חַלָּשׁ מִדַּי בִּשְׁבִילָהּ, וְנִשְׁבַּר תַּחְתֶּיהָ.</p>
     <p>עֲיֵפָה מֵהַטִּיּוּל הָאָרֹךְ, עָלְתָה זָהָבָה בַּמַּדְרֵגוֹת וְרָאֲתָה <span class="highlight">שָׁלוֹשׁ מִטּוֹת</span> בַּחֲדַר הַשֵּׁנָה. הִיא שָׁכְבָה עַל הַמִּטָּה הַגְּדוֹלָה - קָשָׁה מִדַּי! שָׁכְבָה עַל הַמִּטָּה הַבֵּינוֹנִית - רַכָּה מִדַּי! וְאָז שָׁכְבָה עַל הַמִּטָּה הַקְּטַנָּה - בְּדִיּוּק כְּמוֹ שֶׁצָּרִיךְ - וּבְתוֹךְ דַּקּוֹת נִרְדְּמָה שֵׁנָה עֲמֻקָּה.</p>
     <p>כַּעֲבֹר זְמַן קָצָר חָזְרוּ שְׁלֹשֶׁת הַדֻּבִּים הַבַּיְתָה, רְעֵבִים אַחֲרֵי הַטִּיּוּל. דֹּב אַבָּא הִבִּיט בַּקְּעָרָה שֶׁלּוֹ וְקָרָא בְּקוֹל עָמֹק: "מִישֶׁהוּ טָעַם מֵהַדַּיְסָה שֶׁלִּי!" דֻּבָּה אִמָּא הִבִּיטָה בַּקְּעָרָה שֶׁלָּהּ וְאָמְרָה: "גַּם מֵהַדַּיְסָה שֶׁלִּי מִישֶׁהוּ טָעַם!" וְדֻבּוֹן קָרָא בְּקוֹל דַּק: "מֵהַדַּיְסָה שֶׁלִּי מִישֶׁהוּ טָעַם הַכֹּל, וְלֹא נִשְׁאַר כְּלוּם!"</p>
     <p>שְׁלֹשֶׁת הַדֻּבִּים הָלְכוּ לַסָּלוֹן, וּמִיָּד רָאוּ אֶת הַכִּסֵּא הַקָּטָן שָׁבוּר לְגַמְרֵי. הֵם הִמְשִׁיכוּ לַחֲדַר הַשֵּׁנָה, וְשָׁם - אֵיזוֹ הַפְתָּעָה! - מָצְאוּ אֶת זָהָבָה יְשֵׁנָה בְּמִטָּתוֹ הַקְּטַנָּה שֶׁל דֻּבּוֹן.</p>
     <figure class="story-illus">
-      <svg viewBox="0 0 600 200" role="img" aria-label="שְׁלֹשֶׁת הַדֻּבִּים מוֹצְאִים אֶת זָהָבָה יְשֵׁנָה בְּמִטָּתוֹ הַקְּטַנָּה שֶׁל דֻּבּוֹן">
-        <rect x="0" y="0" width="600" height="200" rx="14" fill="var(--p1lt)"/>
-        <rect x="0" y="152" width="600" height="48" fill="var(--p2lt)" opacity=".5"/>
-        <rect x="225" y="128" width="150" height="20" rx="6" fill="var(--p1dk)"/>
-        <rect x="230" y="112" width="140" height="20" rx="8" fill="#fff"/>
-        <circle cx="252" cy="114" r="15" fill="#fde68a"/>
-        <circle cx="255" cy="118" r="12" fill="#fbcfe8"/>
-        <path d="M250 118 q5 3 9 0" stroke="var(--ink)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-        <path d="M249 113 q3 -2 6 0" stroke="var(--ink)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-        <path d="M258 113 q3 -2 6 0" stroke="var(--ink)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-        <text x="300" y="105" font-size="14" fill="var(--p1dk)" font-weight="700">Z z z</text>
-        <defs>
-          <g id="bear-shape-21">
-            <ellipse cx="0" cy="10" rx="22" ry="18" fill="var(--p1)"/>
-            <circle cx="0" cy="-14" r="16" fill="var(--p1)"/>
-            <circle cx="-12" cy="-26" r="7" fill="var(--p1)"/>
-            <circle cx="12" cy="-26" r="7" fill="var(--p1)"/>
-            <ellipse cx="0" cy="-10" rx="8" ry="6" fill="var(--p1md)"/>
-            <circle cx="-6" cy="-17" r="2" fill="var(--ink)"/>
-            <circle cx="6" cy="-17" r="2" fill="var(--ink)"/>
-            <circle cx="0" cy="-9" r="1.6" fill="var(--ink)"/>
-          </g>
-        </defs>
-        <use href="#bear-shape-21" transform="translate(455,140) scale(1.0)"/>
-        <use href="#bear-shape-21" transform="translate(502,146) scale(0.82)"/>
-        <use href="#bear-shape-21" transform="translate(540,154) scale(0.6)"/>
-      </svg>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Goldie_Locks_and_the_Three_Bears_(1922).jpg" alt="שְׁלֹשֶׁת הַדֻּבִּים מוֹצְאִים אֶת זָהָבָה יְשֵׁנָה בַּמִּטָּה הַקְּטַנָּה" loading="lazy">
       <figcaption>שְׁלֹשֶׁת הַדֻּבִּים מוֹצְאִים אֶת זָהָבָה יְשֵׁנָה בַּמִּטָּה הַקְּטַנָּה</figcaption>
+      <div class="credit">אִיּוּר מִשְּׁנַת 1922, נַחֲלַת הַכְּלָל (Wikimedia Commons)</div>
     </figure>
     <p>דֻּבּוֹן קָרָא בְּקוֹל כָּל כָּךְ גָּבֹהַּ וּמֻפְתָּע, שֶׁזָּהָבָה הִתְעוֹרְרָה מִיָּד. הִיא רָאֲתָה <span class="highlight">שְׁלוֹשָׁה דֻּבִּים</span> עוֹמְדִים מוּלָהּ, נִבְהֲלָה מְאֹד, קָפְצָה מֵהַמִּטָּה, רָצָה בְּמוֹרַד הַמַּדְרֵגוֹת וְיָצְאָה מֵהַבַּיִת בְּרִיצָה - וְלֹא הִפְסִיקָה לָרוּץ עַד שֶׁהִגִּיעָה חֲזָרָה הַבַּיְתָה.</p>
     <p>מֵאוֹתוֹ יוֹם זָהָבָה לָמְדָה לֶקַח חָשׁוּב: אָסוּר לְהִכָּנֵס לְבַיִת שֶׁל אַף אֶחָד בְּלִי רְשׁוּת, גַּם אִם הוּא נִרְאֶה רֵיק וְנָעִים.</p>
