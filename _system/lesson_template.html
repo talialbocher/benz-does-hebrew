@@ -61,6 +61,10 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
 /* ── קריאה ── */
 .story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
 .story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-illus{margin:22px 0;text-align:center}
+.story-illus img,.story-illus svg{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
+.story-illus figcaption{font-family:'Heebo',sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
+.story-illus .credit{font-size:.75rem;color:#94a3b8;margin-top:2px}
 
 /* ── אוצר מילים ── */
 .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
@@ -143,7 +147,24 @@ body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);dire
   <div class="section-title">📖 קְרִיאָה</div>
   <div class="story-box">
     {{STORY_PARAGRAPHS}}<!-- 8–12 פסקאות קצרות, מנוקדות. מילים מהנושא מסומנות
-       <span class="highlight">...</span>. אפשר לשלב שיר מוכר עם קרדיט. -->
+       <span class="highlight">...</span>. אפשר לשלב שיר מוכר עם קרדיט.
+
+       {{ILLUSTRATION}}: איור אחד לפחות, בערך באמצע הסיפור, בין שתי פסקאות.
+       עדיפות לתמונה אמיתית בנחלת הכלל (Wikimedia Commons, Special:FilePath):
+       <figure class="story-illus">
+         <img src="https://commons.wikimedia.org/wiki/Special:FilePath/EXACT_FILENAME.jpg"
+              alt="תיאור מנוקד" loading="lazy">
+         <figcaption>כיתוב מנוקד</figcaption>
+         <div class="credit">שם היוצר/ת ושנה, נחלת הכלל (Wikimedia Commons)</div>
+       </figure>
+       רק קובץ אמיתי שנמצא בחיפוש (never fabricate a filename) ושבאמת בנחלת
+       הכלל (יוצר/ת שנפטר/ה 70+ שנה, או תיעוד PD מפורש). אם לא נמצא קובץ
+       כזה — לצייר SVG מקורי במקום (ולא להמציא "תמונה אמיתית"):
+       <figure class="story-illus">
+         <svg viewBox="0 0 600 200" role="img" aria-label="תיאור מנוקד">...</svg>
+         <figcaption>כיתוב מנוקד</figcaption>
+       </figure>
+       ראו `_system/WORKFLOW.md` סעיף 4 לפירוט מלא. -->
   </div>
 
   <!-- ══ חלק ב: אוצר מילים ══ -->
