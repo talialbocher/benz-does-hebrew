@@ -25,17 +25,65 @@
   .title{font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:700}
   .arrow{margin-right:auto;color:#93c5fd;font-size:1.2rem}
   footer{text-align:center;color:#94a3b8;font-size:.85rem;margin-top:30px}
+  #lock{position:fixed;inset:0;background:linear-gradient(160deg,#1d4ed8 0%,#2563eb 55%,#60a5fa 130%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;z-index:10;gap:16px}
+  #lock h1{color:#fff;font-family:'Frank Ruhl Libre',serif;font-size:1.6rem;text-align:center}
+  #lock input{font-family:'Heebo',sans-serif;font-size:1.1rem;padding:14px 16px;border-radius:12px;border:none;
+    width:100%;max-width:280px;text-align:center;direction:ltr}
+  #lock button{font-family:'Heebo',sans-serif;font-size:1.05rem;font-weight:700;padding:12px 28px;border-radius:12px;
+    border:none;background:#fff;color:#1d4ed8;cursor:pointer}
+  #lock .err{color:#fecaca;font-size:.9rem;min-height:1.2em}
+  #app{display:none}
 </style>
 </head>
 <body>
+<div id="lock">
+  <h1>🔒 שִׁיעוּרֵי עִבְרִית</h1>
+  <input type="password" id="pw" placeholder="סִיסְמָה" autocomplete="off">
+  <button id="pwBtn">כְּנִיסָה</button>
+  <div class="err" id="pwErr"></div>
+</div>
+<div id="app">
 <header>
   <h1>📚 שִׁיעוּרֵי עִבְרִית</h1>
   <p>סִדְרַת כִּתָּה ה׳ — לְחַצְ/י עַל שִׁעוּר כְּדֵי לִפְתֹּחַ אוֹתוֹ</p>
 </header>
 <div class="list" id="list"></div>
 <footer>עֵץ הַשִּׁיעוּרִים מִתְעַדְכֵּן — הוֹסִיפוּ אֶת הָעַמּוּד הַזֶּה לְמָסָךְ הַבַּיִת 📱</footer>
+</div>
 
 <script>
+const PW_HASH = 'e013a1906c3de99923d8b255ce73d7645de6f5743c3d90ec66bead564849fc17';
+const PW_KEY = 'benzHebrewUnlocked';
+
+async function sha256Hex(text){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function showApp(){
+  document.getElementById('lock').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+}
+
+async function tryUnlock(){
+  const pw = document.getElementById('pw').value;
+  const hash = await sha256Hex(pw);
+  if (hash === PW_HASH) {
+    localStorage.setItem(PW_KEY, '1');
+    showApp();
+  } else {
+    document.getElementById('pwErr').textContent = 'סִיסְמָה שְׁגוּיָה, נַסּוּ שׁוּב';
+  }
+}
+
+document.getElementById('pwBtn').addEventListener('click', tryUnlock);
+document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+
+if (localStorage.getItem(PW_KEY) === '1') {
+  showApp();
+}
+
 const BASE = 'https://htmlpreview.github.io/?https://raw.githubusercontent.com/talialbocher/benz-does-hebrew/master/5thGrade/';
 const API_URL = 'https://api.github.com/repos/talialbocher/benz-does-hebrew/contents/5thGrade';
 
