@@ -87,7 +87,8 @@ if (localStorage.getItem(PW_KEY) === '1') {
 const BASE = 'https://htmlpreview.github.io/?https://raw.githubusercontent.com/talialbocher/benz-does-hebrew/master/5thGrade/';
 const API_URL = 'https://api.github.com/repos/talialbocher/benz-does-hebrew/contents/5thGrade';
 
-/* כותרות מוכרות — לשיעורים חדשים שעדיין לא נוספו לכאן, הכותרת נגזרת אוטומטית משם הקובץ */
+/* כותרות מוכרות. שיעור חדש שעדיין לא נוסף לכאן — האפליקציה קוראת את הכותרת מקובץ השיעור עצמו (ראו fetchMissingTitles).
+   להוספה קבועה: python3 _system/update_index.py */
 const titleMap = {
   'lesson01_shira_kineret.html': 'כִּנֶּרֶת',
   'lesson02_shem_etzem_ken_tzipor.html': 'שֵׁם הָעֶצֶם',
@@ -168,19 +169,35 @@ const titleMap = {
   'lesson77_hanemala_vehayona.html': 'הנמלה והיונה',
   'lesson78_urashima_taro.html': 'אורשימה טארו',
   'lesson79_hachayat_hakatan_haamitz.html': 'החייט הקטן האמיץ',
-  'lesson80_perseus_umedusa.html': 'פרסאוס ומדוסה'
+  'lesson80_perseus_umedusa.html': 'פרסאוס ומדוסה',
+  'lesson81_maui_vehashemesh.html': 'מָאוּי מֵאֵט אֶת הַשֶּׁמֶשׁ',
+  'lesson82_hadayag_vehajini.html': 'הַדַּיָּג וְהַגִּ\'ינִי',
+  'lesson83_prometheus_umatnat_haesh.html': 'פְּרוֹמֶתֵאוּס וּמַתְּנַת הָאֵשׁ',
+  'lesson84_shlosh_hamishaot.html': 'שָׁלוֹשׁ הַמִּשְׁאָלוֹת',
+  'lesson85_hakelev_shelo_navach.html': 'הַכֶּלֶב שֶׁלֹּא נָבַח',
+  'lesson86_haanak_haanochi.html': 'הָעֻנָּק הָאָנוֹכִי',
+  'lesson87_hachililan_mehameln.html': 'הֶחָלִילָן מֵהָמֶלִין',
+  'lesson88_hatzav_vehatzipporim.html': 'הַצָּב וְהַצִּפֳּרִים',
+  'lesson89_yu_gong_mezi_harim.html': 'יוּ גּוֹנְג מֵזִיז הָרִים'
 };
 
 function lessonNum(file){
   const m = file.match(/^lesson(\d+)_/);
   return m ? parseInt(m[1], 10) : 0;
 }
+const RAW = 'https://raw.githubusercontent.com/talialbocher/benz-does-hebrew/master/5thGrade/';
+const TITLE_CACHE_KEY = 'benzHebrewTitles';
+let titleCache = {};
+try { titleCache = JSON.parse(localStorage.getItem(TITLE_CACHE_KEY) || '{}'); } catch (e) {}
+let currentFiles = [];
+
 function titleFor(file){
   if (titleMap[file]) return titleMap[file];
-  const m = file.match(/^lesson\d+_(.+)\.html$/);
-  return m ? m[1].replace(/_/g, ' ') : file;
+  if (titleCache[file]) return titleCache[file];
+  return 'שִׁיעוּר ' + lessonNum(file);
 }
 function render(files){
+  currentFiles = files;
   const list = document.getElementById('list');
   list.innerHTML = '';
   files
@@ -190,8 +207,29 @@ function render(files){
       const a = document.createElement('a');
       a.className = 'lesson-card';
       a.href = BASE + file;
-      a.innerHTML = '<div class="num">' + lessonNum(file) + '</div><div class="title">' + titleFor(file) + '</div><div class="arrow">‹</div>';
+      a.innerHTML = '<div class="num"></div><div class="title"></div><div class="arrow">‹</div>';
+      a.querySelector('.num').textContent = lessonNum(file);
+      a.querySelector('.title').textContent = titleFor(file);
       list.appendChild(a);
+    });
+}
+/* שיעור שאין לו כותרת ברשימה: קוראים אותה מתגית <title> של הקובץ ושומרים בזיכרון המכשיר */
+function fetchMissingTitles(files){
+  files
+    .filter(f => /^lesson\d+_.*\.html$/.test(f) && !titleMap[f] && !titleCache[f])
+    .forEach(f => {
+      fetch(RAW + f)
+        .then(r => r.text())
+        .then(html => {
+          const m = html.match(/<title>([\s\S]*?)<\/title>/);
+          if (!m) return;
+          const t = m[1].replace(/^\s*[^\d]{0,14}\d+\s*[—–-]\s*/, '').trim();
+          if (!/[א-ת]/.test(t)) return;
+          titleCache[f] = t;
+          try { localStorage.setItem(TITLE_CACHE_KEY, JSON.stringify(titleCache)); } catch (e) {}
+          render(currentFiles);
+        })
+        .catch(() => {});
     });
 }
 
@@ -199,7 +237,7 @@ render(Object.keys(titleMap)); /* מציג מיד את הרשימה הידועה
 fetch(API_URL)
   .then(r => r.json())
   .then(items => {
-    if (Array.isArray(items)) render(items.map(i => i.name));
+    if (Array.isArray(items)) { const names = items.map(i => i.name); render(names); fetchMissingTitles(names); }
   })
   .catch(() => { /* אין רשת/הגבלת קצב — נשארים עם הרשימה הידועה שכבר מוצגת */ });
 </script>

@@ -148,13 +148,17 @@ python3 "_system/verify_lesson.py" 5thGrade/lessonNN_*.html
 
 ### שלב 5 — עדכון רישומים (דקה)
 1. הוסיפו את השיעור לטבלה ב-`curriculum.md` וסמנו את הנושא ככוסה.
+1א. **הוסיפו את הכותרת העברית לרשימת השיעורים באפליקציה:** הריצו
+   `python3 _system/update_index.py` (משורש הריפו). הוא מוסיף ל-`index.html`
+   כותרת עברית מתגית `<title>` של השיעור. בלי זה השיעור יופיע באפליקציה בלי
+   שם עברי — `verify_lesson.py` ייכשל על זה.
 2. אחרי שבן עושה את השיעור — עדכנו את `ben_progress.md`:
    ענה נכון ברוב השאלות לבד → ✅ · התקשה → 🔁 + הערה ביומן.
 
 ### שלב 6 — שמירה ב-GitHub (חובה!)
 לאחר ✅ בשלב 4 ועדכון הרישומים בשלב 5, יש לשמור את השיעור בריפו:
 ```
-git add 5thGrade/lessonNN_*.html _system/curriculum.md _system/ben_progress.md
+git add 5thGrade/lessonNN_*.html index.html _system/curriculum.md _system/ben_progress.md
 git commit -m "Add lessonNN: [נושא]"
 git push
 ```

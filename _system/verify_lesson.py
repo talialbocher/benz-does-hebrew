@@ -290,6 +290,15 @@ def check(path):
     # 11. שאלות רב-ברירה: התשובה הנכונה לא בולטת באורך או במיקום
     issues += check_mc_options(body, html)
 
+    # 12. כותרת עברית ברשימת השיעורים באפליקציה (index.html בשורש הריפו)
+    index_path = os.path.join(folder, '..', 'index.html')
+    if os.path.basename(folder) == '5thGrade' and os.path.exists(index_path):
+        idx = open(index_path, encoding='utf-8').read()
+        m = re.search(r"'%s'\s*:\s*'((?:[^'\\]|\\.)*)'" % re.escape(os.path.basename(path)), idx)
+        if not m or not re.search(r'[א-ת]', m.group(1)):
+            issues.append('index.html: אין כותרת עברית לשיעור הזה ברשימת האפליקציה — '
+                          'הריצו python3 _system/update_index.py ושמרו גם את index.html')
+
     return issues
 
 if __name__ == '__main__':
