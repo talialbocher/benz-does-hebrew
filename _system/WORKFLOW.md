@@ -98,6 +98,12 @@
 - שיעור חזרה לנושא שמסומן 🔁 (דורש חיזוק).
 כלל אצבע: על כל 3–4 נושאים חדשים — שיעור חזרה אחד.
 
+**מספר השיעור:** לפני שבוחרים מספר הריצו `python3 _system/next_lesson_number.py`
+(משורש הריפו). הוא מושך את כל הענפים ומחזיר את המספר הפנוי הבא — הגבוה ביותר
+מבין **כל** הענפים ועוד 1. אל תנחשו מספר לפי התיקייה המקומית בלבד: שיעור קודם
+עלול להיות שמור רק בענף צדדי, ואז שני שיעורים יקבלו אותו מספר. אם הסקריפט
+מזהיר ששיעור קיים רק בענף צדדי — ציינו זאת בראש המייל.
+
 ### שלב 2 — יצירת השיעור (סוכן יוצר)
 פרומפט מוכן (להעתיק לשיחה חדשה / לסוכן):
 
@@ -160,9 +166,18 @@ python3 "_system/verify_lesson.py" 5thGrade/lessonNN_*.html
 ```
 git add 5thGrade/lessonNN_*.html index.html _system/curriculum.md _system/ben_progress.md
 git commit -m "Add lessonNN: [נושא]"
-git push
+git push origin HEAD:master
 ```
-אין לסיים את תהליך יצירת השיעור בלי commit + push. אם ה-push נכשל
+**חשוב:** `git push` רגיל לא מספיק! אם הסשן עובד על ענף צדדי (למשל
+`claude/pensive-cannon-xxxx`), `git push` דוחף רק לענף הצדדי, והאפליקציה (שקוראת
+מ-`master`) לא תראה את השיעור — זה מה שקרה בשיעורים שנשמרו בטעות רק בענף.
+תמיד דחפו במפורש ל-`master` (`git push origin HEAD:master`). אם הדחיפה נדחתה
+כי master התקדם — `git fetch origin master && git merge origin/master`, פתרו
+התנגשויות (בדרך כלל שורות ב-`curriculum.md` וב-`index.html` — לשמור את שני
+הצדדים) ודחפו שוב. אחרי הדחיפה ודאו עם `git ls-remote origin master` שה-SHA של
+master הוא ה-commit שלכם. אם אי אפשר לדחוף ל-master — אל תשלחו מייל "נשמר
+ב-GitHub": כתבו בנושא המייל במפורש "לא נשמר ב-master" ואת שם הענף.
+אין לסיים את תהליך יצירת השיעור בלי commit + push ל-master. אם ה-push נכשל
 (למשל נעילת .git/index.lock מ-GitHub Desktop פתוח) — לבדוק אם יש תהליך git
 פעיל בפועל לפני הסרת הנעילה, ולנסות שוב.
 

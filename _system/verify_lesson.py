@@ -299,6 +299,39 @@ def check(path):
             issues.append('index.html: אין כותרת עברית לשיעור הזה ברשימת האפליקציה — '
                           'הריצו python3 _system/update_index.py ושמרו גם את index.html')
 
+    # 13. מספר שיעור חדש לא תפוס כבר בענף אחר (מונע שני שיעורים עם אותו מספר)
+    issues += check_unique_number(path, folder)
+
+    return issues
+
+def _git(folder, *args):
+    try:
+        r = subprocess.run(['git', '-C', folder] + list(args), capture_output=True, text=True)
+        return r.stdout if r.returncode == 0 else ''
+    except Exception:
+        return ''
+
+def check_unique_number(path, folder):
+    """רץ רק על שיעור שעדיין לא קיים ב-origin/master (כלומר שיעור חדש)."""
+    base = os.path.basename(path)
+    m = re.match(r'lesson(\d+)_', base)
+    if not m or os.path.basename(folder) != '5thGrade':
+        return []
+    if base in _git(folder, 'ls-tree', '--full-tree', '--name-only', 'origin/master:5thGrade').split():
+        return []
+    n = int(m.group(1))
+    issues = []
+    refs = _git(folder, 'for-each-ref', '--format=%(refname:short)', 'refs/remotes', 'refs/heads').split()
+    for ref in refs:
+        if ref.endswith('/HEAD'):
+            continue
+        if subprocess.run(['git', '-C', folder, 'merge-base', '--is-ancestor', ref, 'HEAD'], capture_output=True).returncode == 0:
+            continue
+        for other in _git(folder, 'ls-tree', '--full-tree', '--name-only', ref + ':5thGrade').split():
+            mo = re.match(r'lesson(\d+)_', other)
+            if mo and int(mo.group(1)) == n and other != base:
+                issues.append('מספר השיעור %d כבר תפוס בענף %s בקובץ אחר (%s) — הריצו '
+                              'python3 _system/next_lesson_number.py ובחרו מספר פנוי' % (n, ref, other))
     return issues
 
 if __name__ == '__main__':
