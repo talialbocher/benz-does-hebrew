@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שִׁיעוּר 106 — הַגּוֹלֶם מִפְּרָאג</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* פלטת טיט וחרס */
+  --p1:#9a3412;
+  --p1dk:#7c2d12;
+  --p1md:#fdba74;
+  --p1lt:#ffedd5;
+  --page:#fffaf5;
+  --p2:#0f766e;
+  --p2lt:#ccfbf1;
+  --ink:#1e293b; --muted:#64748b; --ok:#16a34a; --bad:#dc2626;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Heebo',sans-serif;background:var(--page);color:var(--ink);direction:rtl;min-height:100vh;font-size:17px}
+
+/* ── כותרת ── */
+.header35{background:linear-gradient(160deg,var(--p1dk) 0%,var(--p1) 55%,var(--p1md) 130%);position:relative;overflow:hidden;padding-bottom:26px}
+.header35 .header-wave{position:absolute;bottom:0;left:0;right:0;height:22px;background:rgba(255,255,255,.10);clip-path:ellipse(55% 100% at 50% 100%)}
+.header35 .float-icon{position:absolute;opacity:.22;font-size:2rem;animation:floatUp35 var(--dur,4s) var(--del,0s) infinite alternate ease-in-out}
+@keyframes floatUp35{0%{transform:translateY(6px) rotate(-5deg)}100%{transform:translateY(-10px) rotate(5deg)}}
+.header35 .header-inner{position:relative;z-index:2;padding:36px 20px 12px;text-align:center}
+.header35 .header-eyebrow{font-size:.88rem;font-weight:700;color:var(--p1lt);letter-spacing:1px;margin-bottom:10px}
+.header35 h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);line-height:1.2;margin-bottom:8px}
+.header35 .header-sub{color:var(--p1lt);font-size:.97rem;font-weight:600;margin-bottom:14px}
+.header35 .header-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--p1dk);font-weight:800;font-size:.88rem;padding:5px 18px;border-radius:30px;box-shadow:0 0 14px rgba(0,0,0,.18)}
+.header-flag-strip35{background:var(--p2);height:6px}
+.lesson-nav35{background:var(--p1dk);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lesson-nav35 .nav-btn{color:var(--p1lt);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 12px;border:1.5px solid var(--p1md);border-radius:20px;transition:background .15s}
+.lesson-nav35 .nav-btn:hover{background:var(--p1);color:#fff}
+.lesson-nav35 .nav-current{color:#fff;font-size:.78rem;font-weight:800;margin-right:auto;opacity:.9}
+
+.container{max-width:860px;margin:0 auto;padding:24px 16px 70px}
+
+/* ── כותרות מקטעים וכרטיסים ── */
+.section-title{font-size:1.42rem;font-weight:900;color:var(--ink);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p1md),transparent)}
+.story-box,.grammar-box,.game-box{background:#fff;border-radius:22px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:24px 26px}
+.story-box::before,.grammar-box::before,.game-box::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,var(--p1md),var(--p1))}
+.game-box::before{background:linear-gradient(180deg,var(--p2lt),var(--p2))}
+
+/* ── קריאה ── */
+.story-box p{font-family:'Frank Ruhl Libre',serif;font-size:1.28rem;line-height:2.5;color:#1e2d3d;margin-bottom:.5em}
+.story-box .highlight{background:var(--p1lt);color:var(--p1dk);border-radius:4px;padding:1px 5px;font-weight:900;border-bottom:2px dotted var(--p1)}
+.story-illus{margin:22px 0;text-align:center}
+.story-illus img,.story-illus svg{width:100%;max-width:560px;height:auto;border-radius:14px;box-shadow:0 3px 14px rgba(0,0,0,.10)}
+.story-illus figcaption{font-family:'Heebo',sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
+.story-illus .credit{font-size:.75rem;color:#94a3b8;margin-top:2px}
+
+/* ── אוצר מילים ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.vocab-card{background:var(--p1lt);border:2px solid var(--p1md);border-radius:16px;padding:14px 12px;text-align:center;transition:transform .15s,box-shadow .15s}
+.vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.09);border-color:var(--p1)}
+.vocab-card .heb{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;color:var(--p1dk);font-weight:700}
+.vocab-card .eng{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* ── דקדוק ── */
+.grammar-box h3{color:var(--p1);font-size:1.2rem;font-weight:900;margin-bottom:12px}
+.grammar-box p{line-height:1.9;font-size:1.02rem;margin-bottom:.5em}
+.gram-table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}
+.gram-table th{background:var(--p1);color:#fff;font-weight:800;font-size:.92rem;padding:10px 14px;text-align:right}
+.gram-table td{padding:10px 14px;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;border-bottom:1px solid var(--p1lt);text-align:right}
+.gram-table tr:nth-child(even) td{background:var(--page)}
+.ex-chip{display:inline-block;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:6px 14px;font-size:1.05rem;color:var(--p1dk);font-weight:700;margin:4px 2px;white-space:nowrap}
+
+/* ── משחקים (מנוע MC גנרי) ── */
+.game-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);text-align:center;margin-bottom:4px}
+.game-subtitle{font-size:.9rem;color:var(--muted);text-align:center;margin-bottom:18px}
+.progress-dots{display:flex;justify-content:center;gap:8px;margin-bottom:14px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--p1lt);border:2px solid var(--p1md);transition:background .3s}
+.dot.done{background:var(--p1);border-color:var(--p1)}
+.game-scene{background:var(--page);border:2px solid var(--p1lt);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center;min-height:70px}
+.q-text{font-size:1.1rem;font-weight:700;line-height:1.8;text-align:center;margin-bottom:14px}
+.q-sentence{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.opt-btn{background:#fff;border:2px solid var(--p1md);border-radius:12px;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.opt-btn:hover:not(:disabled){border-color:var(--p1);background:var(--p1lt)}
+.opt-btn.selected{border-color:var(--p1);background:var(--p1lt);box-shadow:0 0 0 3px var(--p1lt)}
+.opt-btn.correct-ans{background:#dcfce7;border-color:var(--ok);color:#15803d}
+.opt-btn.wrong-ans{background:#fee2e2;border-color:var(--bad);color:#b91c1c;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.submit-btn,.next-btn{display:block;margin:14px auto 0;background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 28px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer}
+.submit-btn:hover:not(:disabled){background:var(--p1dk)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.next-btn{display:none;background:var(--p2)}
+.explanation{display:none;background:var(--p1lt);border:1.5px solid var(--p1md);border-radius:10px;padding:10px 14px;font-size:.95rem;color:var(--p1dk);font-weight:600;margin-top:12px;line-height:1.8;text-align:center}
+.result-banner{display:none;background:linear-gradient(135deg,var(--p1md),var(--p1));color:#fff;border-radius:14px;padding:20px;text-align:center;font-size:1.25rem;font-weight:800;margin-top:16px}
+
+/* ── מטלת כתיבה ── */
+.writing-card{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 4px 22px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.writing-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;border-radius:0 22px 22px 0;background:linear-gradient(180deg,#bbf7d0,var(--ok))}
+.writing-title{font-size:1.25rem;font-weight:900;color:var(--p1dk);margin-bottom:14px}
+.writing-line{display:flex;align-items:center;gap:10px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:12px 16px}
+.writing-num{width:28px;height:28px;border-radius:50%;background:#475569;color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.writing-input{flex:1;border:none;background:transparent;font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;direction:rtl;outline:none;min-width:0}
+.writing-input::placeholder{color:#94a3b8;font-size:.95rem}
+.writing-line.filled{border-color:#22c55e;background:#f0fdf4}
+.writing-btn{background:var(--p1);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif}
+.writing-btn.gray{background:var(--muted)}
+
+/* ── סצנות ייחודיות לשיעור 106 ── */
+.clay-row{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.clay{width:44px;height:44px;border-radius:10px;background:#e7e5e4;border:3px dashed #a8a29e;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all .4s}
+.clay.on{background:#b45309;border:3px solid #7c2d12;color:#fff}
+.lantern-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.lantern{font-size:1.9rem;filter:grayscale(1) opacity(.35);transition:all .4s}
+.lantern.on{filter:none;transform:scale(1.15)}
+.scene-label{font-size:.95rem;font-weight:800;color:var(--p1dk)}
+</style>
+</head>
+<body>
+
+<div class="header35">
+  <span class="float-icon" style="--dur:5s;--del:0s;right:8%">🗿</span>
+  <span class="float-icon" style="--dur:6s;--del:1.5s;right:24%">🌙</span>
+  <span class="float-icon" style="--dur:4.5s;--del:0.8s;right:50%">🏰</span>
+  <span class="float-icon" style="--dur:5.5s;--del:2s;right:70%">📜</span>
+  <span class="float-icon" style="--dur:4s;--del:3s;right:88%">🌊</span>
+  <div class="header-wave"></div>
+  <div class="header-inner">
+    <div class="header-eyebrow">📚 סִיפּוּרִים בְּעִבְרִית — שִׁיעוּר 106</div>
+    <h1>הַגּוֹלֶם מִפְּרָאג</h1>
+    <div class="header-sub">אַגָּדָה יְהוּדִית מֻכֶּרֶת עַל הַמַּהַרַ״ל מִפְּרָאג, בְּעִבּוּד</div>
+    <div class="header-badge">🎯 כִּיתָה ה׳ &nbsp;|&nbsp; לְשׁוֹן צִוּוּי — חֲזָרָה</div>
+  </div>
+</div>
+<div class="header-flag-strip35"></div>
+<nav class="lesson-nav35">
+  <a class="nav-btn" href="lesson100_mi_yitle_et_hapaamon.html">→ 100</a>
+  <a class="nav-btn" href="lesson101_hachamor_beor_haaryeh.html">→ 101</a>
+  <a class="nav-btn" href="lesson102_rip_van_winkle.html">→ 102</a>
+  <a class="nav-btn" href="lesson103_eich_kibel_hagamal_et_hagibenet.html">→ 103</a>
+  <a class="nav-btn" href="lesson104_hadaysa_hakosemet.html">→ 104</a>
+  <a class="nav-btn" href="lesson105_chavilat_hamaklot.html">→ 105</a>
+  <span class="nav-current">שִׁיעוּר 106 ◀</span>
+</nav>
+
+<div class="container">
+
+  <div class="section-title">📖 קְרִיאָה</div>
+  <div class="story-box">
+    <p>לִפְנֵי כְּאַרְבַּע מֵאוֹת שָׁנָה, בָּעִיר פְּרָאג, חַי רַבִּי חָכָם וְטוֹב לֵב, שֶׁקָּרְאוּ לוֹ הַמַּהַרַ״ל. כָּל הָעִיר כִּבְּדָה אוֹתוֹ.</p>
+    <p>בְּאוֹתָם יָמִים הִפִּיצוּ אֲנָשִׁים רָעִים <span class="highlight">עֲלִילוֹת</span> שֶׁקֶר עַל הַיְּהוּדִים, וְהַיְּהוּדִים פָּחֲדוּ לָצֵאת מִבָּתֵּיהֶם בַּלַּיְלָה.</p>
+    <p>בְּלַיְלָה אֶחָד לָקַח הָרַבִּי אֶת תַּלְמִידוֹ וְיָרַד לְגֶדֶת הַנָּהָר. שָׁם <span class="highlight">יָצַר</span> מִן הַ<span class="highlight">טִּיט</span> דְּמוּת גְּדוֹלָה בְּצוּרַת אָדָם. אַחַר כָּךְ כָּתַב עַל מִצְחוֹ אֶת הַמִּלָּה ״אֱמֶת״ וְאָמַר: ״<span class="highlight">קוּם</span>!״</p>
+    <p>הַ<span class="highlight">גּוֹלֶם</span> פָּקַח עֵינַיִם וְעָמַד עַל רַגְלָיו. הָרַבִּי <span class="highlight">צִוָּה</span> עָלָיו: ״<span class="highlight">שְׁמֹר</span> עַל הָרְחוֹבוֹת בַּלַּיְלָה! <span class="highlight">אַל תִּפְגַּע</span> בְּאַף אֶחָד! <span class="highlight">עֲשֵׂה</span> רַק מָה שֶׁאֲנִי מְבַקֵּשׁ!״ הַגּוֹלֶם הִנְהֵן, כִּי הוּא לֹא יָכֹל לְדַבֵּר.</p>
+    <figure class="story-illus">
+      <svg viewBox="0 0 600 200" role="img" aria-label="גֶּדֶת נָהָר בַּלַּיְלָה, יָרֵחַ גָּדוֹל, גּוֹלֶם מִטִּיט עוֹמֵד וְלְיָדוֹ רַבִּי קָטָן עִם זָקָן">
+        <rect width="600" height="200" fill="#1c1917"/>
+        <circle cx="500" cy="48" r="30" fill="#fef3c7"/>
+        <rect x="0" y="150" width="600" height="50" fill="#0f766e"/>
+        <path d="M0 165 Q75 155 150 165 T300 165 T450 165 T600 165" stroke="#5eead4" stroke-width="3" fill="none"/>
+        <rect x="0" y="130" width="600" height="25" fill="#78350f"/>
+        <rect x="255" y="40" width="70" height="40" rx="14" fill="#b45309"/>
+        <rect x="235" y="82" width="110" height="60" rx="12" fill="#b45309"/>
+        <rect x="210" y="86" width="26" height="48" rx="10" fill="#92400e"/>
+        <rect x="344" y="86" width="26" height="48" rx="10" fill="#92400e"/>
+        <rect x="248" y="140" width="34" height="14" rx="5" fill="#92400e"/>
+        <rect x="298" y="140" width="34" height="14" rx="5" fill="#92400e"/>
+        <circle cx="277" cy="58" r="5" fill="#fef3c7"/>
+        <circle cx="303" cy="58" r="5" fill="#fef3c7"/>
+        <text x="290" y="50" font-size="11" text-anchor="middle" fill="#fef3c7" font-family="Heebo,sans-serif">אמת</text>
+        <circle cx="130" cy="103" r="11" fill="#fcd9b6"/>
+        <path d="M120 110 Q130 134 140 110 Z" fill="#f8fafc"/>
+        <rect x="116" y="113" width="28" height="30" rx="6" fill="#0f172a"/>
+      </svg>
+      <figcaption>הָרַבִּי וְהַגּוֹלֶם עַל גֶּדֶת הַנָּהָר בַּלַּיְלָה</figcaption>
+    </figure>
+    <p>מֵאוֹתוֹ לַיְלָה <span class="highlight">שָׁמַר</span> הַגּוֹלֶם עַל הָעִיר, וְהָרָעִים כְּבָר לֹא הֵעֵזוּ לָבוֹא. בַּיּוֹם הוּא עָזַר לַכֹּל: נָשָׂא דְּלָיִים, שָׁבַר עֵצִים וְסָחַב שַׂקִּים כְּבֵדִים. הַיְּלָדִים קָרְאוּ לוֹ יוֹסֶלֶה.</p>
+    <p>אֲבָל בְּעֶרֶב שַׁבָּת שָׁכַח הָרַבִּי לוֹמַר לַגּוֹלֶם לָנוּחַ. הַגּוֹלֶם הִמְשִׁיךְ לִסְחֹב עוֹד וָעוֹד דְּלָיִים, עַד שֶׁהַמַּיִם שָׁטְפוּ אֶת הָרְחוֹב!</p>
+    <p>הָרַבִּי רָץ אֵלָיו וְקָרָא: ״<span class="highlight">עֲצֹר</span>! <span class="highlight">הַנַּח</span> אֶת הַדְּלָיִים! <span class="highlight">שֵׁב</span>!״ הַגּוֹלֶם שָׁמַע אֶת קוֹלוֹ שֶׁל הָרַבִּי וְעָצַר מִיָּד.</p>
+    <p>הָרַבִּי הֵבִין שֶׁהַגּוֹלֶם כְּבָר אֵינוֹ נָחוּץ, כִּי הָעֲלִילוֹת פָּסְקוּ. הוּא אָמַר לוֹ: ״<span class="highlight">שְׁכַב</span> לָנוּחַ, יְדִידִי.״ הוּא מָחַק אוֹת אַחַת מִן הַמִּלָּה שֶׁעַל מִצְחוֹ, וְהַגּוֹלֶם חָזַר לִהְיוֹת טִיט.</p>
+    <p>הַטִּיט נִשְׁאַר בַּעֲלִיַּת הַגַּג שֶׁל בֵּית הַכְּנֶסֶת הַיָּשָׁן, וְאוֹמְרִים שֶׁהוּא מְחַכֶּה שָׁם עַד הַיּוֹם.</p>
+    <p style="font-size:.85rem;color:var(--muted);line-height:1.8">אַגָּדָה יְהוּדִית מֻכֶּרֶת מִפְּרָאג (הַמֵּאָה הַשֵּׁשׁ־עֶשְׂרֵה), בְּעִבּוּד חָפְשִׁי.</p>
+  </div>
+
+  <div class="section-title">📝 אוֹצַר מִלִּים</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="heb">גּוֹלֶם</div><div class="eng">golem (a figure made of clay)</div></div>
+    <div class="vocab-card"><div class="heb">טִיט</div><div class="eng">clay, mud</div></div>
+    <div class="vocab-card"><div class="heb">יָצַר</div><div class="eng">created, made</div></div>
+    <div class="vocab-card"><div class="heb">צִוָּה</div><div class="eng">commanded, ordered</div></div>
+    <div class="vocab-card"><div class="heb">עֲלִילָה</div><div class="eng">false accusation</div></div>
+    <div class="vocab-card"><div class="heb">מֵצַח</div><div class="eng">forehead</div></div>
+    <div class="vocab-card"><div class="heb">הִנְהֵן</div><div class="eng">nodded</div></div>
+    <div class="vocab-card"><div class="heb">עֲלִיַּת גַּג</div><div class="eng">attic</div></div>
+  </div>
+
+  <div class="section-title">🎮 מִשְׂחַק הֲבָנַת הַנִּקְרָא — בּוֹנִים גּוֹלֶם</div>
+  <div class="game-box">
+    <div class="game-title">🗿 בּוֹנִים גּוֹלֶם</div>
+    <div class="game-subtitle">עֲנוּ נָכוֹן עַל כָּל שְׁאֵלָה וְעוֹד גּוּשׁ טִיט יֻנַּח בִּמְקוֹמוֹ</div>
+    <div class="progress-dots" id="comp-dots"></div>
+    <div class="game-scene" id="comp-scene"><div class="clay-row" id="clay-row"></div><div class="scene-label" id="c-label">הַטִּיט מַמְתִּין עַל הַגֶּדֶת</div></div>
+    <div class="q-text" id="comp-q"></div>
+    <div class="opts" id="comp-opts"></div>
+    <div class="explanation" id="comp-exp"></div>
+    <button class="submit-btn" id="comp-submit" disabled onclick="mcSubmit(COMP)">בְּדֹק ✓</button>
+    <button class="next-btn" id="comp-next" onclick="mcNext(COMP)">הַשְּׁאֵלָה הַבָּאָה ←</button>
+    <div class="result-banner" id="comp-result"></div>
+  </div>
+
+  <div class="section-title">📚 דִּקְדּוּק — לְשׁוֹן צִוּוּי (חֲזָרָה)</div>
+  <div class="grammar-box">
+    <h3>מְצַוִּים עַל מִי שֶׁעוֹמֵד מוּלֵנוּ</h3>
+    <p>כְּבָר לָמַדְנוּ בְּשִׁיעוּרִים 19 ו־66 שֶׁ<b>צִוּוּי</b> הוּא צוּרָה שֶׁל הַפֹּעַל שֶׁבָּהּ אוֹמְרִים לְמִישֶׁהוּ מָה לַעֲשׂוֹת. הָרַבִּי אָמַר לַגּוֹלֶם: ״שְׁמֹר!״ וְ״עֲצֹר!״. מְצַוִּים רַק עַל מִי שֶׁמְּדַבְּרִים אֵלָיו: <b>אַתָּה, אַתְּ, אַתֶּם</b> (וְגַם אַתֶּן).</p>
+    <table class="gram-table">
+      <tr><th>שֵׁם הַפֹּעַל</th><th>אַתָּה</th><th>אַתְּ</th><th>אַתֶּם</th></tr>
+      <tr><td>לִשְׁמֹר</td><td>שְׁמֹר</td><td>שִׁמְרִי</td><td>שִׁמְרוּ</td></tr>
+      <tr><td>לַעֲצֹר</td><td>עֲצֹר</td><td>עִצְרִי</td><td>עִצְרוּ</td></tr>
+      <tr><td>לְדַבֵּר</td><td>דַּבֵּר</td><td>דַּבְּרִי</td><td>דַּבְּרוּ</td></tr>
+      <tr><td>לָקוּם</td><td>קוּם</td><td>קוּמִי</td><td>קוּמוּ</td></tr>
+      <tr><td>לָשֶׁבֶת</td><td>שֵׁב</td><td>שְׁבִי</td><td>שְׁבוּ</td></tr>
+      <tr><td>לָלֶכֶת</td><td>לֵךְ</td><td>לְכִי</td><td>לְכוּ</td></tr>
+      <tr><td>לָתֵת</td><td>תֵּן</td><td>תְּנִי</td><td>תְּנוּ</td></tr>
+      <tr><td>לָקַחַת</td><td>קַח</td><td>קְחִי</td><td>קְחוּ</td></tr>
+    </table>
+    <h3>אֵיךְ בּוֹנִים צִוּוּי?</h3>
+    <p>• מַתְחִילִים מֵהָעָתִיד: ״אַתָּה תִּשְׁמֹר״ ← מוֹחֲקִים אֶת ״תִּ־״ ← <b>שְׁמֹר</b>. ״אַתֶּם תִּשְׁמְרוּ״ ← <b>שִׁמְרוּ</b>.</p>
+    <p>• בְּכַמָּה פְּעָלִים הַצִּוּוּי קָצָר וּמְיֻחָד, וּכְדַאי לִזְכֹּר אוֹתָם: <span class="ex-chip">בּוֹא</span> <span class="ex-chip">לֵךְ</span> <span class="ex-chip">תֵּן</span> <span class="ex-chip">קַח</span> <span class="ex-chip">שֵׁב</span> <span class="ex-chip">קוּם</span></p>
+    <p>• <b>צִוּוּי שָׁלִיל:</b> ״אַל״ + עָתִיד: <span class="ex-chip">אַל תִּפְגַּע!</span> <span class="ex-chip">אַל תֵּלֵךְ!</span> לֹא אוֹמְרִים ״אַל פְּגַע״.</p>
+    <p>• <b>זְהִירוּת:</b> הוֹוֶה אֵינוֹ צִוּוּי: ״הוּא שׁוֹמֵר״ מְתָאֵר, ״שְׁמֹר!״ מְצַוֶּה. בְּסוֹף מִשְׁפָּט צִוּוּי בְּדֶרֶךְ כְּלָל כּוֹתְבִים סִימַן קְרִיאָה (!).</p>
+  </div>
+
+  <div class="section-title">✏️ מִשְׂחַק דִּקְדּוּק — פֶּנֶס לְכָל פְּקוּדָה</div>
+  <div class="game-box">
+    <div class="game-title">🏮 פֶּנֶס לְכָל פְּקוּדָה</div>
+    <div class="game-subtitle">בְּכָל תְּשׁוּבָה נְכוֹנָה יִדָּלֵק עוֹד פֶּנֶס בְּרַחֲבֵי פְּרָאג</div>
+    <div class="progress-dots" id="gram-dots"></div>
+    <div class="game-scene" id="gram-scene"><div class="lantern-row" id="lantern-row"></div><div class="scene-label" id="g-label">הָרְחוֹבוֹת עֲדַיִן חֲשׁוּכִים</div></div>
+    <div class="q-text" id="gram-q"></div>
+    <div class="opts" id="gram-opts"></div>
+    <div class="explanation" id="gram-exp"></div>
+    <button class="submit-btn" id="gram-submit" disabled onclick="mcSubmit(GRAM)">בְּדֹק ✓</button>
+    <button class="next-btn" id="gram-next" onclick="mcNext(GRAM)">הַבָּא ←</button>
+    <div class="result-banner" id="gram-result"></div>
+  </div>
+
+  <div class="section-title">✍️ כְּתִיבָה</div>
+  <div class="writing-card">
+    <div class="writing-title">✍️ מַטְלַת כְּתִיבָה</div>
+    <p style="margin-bottom:16px">דִּמְיְנוּ שֶׁאַתֶּם הָרַבִּי וְיֵשׁ לָכֶם גּוֹלֶם. כִּתְבוּ חֲמִשָּׁה מִשְׁפְּטֵי צִוּוּי בְּסִימַן קְרִיאָה, לְפִי הַהוֹרָאוֹת. לְמָשָׁל: ״שְׁמֹר עַל הַשַּׁעַר!״</p>
+    <div id="writing-lines" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button class="writing-btn" onclick="submitWriting()">סִיַּמְתִּי ✓</button>
+      <button class="writing-btn gray" onclick="resetWriting()">נַקֵּה הַכֹּל</button>
+      <span id="writing-fb" style="font-size:.95rem;font-weight:700"></span>
+    </div>
+    <div id="writing-result" style="display:none;margin-top:18px;background:#dcfce7;border:2px solid #22c55e;border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:700;color:#15803d;line-height:1.9"></div>
+  </div>
+
+</div>
+
+<script>
+const compQuestions = [
+  { q:"לָמָּה יָצַר הָרַבִּי אֶת הַגּוֹלֶם?",
+    opts:["כְּדֵי שֶׁיָּגֵן עַל הַיְּהוּדִים","כְּדֵי שֶׁיִּבְנֶה בָּתִּים חֲדָשִׁים בָּעִיר","כְּדֵי שֶׁיְּלַמֵּד אֶת הַיְּלָדִים לִקְרֹא","כְּדֵי שֶׁיַּעֲבֹד בַּשָּׂדוֹת שֶׁל הַכְּפָר"], ans:0,
+    exp:"הַיְּהוּדִים פָּחֲדוּ מֵעֲלִילוֹת שֶׁקֶר, וְהָרַבִּי יָצַר אֶת הַגּוֹלֶם כְּדֵי שֶׁיִּשְׁמֹר עַל הָעִיר." },
+  { q:"מָה כָּתַב הָרַבִּי עַל מִצְחוֹ שֶׁל הַגּוֹלֶם?",
+    opts:["שָׁלוֹם","אֱמֶת","חַיִּים","כֹּחַ"], ans:1,
+    exp:"עַל הַמֵּצַח כָּתַב הָרַבִּי אֶת הַמִּלָּה ״אֱמֶת״, וְאָמַר: ״קוּם!״" },
+  { q:"מָה אָסַר הָרַבִּי עַל הַגּוֹלֶם לַעֲשׂוֹת?",
+    opts:["לָצֵאת לָרְחוֹב בַּיּוֹם","לְהִתְקָרֵב אֶל הַנָּהָר","לִפְגֹּעַ בְּאַף אֶחָד","לָשֶׁבֶת בְּבֵית הַכְּנֶסֶת"], ans:2,
+    exp:"הָרַבִּי אָמַר לַגּוֹלֶם: ״אַל תִּפְגַּע בְּאַף אֶחָד!״" },
+  { q:"מַדּוּעַ הַמַּיִם שָׁטְפוּ אֶת הָרְחוֹב בְּעֶרֶב שַׁבָּת?",
+    opts:["הַנָּהָר עָלָה אַחֲרֵי גֶּשֶׁם חָזָק","הַגּוֹלֶם לֹא הִפְסִיק לִסְחֹב דְּלָיִים","הַיְּלָדִים שָׁפְכוּ מַיִם עַל הָאֲבָנִים","הָרַבִּי פָּתַח אֶת שַׁעֲרֵי הַנָּהָר"], ans:1,
+    exp:"הָרַבִּי שָׁכַח לוֹמַר לַגּוֹלֶם לָנוּחַ, אָז הוּא הִמְשִׁיךְ לִסְחֹב עוֹד וָעוֹד דְּלָיִים." },
+  { q:"מָה לָמַד הָרַבִּי מִן הָאִירוּעַ בְּעֶרֶב שַׁבָּת?",
+    opts:["שֶׁצָּרִיךְ לוֹמַר גַּם מָתַי לְהַפְסִיק","שֶׁגּוֹלֶם חָזָק לֹא צָרִיךְ פְּקוּדוֹת","שֶׁאָסוּר לָתֵת פְּקוּדוֹת בַּלַּיְלָה","שֶׁהַיְּלָדִים צְרִיכִים לְפַחֵד מִן הַגּוֹלֶם"], ans:0,
+    exp:"מִי שֶׁנּוֹתֵן פְּקוּדוֹת צָרִיךְ לִזְכֹּר גַּם לוֹמַר מָתַי לְהַפְסִיק." },
+  { q:"לָמָּה בַּסּוֹף אָמַר הָרַבִּי לַגּוֹלֶם: ״שְׁכַב לָנוּחַ״?",
+    opts:["כִּי הַגּוֹלֶם נִשְׁבַּר וְלֹא יָכֹל לָזוּז","כִּי הָעֲלִילוֹת פָּסְקוּ וְהוּא לֹא נָחוּץ","כִּי הָרַבִּי הָיָה כּוֹעֵס עַל הַמַּיִם","כִּי הַיְּלָדִים בִּקְשׁוּ לִבְנוֹת גּוֹלֶם אַחֵר"], ans:1,
+    exp:"הָרַבִּי הֵבִין שֶׁהַגּוֹלֶם כְּבָר אֵינוֹ נָחוּץ, כִּי הָעֲלִילוֹת פָּסְקוּ." }
+];
+const gramQuestions = [
+  { q:"בַּחֲרוּ אֶת צוּרַת הַצִּוּוּי הַנְּכוֹנָה.", sentence:"הָרַבִּי אָמַר לַגּוֹלֶם: ״___ עַל הָעִיר!״ (לִשְׁמֹר, אַתָּה)",
+    opts:["שׁוֹמֵר","שְׁמֹר","שָׁמַר","יִשְׁמֹר"], ans:1,
+    exp:"צִוּוּי לְ״אַתָּה״ בָּא מִן הָעָתִיד (תִּשְׁמֹר) בְּלִי ״תִּ־״: שְׁמֹר!" },
+  { q:"בַּחֲרוּ אֶת צוּרַת הַצִּוּוּי הַנְּכוֹנָה.", sentence:"דִּינָה, ___ אֶת הַדֶּלֶת! (לִסְגֹּר, אַתְּ)",
+    opts:["סְגֹר","סוֹגֶרֶת","סִגְרִי","סָגְרָה"], ans:2,
+    exp:"לְ״אַתְּ״ הַצִּוּוּי נִגְמָר בְּ־י: סִגְרִי!" },
+  { q:"בַּחֲרוּ אֶת צוּרַת הַצִּוּוּי הַנְּכוֹנָה.", sentence:"יְלָדִים, ___ בְּשֶׁקֶט עַל הַשָּׂטִיחַ! (לָשֶׁבֶת)",
+    opts:["יוֹשְׁבִים","שֵׁב","יֵשְׁבוּ","שְׁבוּ"], ans:3,
+    exp:"לְ״אַתֶּם״ הַצִּוּוּי נִגְמָר בְּ־וּ: שְׁבוּ!" },
+  { q:"מָה מַתְאִים כְּדֵי לֹא לְצַוּוֹת לַעֲשׂוֹת?", sentence:"אַל ___ בָּרְחוֹב הַחָשׁוּךְ! (אַתָּה)",
+    opts:["תֵּלֵךְ","לֵךְ","הוֹלֵךְ","לֹא תֵּלֵךְ"], ans:0,
+    exp:"צִוּוּי שָׁלִיל: ״אַל״ + עָתִיד: אַל תֵּלֵךְ!" },
+  { q:"אֵיזֶה מִשְׁפָּט הוּא מִשְׁפָּט צִוּוּי?",
+    opts:["הוּא רוֹצֶה לָקוּם וְלָלֶכֶת לַנָּהָר","הַגּוֹלֶם קָם וְהָלַךְ לַנָּהָר","הַגּוֹלֶם יָקוּם וְיֵלֵךְ לַנָּהָר","קוּם וְלֵךְ אֶל הַנָּהָר!"], ans:3,
+    exp:"״קוּם וְלֵךְ!״ אוֹמֵר לְמִישֶׁהוּ מָה לַעֲשׂוֹת. הַמִּשְׁפָּטִים הָאֲחֵרִים מְתָאֲרִים מָה הוּא רוֹצֶה, עָשָׂה אוֹ יַעֲשֶׂה." },
+  { q:"בַּחֲרוּ אֶת צוּרַת הַצִּוּוּי הַנְּכוֹנָה.", sentence:"___ אֶת הַדְּלִי וּמַלֵּא אוֹתוֹ בְּמַיִם! (לָקַחַת, אַתָּה)",
+    opts:["לוֹקֵחַ","יִקַּח","קַח","לָקַחַת"], ans:2,
+    exp:"הַצִּוּוּי שֶׁל לָקַחַת הוּא צוּרָה מְיֻחֶדֶת וּקְצָרָה: קַח!" },
+  { q:"לְמִי אֶפְשָׁר לוֹמַר צִוּוּי יָשִׁיר?",
+    opts:["לְמִי שֶׁלֹּא נִמְצָא בַּחֶדֶר","לְכָל גּוּף, גַּם לְ״הוּא״ וְ״הֵם״","לְמִי שֶׁעוֹמֵד מוּלֵנוּ: אַתָּה, אַתְּ, אַתֶּם","לְ״אֲנִי״ וּלְ״אֲנַחְנוּ״ בִּלְבַד"], ans:2,
+    exp:"צִוּוּי אוֹמְרִים רַק לְמִי שֶׁמְּדַבְּרִים אֵלָיו: אַתָּה, אַתְּ, אַתֶּם וְאַתֶּן." }
+];
+
+function onCorrectComp(i, total){
+  const row=document.getElementById('clay-row');
+  if(row.children.length===0){ for(let k=0;k<total;k++){ const d=document.createElement('div'); d.className='clay'; d.textContent='🟫'; row.appendChild(d); } }
+  row.children[Math.min(i,row.children.length-1)].classList.add('on');
+  const n=row.querySelectorAll('.clay.on').length;
+  document.getElementById('c-label').textContent = n>=total ? 'הַגּוֹלֶם עוֹמֵד עַל רַגְלָיו — קוּם!' : n+' מִתּוֹךְ '+total+' גּוּשִׁים בִּמְקוֹמָם';
+}
+function onCorrectGram(i, total){
+  const row=document.getElementById('lantern-row');
+  if(row.children.length===0){ for(let k=0;k<total;k++){ const d=document.createElement('span'); d.className='lantern'; d.textContent='🏮'; row.appendChild(d); } }
+  row.children[Math.min(i,row.children.length-1)].classList.add('on');
+  const n=row.querySelectorAll('.lantern.on').length;
+  document.getElementById('g-label').textContent = n>=total ? 'כָּל פְּרָאג מוּאֶרֶת!' : n+' מִתּוֹךְ '+total+' פְּנָסִים דּוֹלְקִים';
+}
+
+/* ═══ מנוע MC גנרי — לא לשנות ═══ */
+/* ערבוב האפשרויות בכל טעינה של הדף, כדי שהתשובה הנכונה לא תהיה תמיד
+   באותו מקום. ans מתעדכן אוטומטית למיקום החדש. */
+function shuffleOptions(questions){
+  return questions.map(q=>{
+    if(!Array.isArray(q.opts) || q.opts.length < 2 || typeof q.ans !== 'number') return q;
+    const order = q.opts.map((_,i)=>i);
+    for(let i=order.length-1; i>0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return Object.assign({}, q, {opts: order.map(i=>q.opts[i]), ans: order.indexOf(q.ans)});
+  });
+}
+function makeGame(prefix, questions, onCorrect, resultText){
+  return {prefix, questions:shuffleOptions(questions), onCorrect, resultText, idx:0, sel:null, score:0, done:false};
+}
+const COMP = makeGame('comp', compQuestions, onCorrectComp,
+  s => `🌟 כָּל הַכָּבוֹד! עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${compQuestions.length} שְׁאֵלוֹת!`);
+const GRAM = makeGame('gram', gramQuestions, onCorrectGram,
+  s => `🏆 עָנִיתָ נָכוֹן עַל ${s} מִתּוֹךְ ${gramQuestions.length}!`);
+
+function el(g,part){ return document.getElementById(g.prefix+'-'+part); }
+function mcInit(g){
+  const dots = el(g,'dots'); dots.innerHTML='';
+  g.questions.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'; d.id=g.prefix+'-dot-'+i; dots.appendChild(d); });
+  mcShow(g);
+}
+function mcShow(g){
+  g.sel=null;
+  const q=g.questions[g.idx];
+  el(g,'q').innerHTML = (q.sentence? '<div class="q-sentence">'+q.sentence+'</div>' : '') +
+    'שְׁאֵלָה '+(g.idx+1)+' מִתּוֹךְ '+g.questions.length+': '+q.q;
+  const opts=el(g,'opts'); opts.innerHTML='';
+  q.opts.forEach((o,i)=>{ const b=document.createElement('button'); b.className='opt-btn'; b.textContent=o;
+    b.onclick=()=>{ if(g.done)return; g.sel=i;
+      opts.querySelectorAll('.opt-btn').forEach((x,j)=>x.classList.toggle('selected',j===i));
+      el(g,'submit').disabled=false; };
+    opts.appendChild(b); });
+  el(g,'exp').style.display='none';
+  el(g,'submit').style.display='block'; el(g,'submit').disabled=true;
+  el(g,'next').style.display='none';
+}
+function mcSubmit(g){
+  if(g.sel===null) return;
+  const q=g.questions[g.idx], btns=el(g,'opts').querySelectorAll('.opt-btn');
+  btns.forEach((b,i)=>{ b.disabled=true;
+    if(i===q.ans) b.classList.add('correct-ans');
+    else if(i===g.sel) b.classList.add('wrong-ans'); });
+  if(g.sel===q.ans){ g.score++;
+    document.getElementById(g.prefix+'-dot-'+g.idx).classList.add('done');
+    g.onCorrect(g.idx, g.questions.length); }
+  const ex=el(g,'exp'); ex.textContent=q.exp; ex.style.display='block';
+  el(g,'submit').style.display='none';
+  if(g.idx < g.questions.length-1){ el(g,'next').style.display='block'; }
+  else { const r=el(g,'result'); r.textContent=g.resultText(g.score); r.style.display='block'; }
+}
+function mcNext(g){ g.idx++; mcShow(g); }
+mcInit(COMP); mcInit(GRAM);
+
+/* ═══ מטלת כתיבה — סטנדרטי, לא לשנות (רק את ה-placeholders) ═══ */
+const wP = ['כִּתְבוּ צִוּוּי לַגּוֹלֶם (אַתָּה): לָלֶכֶת לַנָּהָר...','כִּתְבוּ צִוּוּי לְבַת הַשְּׁכֵנִים (אַתְּ): לָבוֹא...','כִּתְבוּ צִוּוּי לְכָל הַיְּלָדִים (אַתֶּם): לָשֶׁבֶת...','כִּתְבוּ צִוּוּי שָׁלִיל עִם ״אַל״: אַל תִּגַּע...','כִּתְבוּ צִוּוּי שֶׁמְּבַקֵּשׁ מֵהַגּוֹלֶם לְהַפְסִיק לַעֲבֹד...'];
+/* דוגמה: ['כְּתוֹב מִשְׁפָּט עִם ...', ... 5 שורות] */
+function initW(){
+  const c=document.getElementById('writing-lines'); c.innerHTML='';
+  wP.forEach((ph,i)=>{ const d=document.createElement('div'); d.className='writing-line'; d.id='wline-'+i;
+    d.innerHTML='<div class="writing-num">'+(i+1)+'</div><input class="writing-input" id="winput-'+i+'" type="text" placeholder="'+ph+'" dir="rtl" autocomplete="off"/>';
+    c.appendChild(d); });
+  document.getElementById('writing-result').style.display='none';
+  document.getElementById('writing-fb').textContent='';
+}
+function submitWriting(){
+  let n=0;
+  for(let i=0;i<wP.length;i++){
+    const v=document.getElementById('winput-'+i).value.trim(), l=document.getElementById('wline-'+i);
+    if(v.length>1){ n++; l.className='writing-line filled'; } else l.className='writing-line';
+  }
+  const fb=document.getElementById('writing-fb'), res=document.getElementById('writing-result');
+  if(n<wP.length){ fb.textContent='⚠️ יֵשׁ לְמַלֵּא אֶת כָּל הַשּׁוּרוֹת.'; fb.style.color='#dc2626'; res.style.display='none'; return; }
+  fb.textContent='';
+  res.style.display='block';
+  res.innerHTML='🌟 <strong>כָּל הַכָּבוֹד!</strong> כָּתַבְתָּ '+wP.length+' מִשְׁפָּטִים. הַמּוֹרָה תִּבְדֹּק אֶת עֲבוֹדָתְךָ!';
+}
+function resetWriting(){ initW(); }
+window.addEventListener('DOMContentLoaded', initW);
+</script>
+
+</body>
+</html>
